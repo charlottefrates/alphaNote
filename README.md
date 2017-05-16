@@ -28,4 +28,4 @@
 
 <img src="public/images/experiments.png">
 
-<img src="public/images/newExperiments.png">
+<img src="public/images/newExperiment.png">
