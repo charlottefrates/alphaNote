@@ -1,6 +1,18 @@
 # Name: alphaNote
 
-## Technologies Used: HTML/CSS/JavaScript/jQuery/Node.JS/Mongo/Mnogoose/TravisCL/passport
+## Technologies Used:
+
+<h1>Front End </h2>
+<p>HTML5,CSS3,JavaScript,JQuery</p>
+
+<h1>Back End </h2>
+<p>Node.js,Express.js,Faker.js,MongoDB,Mongoose.js,Bcrypt.js,JavaSript (ES6),Mocha.js,Chai.js</p>
+
+<h1> Plug Ins </h2>
+
+<p> drawingboard.js, tinyMCE, chemDoodle </p>
+
+
 
 ## Purpose:
 
