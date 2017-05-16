@@ -2,13 +2,13 @@
 
 ## Technologies Used:
 
-<h1>Front End </h2>
+<p>Front-End:<p>
 <p>HTML5,CSS3,JavaScript,JQuery</p>
 
-<h1>Back End </h2>
+<p>Back-End:<p>
 <p>Node.js,Express.js,Faker.js,MongoDB,Mongoose.js,Bcrypt.js,JavaSript (ES6),Mocha.js,Chai.js</p>
 
-<h1> Plug Ins </h2>
+<p>Plug-Ins:<p>
 
 <p> drawingboard.js, tinyMCE, chemDoodle </p>
 
