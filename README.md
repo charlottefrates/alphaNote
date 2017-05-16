@@ -20,12 +20,12 @@
 
 ## Document Flow
 
-<img src="MVP/User Flow.png">
+<img src="public/images/userFlow.png">
 
 ## MVP
 
-<img src="MVP/Dashboard.png">
+<img src="public/images/dashboard.png">
 
-<img src="MVP/Experiments.png">
+<img src="public/images/experiments.png">
 
-<img src="MVP/New Experiments.png">
+<img src="public/images/newExperiments.png">
