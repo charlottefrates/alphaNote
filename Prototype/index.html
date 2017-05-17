@@ -32,7 +32,17 @@
 <body>
      <section id="tinymce">
           <h1>Text Editor</h1>
-          <textarea class ="tinymce"> </textarea>
+          <textarea class ="tinymce">
+
+               <h1> Background:</h1>
+
+               <h1> Purpose:</h1>
+
+               <h1> Procedure:</h1>
+
+               <h1> Results:</h1>
+
+          </textarea>
      </section>
      <br>
      <br>
@@ -48,19 +58,20 @@
      <section id="chemdoodle">
           <h1>ChemDraw</h1>
           <script>
-            ChemDoodle.ELEMENT['H'].jmolColor = 'black';
-            ChemDoodle.ELEMENT['S'].jmolColor = '#B9A130';
-            var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 500, 300,{useServices:true});
-            sketcher.specs.atoms_displayTerminalCarbonLabels_2D = true;
-            sketcher.specs.atoms_useJMOLColors = true;
-            sketcher.specs.bonds_clearOverlaps_2D = true;
-            sketcher.specs.shapes_color = '#c10000';
-            sketcher.repaint();
+          // ...
+          var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 500, 300, {useServices:true, oneMolecule:true});
+          // ...
           </script>
      </section>
      <br>
      <br>
      <input id="info_submit" type="submit">
+     <br>
+     <br>
+     <div>
+          <h1>Attached Files</h1>
+          <p> Show the images created from drawingboard and chem doodle here</p>
+     </div>
 
 
      <!-- link to jquery -->
@@ -81,7 +92,18 @@
 
      <script data-example="1">
 			//create the drawingboard by passing it the #id of the wanted container
-			var defaultBoard = new DrawingBoard.Board('default-board');
+			var defaultBoard = new DrawingBoard.Board('default-board',{
+	controls: [
+		'Color',
+		{ Size: { type: 'dropdown' } },
+		{ DrawingMode: { filler: false } },
+		'Navigation',
+		'Download'
+	],
+	size: 1,
+	webStorage: 'session',
+	enlargeYourContainer: true
+});
 	</script>
 
 </body>
