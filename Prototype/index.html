@@ -73,12 +73,15 @@
           <p> Show the images created from drawingboard and chem doodle here</p>
      </div>
 
-
+     <!-- link to jquery -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
      <!-- link to your app.js -->
      <script src="app.js" type="text/javascript"></script>
+
      <!-- link to your tinymce_init.js -->
      <script src="tinymce_init.js" type="text/javascript"></script>
+     
      <!-- link to your drawingboard.js -->
      <script src="Draw/js/utils.js"></script>
      <script src="Draw/js/board.js"></script>
@@ -90,22 +93,20 @@
      <script src="Draw/js/controls/download.js"></script>
 
      <script data-example="1">
-			//create the drawingboard by passing it the #id of the wanted container
-			var defaultBoard = new DrawingBoard.Board('default-board',{
-	controls: [
-		'Color',
-		{ Size: { type: 'dropdown' } },
-		{ DrawingMode: { filler: false } },
-		'Navigation',
-		'Download'
-	],
-	size: 1,
-	webStorage: 'session',
-	enlargeYourContainer: true
-});
+	//create the drawingboard by passing it the #id of the wanted container
+	var defaultBoard = new DrawingBoard.Board('default-board',{
+     	controls: [
+     		'Color',
+     		{ Size: { type: 'dropdown' } },
+     		{ DrawingMode: { filler: false } },
+     		'Navigation',
+     		'Download'
+     	],
+     	size: 1,
+     	webStorage: 'session',
+     	enlargeYourContainer: true
+     });
 	</script>
-     <!-- link to jquery -->
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>
 
 </html>
