@@ -1,6 +1,6 @@
 
 //get tinyMCE content
-var tinymce = tinymce.activeEditor.getContent();
+var tinymce = tinymce.activeEditor.val();
 console.log(tinymce);
 
 
@@ -8,3 +8,8 @@ console.log(tinymce);
 var img = $('default-board');
 var imgString = img.toDataURL('image/jpeg',1.0)
 console.log(imgString);
+
+
+//get ChemDoodle content
+
+var ChemDoodle;
