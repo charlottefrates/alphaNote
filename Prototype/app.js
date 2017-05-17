@@ -1,8 +1,7 @@
 
 //get tinyMCE content
-var tinymce = tinymce.activeEditor.val();
-console.log(tinymce);
-
+var tinyMCE = tinyMCE.activeEditor.selection.getContent({format : 'text'});
+console.log(tinyMCE);
 
 //get drawingboard content
 var img = $('default-board');
