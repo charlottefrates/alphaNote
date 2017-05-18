@@ -14,13 +14,18 @@
      <script type="text/javascript" src="chemDoodle/ChemDoodleWeb-uis.js"></script>
      <!-- DrawingBoard -->
      <link rel="stylesheet" href="draw/drawingboard.css">
+     <!-- Quick Css styles -->
      <style>
-     /*
-     * drawingboards styles: set the board dimensions you want with CSS
-     */
      .board {
           width: 90%;
           height: 700px;
+     }
+
+     .doodle{
+          border: 1px solid #dcdddc;
+         border-radius: 5px;
+         display: block;
+         margin: 10px 0
      }
      </style>
 
@@ -31,41 +36,66 @@
 <body>
      <section id="tinymce">
           <h1>Text Editor</h1>
-          <textarea class ="tinymce">
+          <form id="get-data-form">
+               <textarea class ="tinymce" id="texteditor">
 
-               <h1> Background:</h1>
+                    <h3> Background:</h3>
 
-               <h1> Purpose:</h1>
+                    <h3> Purpose:</h3>
 
-               <h1> Procedure:</h1>
+                    <h3> Procedure:</h3>
 
-               <h1> Results:</h1>
+                    <h3> Results:</h3>
 
-          </textarea>
-     </section>
-     <br>
-     <br>
-     <section id="drawingboard">
-          <div class="example" data-example="1">
-               <h1>DrawingBoard</h1>
-               <div class="board" id="default-board"></div>
+               </textarea>
+               <br>
+               <input type="submit" value="Get tinyMCE Data">
+          </form>
+          <br>
+          <div id="data-container">
+
           </div>
 
      </section>
      <br>
+     <section id="newDrawingBoard">
+          <div class="canvasDiv" style="">
+               <h1>Drawing Board from Willaim Malone Drawing Example</h1>
+               <canvas class="doodle" id="doodleCanvas" width="700px" height="600px"></canvas>
+               <button class="button button-delete" onclick="clearCanvas()">Clear</button>
+               <button class="button" onclick="saveCanvas('experiments', 1667)">Save</button>
+         </div>
+         <br>
+         <div id="data-container-2">
+
+         </div>
+     </section>
+     <br>
+     <!--
+     <section id="drawingboard">
+          <div class="example" data-example="1">
+               <h1>Drawing Board 2 from drawingboard.js</h1>
+               <div class="board" id="default-board"></div>
+          </div>
+     </section>
+     -->
      <br>
      <section id="chemdoodle">
           <h1>ChemDraw</h1>
+          <canvas class="ChemDoodleWebComponent" id="sketcher" width="1100" height="600" alt="ChemDoodle Web Component" style="width: 550px; height: 300px; background-color: rgb(255, 255, 255);"></canvas>
+          <br>
+          <input id="sketch_submit" type="submit">
+          <div id="data-container-3">
+
+         </div>
+          <!--
           <script>
           // ...
           var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 500, 300, {useServices:true, oneMolecule:true});
           // ...
           </script>
+          -->
      </section>
-     <br>
-     <br>
-     <input id="info_submit" type="submit">
-     <br>
      <br>
      <div>
           <h1>Attached Files</h1>
@@ -77,6 +107,7 @@
 
      <script type="text/javascript" src="draw/drawingboard.min.js"></script>
 
+     <script src="doodle.js" type="text/javascript"></script>
 
      <!-- link to your app.js -->
      <script src="app.js" type="text/javascript"></script>
@@ -94,6 +125,7 @@
      <script src="draw/js/controls/size.js"></script>
      <script src="draw/js/controls/download.js"></script>
 
+     <!--
      <script data-example="1">
 	//create the drawingboard by passing it the #id of the wanted container
 	var defaultBoard = new DrawingBoard.Board('default-board',{
@@ -109,6 +141,7 @@
      	enlargeYourContainer: true
      });
 	</script>
+     -->
 </body>
 
 </html>
