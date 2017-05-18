@@ -1,14 +1,26 @@
+$(document).ready(function(){
 
-//get tinyMCE content
-var tinyMCE = tinyMCE.activeEditor.selection.getContent({format : 'text'});
-console.log(tinyMCE);
+     //get tinyMCE content
+     $("#get-data-form").submit(function(){
 
-//get drawingboard content
-var img = $('default-board');
-var imgString = img.toDataURL('image/jpeg',1.0)
-console.log(imgString);
+          var content = tinymce.get("texteditor").getContent();
+          console.log("tinyMCE data grabbed");
+          $("#data-container").html(content);
+          return false;
+     });
+
+     /*
+     //get drawingboard content
+     var img = $('default-board');
+     var imgString = img.toDataURL('image/jpeg',1.0)
+     console.log(imgString);
 
 
-//get ChemDoodle content
+     //get ChemDoodle content
 
-var ChemDoodle;
+     var ChemDoodle;
+     */
+
+
+
+});
