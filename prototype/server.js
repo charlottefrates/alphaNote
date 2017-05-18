@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 
 // loads static resources
-app.use(express.static('public'));
+app.use(express.static('prototype'));
 
 // endpoint request that transfers files from a given path
 // res.send method just prints out whatever you put in parenthesis onto the screen
