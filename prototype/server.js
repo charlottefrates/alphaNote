@@ -26,7 +26,7 @@ app.use(express.static('prototype'));
 // endpoint request that transfers files from a given path
 // res.send method just prints out whatever you put in parenthesis onto the screen
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + 'index.html');
+  res.sendFile(__dirname + '/index.html');
 });
 
 // catch-all endpoint if client makes request to non-existent endpoint
