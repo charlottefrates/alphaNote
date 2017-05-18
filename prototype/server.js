@@ -2,6 +2,8 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+//module
+let path = require('path');
 
 // Mongoose internally uses a promise-like object,
 // but its better to make Mongoose use built in es6 promises
@@ -21,7 +23,8 @@ app.use(bodyParser.json());
 app.use(morgan('common'));
 
 // loads static resources
-app.use(express.static('prototype'));
+//app.use(express.static('prototype'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // endpoint request that transfers files from a given path
 // res.send method just prints out whatever you put in parenthesis onto the screen
@@ -29,10 +32,6 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
-// catch-all endpoint if client makes request to non-existent endpoint
-app.use('*', function(req, res) {
-  res.status(404).json({message: 'Not Found'});
-});
 
 // closeServer needs access to a server object, but that only
 // gets created when `runServer` runs, so we declare `server` here
