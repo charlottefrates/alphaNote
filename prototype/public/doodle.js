@@ -61,7 +61,7 @@ function clearCanvas() {
 
 function saveCanvas(type, id) {
     console.log('Drawing captured');
-    var image = ($('#doodleCanvas')[0]).toDataURL('image/jpeg',1.0);
+    var image = ($('#doodleCanvas')[0]).toDataURL('image/png',1.0);
     console.log('doodle image captured and save to savedDrawing');
     savedDrawing = image;
     console.log(savedDrawing);
