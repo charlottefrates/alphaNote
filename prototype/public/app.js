@@ -9,15 +9,18 @@ $(document).ready(function(){
           return false;
      });
 
-     //get chemDoodle content
-     $('#sketch_submit').submit(function(){
-
-          var image = ($('#sketcher')).toDataURL('image/jpeg',1.0);
-          console.log('sketcher image captured');
-          $("#data-container-3").html(image);
-     });
 
 });
 
 //loads chemDoodle plugin
 var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 500, 300, {useServices:true, oneMolecule:true});
+
+//get chemDoodle content
+$('#sketch_submit').on('click',function(){
+     console.log('clicked submit');
+     var mol = sketcher.getMolecule();
+     console.log(mol);
+     var image = mol.toDataURL('image/jpeg',1.0);
+     console.log('sketcher image captured');
+     $("#data-container-3").html(image);
+});
