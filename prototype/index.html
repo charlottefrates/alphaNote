@@ -49,59 +49,47 @@
 
                </textarea>
                <br>
-               <input type="submit" value="Get tinyMCE Data">
           </form>
+          <br>
+          <input id="saveT" type="submit" value="Get tinyMCE Data">
+          <input id="clearT" type="submit" value="clear tinyMCE">
+          <input id="reRenderT" type="submit" value="reRender tinyMCE">
           <br>
           <div id="data-container">
 
           </div>
 
      </section>
+
      <br>
+     <hr>
+
      <section id="newDrawingBoard">
           <div class="canvasDiv" style="">
                <h1>Drawing Board from Willaim Malone Drawing Example</h1>
                <canvas class="doodle" id="doodleCanvas" width="700px" height="600px"></canvas>
-               <button class="button button-delete" onclick="clearCanvas()">Clear</button>
                <button class="button" onclick="saveCanvas('experiments', 1667)">Save</button>
+               <button class="button button-delete" onclick="clearCanvas()">Clear</button>
+               <button class="button button-delete">reRender drawing</button>
          </div>
          <br>
-         <div id="data-container-2">
+         <div id="data-container-2"> </div>
+     </section>
 
-         </div>
-     </section>
      <br>
-     <!--
-     <section id="drawingboard">
-          <div class="example" data-example="1">
-               <h1>Drawing Board 2 from drawingboard.js</h1>
-               <div class="board" id="default-board"></div>
-          </div>
-     </section>
-     -->
-     <br>
+     <hr>
+
      <section id="chemdoodle">
-          <h1>ChemDraw</h1>
+          <h1>ChemDraw powered by ChemDoodle</h1>
           <canvas class="ChemDoodleWebComponent" id="sketcher" width="1100" height="600" alt="ChemDoodle Web Component" style="width: 550px; height: 300px; background-color: rgb(255, 255, 255);"></canvas>
           <br>
-          <input id="sketch_submit" type="submit">
-          <div id="data-container-3">
-
-         </div>
-          <!--
-          <script>
-          // ...
-          var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 500, 300, {useServices:true, oneMolecule:true});
-          // ...
-          </script>
-          -->
+          <input id="sketch_submit" type="submit" value="submit molecule">
+          <input id="reRender" type="submit" value="reRender structure">
+          <div id="data-container-3"> </div>
      </section>
-     <br>
-     <div>
-          <h1>Attached Files</h1>
-          <p> Show the images created from drawingboard and chem doodle here</p>
-     </div>
 
+     <br>
+     <br>
      <!-- link to jquery -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -124,24 +112,6 @@
      <script src="draw/js/controls/navigation.js"></script>
      <script src="draw/js/controls/size.js"></script>
      <script src="draw/js/controls/download.js"></script>
-
-     <!--
-     <script data-example="1">
-	//create the drawingboard by passing it the #id of the wanted container
-	var defaultBoard = new DrawingBoard.Board('default-board',{
-     	controls: [
-     		'Color',
-     		{ Size: { type: "range" } },
-     		{ DrawingMode: { filler: false } },
-     		'Navigation',
-     		'Download'
-     	],
-     	size: 1,
-     	webStorage: 'session',
-     	enlargeYourContainer: true
-     });
-	</script>
-     -->
 </body>
 
 </html>
