@@ -20,6 +20,7 @@ $('#sketch_submit').on('click',function(){
      //generates MOlfile
      var molFile = ChemDoodle.writeMOL(mol);
      console.log(molFile);
+     //view canvas as an image
      var viewACS = new ChemDoodle.ViewerCanvas('viewACS', 100, 100);
        viewACS.specs.bonds_width_2D = .6;
        viewACS.specs.bonds_saturationWidth_2D = .18;
