@@ -63,7 +63,6 @@ $('#sketch_submit').on('click',function(){
       viewACS.loadMolecule(molecule);
       */
 
-     $("#data-container-3").html(mol);
      $("#data-container-3").html(molFile);
      //$("#data-container-3").html(molecule);
 
@@ -73,4 +72,22 @@ $('#sketch_submit').on('click',function(){
 $('#reRender').on('click', function(){
      console.log('reRendering molecule molFile');
      ChemDoodle.readMOL(molecule);
+});
+
+
+//Chemwriter get mol content
+
+var molFile;
+
+$('#button').on('click',function(){
+     var content = chemwriter.components['editor'].getMolfile();
+
+     //update molFile global variable
+     molFile = content;
+
+     $("#data-container-4").html(molFile);
+
+     console.log(molFile);
+
+
 });

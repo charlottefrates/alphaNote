@@ -14,6 +14,10 @@
      <script type="text/javascript" src="chemDoodle/ChemDoodleWeb-uis.js"></script>
      <!-- DrawingBoard -->
      <link rel="stylesheet" href="draw/drawingboard.css">
+     <!-- Chemwriter -->
+     <link rel="stylesheet" href="https://chemwriter.com/sdk/chemwriter.css">
+     <script src="chemwriter.js"></script>
+
      <!-- Quick Css styles -->
      <style>
      .board {
@@ -87,6 +91,23 @@
 
      <br>
      <br>
+
+     <section id="chemwriter">
+          <h1>ChemDraw powered by ChemWriter</h1>
+          <div id="editor"
+         data-chemwriter-width="600"
+         data-chemwriter-height="600"
+         data-chemwriter-ui="editor"
+          data-chemwriter-data="">
+         </div>
+          <br>
+         <input id="button" type="submit" value="Get Molfile"></input>
+         <br>
+         <br>
+         <div id="data-container-4"> </div>
+
+     </section>
+
      <!-- link to jquery -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
