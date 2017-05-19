@@ -5,6 +5,8 @@ var clickDrag = [];
 var paint;
 context = document.getElementById('doodleCanvas').getContext("2d");
 
+var savedDrawing;
+
 $('#doodleCanvas').mousedown(function(e){
   paint = true;
   addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
@@ -50,6 +52,7 @@ function redraw() {
 }
 
 function clearCanvas() {
+    console.log('clearing canvas');
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     clickX = [];
     clickY = [];
@@ -59,9 +62,24 @@ function clearCanvas() {
 function saveCanvas(type, id) {
     console.log('Drawing captured');
     var image = ($('#doodleCanvas')[0]).toDataURL('image/jpeg',1.0);
-    console.log('doodle image captured');
-    console.log(image);
-    $("#data-container-2").html(image);
+    console.log('doodle image captured and save to savedDrawing');
+    savedDrawing = image;
+    console.log(savedDrawing);
+    $("#data-container-2").html(savedDrawing);
 
 
 }
+
+$('#reRenderD').on('click',function(){
+  console.log('redrawing savedDrawing');
+  var canvas = $('#doodleCanvas')[0];
+  var context = canvas.getContext('2d');
+  var img = new Image();
+
+  img.onload = function() {
+  context.drawImage(img, 0, 0);
+  }
+
+  img.src = savedDrawing;
+
+});

@@ -36,7 +36,6 @@
 <body>
      <section id="tinymce">
           <h1>Text Editor</h1>
-          <form id="get-data-form">
                <textarea class ="tinymce" id="texteditor">
 
                     <h3> Background:</h3>
@@ -48,8 +47,6 @@
                     <h3> Results:</h3>
 
                </textarea>
-               <br>
-          </form>
           <br>
           <input id="saveT" type="submit" value="Get tinyMCE Data">
           <input id="clearT" type="submit" value="clear tinyMCE">
@@ -70,7 +67,7 @@
                <canvas class="doodle" id="doodleCanvas" width="700px" height="600px"></canvas>
                <button class="button" onclick="saveCanvas('experiments', 1667)">Save</button>
                <button class="button button-delete" onclick="clearCanvas()">Clear</button>
-               <button class="button button-delete">reRender drawing</button>
+               <button id="reRenderD"class="reRenderD">reRender drawing</button>
          </div>
          <br>
          <div id="data-container-2"> </div>

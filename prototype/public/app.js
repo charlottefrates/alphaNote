@@ -24,6 +24,10 @@ $('#reRenderT').on('click',function(){
      tinymce.get("texteditor").setContent(t_content);
 });
 
+
+
+
+
 //loads chemDoodle plugin
 var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 500, 300, {useServices:true, oneMolecule:true});
 
