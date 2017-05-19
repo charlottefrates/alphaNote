@@ -60,6 +60,7 @@ function saveCanvas(type, id) {
     console.log('Drawing captured');
     var image = ($('#doodleCanvas')[0]).toDataURL('image/jpeg',1.0);
     console.log('doodle image captured');
+    console.log(image);
     $("#data-container-2").html(image);
 
 

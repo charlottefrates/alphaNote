@@ -5,6 +5,7 @@ $(document).ready(function(){
           console.log('tinyMCE captured');
           var content = tinymce.get("texteditor").getContent();
           console.log("tinyMCE data grabbed");
+          console.log(content);
           $("#data-container").html(content);
           return false;
      });
