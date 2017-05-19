@@ -25,11 +25,24 @@ $('#reRenderT').on('click',function(){
 });
 
 
+//Chemwriter get mol content
+
+var molFile;
+
+$('#button').on('click',function(){
+     var content = chemwriter.components['editor'].getMolfile();
+     //update molFile global variable
+     molFile = content;
+     $("#data-container-4").html(molFile);
+     console.log(molFile);
+});
 
 
 
+/*
 //loads chemDoodle plugin
 var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 500, 300, {useServices:true, oneMolecule:true});
+
 
 //get chemDoodle content
 
@@ -50,7 +63,6 @@ $('#sketch_submit').on('click',function(){
 
      console.log ("molecule global variable has been updated to: " + molecule);
 
-     /*
      //view canvas as an image
      var viewACS = new ChemDoodle.ViewerCanvas('viewACS', 100, 100);
        viewACS.specs.bonds_width_2D = .6;
@@ -61,7 +73,7 @@ $('#sketch_submit').on('click',function(){
        viewACS.specs.atoms_displayTerminalCarbonLabels_2D = true;
        var molecule = ChemDoodle.readMOL(molFile);
       viewACS.loadMolecule(molecule);
-      */
+
 
      $("#data-container-3").html(molFile);
      //$("#data-container-3").html(molecule);
@@ -74,20 +86,4 @@ $('#reRender').on('click', function(){
      ChemDoodle.readMOL(molecule);
 });
 
-
-//Chemwriter get mol content
-
-var molFile;
-
-$('#button').on('click',function(){
-     var content = chemwriter.components['editor'].getMolfile();
-
-     //update molFile global variable
-     molFile = content;
-
-     $("#data-container-4").html(molFile);
-
-     console.log(molFile);
-
-
-});
+*/

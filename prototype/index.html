@@ -8,10 +8,13 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <!-- tinyMCE -->
      <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=19ooid0qg1aragud1i8dx0s3wf5c3kb1rwvidfwl7zvhzffg"></script>
-     <!-- ChemDoodle -->
+
+     <!-- ChemDoodle
      <link rel="stylesheet" href="chemDoodle/ChemDoodleWeb.css" type="text/css">
      <script type="text/javascript" src="chemDoodle/ChemDoodleWeb.js"></script>
      <script type="text/javascript" src="chemDoodle/ChemDoodleWeb-uis.js"></script>
+     -->
+
      <!-- DrawingBoard -->
      <link rel="stylesheet" href="draw/drawingboard.css">
      <!-- Chemwriter -->
@@ -79,7 +82,24 @@
 
      <br>
      <hr>
+     <section id="chemwriter">
+          <h1>ChemDraw powered by ChemWriter</h1>
+          <div id="editor"
+         data-chemwriter-width="600"
+         data-chemwriter-height="600"
+         data-chemwriter-ui="editor"
+          data-chemwriter-data="">
+         </div>
+          <br>
+         <input id="button" type="submit" value="Get Molfile"></input>
+         <input id="clearChem" type="submit" value="clear chemDraw"></input>
+         <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
+         <br>
+         <br>
+         <div id="data-container-4"> </div>
+     </section>
 
+     <!--
      <section id="chemdoodle">
           <h1>ChemDraw powered by ChemDoodle</h1>
           <canvas class="ChemDoodleWebComponent" id="sketcher" width="1100" height="600" alt="ChemDoodle Web Component" style="width: 550px; height: 300px; background-color: rgb(255, 255, 255);"></canvas>
@@ -91,22 +111,8 @@
 
      <br>
      <br>
+     -->
 
-     <section id="chemwriter">
-          <h1>ChemDraw powered by ChemWriter</h1>
-          <div id="editor"
-         data-chemwriter-width="600"
-         data-chemwriter-height="600"
-         data-chemwriter-ui="editor"
-          data-chemwriter-data="">
-         </div>
-          <br>
-         <input id="button" type="submit" value="Get Molfile"></input>
-         <br>
-         <br>
-         <div id="data-container-4"> </div>
-
-     </section>
 
      <!-- link to jquery -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
