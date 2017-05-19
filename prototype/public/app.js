@@ -24,13 +24,8 @@ $('#sketch_submit').on('click',function(){
      //generates MOlfile
      var molFile = ChemDoodle.writeMOL(mol);
      console.log(molFile);
-     //generates SMILES code
-     ChemDoodle.iChemLabs.writeSMILES(mol, {}, function(smiles){
-    console.log(smiles);
-     });
      //var image = mol.toDataURL('image/jpeg',1.0);
      //console.log('sketcher image captured');
      $("#data-container-3").html(mol);
      $("#data-container-3").html(molFile);
-     $("#data-container-3").html(smiles);
 });
