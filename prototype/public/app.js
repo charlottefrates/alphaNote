@@ -2,7 +2,7 @@ $(document).ready(function(){
 
      //get tinyMCE content
      $("#get-data-form").submit(function(){
-
+          console.log('tinyMCE captured');
           var content = tinymce.get("texteditor").getContent();
           console.log("tinyMCE data grabbed");
           $("#data-container").html(content);
@@ -17,10 +17,20 @@ var sketcher = new ChemDoodle.SketcherCanvas('sketcher', 500, 300, {useServices:
 
 //get chemDoodle content
 $('#sketch_submit').on('click',function(){
-     console.log('clicked submit');
+     console.log('ChemDoodle captured');
+     //counts the number of atoms
      var mol = sketcher.getMolecule();
      console.log(mol);
-     var image = mol.toDataURL('image/jpeg',1.0);
-     console.log('sketcher image captured');
-     $("#data-container-3").html(image);
+     //generates MOlfile
+     var molFile = ChemDoodle.writeMOL(mol);
+     console.log(molFile);
+     //generates SMILES code
+     ChemDoodle.iChemLabs.writeSMILES(mol, {}, function(smiles){
+    console.log(smiles);
+     });
+     //var image = mol.toDataURL('image/jpeg',1.0);
+     //console.log('sketcher image captured');
+     $("#data-container-3").html(mol);
+     $("#data-container-3").html(molFile);
+     $("#data-container-3").html(smiles);
 });
