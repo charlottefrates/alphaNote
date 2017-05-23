@@ -326,7 +326,7 @@ nav ul {
   margin: 0;
   padding:0;
   color:white;
-  letter-spacing: .5px;
+  letter-spacing: 6.5px;
   -webkit-transition: max-height 0.4s;
   -ms-transition: max-height 0.4s;
   -moz-transition: max-height 0.4s;
@@ -338,7 +338,7 @@ nav ul {
 nav ul li {
   display: inline-block;
   padding: 18px 15px;
-  font-size: 17px;
+  font-size: 12px;
   transition: 0.3s ease;
 }
 
@@ -660,7 +660,7 @@ nav ul .nav-hover:hover {
 /* ================================== HOME DIV ================================== */
 
 #home {
-  padding-bottom: 270px;
+  padding-bottom: 150px;
   width: 100%;
   background: radial-gradient(ellipse at bottom, #777373 0%, #000 100%);
   text-align: center;
@@ -838,7 +838,7 @@ nav ul .nav-hover:hover {
   width: 100%;
   height: 600px;
   padding-top: 50px;
-  background: #E9E9E9;
+  background: #bbb7b7;
   text-align: center;
   position: relative;
   overflow: hidden;
