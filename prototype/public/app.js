@@ -30,19 +30,24 @@ $('#reRenderT').on('click',function(){
 var molFile;
 
 $('#button').on('click',function(){
-     console.log('capturing chemical structure');
      var content = chemwriter.components['editor'].getMolfile();
+     console.log('chemical structure captured:' + content);
+     $("#data-container-4").html(content);
+
      //update molFile global variable
      molFile = content;
-     $("#data-container-4").html(molFile);
+
+     //changing molFile string
+     molFile.replace(/[\n\r]+/g, "RRRRRR");
+
      console.log(molFile);
+
 });
 
 //ChemWriter clear
 
 $('#clearChem').on('click',function(){
      console.log('clearing editor');
-     $('#editor').attr('data-chemwriter-data', '' );
 });
 
 
@@ -52,7 +57,8 @@ $('#clearChem').on('click',function(){
 
 $('#reRenderChem').on('click',function(){
      console.log('reRendering editor');
-     $('#editor').attr( 'data-chemwriter-data', molFile );
+     $('#editor').data('data-chemwriter-data', molFile);
+
 });
 
 
