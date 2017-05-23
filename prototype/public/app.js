@@ -1,3 +1,5 @@
+/* ================================== TINYMCE ================================== */
+
 //get tinyMCE content
 var t_content;
 
@@ -24,9 +26,9 @@ $('#reRenderT').on('click',function(){
      tinymce.get("texteditor").setContent(t_content);
 });
 
+/* ================================== CHEMWRITER ================================== */
 
 //Chemwriter get mol content
-
 var molFile;
 
 $('#button').on('click',function(){
@@ -43,7 +45,6 @@ $('#button').on('click',function(){
 });
 
 //ChemWriter clear
-
 $('#clearChem').on('click',function(){
      console.log('clearing editor');
 });

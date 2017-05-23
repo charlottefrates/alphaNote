@@ -1,3 +1,5 @@
+/* ================================== DRAWING BOARD================================== */
+
 // code from http://www.williammalone.com/articles/create-html5-canvas-javascript-drawing-app/
 var clickX = [];
 var clickY = [];
