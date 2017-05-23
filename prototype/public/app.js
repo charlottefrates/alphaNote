@@ -39,7 +39,7 @@ $('#button').on('click',function(){
 
      //changing molFile string
      // replace(whatyour suppose to find , value to replace)
-     molFile.replace(/(\r|\n)/g,"+");
+     molFile.replace(/(\r|\n)/g,"'\n'");
 
      console.log(typeof molFile);
 
@@ -115,5 +115,5 @@ $('#reRender').on('click', function(){
 $('document').ready(function(){
      $('#editor').attr('data-chemwriter-data', "[NO NAME]\n  CHEMW2  02061315242D                              \nCreated with ChemWriter - http://chemwriter.com\n 12 12  0  0  1  0            999 V2000\n    5.6944   -5.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.5605   -6.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4265   -5.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4265   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.5605   -4.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.6944   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2925   -4.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.1585   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.0246   -4.0278    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2925   -3.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8284   -4.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8284   -6.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0  0  0  0\n  2  3  1  0  0  0  0\n  3  4  2  0  0  0  0\n  4  5  1  0  0  0  0\n  5  6  2  0  0  0  0\n  6  1  1  0  0  0  0\n  4  7  1  0  0  0  0\n  7  8  1  0  0  0  0\n  8  9  1  0  0  0  0\n  7 10  1  4  0  0  0\n  6 11  1  0  0  0  0\n  1 12  1  0  0  0  0\nM  END\n");
 
-     
+
 });
