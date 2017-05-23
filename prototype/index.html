@@ -9,12 +9,6 @@
      <!-- tinyMCE -->
      <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=19ooid0qg1aragud1i8dx0s3wf5c3kb1rwvidfwl7zvhzffg"></script>
 
-     <!-- ChemDoodle
-     <link rel="stylesheet" href="chemDoodle/ChemDoodleWeb.css" type="text/css">
-     <script type="text/javascript" src="chemDoodle/ChemDoodleWeb.js"></script>
-     <script type="text/javascript" src="chemDoodle/ChemDoodleWeb-uis.js"></script>
-     -->
-
      <!-- DrawingBoard -->
      <link rel="stylesheet" href="draw/drawingboard.css">
      <!-- Chemwriter -->
@@ -24,7 +18,7 @@
      <!-- Quick Css styles -->
      <style>
      .board {
-          width: 90%;
+          width: 80%;
           height: 700px;
      }
 
@@ -66,12 +60,12 @@
      </section>
 
      <br>
-     <hr>
+     
 
      <section id="newDrawingBoard">
           <div class="canvasDiv" style="">
                <h1>Drawing Board from Willaim Malone Drawing Example</h1>
-               <canvas class="doodle" id="doodleCanvas" width="700px" height="600px"></canvas>
+               <canvas class="doodle" id="doodleCanvas" width="1000px"" height="600px"></canvas>
                <button class="button" onclick="saveCanvas('experiments', 1667)">Save</button>
                <button class="button button-delete" onclick="clearCanvas()">Clear</button>
                <button id="reRenderD"class="reRenderD">reRender drawing</button>
@@ -81,38 +75,22 @@
      </section>
 
      <br>
-     <hr>
+
      <section id="chemwriter">
           <h1>ChemDraw powered by ChemWriter</h1>
           <div id="editor"
-         data-chemwriter-width="600"
+         data-chemwriter-width="1000"
          data-chemwriter-height="600"
          data-chemwriter-ui="editor"
           data-chemwriter-data="">
          </div>
           <br>
          <input id="button" type="submit" value="Get Molfile"></input>
-         <input id="clearChem" type="submit" value="clear chemDraw"></input>
          <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
          <br>
          <br>
          <div id="data-container-4"> </div>
      </section>
-
-     <!--
-     <section id="chemdoodle">
-          <h1>ChemDraw powered by ChemDoodle</h1>
-          <canvas class="ChemDoodleWebComponent" id="sketcher" width="1100" height="600" alt="ChemDoodle Web Component" style="width: 550px; height: 300px; background-color: rgb(255, 255, 255);"></canvas>
-          <br>
-          <input id="sketch_submit" type="submit" value="submit molecule">
-          <input id="reRender" type="submit" value="reRender structure">
-          <div id="data-container-3"> </div>
-     </section>
-
-     <br>
-     <br>
-     -->
-
 
      <!-- link to jquery -->
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

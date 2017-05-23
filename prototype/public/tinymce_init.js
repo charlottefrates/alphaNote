@@ -1,6 +1,7 @@
 tinymce.init({
      /* replace textarea having class .tinymce with tinymce editor */
      selector: 'textarea.tinymce',
+     width: 1000,
 	height: 500,
 	  menubar: false,
 	  plugins: [

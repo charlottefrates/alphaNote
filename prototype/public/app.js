@@ -47,6 +47,7 @@ $('#button').on('click',function(){
 //ChemWriter clear
 $('#clearChem').on('click',function(){
      console.log('clearing editor');
+     chemwriter.components['editor'].isEmpty();
 });
 
 
