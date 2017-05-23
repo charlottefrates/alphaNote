@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="Dream Journal">
+     <title>alphaNote | Electronic Laboratory Notebook</title>
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+     <link href="https://fonts.googleapis.com/css?family=Ledger" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="grid.css">
+     <link rel="stylesheet" type="text/css" href="index.css">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link rel="icon" type="image/png" href="" sizes="32x32">
+     <link rel="icon" type="image/png" href="" sizes="16x16">
+</head>
+
+<body>
+     <nav>
+          <ul>
+               <a href="#">
+                    <li class="nav-left"><span class="nav-brand">alphaNote</span></li>
+               </a>
+               <a href="#about">
+                    <li class="nav-left nav-hover">About</li>
+               </a>
+               <a href="#journal">
+                    <li class="nav-left nav-hover">Annotate</li>
+               </a>
+               <a href="#analyze">
+                    <li class="nav-left nav-hover">Record</li>
+               </a>
+               <a href="#sign-up">
+                    <li class="nav-left nav-hover"> New Account </li>
+               </a>
+               <a href="#log-in">
+                    <li class="nav-right nav-hover log-in " id="demo-button">Sign In</li>
+               </a>
+          </ul>
+          <div class="handle"><span class="handle-menu">alphaNote</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+
+          <div class="modal" id="log-in">
+               <div class="modal-container">
+                    <div class="log-in-box">
+                         <form class="login-form" action="/users/login" method="post" autocomplete="off">
+                              <h3>Thank you for using alphaNote</h3>
+                              <p>To access the demo account, please enter the following credentials:</p>
+                              <p class="demo-account">Username: <b>abc</b><br> Password: <b>123</b>
+                              </p>
+                              <button type='submit' class="log-in-button">Demo Account</button>
+                              <p>or sign in with your existing account.</p>
+                              <button type='submit' class="log-in-button">Sign In</button>
+                         </form>
+                    </div>
+                    <i class="fa fa-times fa-lg modal-close" aria-hidden="true"></i>
+               </div>
+          </div>
+     </nav>
+
+     <header>
+          <!--ATOM Animation-->
+          <div class="container">
+               <div class="wrap">
+                    <div class="circle horizontal c1">
+                         <div class="wrap-electron">
+                              <div class="circle electron"></div>
+                         </div>
+                    </div>
+                    <div class="circle vertical c1">
+                         <div class="wrap-electron">
+                              <div class="circle electron"></div>
+                         </div>
+                    </div>
+               </div>
+               <div class="wrap r">
+                    <div class="circle horizontal c2">
+                         <div class="wrap-electron">
+                              <div class="circle electron"></div>
+                         </div>
+                    </div>
+                    <div class="circle vertical c2">
+                         <div class="wrap-electron">
+                              <div class="circle electron"></div>
+                         </div>
+                    </div>
+                    <div class="circle center"></div>
+               </div>
+          </div>
+
+          <div id="home">
+               <div class="row">
+                    <div class="col-12">
+                         <h1 id="title">alphaNote</h1>
+                         <p> Revolutionize your laboratory experiments.</p>
+                    </div>
+               </div>
+          </div>
+     </header>
+
+     <main>
+          <section>
+               <div id="about">
+                    <div class="row">
+                         <div class="col-12">
+                              <div class="about-text">
+                                   <h2>Experience cloud-based experimental documentation</h2>
+                                   <div class="about-img-mobile">
+                                        <!-- Hidden from larger viewports -->
+                                        <img src="images/" alt="science-cloud" class="astronaut">
+                                   </div>
+                                   <p> Save some trees and change up your paper-based lab notebooks. alphaNote is a browser-based tool that is compatible with all operating systems and popular browsers. Access your data anywhere in the world and always be
+                                        up to date with the latest developments of your research.
+                                   </p>
+                              </div>
+                              <div class="about-img">
+                                   <img src="images/cloud.png" alt="science-cloud" class="astronaut">
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <section>
+               <div id="journal">
+                    <div class="row">
+                         <div class="col-12">
+                              <div class="journal-img">
+                                   <svg width="200px" height="290px" viewBox="0 0 145 360" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								  <g id="tube" class="dreams-example">
+								    <path d="M30.4995435,83.0004 L40.1663913,85.4909222 L2.21163043,232.179811 C-0.60373913,243.066678 0.994086957,254.387233 6.7111087,264.065511 C12.4345217,273.746978 21.5900652,280.622222 32.4936304,283.428444 L37.523587,284.729511 C41.0451957,285.638344 44.5763913,286.072033 48.0596522,286.072033 C66.8149348,286.072033 83.9787826,273.459978 88.8841087,254.5116 L126.83887,107.8259 L136.505717,110.3228 L142.603022,86.7664778 L36.5904565,59.4504556 L30.4995435,83.0004 Z M62.200413,91.1735222 L104.824022,102.152867 L100.493913,118.862644 L55.0293696,118.862644 L62.200413,91.1735222 Z M94.6266957,141.564344 L89.5136522,161.335456 L75.2898043,157.6778 L69.6047391,179.652433 L83.8221957,183.316467 L78.0668261,205.565344 L63.8493696,201.901311 L58.157913,223.875944 L72.3753696,227.546356 L66.8628696,248.848133 C64.1913043,259.186511 53.5817391,265.436733 43.2150435,262.761256 L38.1786957,261.457 C33.1615217,260.1655 28.9464565,256.998933 26.3132391,252.537678 C23.686413,248.085989 22.9418261,242.872156 24.2424565,237.859222 L49.1653478,141.561156 L94.6266957,141.561156 L94.6266957,141.564344 Z" id="base"></path>
+								    <ellipse id="bubble-one" cx="120.185522" cy="66.2778667" rx="5.58919565" ry="5.57736667"></ellipse>
+								    <path d="M92.9106304,41.4045333 C97.2247609,41.4045333 100.724,37.9158889 100.724,33.6077 C100.724,29.2931333 97.2215652,25.8076778 92.9106304,25.8076778 C88.5837174,25.8076778 85.0844783,29.2963222 85.0844783,33.6077 C85.0844783,37.9190778 88.5837174,41.4045333 92.9106304,41.4045333 L92.9106304,41.4045333 Z" id="bubble-two"></path>
+								    <ellipse id="bubble-three" cx="133.840543" cy="11.193" rx="10.29" ry="10.2682222"></ellipse>
+								  </g>
+							</svg>
+                              </div>
+                              <div class="journal-text">
+                                   <h2>Idea to scientific Discoveries</h2>
+                                   <div class="journal-img-mobile">
+                                        <!-- Hidden from larger viewports -->
+                                        <img src="images/" alt="dreams-example" class="dreams-example">
+                                   </div>
+                                   <p> Inside your lab notebook,annotate images from scratch and take advantage of a top-of-the-line text editing tool to highlight your findings. Your experiments are stored in a seperate layer guatanteeing that your original
+                                        data is always preserved.
+                                   </p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <section>
+               <div id="analyze">
+                    <div class="row">
+                         <div class="col-12">
+                              <div class="analyze-text">
+                                   <h2>Keep track of your experiments</h2>
+                                   <div class="analyze-img-mobile">
+                                        <!-- Hidden from larger viewports -->
+                                        <img src="images/" alt="statistics-example" class="statistics-example-mobile">
+                                   </div>
+                                   <p>Whether you are just beginning your scientific career or already have a vast experience, alphaNote enables you to organize your experiments and protocols and keep track of it all. It is easy to use, reliable and flexible.</p>
+                              </div>
+                              <div class="analyze-img">
+                                   <img src="images/track.png" alt="dashboard-example" class="statistics-example">
+                              </div>
+
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <section>
+               <div id="sign-up" class="">
+                    <div class="row">
+                         <div class="col-12">
+                              <h2 class="sign-up-title">Sign Up to use alphaNote</h2>
+                              <div class="sign-up-box">
+                                   <form class="register" action="/users" method="post" autocomplete="off">
+                                        <fieldset name="register-info">
+                                             <input type="text" name="name" id="firstName" placeholder="First Name" required/>
+                                             <input type="text" name="name" id="lastName" placeholder="Last Name" required/>
+                                             <input type="text" name="username" id="username" placeholder="Username" required/>
+                                             <input type="password" name="password" id="password" placeholder="Password" required/>
+                                        </fieldset>
+                                        <button type='submit' class="sign-up-button">Sign Up</button>
+                                   </form>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+     </main>
+
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
