@@ -30,16 +30,12 @@ $('#reRenderT').on('click',function(){
 var molFile;
 
 $('#button').on('click',function(){
-     var content = chemwriter.components['editor'].getMolfile();
-     console.log('chemical structure captured:' + content);
+     //grabs drawn molecule and generates molfile while also replacing new line characters with \n
+     var content = chemwriter.components['editor'].getMolfile().replace(/\r?\n/g, '\\n');
      $("#data-container-4").html(content);
 
      //update molFile global variable
      molFile = content;
-
-     //changing molFile string
-     // replace(whatyour suppose to find , value to replace)
-     molFile.replace(/(\r|\n)/g,"'\n'");
 
      console.log(typeof molFile);
 
@@ -53,9 +49,6 @@ $('#clearChem').on('click',function(){
 
 
 //ChemWriter reRender molFile
-//create custom attribute "data-chemwriter-data= molFile ""
-//$('#editor').attr( 'data-chemwriter-data', molFile );
-
 $('#reRenderChem').on('click',function(){
      console.log('reRendering editor');
      $('#editor').attr('data-chemwriter-data', "[NO NAME]\n  CHEMW2  02061315242D                              \nCreated with ChemWriter - http://chemwriter.com\n 12 12  0  0  1  0            999 V2000\n    5.6944   -5.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.5605   -6.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4265   -5.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4265   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.5605   -4.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.6944   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2925   -4.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.1585   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.0246   -4.0278    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2925   -3.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8284   -4.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8284   -6.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0  0  0  0\n  2  3  1  0  0  0  0\n  3  4  2  0  0  0  0\n  4  5  1  0  0  0  0\n  5  6  2  0  0  0  0\n  6  1  1  0  0  0  0\n  4  7  1  0  0  0  0\n  7  8  1  0  0  0  0\n  8  9  1  0  0  0  0\n  7 10  1  4  0  0  0\n  6 11  1  0  0  0  0\n  1 12  1  0  0  0  0\nM  END\n");
@@ -113,7 +106,5 @@ $('#reRender').on('click', function(){
 */
 
 $('document').ready(function(){
-     $('#editor').attr('data-chemwriter-data', "[NO NAME]\n  CHEMW2  02061315242D                              \nCreated with ChemWriter - http://chemwriter.com\n 12 12  0  0  1  0            999 V2000\n    5.6944   -5.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.5605   -6.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4265   -5.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    7.4265   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    6.5605   -4.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    5.6944   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2925   -4.0278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n    9.1585   -4.5278    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0\n   10.0246   -4.0278    0.0000 N   0  0  0  0  0  0  0  0  0  0  0  0\n    8.2925   -3.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8284   -4.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n    4.8284   -6.0278    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0\n  1  2  2  0  0  0  0\n  2  3  1  0  0  0  0\n  3  4  2  0  0  0  0\n  4  5  1  0  0  0  0\n  5  6  2  0  0  0  0\n  6  1  1  0  0  0  0\n  4  7  1  0  0  0  0\n  7  8  1  0  0  0  0\n  8  9  1  0  0  0  0\n  7 10  1  4  0  0  0\n  6 11  1  0  0  0  0\n  1 12  1  0  0  0  0\nM  END\n");
-
 
 });
