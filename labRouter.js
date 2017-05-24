@@ -27,6 +27,24 @@ router.get('/:id', (req, res) => {
   res.sendFile(__dirname + '/public/experiment-edit.html');
 });
 
+//path to see JSON objects
+router.get('/json', (req, res) => {
+  let user = req.user;
+  let userid = user._id;
+
+  experiment
+    .find({user_id: userid})
+    .sort({created: -1})
+    .exec()
+    .then(experiments => {
+      res.json(experiments.map(experiment => experiment.apiRepr()));
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({error: 'something went terribly wrong'});
+    });
+});
+
 //POST reqeust with specified requirements
 // when a new experiment is posted, make sure it has required content.
 // if not,log an error and return a 400 status code. if okay,
@@ -62,18 +80,7 @@ router.post('/new', (req, res) => {
 
 });
 
-router.delete('/new/:id', (req, res) => {
-  experment
-    .findByIdAndRemove(req.params.id)
-    .exec()
-    .then(() => {
-      res.status(204).json({message: 'success'});
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({error: 'something went terribly wrong'});
-    });
-});
+
 
 router.put('/new/:id', (req, res) => {
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
@@ -97,16 +104,19 @@ router.put('/new/:id', (req, res) => {
     .catch(err => res.status(500).json({message: 'Something went wrong'}));
 });
 
-
-router.delete('/:id', (req, res) => {
-  experiment
+router.delete('/new/:id', (req, res) => {
+  experment
     .findByIdAndRemove(req.params.id)
     .exec()
     .then(() => {
-      console.log(`Deleted blog post with id \`${req.params.ID}\``);
-      res.status(204).end();
+      res.status(204).json({message: 'success'});
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({error: 'something went terribly wrong'});
     });
 });
+
 
 
 module.exports = router;

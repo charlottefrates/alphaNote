@@ -31,6 +31,7 @@ const strategy = new BasicStrategy(
 
 passport.use(strategy);
 
+
 router.post('/', (req, res) => {
   if (!req.body) {
     return res.status(400).json({message: 'No request body'});
@@ -73,7 +74,10 @@ router.post('/', (req, res) => {
     .exec()
     .then(count => {
       if (count > 0) {
-        return res.status(422).json({message: 'Username already taken'});
+        return Promise.reject({
+          name: 'AuthenticationError',
+          message: 'username already taken'
+        });
       }
       // if no existing user, hash password
       return User.hashPassword(password)
@@ -91,6 +95,9 @@ router.post('/', (req, res) => {
       return res.status(201).json(user.apiRepr());
     })
     .catch(err => {
+      if (err.name === 'AuthenticationError') {
+        return res.status(422).json({message: err.message});
+      }
       res.status(500).json({message: 'Internal server error'})
     });
 });
@@ -133,26 +140,12 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
 
 
 passport.use(basicStrategy);
-
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(user, done) {
-  done(null, user);
-});
-
 router.use(passport.initialize());
 
-router.post('/login',
-  passport.authenticate('basic', {session: true}),
-  (req, res) => {
-    // console.log("req", req);
-    // console.log("res", res);
-    // res.json({user: req.user.apiRepr()});
-    res.redirect('/dashboard');
-    // res.status(200).json({user: req.user.apiRepr()})
-  }
+router.get('/me',
+  passport.authenticate('basic', {session: false}),
+  (req, res) => res.json({user: req.user.apiRepr()})
 );
+
 
 module.exports = {router};
