@@ -140,12 +140,29 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
 
 
 passport.use(basicStrategy);
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
 router.use(passport.initialize());
 
 router.get('/me',
   passport.authenticate('basic', {session: false}),
   (req, res) => res.json({user: req.user.apiRepr()})
 );
+
+router.post('/login',
+  passport.authenticate('basic', {session: true}),
+  (req, res) => {
+    res.redirect('/dashboard');
+  }
+);
+
 
 
 module.exports = {router};

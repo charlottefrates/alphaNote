@@ -10,9 +10,8 @@ const session = require('express-session');
 
 const {DATABASE_URL, PORT} = require('./config');
 const {experiment} = require('./models');
-const labRouter = require('./labRouter');
 const {router: usersRouter} = require('./users');
-
+const labRouter = require('./labRouter');
 
 const app = express();
 
@@ -23,6 +22,7 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 
 //routers
@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 });
 
 //dashboard after log-in
-app.get('/experiments/dashboard',
+app.get('/dashboard',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
     res.sendFile(__dirname + '/public/dashboard.html');
@@ -62,6 +62,14 @@ app.get('/experiments/new',
     res.sendFile(__dirname + '/public/new-experiment.html');
   }
 );
+
+//logout
+app.get('/logout', function (req, res){
+  req.logout();
+  req.session.destroy(function (err) {
+    res.redirect('/');
+  });
+});
 
 
 app.use('*', function(req, res) {
