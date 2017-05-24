@@ -40,7 +40,7 @@ app.get('/', (req, res) => {
 });
 
 //dashboard after log-in
-app.get('/dashboard',
+app.get('/experiments/dashboard',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
     res.sendFile(__dirname + '/public/dashboard.html');

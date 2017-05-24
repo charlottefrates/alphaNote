@@ -8,24 +8,6 @@ const jsonParser = bodyParser.json();
 
 const {experiment} = require('./models');
 
-// when the root of this router is called with GET, return
-// all current experiment collection
-// endpoint diff but gets routed to /experiments by server.js
-router.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/experiments.html');
-});
-
-router.get('/new', (req, res) => {
-  let user = req.user;
-  let userid = user._id
-  //TODO make new-experiment.html file and associated assets(.js & .css)
-  res.sendFile(__dirname + '/public/new-experiment.html');
-});
-
-router.get('/:id', (req, res) => {
-  //TODO make new-experiment.html file and associated assets(.js & .css)
-  res.sendFile(__dirname + '/public/experiment-edit.html');
-});
 
 //path to see JSON objects
 router.get('/json', (req, res) => {
