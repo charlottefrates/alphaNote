@@ -104,6 +104,34 @@ nav ul li:hover {
   }
 }
 
+/* ================================= USER INPUT =================================*/
+
+#title{
+     width: 80%;
+     border: none;
+     border-left: none;
+     border-top: none;
+     border-right: none;
+     padding: 2px 0;
+     font-family: 'Balthazar', sans-serif;
+     font-size: 30px;
+     font-style: bold;
+     background-color: transparent;
+     margin-bottom: 20px;
+     margin-top: 15px;
+     text-align: center;
+}
+
+textarea {
+  width:80%;
+  height: 600px;
+  resize: none;
+  overflow: auto;
+  padding:10px;
+  text-align: justify;
+  white-space: normal;
+}
+
 /* ================================= OTHER =================================*/
 
 #vertical_tab_nav{
