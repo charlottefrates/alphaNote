@@ -36,7 +36,7 @@ experimentSchema.methods.apiRepr = function() {
           id: this._id,
           category: this.category,
           title: this.title,
-          purpose: this.title,
+          purpose: this.purpose,
           procedure: this.procedure,
           results: this.results,
           conclusion: this.conclusion,
