@@ -1,37 +1,52 @@
 const mongoose = require('mongoose');
 
 const experimentSchema = mongoose.Schema({
-  category: {type: String, required: true},
-  title: {type: String, required: true},
-  author: {
-    firstName: String,
-    lastName: String
-  },
-  purpose: {type: String, required: true},
-  procedure: {type: String, required: true},
-  results: {},
-  conclusion: {type: String, required: true},
-  created: {type: Date, default: Date.now}
+     category: {
+          type: String,
+          required: true
+     },
+     title: {
+          type: String,
+          required: true
+     },
+     purpose: String,
+     procedure: String,
+     results: {
+          text: String,
+          drawing: String,
+          molecule: String
+     },
+     conclusion: String,
+     author: {
+          firstName: String,
+          lastName: String
+     },
+     created: {
+          type: Date,
+          default: Date.now
+     }
 });
 
 experimentSchema.virtual('authorName').get(function() {
-  return `${this.author.firstName} ${this.author.lastName}`.trim();
+     return `${this.author.firstName} ${this.author.lastName}`.trim();
 });
 
 experimentSchema.methods.apiRepr = function() {
-  return {
-    id: this._id,
-    category: this.category,
-    title: this.title,
-    author: this.authorName,
-    purpose: this.title,
-    procedure: this.procedure,
-    results: this.results,
-    conclusion: this.conclusion,
-    created: this.created
-  };
+     return {
+          id: this._id,
+          category: this.category,
+          title: this.title,
+          purpose: this.title,
+          procedure: this.procedure,
+          results: this.results,
+          conclusion: this.conclusion,
+          author: this.authorName,
+          created: this.created
+     };
 }
 
-const experiment = mongoose.model('collection', experimentSchema);
+const Experiment = mongoose.model('Experiment', experimentSchema);
 
-module.exports = {experiment};
+module.exports = {
+     Experiment
+};

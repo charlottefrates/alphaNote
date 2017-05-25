@@ -6,8 +6,9 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-const {experiment} = require('./models');
+const {Experiment} = require('./models');
 
+/*
 // when the root of this router is called with GET, return
 // all current experiment collection
 // endpoint diff but gets routed to /experiments by server.js
@@ -26,15 +27,12 @@ router.get('/:id', (req, res) => {
   //TODO make new-experiment.html file and associated assets(.js & .css)
   res.sendFile(__dirname + '/public/experiment-edit.html');
 });
+*/
 
 //path to see JSON objects
-router.get('/json', (req, res) => {
-  let user = req.user;
-  let userid = user._id;
-
-  experiment
-    .find({user_id: userid})
-    .sort({created: -1})
+router.get('/', (req, res) => {
+  Experiment
+    .find()
     .exec()
     .then(experiments => {
       res.json(experiments.map(experiment => experiment.apiRepr()));
@@ -60,18 +58,18 @@ router.post('/new', (req, res) => {
     }
   }
 
-  experment
+  Experiment
     .create({
-        category: this.category,
-        title: this.title,
-        author: this.authorName,
-        purpose: this.title,
-        procedure: this.procedure,
-        results: this.results,
-        conclusion: this.conclusion,
-        created: this.created
+        category: req.body.category,
+        title: req.body.title,
+        author: req.body.author,
+        purpose: req.body.purpose,
+        procedure: req.body.procedure,
+        results: req.body.results,
+        conclusion: req.body.conclusion,
+        created: req.body.created
     })
-    .then(experimentEntry => res.status(201).json(experimentEntr.apiRepr()))
+    .then(experimentEntry => res.status(201).json(experimentEntry.apiRepr()))
     .catch(err => {
         console.error(err);
         res.status(500).json({error: 'Something went wrong'});
@@ -96,14 +94,14 @@ router.put('/new/:id', (req, res) => {
     }
   });
 
-  experiment
+  Experiment
     .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
     .exec()
     .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
     .catch(err => res.status(500).json({message: 'Something went wrong'}));
 });
 
-router.delete('/new/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   experment
     .findByIdAndRemove(req.params.id)
     .exec()

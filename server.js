@@ -9,7 +9,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 
 const {DATABASE_URL, PORT} = require('./config');
-const {experiment} = require('./models');
+const {Experiment} = require('./models');
 const {router: usersRouter} = require('./users');
 const labRouter = require('./labRouter');
 
