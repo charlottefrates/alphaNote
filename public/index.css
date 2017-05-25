@@ -48,13 +48,13 @@ body {
 }
 .circle {
   position: absolute;
-  border: 3px solid #aaa;
+  border: 3px solid teal;
   border-radius: 250px;
   margin: auto;
 }
 .circle.c2,
 .circle.center {
-  border: 2px solid #666;
+  border: 2px solid teal;
   width: 140px;
   height: 140px;
   top: 55px;
@@ -324,7 +324,7 @@ nav ul {
   text-align: center;
   margin: 0;
   padding:0;
-  color:white;
+  color:teal;
   -webkit-transition: max-height 0.4s;
   -ms-transition: max-height 0.4s;
   -moz-transition: max-height 0.4s;
@@ -355,7 +355,7 @@ nav ul .nav-hover:hover {
 .nav-brand {
   font-weight: bold;
   transition: all 0.4s ease;
-  background: white;
+  background: teal;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -590,14 +590,13 @@ nav ul .nav-hover:hover {
 
 @media screen and (min-width: 945px) {
   #demo-button {
-    font-family: 'Raleway', sans-serif;
-    position: relative;
-    padding: 5px;
-    border-radius: 3px;
-    background-color: #84898e;
-    color:white;
-    border:none;
-    transition-duration: 200ms;
+       position: relative;
+           padding: 5px;
+           border-radius: 3px;
+           color: teal;
+           border: none;
+           background: #c0c7c7;
+           transition-duration: 200ms;
   }
 
   #demo-button:hover {
@@ -672,13 +671,13 @@ nav ul .nav-hover:hover {
   font-weight: 700;
   font-size: 100px;
   letter-spacing: 5px;
-  background: white;
+  background: teal;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 #home p {
-  color: #FFF;
+  color: teal;
   text-align: center;
   font-size: 23px;
 }
