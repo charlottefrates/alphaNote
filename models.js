@@ -47,6 +47,4 @@ experimentSchema.methods.apiRepr = function() {
 
 const Experiment = mongoose.model('Experiment', experimentSchema);
 
-module.exports = {
-     Experiment
-};
+module.exports = {Experiment};
