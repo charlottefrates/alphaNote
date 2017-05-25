@@ -151,17 +151,26 @@ passport.deserializeUser(function(user, done) {
 
 router.use(passport.initialize());
 
+/*
 router.get('/me',
   passport.authenticate('basic', {session: false}),
   (req, res) => res.json({user: req.user.apiRepr()})
 );
+*/
 
 router.post('/login',
   passport.authenticate('basic', {session: true}),
   (req, res) => {
+    // console.log("req", req);
+    // console.log("res", res);
+    //res.json({user: req.user.apiRepr()});
+    //res.status(200).json({user: req.user.apiRepr()})
     res.redirect('/dashboard');
+
   }
 );
+
+
 
 
 

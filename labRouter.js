@@ -62,7 +62,6 @@ router.post('/new', (req, res) => {
 
   experment
     .create({
-        id: this._id,
         category: this.category,
         title: this.title,
         author: this.authorName,

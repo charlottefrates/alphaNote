@@ -20,6 +20,7 @@ const app = express();
 app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use(session({ secret: 'alphaNote' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -43,6 +44,7 @@ app.get('/', (req, res) => {
 app.get('/dashboard',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
+      //res.send('Hello dashboard');
     res.sendFile(__dirname + '/public/dashboard.html');
   }
 );
@@ -65,6 +67,7 @@ app.get('/experiments/new',
 
 //logout
 app.get('/logout', function (req, res){
+  //res.send('Woo you logged out');
   req.logout();
   req.session.destroy(function (err) {
     res.redirect('/');

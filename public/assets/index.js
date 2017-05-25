@@ -41,6 +41,8 @@ $('nav ul a').on('click', function(event) {
   $('nav ul').toggleClass('showing');
 });
 
+
+
 /* ================================== NAVIGATION STYLING ON SCROLL ================================== */
 
 $(window).scroll(function(){
