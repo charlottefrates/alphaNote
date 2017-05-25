@@ -83,62 +83,6 @@ nav ul li:hover {
   letter-spacing: 1px;
 }
 
-/* ================================= MAIN FLEX BOX =================================*/
-
-.wrapper{
-  display: block;
-  position: relative;
-  max-width: 1920px;
-  max-height: 800px;
-  width: 95vw;
-  margin: 20px auto;
-  overflow: hidden;
-  height: 95vh;
-}
-
-.container{
-  width: calc(100% + 30px);
-  position: relative;
-  background-color: grey;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  padding: 30px 30px 0 30px;
-  height: 100%;
-  align-items: stretch;
-}
-
-.widget{
-  background-color: white;
-  margin-right: 30px;
-  margin-bottom: 30px;
-  flex: 0 0 calc(25% - 30px);
-  color: black;
-  font-family: sans-serif;
-  padding: 20px;
-
-  h1{
-  font-size: 3vw;
-  }
-
-  h2{
-    font-size: 1.6vw;
-  }
-}
-
-.large{
-  flex: 0 0 calc(50% - 30px);
-
-  h1{
-    font-size: 4vw;
-  }
-
-  h2{
-    font-size: 2.4vw;
-  }
-}
-
-
 /* ================================= MEDIA QUERY: NAVIGATION =================================*/
 
 @media only screen and (max-width: 660px) {
@@ -158,4 +102,40 @@ nav ul li:hover {
   .handle {
     display: block;
   }
+}
+
+/* ================================= OTHER =================================*/
+
+* {
+  box-sizing: border-box;
+}
+
+.gallery {
+  margin: 0;
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style-type: none;
+}
+.gallery-item {
+  text-align: center;
+  display: block;
+  background: #222;
+  color: #fff;
+  margin: 1em;
+  padding: 1em;
+  line-height: 5em;
+  -ms-flex-preferred-size: calc(33.33% - 2em);
+      flex-basis: calc(33.33% - 2em);
+  min-width: 150px;
 }

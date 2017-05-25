@@ -51,7 +51,7 @@ app.get('/dashboard',
 );
 
 //shows collection of experiments
-app.get('/experiments',
+app.get('/collection',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
     res.sendFile(__dirname + '/public/experiments.html');
@@ -59,7 +59,7 @@ app.get('/experiments',
 );
 
 //creates new experiments
-app.get('/experiments/new',
+app.get('/new-experiment',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
     res.sendFile(__dirname + '/public/new-experiment.html');
