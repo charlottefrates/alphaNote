@@ -45,7 +45,7 @@ nav ul li {
   display: inline-block;
   padding: 20px;
   transition: background-color .5s ease;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 nav ul li:hover {
@@ -77,11 +77,6 @@ nav ul li:hover {
   color: white;
 }
 
-.activity-summary-heading {
-  margin-top: 90px;
-  margin-bottom: 0;
-  letter-spacing: 1px;
-}
 
 /* ================================= MEDIA QUERY: NAVIGATION =================================*/
 

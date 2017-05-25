@@ -20,7 +20,8 @@ const app = express();
 app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use(session({ secret: 'alphaNote' }));
+
+app.use(session({ secret: 'alphaNote',resave: true,saveUninitialized: true}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -66,12 +67,13 @@ app.get('/experiments/new',
 );
 
 //logout
-app.get('/logout', function (req, res){
-  //res.send('Woo you logged out');
-  req.logout();
+app.get('/logout', function (req, res,next){
+  console.log("logging out");
+  req.logOut();
   req.session.destroy(function (err) {
-    res.redirect('/');
-  });
+        res.redirect('/'); //Inside a callback… bulletproof!
+    });
+    console.log(req.user);
 });
 
 

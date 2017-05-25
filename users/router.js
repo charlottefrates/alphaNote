@@ -161,16 +161,10 @@ router.get('/me',
 router.post('/login',
   passport.authenticate('basic', {session: true}),
   (req, res) => {
-    // console.log("req", req);
-    // console.log("res", res);
-    //res.json({user: req.user.apiRepr()});
-    //res.status(200).json({user: req.user.apiRepr()})
+    console.log(req.user);
     res.redirect('/dashboard');
-
   }
 );
-
-
 
 
 
