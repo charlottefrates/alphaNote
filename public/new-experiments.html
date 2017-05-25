@@ -17,25 +17,82 @@
 
 <body>
      <nav>
-       <ul>
-         <a href="/dashboard"><li>Dashboard</li></a>
-         <a href="/collection"><li>Experiments</li></a>
-         <a href="/new-experiment"><li>Add New Experiments</li></a>
-         <a href="/logout"><li>Logout</li></a>
-       </ul>
-       <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+          <ul>
+               <a href="/dashboard">
+                    <li>Dashboard</li>
+               </a>
+               <a href="/collection">
+                    <li>Experiments</li>
+               </a>
+               <a href="/new-experiment">
+                    <li>Add New Experiments</li>
+               </a>
+               <a href="/logout">
+                    <li>Logout</li>
+               </a>
+          </ul>
+          <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
      </nav>
 
      <div class="row">
-       <div class="col-12">
-         <h1 class="activity-summary-heading animated fadeIn">New Experiment</h1>
-
-       </div>
+          <div class="col-12">
+               <h1 class="activity-summary-heading animated fadeIn">New Experiment</h1>
+          </div>
      </div>
+     <br>
+
+     <section>
+          <div class="col-12">
+          <div id="vertical_tab_nav">
+
+               <ul>
+                    <li class="selected"><a href="index.html">Title & Background</a></li>
+                    <li><a href="index.html">Purpose
+                    <li><a href="index.html">Procedure</a></li>
+                    <li><a href="index.html">Results</a></li>
+                    <li><a href="index.html">Conclusion</a></li>
+               </ul>
+
+               <div>
+                    <article>
+                         <h3 style="font-size:18px;">Title</h3>
+                         <hr />
+                         <p>This is the background of my experiment</p>
+
+                    </article>
+
+                    <article>
+                         <h3 style="font-size:18px;">Purpose</h3>
+                         <hr />
+                         <p>This experiments is being conducted because..</p>
+                    </article>
+
+                    <article>
+                         <h3 style="font-size:18px;">Procedure</h3>
+                         <hr />
+                         <p>blah blah blah</p>
+                    </article>
+
+                    <article>
+                         <h3 style="font-size:18px;">Results</h3>
+                         <hr />
+                         <p>These are my findings</p>
+                    </article>
+
+                    <article>
+                         <h3 style="font-size:18px;">Conclusion</h3>
+                         <hr />
+                         <p>Based on my results my experiment suggested that...</p>
+                    </article>
+
+               </div>
+          </div>
+          </div>
+     </section>
 
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="assets/dashboard.js"></script>
+     <script type="text/javascript" src="assets/new-experiments.js"></script>
 </body>
 
 </html>
