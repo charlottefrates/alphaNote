@@ -28,7 +28,7 @@ a {
 }
 
 nav ul {
-  background-color: teal;
+  background-color: white;
   overflow: hidden;
   color: white;
   padding: 0;
@@ -49,7 +49,7 @@ nav ul li {
 }
 
 nav ul li:hover {
-  background-color: grey;
+  background-color: teal;
 }
 
 .handle {
@@ -93,7 +93,6 @@ nav ul li:hover {
   width: 95vw;
   margin: 20px auto;
   overflow: hidden;
-  height: 95vh;
 }
 
 .container{
@@ -104,12 +103,11 @@ nav ul li:hover {
   flex-wrap: wrap;
   align-items: flex-start;
   padding: 30px 30px 0 30px;
-  height: 100%;
+  height: 20%;
   align-items: stretch;
 }
 
 .widget{
-  background-color: white;
   margin-right: 30px;
   margin-bottom: 30px;
   flex: 0 0 calc(25% - 30px);
@@ -158,4 +156,83 @@ nav ul li:hover {
   .handle {
     display: block;
   }
+}
+
+/* ================================= OTHER =================================*/
+
+* {
+  box-sizing: border-box;
+}
+
+.gallery {
+  margin: 0;
+  padding: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  list-style-type: none;
+}
+.gallery-item {
+  text-align: center;
+  display: block;
+  background: white;
+  color: black;
+  margin: 1em;
+  padding: 1em;
+  line-height: 5em;
+  -ms-flex-preferred-size: calc(33.33% - 2em);
+      flex-basis: calc(33.33% - 2em);
+  min-width: 150px;
+}
+
+
+
+/*------------------------------*/
+a {
+  color: black;
+  text-decoration: none;
+}
+/* main ul styles */
+.nav-tabs {
+  list-style-type: none;
+  padding: 5px;
+}
+/* visible menu items styles */
+.nav-tabs li {
+  display: inline-block;
+  padding: 10px 10px;
+  background: lightgrey;
+  cursor: pointer;
+}
+/* hover */
+.nav-tabs li:hover {
+  background: lightblue;
+}
+/* dropdown style */
+.drop-down {
+  z-index: 1;
+ display: none;
+ margin-top: 10px;
+ margin-left: -10px;
+ padding: 0px;
+ position: absolute;
+}
+/* hover on nav-tabs li items to show their 'child' ul */
+.nav-tabs li:hover > ul {
+  display: block;
+}
+/* individual items in the dropdown */
+.drop-down li {
+  display: block;
+  font-size: 14px;
+  padding: 10px;
 }

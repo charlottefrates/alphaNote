@@ -28,7 +28,7 @@ a {
 }
 
 nav ul {
-  background-color: teal;
+  background-color: white;
   overflow: hidden;
   color: white;
   padding: 0;
@@ -49,7 +49,7 @@ nav ul li {
 }
 
 nav ul li:hover {
-  background-color: grey;
+  background-color: teal;
 }
 
 .handle {
