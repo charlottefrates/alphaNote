@@ -215,7 +215,7 @@ a {
 }
 /* hover */
 .nav-tabs li:hover {
-  background: lightblue;
+  background: teal;
 }
 /* dropdown style */
 .drop-down {

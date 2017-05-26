@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
+//const expressLogout = require('express-passport-logout');
 
 const {DATABASE_URL, PORT} = require('./config');
 const {Experiment} = require('./models');
@@ -19,6 +20,7 @@ const app = express();
 
 app.use(morgan('common'));
 app.use(bodyParser.json());
+
 app.use(express.static('public'));
 
 app.use(session({ secret: 'alphaNote',resave: true,saveUninitialized: true}));
@@ -50,31 +52,29 @@ app.get('/dashboard',
   }
 );
 
-//shows collection of experiments
-app.get('/collection',
-  require('connect-ensure-login').ensureLoggedIn(),
-  function(req, res){
-    res.sendFile(__dirname + '/public/experiments.html');
-  }
-);
 
 //creates new experiments
 app.get('/new-experiment',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
-    res.sendFile(__dirname + '/public/new-experiment.html');
+    res.sendFile(__dirname + '/public/new-experiments.html');
   }
 );
 
+
 //logout
-app.get('/logout', function (req, res,next){
+app.get('/logout', function (req, res){
   console.log("logging out");
   req.logOut();
+  res.clearCookie('connect.sid');
   req.session.destroy(function (err) {
         res.redirect('/'); //Inside a callback… bulletproof!
     });
     console.log(req.user);
 });
+
+
+//app.get('/logout', expressLogout());
 
 
 app.use('*', function(req, res) {

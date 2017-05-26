@@ -13,8 +13,10 @@ const experimentSchema = mongoose.Schema({
      procedure: String,
      results: {
           text: String,
-          drawing: String,
-          molecule: String
+          drawing: {title:String,
+               drawing:String},
+          molecule: {title:String,
+               drawing:String}
      },
      conclusion: String,
      author: {

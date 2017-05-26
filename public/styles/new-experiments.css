@@ -122,7 +122,7 @@ nav ul li:hover {
      text-align: center;
 }
 
-textarea {
+#background,#purpose,#procedure {
   width:80%;
   height: 600px;
   resize: none;
