@@ -26,7 +26,8 @@ const experimentSchema = mongoose.Schema({
      created: {
           type: Date,
           default: Date.now
-     }
+     },
+     deleted:0
 });
 
 experimentSchema.virtual('authorName').get(function() {
@@ -43,7 +44,8 @@ experimentSchema.methods.apiRepr = function() {
           results: this.results,
           conclusion: this.conclusion,
           author: this.authorName,
-          created: this.created
+          created: this.created,
+          deleted: this.deleted
      };
 }
 

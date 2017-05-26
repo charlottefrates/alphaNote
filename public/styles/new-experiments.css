@@ -83,6 +83,60 @@ nav ul li:hover {
   letter-spacing: 1px;
 }
 
+/* ================================= MAIN FLEX BOX =================================*/
+
+.wrapper{
+  display: block;
+  position: relative;
+  max-width: 1920px;
+  max-height: 800px;
+  width: 95vw;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.container{
+  width: calc(100% + 30px);
+  position: relative;
+  background-color: grey;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 30px 30px 0 30px;
+  height: 20%;
+  align-items: stretch;
+}
+
+.widget{
+  margin-right: 30px;
+  margin-bottom: 30px;
+  flex: 0 0 calc(25% - 30px);
+  color: black;
+  font-family: sans-serif;
+  padding: 20px;
+
+  h1{
+  font-size: 3vw;
+  }
+
+  h2{
+    font-size: 1.6vw;
+  }
+}
+
+.large{
+  flex: 0 0 calc(50% - 30px);
+
+  h1{
+    font-size: 4vw;
+  }
+
+  h2{
+    font-size: 2.4vw;
+  }
+}
+
+
 /* ================================= MEDIA QUERY: NAVIGATION =================================*/
 
 @media only screen and (max-width: 660px) {
@@ -104,6 +158,75 @@ nav ul li:hover {
   }
 }
 
+/* ================================= OTHER =================================*/
+
+
+.accordion-container{
+ margin:50px 50px;
+}
+
+.set{
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius:4px;
+  background-color: #545252;
+  box-sizing: border-box;
+
+}
+.set > a{
+  font-family: inherit;
+  font-size: 18pt;
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+  -webkit-transition:all 0.2s linear;
+  -moz-transition:all 0.2s linear;
+  transition:all 0.2s linear;
+}
+.set > a i{
+  position:relative;
+  float: right;
+  margin-top:4px;
+  color: #fff;
+  box-sizing: border-box;
+
+}
+.set > a.active{
+  background-color:teal;
+  color: #fff;
+  box-sizing: border-box;
+}
+.set > a.active i{
+  color: #fff;
+}
+.content{
+  display:none;
+  position:relative;
+  box-sizing: border-box;
+  padding:10px;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 2px;
+
+}
+.accordion-container img {
+  max-width:100%;
+  display:block;
+  height:auto;
+}
+
+.nested{
+     background-color:lightgrey;
+
+}
+
 /* ================================= USER INPUT =================================*/
 
 #title{
@@ -122,9 +245,11 @@ nav ul li:hover {
      text-align: center;
 }
 
-#background,#purpose,#procedure {
+#background,#purpose,#procedure,#conclusion {
+  margin-top: 50px;
+  margin-bottom: 50px;
   width:80%;
-  height: 600px;
+  height: 400px;
   resize: none;
   overflow: auto;
   padding:10px;
@@ -132,65 +257,14 @@ nav ul li:hover {
   white-space: normal;
 }
 
-/* ================================= OTHER =================================*/
+.chemwriter{
+     margin-left: auto;
+     margin-right: auto;
+}
 
-#vertical_tab_nav{
-	display: block;
-	width: 100%;
-}
-#vertical_tab_nav ul{
-   display: block;
-   float: left;
-   margin: 0px;
-   padding: 0px;
-   list-style: none;
-   overflow: hidden;
-   width: 25%;
-  border-radius: 15px 0 0 15px;
-}
-#vertical_tab_nav li{
-	margin-bottom: 1px;
-   text-align: left;
-   padding: 0px;
-}
-#vertical_tab_nav li:hover {
-	margin-bottom: 1px;
-	text-align: left;
-	padding: 2px;
-}
-#vertical_tab_nav li:last-child{
-   margin-bottom: 0px;
-  border-bottom: 0px;
-}
-#vertical_tab_nav li a{
-   display: block;
-   font-size: 14pt;
-   color: black;
-   text-decoration: none;
-   padding: 5%;
-  background: -webkit-linear-gradient(top,white,#777373);
-}
-#vertical_tab_nav li a.selected{
-   background:  teal;
-  background: -webkit-linear-gradient(top,white,teal);
-   color: #000;
-}
-#vertical_tab_nav div{
-   display: block;
-   float: left;
-   background: #ffffff;
-   width:69%;
-   min-height: 750px;
-   padding: 10px 3% 3% 3%;
-    border-radius: 0 10px 10px 0;
-}
-#vertical_tab_nav div article{
-   display: none;
-   margin: 0px;
-   color: #000;
-   font-size:18px;
+#tinymce{
+margin: auto 250px auto;
+margin-top: 50px;
+margin-bottom: 50px;
 
-}
-#vertical_tab_nav div article p{
-   margin: 0px 0px 20px 0px;
 }
