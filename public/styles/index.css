@@ -380,6 +380,7 @@ nav ul .nav-hover:hover {
 /* =============================== RESPONSIVE NAVIGATION =========================== */
 
 .handle {
+  background: grey;
   width: 100%;
   text-align: left;
   padding: 12px 10px;
@@ -591,8 +592,8 @@ nav ul .nav-hover:hover {
 @media screen and (min-width: 945px) {
   #demo-button {
        position: relative;
-           padding: 5px;
-           border-radius: 3px;
+           padding: 8px;
+           border-radius: 20px;
            color: teal;
            border: none;
            background: #c0c7c7;

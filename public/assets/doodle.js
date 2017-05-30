@@ -38,7 +38,7 @@ function redraw() {
 
     context.strokeStyle = "black";
     context.lineJoin = "round";
-    context.lineWidth = 5;
+    context.lineWidth = 3;
 
     for(var i=0; i < clickX.length; i++) {
     context.beginPath();
@@ -51,6 +51,7 @@ function redraw() {
      context.closePath();
      context.stroke();
     }
+
 }
 
 function clearCanvas() {

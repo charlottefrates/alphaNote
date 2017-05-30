@@ -82,22 +82,26 @@
 
           <div class="set">
                <a href="#">
-              Purpose
+              Purpose & Procedure
               <i class="fa fa-plus"></i>
             </a>
                <div class="content">
-                    <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
 
-               </div>
-          </div>
+                    <div class="set">
+                         <a class="nested" href="#">Purpose<i class="fa fa-plus"></i></a>
+                         <div class="content">
+                              <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
 
-          <div class="set">
-               <a href="#">
-              Procedure
-              <i class="fa fa-plus"></i>
-            </a>
-               <div class="content">
-                    <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
+                         </div>
+                    </div>
+                    <div class="set">
+                         <a class="nested" href="#">Purpose<i class="fa fa-plus"></i></a>
+                         <div class="content">
+                              <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
+                         </div>
+                    </div>
+
+
                </div>
           </div>
 
@@ -127,12 +131,14 @@
                   </a>
                          <div class="content">
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+
                               <section id="newDrawingBoard">
                                    <div class="canvasDiv" style="">
-                                        <canvas class="doodle" id="doodleCanvas" width="1000px" height="600px" style="margin-left: auto;margin-right: auto;"></canvas>
+                                        <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto;"> </canvas>
                                         <button class="button button-delete" onclick="clearCanvas()">Clear</button>
                                    </div>
                               </section>
+
                          </div>
                     </div>
                     <div class="set">
@@ -165,12 +171,18 @@
               <i class="fa fa-plus"></i>
             </a>
                <div class="content">
-                    <textarea class="text" id="conclusion" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
+                    <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
                </div>
           </div>
 
      </div>
      <!-- END accordion container -->
+
+     <section id="entry">
+          <div class="wrap">
+            <button id="submit"class="button">Submit</button>
+          </div>
+     </section>
 
 
 
