@@ -1,3 +1,15 @@
+$(document).ready( function() {
+
+			    $("#filter-bar li").click(function(){
+				    $("#filter-bar li").removeClass("active");
+				    $(this).addClass("active");
+				    $("#filter-bar").removeClass().addClass($(this).attr("data-target"));
+
+			    });
+
+			})
+
+
 /* ================================= RESPONSIVE NAVIGATION =================================*/
 
     $('.handle').on('click', function(event) {
@@ -5,6 +17,13 @@
     });
 
 
+    $('.show-list').click(function(){
+    	$('.wrapper').addClass('list-mode');
+    });
+
+    $('.hide-list').click(function(){
+    	$('.wrapper').removeClass('list-mode');
+    });
 
 /* ================================= =================================*/
 
