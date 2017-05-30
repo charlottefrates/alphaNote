@@ -231,7 +231,9 @@ a:hover {
 }
 
 
-/* ================================= USER INPUT =================================*/
+
+
+/* ================================= USER INPUT FIELD=================================*/
 
 #title {
      width: 80%;
@@ -267,9 +269,14 @@ a:hover {
 }
 
 #tinymce {
-     margin: auto 250px auto;
+     margin: auto 20% auto;
      margin-top: 50px;
      margin-bottom: 50px;
+
+}
+
+#mceu_12{
+     width:100% !important;;
 }
 
 
@@ -282,6 +289,7 @@ a:hover {
 }
 
 .button {
+  margin: 10px;
   font-family:inherit;
   width: 140px;
   height: 45px;
@@ -305,3 +313,72 @@ a:hover {
   color: #fff;
   transform: translateY(-7px);
 }
+
+
+/* ================================= VERTICLE TABS =================================*/
+
+#vertical_tab_nav{
+	display: block;
+	width: 100%;
+}
+#vertical_tab_nav ul{
+   display: block;
+   float: left;
+   margin: 0px;
+   padding: 0px;
+   list-style: none;
+   overflow: hidden;
+   width: 25%;
+  border-radius: 15px 0 0 15px;
+}
+#vertical_tab_nav li{
+	margin-bottom: 1px;
+   text-align: left;
+   padding: 0px;
+}
+#vertical_tab_nav li:hover {
+	margin-bottom: 1px;
+	text-align: left;
+	padding: 2px;
+}
+#vertical_tab_nav li:last-child{
+   margin-bottom: 0px;
+  border-bottom: 0px;
+}
+#vertical_tab_nav li a{
+   display: block;
+   font-size: 14pt;
+   color: #fff;
+   text-decoration: none;
+   padding: 5%;
+   background: #6c5a9d;
+  background: -webkit-linear-gradient(top,white,#777373);
+  background: -moz-linear-gradient(top,#A79ACB,#6c5a9d);
+}
+#vertical_tab_nav li a.selected{
+   background:  teal;
+  background: -webkit-linear-gradient(top,white,teal);
+   color: #000;
+}
+#vertical_tab_nav div{
+   display: block;
+   float: left;
+   background: #ffffff;
+   width:69%;
+   min-height: 500px;
+   padding: 10px 3% 3% 3%;
+    border-radius: 0 10px 10px 0;
+}
+#vertical_tab_nav div article{
+   display: none;
+   margin: 0px;
+   color: #000;
+   font-size:18px;
+
+}
+#vertical_tab_nav div article p{
+   margin: 0px 0px 20px 0px;
+}
+
+
+/* ================================= XXXX =================================*/

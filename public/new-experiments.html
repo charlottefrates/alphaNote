@@ -62,10 +62,56 @@
           </div>
      </div>
      <br>
+<!--
+     <div id="vertical_tab_nav">
+
+			<ul>
+                    <li class="selected"><a href="index.html">Title & Background</a></li>
+				<li><a href="index.html">Purpose
+				<li><a href="index.html">Procedure</a></li>
+                    <li><a href="index.html">Result Context</a></li>
+                    <li><a href="index.html">Conclusion</a></li>
+			</ul>
+
+			<div>
+				<article>
+					<input type="text" name="Title" id="title" placeholder="Experiment Title">
+					<hr />
+					<textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
+
+				</article>
+
+				<article>
+					<h3 style="font-size:18px;">Purpose</h3>
+					<hr />
+					<textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
+				</article>
+
+				<article>
+					<h3 style="font-size:18px;">Procedure</h3>
+					<hr />
+					<textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
+				</article>
+
+				<article>
+					<h3 style="font-size:18px;">Result Context</h3>
+					<hr />
+
+				</article>
+
+                    <article>
+					<h3 style="font-size:18px;">Conclusion</h3>
+					<hr />
+					<textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
+				</article>
+			</div>
+		</div>
+
+-->
+
+
 
      <div class="accordion-container">
-          <!-- START accordion container -->
-
           <div class="set">
                <a href="#">
               Title and Background
@@ -134,7 +180,7 @@
 
                               <section id="newDrawingBoard">
                                    <div class="canvasDiv" style="">
-                                        <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto;"> </canvas>
+                                        <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
                                         <button class="button button-delete" onclick="clearCanvas()">Clear</button>
                                    </div>
                               </section>
@@ -149,7 +195,7 @@
                          <div class="content">
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
                               <section id="chemwriter">
-                                   <div id="editor" data-chemwriter-width="1000" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
+                                   <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
                                    </div>
                                    <br>
                                    <input id="button" type="submit" value="Get Molfile"></input>
@@ -176,17 +222,20 @@
           </div>
 
      </div>
-     <!-- END accordion container -->
-
-     <section id="entry">
-          <div class="wrap">
-            <button id="submit"class="button">Submit</button>
-          </div>
-     </section>
 
 
+     <div class="row">
+          <div class="col-12">
+          <section id="entry">
+               <div class="wrap">
+                 <button id="submit"class="button">Submit</button>
+               </div>
+          </section>
+          <div>
+     <div>
 
-     <!--
+
+<!--
      <section id="tinymce">
           <h1>Text Editor</h1>
                <textarea class ="tinymce" id="texteditor">
