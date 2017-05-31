@@ -105,91 +105,7 @@ nav ul li:hover {
   }
 }
 
-/* ================================= OTHER =================================*/
-
-a{
-	-webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-.wrapper{
-  width: 70%;
-margin: 20px auto 0;
-background-color: #FFFFFF;
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-}
-
-header{
-	text-align:right;
-	padding:10px;
-	margin-bottom:10px;
-	background-color:grey;
-}
-
-header a{
-	font-size:20px;
-	color:#FFFFFF;
-	width:40px;
-	height:40px;
-	line-height:40px;
-	margin-left:10px;
-	text-align:center;
-	display:inline-block;
-}
-
-header a:hover, .list-mode header a.hide-list:hover{
-	background-color:teal
-}
-
-header a.hide-list{
-	background-color:teal;
-}
-
-.list-mode header a.hide-list{
-	background-color:grey;
-}
-
-.list-mode header a.show-list{
-	background-color:teal;
-}
-
-.container:after{
-	content:"";
-	clear:both;
-	display:table;
-}
-
-.container{
-	padding:10px 0 10px 10px;
-}
-
-.wrapper .box{
-	float:left;
-	width:100px;
-	height:100px;
-	margin:0 10px 10px 0;
-	background-color:#CCCCCC;
-	-webkit-transition:all 1.0s ease;
-	-moz-transition:all 1.0s ease;
-	transition:all 1.0s ease;
-	transition:all 1.0s ease;
-}
-
-.wrapper.list-mode .container{
-	padding-right:10px;
-}
-
-.wrapper.list-mode .box{
-	width:100%;
-}
-
-
-
-
+/* =================================  FILTER BAR=================================*/
 
 #filter-bar {
   width: 100%;
@@ -203,7 +119,7 @@ header a.hide-list{
   background-color: #fff;
   width: 570px;
   height: auto;
-  margin: 30px auto;
+  margin: 300px auto;
   border-radius: 30px;
   box-sizing: border-box;
 }
@@ -258,3 +174,132 @@ header a.hide-list{
   color: #fff;
   transition: color 200ms;
 }
+
+
+/* =================================  TABLE   =================================*/
+
+
+a{
+  color: teal;
+}
+.page{
+  max-width: 70%;
+  margin: 0 auto;
+}
+table th,
+table td{
+  text-align: left;
+}
+table.layout{
+  width: 100%;
+  border-collapse: collapse;
+}
+table.display{
+  margin: -16em 0;
+}
+table.display th,
+table.display td{
+  border: 1px solid black;
+  padding: .5em 1em;
+}
+
+table.display th{ background: lightgrey; }
+table.display td{ background: #fff; }
+
+table.responsive-table{
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 30em){
+    table.responsive-table{
+      box-shadow: none;
+    }
+    table.responsive-table thead{
+      display: none;
+    }
+  table.display th,
+  table.display td{
+    padding: .5em;
+  }
+
+  table.responsive-table td:nth-child(1):before{
+    content: 'Number';
+  }
+  table.responsive-table td:nth-child(2):before{
+    content: 'Name';
+  }
+  table.responsive-table td:nth-child(1),
+  table.responsive-table td:nth-child(2){
+    padding-left: 25%;
+  }
+  table.responsive-table td:nth-child(1):before,
+  table.responsive-table td:nth-child(2):before{
+    position: absolute;
+    left: .5em;
+    font-weight: bold;
+  }
+
+    table.responsive-table tr,
+    table.responsive-table td{
+        display: block;
+    }
+    table.responsive-table tr{
+        position: relative;
+        margin-bottom: 1em;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+    }
+    table.responsive-table td{
+        border-top: none;
+    }
+    table.responsive-table td.organisationnumber{
+        background: #D5E0CC;
+        border-top: 1px solid #B3BFAA;
+    }
+    table.responsive-table td.actions{
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background: none;
+    }
+}
+
+
+/* =================================  COUNTER  =================================*/
+
+#counter{
+  margin-bottom: 50px;
+}
+
+/*-=-=-=-=-=-=-=-=-=-=-=- */
+/* Column Grids */
+/*-=-=-=-=-=-=-=-=-=-=-=- */
+
+.col_half { width: 49%; }
+.col_third { width: 32%; }
+.col_fourth { width: 23.5%; }
+.col_fifth { width: 18.4%; }
+.col_sixth { width: 15%; }
+.col_three_fourth { width: 74.5%;}
+.col_twothird{ width: 66%;}
+.col_half,
+.col_third,
+.col_twothird,
+.col_fourth,
+.col_three_fourth,
+.col_fifth{
+	position: relative;
+	display:inline;
+	display: inline-block;
+	float: left;
+	margin-right: 2%;
+	margin-bottom: 20px;
+}
+.end { margin-right: 0 !important; }
+/* Column Grids End */
+
+.wrapper { width: 980px; margin: 40px auto; position: relative;}
+.counter { background-color: #ffffff; padding: 20px 0; border-radius: 5px;}
+.count-title { font-size: 40px; font-weight: normal;  margin-top: 10px; margin-bottom: 0; text-align: center; }
+.count-text { font-size: 13px; font-weight: normal;  margin-top: 10px; margin-bottom: 0; text-align: center; }
+.fa-2x { margin: 0 auto; float: none; display: table; color: #4ad1e5; }
