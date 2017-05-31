@@ -1,5 +1,5 @@
 //global variable
-var category,title,purpose,procedure,text,drawing,molecule,conclusion;
+var category,title,background,purpose,procedure,text,drawing,molecule,conclusion;
 
 //variable that holds blog entries
 var data = {
@@ -65,19 +65,21 @@ $('#submit').on('click',function(event){
     event.preventDefault();
 
     // updates global variables based on user input
-    category = "";
-    title = "";
-    purpose = "";
-    procedure = "";
-    text = "";
-    drawing = "";
-    molecule = "";
-    conclusion = "";
+    category = $('#category option:selected').val();
+    title = $('#title').val();
+    background = $('#background').val();
+    purpose = $('#purpose').val();
+    procedure = $('#procedure').val();
+    text = tinymce.get("texteditor").getContent();
+    drawing = ($('#doodleCanvas')[0]).toDataURL('image/png',1.0);
+    molecule = chemwriter.components['editor'].getMolfile();
+    conclusion = $('#conclusion').val();
 
     // updates data variable with combined user input values
 
     data.category = category;
     data.title = title;
+    data.background = background;
     data.purpose = purpose;
     data.procedure = procedure;
     data.results.text = text;

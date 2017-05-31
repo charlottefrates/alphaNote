@@ -41,6 +41,7 @@
 </head>
 
 <body>
+     <section id="navbar">
      <nav>
           <ul>
                <a href="/dashboard">
@@ -55,13 +56,16 @@
           </ul>
           <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
      </nav>
+     </section>
 
+     <section id="header">
      <div class="row">
           <div class="col-12">
                <h1 class="activity-summary-heading animated fadeIn"></h1>
           </div>
      </div>
-     <br>
+     </section>
+
 <!--
      <div id="vertical_tab_nav">
 
@@ -110,59 +114,57 @@
 -->
 
 
-
+     <section id="accordion-view">
      <div class="accordion-container">
+          <!-- ACCORDION #1 -->
+          <div id="accordion1">
           <div class="set">
-               <a href="#">
-              Title and Background
-              <i class="fa fa-plus"></i>
-            </a>
+               <a href="#"> Title and Background <i class="fa fa-plus"></i> </a>
                <div class="content">
                     <h3 style="font-size:18px;">
-                              <input type="text" name="Title" id="title" placeholder="Experiment Title">
-                         </h3>
-
+                    <input type="text" name="Title" id="title" placeholder="Experiment Title">
+                    </h3>
                     <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
+                    <select id="category">
+                      <option>Biology</option>
+                      <option>Chemistry</option>
+                      <option>Other</option>
+                    </select>
                </div>
           </div>
+          </div>
 
+          <!-- ACCORDION #2 -->
+          <div id="accordion2">
           <div class="set">
-               <a href="#">
-              Purpose & Procedure
-              <i class="fa fa-plus"></i>
-            </a>
+               <a href="#"> Purpose & Procedure <i class="fa fa-plus"></i> </a>
                <div class="content">
-
+                    <!-- NESTED ACCORDION -->
                     <div class="set">
                          <a class="nested" href="#">Purpose<i class="fa fa-plus"></i></a>
                          <div class="content">
                               <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
-
                          </div>
                     </div>
                     <div class="set">
-                         <a class="nested" href="#">Purpose<i class="fa fa-plus"></i></a>
+                         <a class="nested" href="#">Procedure<i class="fa fa-plus"></i></a>
                          <div class="content">
                               <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
                          </div>
                     </div>
-
-
+                    <!-- END NESTED ACCORDION -->
                </div>
           </div>
+          </div>
 
+          <!-- ACCORDION #3 -->
+          <div id="accordion3">
           <div class="set">
-               <a href="#">
-                  Result Content
-                  <i class="fa fa-plus"></i>
-                </a>
+               <a href="#"> Result Content <i class="fa fa-plus"></i> </a>
                <div class="content">
-
+                    <!-- NESTED ACCORDION -->
                     <div class="set">
-                         <a class="nested" href="#">
-                    Text
-                    <i class="fa fa-plus"></i>
-                       </a>
+                         <a class="nested" href="#"> Text <i class="fa fa-plus"></i></a>
                          <div class="content">
                               <section id="tinymce">
                                    <textarea class="tinymce" id="texteditor"></textarea>
@@ -171,13 +173,9 @@
                     </div>
 
                     <div class="set">
-                         <a class="nested" href="#">
-                    Illustrations
-                    <i class="fa fa-plus"></i>
-                  </a>
+                         <a class="nested" href="#">Illustrations<i class="fa fa-plus"></i></a>
                          <div class="content">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-
+                              <p> Illustrate your findings below:</p>
                               <section id="newDrawingBoard">
                                    <div class="canvasDiv" style="">
                                         <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
@@ -188,42 +186,36 @@
                          </div>
                     </div>
                     <div class="set">
-                         <a class="nested" href="#">
-                    Molecular Editor
-                    <i class="fa fa-plus"></i>
-                  </a>
+                         <a class="nested" href="#"> Molecular Editor<i class="fa fa-plus"></i></a>
                          <div class="content">
                               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
                               <section id="chemwriter">
                                    <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
                                    </div>
-                                   <br>
                                    <input id="button" type="submit" value="Get Molfile"></input>
                                    <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
-                                   <br>
-                                   <br>
-                                   <div id="data-container-4"> </div>
                               </section>
-
                          </div>
                     </div>
-
+                    <!-- END NESTED ACCORDION -->
                </div>
           </div>
+          </div>
 
+          <!-- ACCORDION #4 -->
+          <div id="accordion4">
           <div class="set">
-               <a href="#">
-              Conclusion
-              <i class="fa fa-plus"></i>
-            </a>
+               <a href="#">Conclusion<i class="fa fa-plus"></i></a>
                <div class="content">
                     <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
                </div>
           </div>
+          </div>
 
-     </div>
+     </div> <!-- /end accordion container -->
+     </section>
 
-
+     <section id="contentSubmit">
      <div class="row">
           <div class="col-12">
           <section id="entry">
@@ -233,6 +225,7 @@
           </section>
           <div>
      <div>
+     </section>
 
 
 <!--
