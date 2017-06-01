@@ -14,7 +14,7 @@ var newLocalEntry = {
      "dataType": "json",
      "contentType": "application/json; charset=utf-8",
      "method": "POST",
-     "data": JSON.stringify(data)
+     "data": JSON.stringify(data),
 };
 
 
@@ -41,11 +41,13 @@ var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
-$(".next").click(function(){
+$(".next").on('click',function(event){
+	event.preventDefault();
 	if(animating) return false;
 	animating = true;
 
 	current_fs = $(this).parent();
+	//console.log(current_fs);
 	next_fs = $(this).parent().next();
 
 	//activate next step on progressbar using the index of next_fs
@@ -79,11 +81,13 @@ $(".next").click(function(){
 	});
 });
 
-$(".previous").click(function(){
+$(".previous").on('click',function(event){
+	event.preventDefault();
 	if(animating) return false;
 	animating = true;
 
 	current_fs = $(this).parent();
+	//console.log(current_fs)
 	previous_fs = $(this).parent().prev();
 
 	//de-activate current step on progressbar
@@ -114,9 +118,48 @@ $(".previous").click(function(){
 	});
 });
 
-$(".submit").click(function(){
-	return false;
-})
+
+
+//TODO: allow for progressbar navigation
+$('#step1').on('click',function(event){
+	event.preventDefault();
+	console.log('step1 clicked');
+
+});
+
+
+$('#step2').on('click',function(event){
+	event.preventDefault();
+	console.log('step2 clicked');
+
+
+});
+
+$('#step3').on('click',function(event){
+	event.preventDefault();
+	console.log('step3 clicked');
+
+});
+
+$('#step4').on('click',function(event){
+	event.preventDefault();
+	console.log('step4 clicked');
+
+
+});
+
+$('#step5').on('click',function(event){
+	event.preventDefault();
+	console.log('step5 clicked');
+
+});
+
+$('#step6').on('click',function(event){
+	event.preventDefault();
+	console.log('step6 clicked');
+
+
+});
 
 
 
@@ -170,20 +213,35 @@ $('#submit').on('click',function(event){
     data.results.molecule = molecule;
     data.conclusion = conclusion;
 
-    console.log (data);
+	console.log (data);
 
-    //updates data variable into JSON string
+	//updates data variable into JSON string
      newLocalEntry.data = JSON.stringify(data);
 
+	// conditionals that requires users to fill in title field
+	if (title.length === 0 ){
+		alert('Please provide a title to save current experiment');
+		$('#title').attr('required');
+		// TODO: make fieldset go back to background field
+		return false;
+    };
 
-    /*
+
     $.ajax(newLocalEntry).done(function(response) {
           console.log(response);
-     });
-     */
+		alert('Your Experiment has been Saved.');
+		window.location.href = '/dashboard';
+     }).fail(function(error){
+		console.log(error);
+		alert('Something went wrong with the server. Try again later');
+	});
+
 
 });
 
+$('#title').on('keydown',function(){
+     $('#title').removeAttr('required');
+});
 
 
 

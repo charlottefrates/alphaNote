@@ -70,23 +70,23 @@
 <form id="msform">
   <!-- progressbar -->
   <ul id="progressbar">
-    <li class="active">Background</li>
-    <li>Purpose</li>
-    <li>Procedure</li>
-    <li>Results</li>
-    <li>Conclusion</li>
-    <li>Submission</li>
+    <li class="active" id="step1">Background</li>
+    <li id="step2">Purpose</li>
+    <li id="step3">Procedure</li>
+    <li id="step4">Results</li>
+    <li id="step5">Conclusion</li>
+    <li id="step6">Submission</li>
   </ul>
   <!-- fieldsets -->
-  <fieldset>
+  <fieldset class="showStep1">
     <h2 class="fs-title">Provide Experiment Title and Background</h2>
     <h3 class="fs-subtitle">This is step 1</h3>
-    <input type="text" name="Title" id="title" placeholder="Experiment Title">
+    <input type="text" name="Title" id="title" placeholder="Experiment Title (required)" required>
     <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
 
-  <fieldset>
+  <fieldset class="showStep2">
     <h2 class="fs-title">What is the purpose of your experiment?</h2>
     <h3 class="fs-subtitle">Step 2</h3>
     <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
@@ -94,7 +94,7 @@
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
 
-  <fieldset>
+  <fieldset class="showStep3">
     <h2 class="fs-title">How will your experiment be conducted?</h2>
     <h3 class="fs-subtitle">Step 3</h3>
     <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
@@ -102,7 +102,7 @@
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
 
-    <fieldset>
+    <fieldset class="showStep4">
     <h2 class="fs-title"> Record your findings.</h2>
     <h3 class="fs-subtitle">Step 4</h3>
     <section id="accordion-view">
@@ -153,7 +153,7 @@
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
 
-  <fieldset>
+  <fieldset class="showStep5">
     <h2 class="fs-title">Summarize your experiment and it's results.</h2>
     <h3 class="fs-subtitle">Final Step</h3>
     <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
@@ -161,7 +161,7 @@
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
 
-  <fieldset>
+  <fieldset class="showStep6">
     <h2 class="fs-title"></h2>
     <h3 class="fs-subtitle"></h3>
     <input type="button" name="previous" class="previous action-button" value="Previous" />

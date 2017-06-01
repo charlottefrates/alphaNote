@@ -1223,14 +1223,14 @@ button:hover {
 
 
 .about.start{
-     animation: bounceInRight 3s linear;
+     animation: fadeIn 2s ease-in;
 }
 
 
 .journal.start{
-     animation: fadeIn 2s ease-in;
+     animation: fadeIn 3s ease-in;
 }
 
 .analyze.start{
-     animation: bounceInLeft 4s linear;
+     animation: fadeIn 2s ease-in;
 }

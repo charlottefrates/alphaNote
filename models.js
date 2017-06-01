@@ -15,10 +15,6 @@ const experimentSchema = mongoose.Schema({
                drawing:String}
      },
      conclusion: String,
-     author: {
-          firstName: String,
-          lastName: String
-     },
      created: {
           type: Date,
           default: Date.now
@@ -40,7 +36,6 @@ experimentSchema.methods.apiRepr = function() {
           procedure: this.procedure,
           results: this.results,
           conclusion: this.conclusion,
-          author: this.authorName,
           created: this.created,
           deleted: this.deleted,
           status: this.status,
