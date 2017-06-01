@@ -1,4 +1,6 @@
 * {
+     margin: 0;
+     padding: 0
      box-sizing: border-box;
      font-family: 'Balthazar', sans-serif;
      text-align: center;
@@ -103,7 +105,7 @@ nav ul li:hover {
 }
 
 
-/* ================================= OTHER =================================*/
+/* ================================= Accordion=================================*/
 
 .accordion-container {
      margin: 50px 50px;
@@ -263,71 +265,6 @@ a:hover {
 }
 
 
-/* ================================= VERTICLE TABS =================================*/
-
-#vertical_tab_nav{
-	display: block;
-	width: 100%;
-}
-#vertical_tab_nav ul{
-   display: block;
-   float: left;
-   margin: 0px;
-   padding: 0px;
-   list-style: none;
-   overflow: hidden;
-   width: 25%;
-  border-radius: 15px 0 0 15px;
-}
-#vertical_tab_nav li{
-	margin-bottom: 1px;
-   text-align: left;
-   padding: 0px;
-}
-#vertical_tab_nav li:hover {
-	margin-bottom: 1px;
-	text-align: left;
-	padding: 2px;
-}
-#vertical_tab_nav li:last-child{
-   margin-bottom: 0px;
-  border-bottom: 0px;
-}
-#vertical_tab_nav li a{
-   display: block;
-   font-size: 14pt;
-   color: #fff;
-   text-decoration: none;
-   padding: 5%;
-   background: #6c5a9d;
-  background: -webkit-linear-gradient(top,white,#777373);
-  background: -moz-linear-gradient(top,#A79ACB,#6c5a9d);
-}
-#vertical_tab_nav li a.selected{
-   background:  teal;
-  background: -webkit-linear-gradient(top,white,teal);
-   color: #000;
-}
-#vertical_tab_nav div{
-   display: block;
-   float: left;
-   background: #ffffff;
-   width:69%;
-   min-height: 500px;
-   padding: 10px 3% 3% 3%;
-    border-radius: 0 10px 10px 0;
-}
-#vertical_tab_nav div article{
-   display: none;
-   margin: 0px;
-   color: #000;
-   font-size:18px;
-
-}
-#vertical_tab_nav div article p{
-   margin: 0px 0px 20px 0px;
-}
-
 
 /* ================================= DROPDOWN =================================*/
 
@@ -335,4 +272,122 @@ select{
      margin-left: 30%;
      margin-right: 30%;
      margin-bottom: 20px;
+}
+
+/* ================================= FORM =================================*/
+
+/*form styles*/
+#msform {
+	width: 90%;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+     height:70%;
+	margin: 0 10%;
+
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: teal;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+     margin-left: 3%;
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	text-transform: uppercase;
+	font-size: 12px;
+	width: 16%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 13px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: teal;
+	color: white;
 }

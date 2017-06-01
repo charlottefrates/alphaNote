@@ -6,7 +6,7 @@
      <meta http-equiv="X-UA-Compatible" content="chrome=1">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta name="description" content="Dream Journal">
+     <meta name="description" content="alphaNote">
 
      <title>alphaNote | Electronic Laboratory Notebook</title>
 
@@ -42,193 +42,261 @@
 
 <body>
      <section id="navbar">
-     <nav>
-          <ul>
-               <a href="/dashboard">
-                    <li>Home</li>
-               </a>
-               <a href="/new-experiment">
-                    <li>Add New Experiments</li>
-               </a>
-               <a href="/logout">
-                    <li>Logout</li>
-               </a>
-          </ul>
-          <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
-     </nav>
+          <nav>
+               <ul>
+                    <a href="/dashboard">
+                         <li>Home</li>
+                    </a>
+                    <a href="/new-experiment">
+                         <li>Add New Experiments</li>
+                    </a>
+                    <a href="/logout">
+                         <li>Logout</li>
+                    </a>
+               </ul>
+               <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+          </nav>
      </section>
 
      <section id="header">
-     <div class="row">
-          <div class="col-12">
-               <h1 class="activity-summary-heading animated fadeIn"></h1>
+          <div class="row">
+               <div class="col-12">
+                    <h1 class="activity-summary-heading animated fadeIn"></h1>
+               </div>
           </div>
-     </div>
      </section>
 
+     <!-- multistep form -->
+<form id="msform">
+  <!-- progressbar -->
+  <ul id="progressbar">
+    <li class="active">Title & Background</li>
+    <li>Purpose</li>
+    <li>Procedure</li>
+    <li>Results</li>
+    <li>Conclusion</li>
+    <li>Submission</li>
+  </ul>
+  <!-- fieldsets -->
+  <fieldset>
+    <h2 class="fs-title">Provide Experiment Title and Background</h2>
+    <h3 class="fs-subtitle">This is step 1</h3>
+    <input type="text" name="Title" id="title" placeholder="Experiment Title">
+    <select id="category">
+       <option>Biology</option>
+       <option>Chemistry</option>
+       <option>Other</option>
+    </select>
+    <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+
+  <fieldset>
+    <h2 class="fs-title">What is the purpose of your experiment?</h2>
+    <h3 class="fs-subtitle">Step 2</h3>
+    <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+
+  <fieldset>
+    <h2 class="fs-title">How will your experiment be conducted?</h2>
+    <h3 class="fs-subtitle">Step 3</h3>
+    <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+
+    <fieldset>
+    <h2 class="fs-title"> Record your findings.</h2>
+    <h3 class="fs-subtitle">Step 4</h3>
+    <section id="accordion-view">
+         <div class="accordion-container">
+           <div class="set">
+
+
+
+                     <div class="set">
+                          <a class="nested" href="#"> Text <i class="fa fa-plus"></i></a>
+                          <div class="content">
+                               <section id="tinymce">
+                                    <textarea class="tinymce" id="texteditor"></textarea>
+                               </section>
+                          </div>
+                     </div>
+
+                     <div class="set">
+                          <a class="nested" href="#">Illustrations<i class="fa fa-plus"></i></a>
+                          <div class="content">
+                               <p> Illustrate your findings below:</p>
+                               <section id="newDrawingBoard">
+                                    <div class="canvasDiv" style="">
+                                         <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
+                                         <button class="button button-delete" onclick="clearCanvas()">Clear</button>
+                                    </div>
+                               </section>
+
+                          </div>
+                     </div>
+                     <div class="set">
+                          <a class="nested" href="#"> Molecular Editor<i class="fa fa-plus"></i></a>
+                          <div class="content">
+                               <p> Hint: Click on hourglass for a better view of molecule.</p>
+                               <section id="chemwriter">
+                                    <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
+                                    </div>
+                                    <input id="button" type="submit" value="Get Molfile"></input>
+                                    <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
+                               </section>
+                          </div>
+                     </div>
+
+
+         </div>
+    </section>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+
+  <fieldset>
+    <h2 class="fs-title">Summarize your experiment and it's results.</h2>
+    <h3 class="fs-subtitle">Final Step</h3>
+    <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input type="button" name="next" class="next action-button" value="Next" />
+  </fieldset>
+
+  <fieldset>
+    <h2 class="fs-title"></h2>
+    <h3 class="fs-subtitle"></h3>
+    <input type="button" name="previous" class="previous action-button" value="Previous" />
+    <input id="submit"type="submit" name="submit" class="submit action-button" value="Submit" />
+    <hr/>
+    <input type="submit" name="submit" class="submit action-button" value="Print" />
+    <input type="submit" name="submit" class="submit action-button" value="Email" />
+    <input type="checkbox" name="vehicle" value="Bike">complete<br>
+  </fieldset>
+</form>
+
+
 <!--
-     <div id="vertical_tab_nav">
-
-			<ul>
-                    <li class="selected"><a href="index.html">Title & Background</a></li>
-				<li><a href="index.html">Purpose
-				<li><a href="index.html">Procedure</a></li>
-                    <li><a href="index.html">Result Context</a></li>
-                    <li><a href="index.html">Conclusion</a></li>
-			</ul>
-
-			<div>
-				<article>
-					<input type="text" name="Title" id="title" placeholder="Experiment Title">
-					<hr />
-					<textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
-
-				</article>
-
-				<article>
-					<h3 style="font-size:18px;">Purpose</h3>
-					<hr />
-					<textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
-				</article>
-
-				<article>
-					<h3 style="font-size:18px;">Procedure</h3>
-					<hr />
-					<textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
-				</article>
-
-				<article>
-					<h3 style="font-size:18px;">Result Context</h3>
-					<hr />
-
-				</article>
-
-                    <article>
-					<h3 style="font-size:18px;">Conclusion</h3>
-					<hr />
-					<textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
-				</article>
-			</div>
-		</div>
-
--->
-
-
      <section id="accordion-view">
-     <div class="accordion-container">
-          <!-- ACCORDION #1 -->
-          <div id="accordion1">
-          <div class="set">
-               <a href="#"> Title and Background <i class="fa fa-plus"></i> </a>
-               <div class="content">
-                    <h3 style="font-size:18px;">
-                    <input type="text" name="Title" id="title" placeholder="Experiment Title">
-                    </h3>
-                    <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
-                    <select id="category">
-                      <option>Biology</option>
-                      <option>Chemistry</option>
-                      <option>Other</option>
-                    </select>
-               </div>
-          </div>
-          </div>
+          <div class="accordion-container">
 
-          <!-- ACCORDION #2 -->
-          <div id="accordion2">
-          <div class="set">
-               <a href="#"> Purpose & Procedure <i class="fa fa-plus"></i> </a>
-               <div class="content">
-                    <!-- NESTED ACCORDION -->
-                    <div class="set">
-                         <a class="nested" href="#">Purpose<i class="fa fa-plus"></i></a>
-                         <div class="content">
-                              <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
-                         </div>
+               <div id="accordion1">
+               <div class="set">
+                    <a href="#"> Title and Background <i class="fa fa-plus"></i> </a>
+                    <div class="content">
+                         <h3 style="font-size:18px;">
+                         <input type="text" name="Title" id="title" placeholder="Experiment Title">
+                         </h3>
+                         <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
+                         <select id="category">
+                           <option>Biology</option>
+                           <option>Chemistry</option>
+                           <option>Other</option>
+                         </select>
                     </div>
-                    <div class="set">
-                         <a class="nested" href="#">Procedure<i class="fa fa-plus"></i></a>
-                         <div class="content">
-                              <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
-                         </div>
-                    </div>
-                    <!-- END NESTED ACCORDION -->
                </div>
-          </div>
-          </div>
-
-          <!-- ACCORDION #3 -->
-          <div id="accordion3">
-          <div class="set">
-               <a href="#"> Result Content <i class="fa fa-plus"></i> </a>
-               <div class="content">
-                    <!-- NESTED ACCORDION -->
-                    <div class="set">
-                         <a class="nested" href="#"> Text <i class="fa fa-plus"></i></a>
-                         <div class="content">
-                              <section id="tinymce">
-                                   <textarea class="tinymce" id="texteditor"></textarea>
-                              </section>
-                         </div>
-                    </div>
-
-                    <div class="set">
-                         <a class="nested" href="#">Illustrations<i class="fa fa-plus"></i></a>
-                         <div class="content">
-                              <p> Illustrate your findings below:</p>
-                              <section id="newDrawingBoard">
-                                   <div class="canvasDiv" style="">
-                                        <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
-                                        <button class="button button-delete" onclick="clearCanvas()">Clear</button>
-                                   </div>
-                              </section>
-
-                         </div>
-                    </div>
-                    <div class="set">
-                         <a class="nested" href="#"> Molecular Editor<i class="fa fa-plus"></i></a>
-                         <div class="content">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                              <section id="chemwriter">
-                                   <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
-                                   </div>
-                                   <input id="button" type="submit" value="Get Molfile"></input>
-                                   <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
-                              </section>
-                         </div>
-                    </div>
-                    <!-- END NESTED ACCORDION -->
                </div>
-          </div>
-          </div>
 
-          <!-- ACCORDION #4 -->
-          <div id="accordion4">
-          <div class="set">
-               <a href="#">Conclusion<i class="fa fa-plus"></i></a>
-               <div class="content">
-                    <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
+
+               <div id="accordion2">
+               <div class="set">
+                    <a href="#"> Purpose & Procedure <i class="fa fa-plus"></i> </a>
+                    <div class="content">
+
+                         <div class="set">
+                              <a class="nested" href="#">Purpose<i class="fa fa-plus"></i></a>
+                              <div class="content">
+                                   <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
+                              </div>
+                         </div>
+                         <div class="set">
+                              <a class="nested" href="#">Procedure<i class="fa fa-plus"></i></a>
+                              <div class="content">
+                                   <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
+                              </div>
+                         </div>
+
+                    </div>
                </div>
-          </div>
-          </div>
-
-     </div> <!-- /end accordion container -->
-     </section>
-
-     <section id="contentSubmit">
-     <div class="row">
-          <div class="col-12">
-          <section id="entry">
-               <div class="wrap">
-                 <button id="submit"class="button">Submit</button>
                </div>
+
+
+               <div id="accordion3">
+               <div class="set">
+                    <a href="#"> Result Content <i class="fa fa-plus"></i> </a>
+                    <div class="content">
+
+                         <div class="set">
+                              <a class="nested" href="#"> Text <i class="fa fa-plus"></i></a>
+                              <div class="content">
+                                   <section id="tinymce">
+                                        <textarea class="tinymce" id="texteditor"></textarea>
+                                   </section>
+                              </div>
+                         </div>
+
+                         <div class="set">
+                              <a class="nested" href="#">Illustrations<i class="fa fa-plus"></i></a>
+                              <div class="content">
+                                   <p> Illustrate your findings below:</p>
+                                   <section id="newDrawingBoard">
+                                        <div class="canvasDiv" style="">
+                                             <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
+                                             <button class="button button-delete" onclick="clearCanvas()">Clear</button>
+                                        </div>
+                                   </section>
+
+                              </div>
+                         </div>
+                         <div class="set">
+                              <a class="nested" href="#"> Molecular Editor<i class="fa fa-plus"></i></a>
+                              <div class="content">
+                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+                                   <section id="chemwriter">
+                                        <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
+                                        </div>
+                                        <input id="button" type="submit" value="Get Molfile"></input>
+                                        <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
+                                   </section>
+                              </div>
+                         </div>
+
+                    </div>
+               </div>
+               </div>
+
+
+               <div id="accordion4">
+               <div class="set">
+                    <a href="#">Conclusion<i class="fa fa-plus"></i></a>
+                    <div class="content">
+                         <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
+                    </div>
+               </div>
+               </div>
+
+          </div>
           </section>
+
+
+
+          <section id="contentSubmit">
+          <div class="row">
+               <div class="col-12">
+               <section id="entry">
+                    <div class="wrap">
+                      <button id="submit"class="button">Submit</button>
+                    </div>
+               </section>
+               <div>
           <div>
-     <div>
      </section>
 
 
-<!--
+
      <section id="tinymce">
           <h1>Text Editor</h1>
                <textarea class ="tinymce" id="texteditor">
@@ -298,12 +366,10 @@
      <link rel="stylesheet" href="https://chemwriter.com/sdk/chemwriter.css">
      <script src="assets/chemwriter.js"></script>
 
-
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 
      <script type="text/javascript" src="assets/doodle.js"></script>
-
-
 
      <script type="text/javascript" src="assets/new-experiments.js"></script>
 
