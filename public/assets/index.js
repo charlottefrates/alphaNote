@@ -135,7 +135,48 @@ function checkAnimation() {
     }
 }
 
+// Check if it's time to start the animation.
+function checkAnimation2() {
+    var $elem = $('.about');
+
+    // If the animation has already been started
+    if ($elem.hasClass('start')) return;
+
+    if (isElementInViewport($elem)) {
+        // Start the animation
+        $elem.addClass('start');
+    }
+}
+
+// Check if it's time to start the animation.
+function checkAnimation3() {
+    var $elem = $('.journal');
+
+    // If the animation has already been started
+    if ($elem.hasClass('start')) return;
+
+    if (isElementInViewport($elem)) {
+        // Start the animation
+        $elem.addClass('start');
+    }
+}
+
+function checkAnimation4() {
+    var $elem = $('.analyze');
+
+    // If the animation has already been started
+    if ($elem.hasClass('start')) return;
+
+    if (isElementInViewport($elem)) {
+        // Start the animation
+        $elem.addClass('start');
+    }
+}
+
 // Capture scroll events
 $(window).scroll(function(){
     checkAnimation();
+    checkAnimation2();
+    checkAnimation3();
+    checkAnimation4();
 });

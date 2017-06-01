@@ -591,13 +591,11 @@ nav ul .nav-hover:hover {
 
 @media screen and (min-width: 945px) {
   #demo-button {
-       position: relative;
-           padding: 8px;
-           border-radius: 20px;
-           color: teal;
-           border: none;
-           background: #c0c7c7;
-           transition-duration: 200ms;
+        position: relative;
+        padding: 8px;
+        color: teal;
+        border: none;
+        transition-duration: 200ms;
   }
 
   #demo-button:hover {
@@ -836,16 +834,12 @@ nav ul .nav-hover:hover {
   width: 100%;
   height: 600px;
   padding-top: 50px;
-  background: #bbb7b7;
+  background: lightgrey;
   text-align: center;
   position: relative;
   overflow: hidden;
   z-index: 1;
 
-}
-
-.sign-up-box.start{
-  animation: slideIn .8s linear, fadeIn .2s ease-in;
 }
 
 
@@ -951,6 +945,11 @@ nav ul .nav-hover:hover {
   border-radius: 4px;
   text-align: center;
 }
+
+.sign-up-box.start{
+  animation: slideIn 2s linear, fadeIn .2s ease-in;
+}
+
 
 .sign-up-title {
   margin-top: 0;
@@ -1062,4 +1061,176 @@ button:hover {
 @keyframes fadeIn {
   from {opacity:0;}
   to {opacity:1;}
+}
+@-webkit-keyframes bounceInLeft {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(-2000px);
+	}
+	60% {
+		-webkit-transform: translateX(20px);
+	}
+
+	80% {
+		-webkit-transform: translateX(-5px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+	}
+}
+
+@-moz-keyframes bounceInLeft {
+	0% {
+		opacity: 0;
+		-moz-transform: translateX(-2000px);
+	}
+
+	60% {
+		-moz-transform: translateX(20px);
+	}
+
+	80% {
+		-moz-transform: translateX(-5px);
+	}
+
+	100% {
+		opacity: 1;
+		-moz-transform: translateX(0);
+	}
+}
+
+@-o-keyframes bounceInLeft {
+	0% {
+		opacity: 0;
+		-o-transform: translateX(-2000px);
+	}
+
+	60% {
+		opacity: 1;
+		-o-transform: translateX(20px);
+	}
+
+	80% {
+		-o-transform: translateX(-5px);
+	}
+
+	100% {
+		opacity: 1;
+		-o-transform: translateX(0);
+	}
+}
+
+@keyframes bounceInLeft {
+	0% {
+		opacity: 0;
+		transform: translateX(-2000px);
+	}
+
+	60% {
+		transform: translateX(20px);
+	}
+
+	80% {
+		transform: translateX(-5px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@-webkit-keyframes bounceInRight {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateX(2000px);
+	}
+
+	60% {
+		-webkit-transform: translateX(-20px);
+	}
+
+	80% {
+		-webkit-transform: translateX(5px);
+	}
+
+	100% {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+	}
+}
+
+@-moz-keyframes bounceInRight {
+	0% {
+		opacity: 0;
+		-moz-transform: translateX(2000px);
+	}
+
+	60% {
+		-moz-transform: translateX(-20px);
+	}
+
+	80% {
+		-moz-transform: translateX(5px);
+	}
+
+	100% {
+		opacity: 1;
+		-moz-transform: translateX(0);
+	}
+}
+
+@-o-keyframes bounceInRight {
+	0% {
+		opacity: 0;
+		-o-transform: translateX(2000px);
+	}
+
+	60% {
+		-o-transform: translateX(-20px);
+	}
+
+	80% {
+		-o-transform: translateX(5px);
+	}
+
+	100% {
+		opacity: 1;
+		-o-transform: translateX(0);
+	}
+}
+
+@keyframes bounceInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(2000px);
+	}
+
+	60% {
+		transform: translateX(-20px);
+	}
+
+	80% {
+		transform: translateX(5px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+
+.about.start{
+     animation: bounceInRight 3s linear;
+}
+
+
+.journal.start{
+     animation: fadeIn 2s ease-in;
+}
+
+.analyze.start{
+     animation: bounceInLeft 4s linear;
 }
