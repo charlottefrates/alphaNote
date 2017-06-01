@@ -48,7 +48,7 @@ router.get('/', (req, res) => {
 // if not,log an error and return a 400 status code. if okay,
 // add new item to experiment and return it with a 201.
 router.post('/new', (req, res) => {
-  const requiredFields = ['category', 'title', 'author','purpose','procedure','results','conclusion'];
+  const requiredFields = ['title', 'author','purpose','procedure','results','conclusion'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
     if (!(field in req.body)) {
@@ -60,7 +60,6 @@ router.post('/new', (req, res) => {
 
   Experiment
     .create({
-        category: req.body.category,
         title: req.body.title,
         author: req.body.author,
         purpose: req.body.purpose,
@@ -87,7 +86,7 @@ router.put('/:id', (req, res) => {
   }
 
   const updated = {};
-  const updateableFields = ['category', 'title', 'author','purpose','procedure','results','conclusion'];
+  const updateableFields = [ 'title', 'author','purpose','procedure','results','conclusion'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];

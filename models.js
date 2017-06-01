@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const experimentSchema = mongoose.Schema({
-     category: {
-          type: String,
-          required: true
-     },
      title: {
           type: String,
           required: true
@@ -39,7 +35,6 @@ experimentSchema.virtual('authorName').get(function() {
 experimentSchema.methods.apiRepr = function() {
      return {
           id: this._id,
-          category: this.category,
           title: this.title,
           purpose: this.purpose,
           procedure: this.procedure,

@@ -149,7 +149,6 @@ $('#submit').on('click',function(event){
     event.preventDefault();
 
     // updates global variables based on user input
-    category = $('#category option:selected').val();
     title = $('#title').val();
     background = $('#background').val();
     purpose = $('#purpose').val();
@@ -161,7 +160,7 @@ $('#submit').on('click',function(event){
 
     // updates data variable with combined user input values
 
-    data.category = category;
+
     data.title = title;
     data.background = background;
     data.purpose = purpose;
