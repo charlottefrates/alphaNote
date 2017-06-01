@@ -282,7 +282,34 @@ select{
 	margin: 50px auto;
 	text-align: center;
 	position: relative;
+     animation: slideIn .8s linear, fadeIn .2s ease-in;
 }
+
+@keyframes slideIn {
+  0% {
+    transform:translateY(400px);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform:translateY(-50px);
+     animation-timing-function: ease-in;
+  }
+  80% {
+    transform:translateY(10px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform:translateY(0px);
+    animation-timing-function: ease-in;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
 #msform fieldset {
 	background: white;
 	border: 0 none;

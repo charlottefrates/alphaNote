@@ -268,7 +268,34 @@ table.responsive-table {
 
 #counter {
      margin-bottom: 50px;
+     animation: slideIn .8s linear, fadeIn .2s ease-in;
 }
+
+@keyframes slideIn {
+  0% {
+    transform:translateY(400px);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform:translateY(-50px);
+     animation-timing-function: ease-in;
+  }
+  80% {
+    transform:translateY(10px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform:translateY(0px);
+    animation-timing-function: ease-in;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
 
 
 /*-=-=-=-=-=-=-=-=-=-=-=- */

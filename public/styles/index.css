@@ -841,7 +841,13 @@ nav ul .nav-hover:hover {
   position: relative;
   overflow: hidden;
   z-index: 1;
+
 }
+
+.sign-up-box.start{
+  animation: slideIn .8s linear, fadeIn .2s ease-in;
+}
+
 
 /* ================================== MEDIA QUERY: IMAGE REARRANGEMENT ================================== */
 
@@ -1029,4 +1035,31 @@ button:hover {
 
 .login2 {
   text-decoration: none;
+}
+
+/* ================================== Animation ================================== */
+
+@keyframes slideIn {
+  0% {
+    transform:translateY(400px);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform:translateY(-50px);
+     animation-timing-function: ease-in;
+  }
+  80% {
+    transform:translateY(10px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform:translateY(0px);
+    animation-timing-function: ease-in;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
 }
