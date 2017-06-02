@@ -11,7 +11,7 @@ const session = require('express-session');
 
 const {DATABASE_URL, PORT} = require('./config');
 const {Experiment} = require('./models');
-const {router: usersRouter} = require('./users');
+const {router: usersRouter} = require('./users/router');
 const labRouter = require('./labRouter');
 
 const app = express();

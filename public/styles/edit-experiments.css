@@ -1,0 +1,446 @@
+* {
+     margin: 0;
+     padding: 0
+     box-sizing: border-box;
+     font-family: 'Balthazar', sans-serif;
+     text-align: center;
+     font-weight: normal;
+     color: #333333;
+}
+
+body {
+     background-color: #f2f2f2;
+}
+
+
+.hidden{
+     display: none;
+}
+
+/* style all input elements with a required attribute */
+input:required {
+  box-shadow: 1px 2px 16px rgba(200, 0, 0, 0.85);
+}
+
+/**
+ * style input elements that have a required
+ * attribute and a focus state
+ */
+input:required:focus {
+  border: 1px solid red;
+  outline: none;
+}
+
+/**
+ * style input elements that have a required
+ * attribute and a hover state
+ */
+input:required:hover {
+  opacity: 1;
+}
+
+/* ================================= NAVIGATION =================================*/
+
+nav {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     text-align: center;
+     z-index: 5;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+a {
+     text-decoration: none;
+     color: inherit;
+}
+
+nav ul {
+     background-color: white;
+     overflow: hidden;
+     color: teal;
+     padding: 0;
+     text-align: center;
+     margin: 0;
+     -webkit-transition: max-height 1s ease;
+     -ms-transition: max-height 1s ease;
+     -moz-transition: max-height 1s ease;
+     -o-transition: max-height 1s ease;
+     transition: max-height 1s ease;
+}
+
+nav ul li {
+     display: inline-block;
+     padding: 20px;
+     transition: background-color .5s ease;
+     font-size: 18px;
+}
+
+nav ul li:hover {
+     background-color: teal;
+}
+
+.handle {
+     background: grey;
+     width: 100%;
+     text-align: left;
+     padding: 18px 12px;
+     cursor: pointer;
+     display: none;
+
+}
+
+.handle-menu {
+     font-size: 20px;
+     font-weight: bold;
+     background: white;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+}
+
+.fa-bars {
+     position: relative;
+     bottom: 5px;
+     float: right;
+     color: white;
+}
+
+.activity-summary-heading {
+     margin-top: 90px;
+     margin-bottom: 0;
+     letter-spacing: 1px;
+}
+
+/* ================================= MEDIA QUERY: NAVIGATION =================================*/
+
+@media only screen and (max-width: 660px) {
+     nav ul {
+          max-height: 0;
+     }
+     .showing {
+          max-height: 20em;
+     }
+     nav ul li {
+          width: 100%;
+          padding: 15px;
+     }
+     .handle {
+          display: block;
+     }
+}
+
+
+/* ================================= Accordion=================================*/
+
+.accordion-container {
+     margin: 50px 50px;
+}
+
+.set {
+     position: relative;
+     width: 100%;
+     height: auto;
+     border-radius: 4px;
+     background-color: #8e8d8d;
+     box-sizing: border-box;
+}
+
+.set>a {
+     font-family: inherit;
+     font-size: 18pt;
+     display: block;
+     padding: 10px 15px;
+     text-decoration: none;
+     box-sizing: border-box;
+     color: #fff;
+     font-weight: 600;
+     border-bottom: 2px solid #fff;
+     -webkit-transition: all 0.2s linear;
+     -moz-transition: all 0.2s linear;
+     transition: all 0.2s linear;
+}
+
+.set>a i {
+     position: relative;
+     float: right;
+     margin-top: 4px;
+     color: #fff;
+     box-sizing: border-box;
+}
+
+.set>a.active {
+     background-color: teal;
+     color: #fff;
+     box-sizing: border-box;
+}
+
+.set>a.active i {
+     color: #fff;
+}
+
+.content {
+     display: none;
+     position: relative;
+     box-sizing: border-box;
+     padding: 10px;
+     width: 100%;
+     height: auto;
+     background-color: #fff;
+     border: 1px solid #ccc;
+     margin-bottom: 2px;
+}
+
+.accordion-container img {
+     max-width: 100%;
+     display: block;
+     height: auto;
+}
+
+.nested {
+     background-color: lightgrey;
+}
+
+
+a:hover {
+  color: teal;
+}
+
+
+
+
+/* ================================= USER INPUT FIELD=================================*/
+
+#title {
+     width: 80%;
+     border: none;
+     border-left: none;
+     border-top: none;
+     border-right: none;
+     padding: 2px 0;
+     font-family: 'Balthazar', sans-serif;
+     font-size: 30px;
+     font-style: bold;
+     background-color: transparent;
+     margin-bottom: 20px;
+     margin-top: 15px;
+     text-align: center;
+}
+
+#background, #purpose, #procedure, #conclusion {
+     margin-top: 50px;
+     margin-bottom: 50px;
+     width: 80%;
+     height: 400px;
+     resize: none;
+     overflow: auto;
+     padding: 10px;
+     text-align: justify;
+     white-space: normal;
+}
+
+.chemwriter{
+     margin-left: auto;
+     margin-right: auto;
+}
+
+#tinymce {
+     margin: auto 20% auto;
+     margin-top: 50px;
+     margin-bottom: 50px;
+
+}
+
+#mceu_12{
+     width:100% !important;;
+}
+
+
+/* ================================= BUTTON =================================*/
+.wrap {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  margin: 10px;
+  font-family:inherit;
+  width: 140px;
+  height: 45px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  }
+
+.button:hover {
+  background-color: teal;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+
+
+/* ================================= DROPDOWN =================================*/
+
+select{
+     margin-left: 30%;
+     margin-right: 30%;
+     margin-bottom: 20px;
+}
+
+/* ================================= FORM =================================*/
+
+/*form styles*/
+#msform {
+	width: 90%;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+     animation: slideIn .8s linear, fadeIn .2s ease-in;
+}
+
+@keyframes slideIn {
+  0% {
+    transform:translateY(400px);
+    animation-timing-function: ease-out;
+  }
+  60% {
+    transform:translateY(-50px);
+     animation-timing-function: ease-in;
+  }
+  80% {
+    transform:translateY(10px);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform:translateY(0px);
+    animation-timing-function: ease-in;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {opacity:0;}
+  to {opacity:1;}
+}
+
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+     height:70%;
+	margin: 0 10%;
+
+	/*stacking fieldsets above each other*/
+	position: relative;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: teal;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+	font-size: 18px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 15px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+     margin-left: 3%;
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: black;
+	text-transform: uppercase;
+	font-size: 12px;
+	width: 16%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 13px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: teal;
+	color: white;
+}

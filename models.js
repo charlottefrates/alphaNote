@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const experimentSchema = mongoose.Schema({
+     author:{
+          type: String,
+          required: true
+     },
      title: {
           type: String,
           required: true
@@ -19,7 +23,6 @@ const experimentSchema = mongoose.Schema({
           type: Date,
           default: Date.now
      },
-     deleted:0,
      status:0,
 
 });
@@ -30,6 +33,7 @@ experimentSchema.virtual('authorName').get(function() {
 
 experimentSchema.methods.apiRepr = function() {
      return {
+          author: this.author,
           id: this._id,
           title: this.title,
           purpose: this.purpose,
@@ -37,7 +41,6 @@ experimentSchema.methods.apiRepr = function() {
           results: this.results,
           conclusion: this.conclusion,
           created: this.created,
-          deleted: this.deleted,
           status: this.status,
      };
 }

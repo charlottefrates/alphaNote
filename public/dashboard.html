@@ -17,77 +17,68 @@
 
 <body>
 
-     <nav>
-          <ul>
-               <a href="/dashboard">
-                    <li>Home</li>
-               </a>
-               <a href="/new-experiment">
-                    <li>Add New Experiments</li>
-               </a>
-               <a href="/logout">
-                    <li>Logout</li>
-               </a>
-          </ul>
-          <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
-     </nav>
+     <section id="navbar">
+          <nav>
+               <ul>
+                    <a href="/dashboard">
+                         <li>Home</li>
+                    </a>
+                    <a href="/new-experiment">
+                         <li>Add New Experiments</li>
+                    </a>
+                    <a href="/logout">
+                         <li>Logout</li>
+                    </a>
+               </ul>
+               <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+          </nav>
+     </section>
 
      <section id="header">
-     <div class="row">
-          <div class="col-12">
-               <h1 class="activity-summary-heading animated fadeIn"></h1>
+          <div class="row">
+               <div class="col-12">
+                    <h1 class="activity-summary-heading animated fadeIn"></h1>
+               </div>
           </div>
-     </div>
      </section>
 
      <section id="counter">
-
           <div class="wrapper">
-              <div class="counter col_fourth">
-                <i class="fa fa-book fa-2x"></i>
-                <h2 class="timer count-title count-number" id="experimentData"data-to="" data-speed="1500"></h2>
-                 <p class="count-text ">Total Experiments</p>
-              </div>
+               <div class="counter col_fourth">
+                    <i class="fa fa-book fa-2x"></i>
+                    <h2 class="timer count-title count-number" id="experimentData" data-to="20" data-speed="1500"></h2>
+                    <p class="count-text ">Total Experiments</p>
+               </div>
 
-              <div class="counter col_fourth">
-                <i class="fa fa-lightbulb-o fa-2x"></i>
-                <h2 class="timer count-title count-number" id="pendingData" data-to="" data-speed="1500"></h2>
-                <p class="count-text ">Pending</p>
-              </div>
+               <div class="counter col_fourth">
+                    <i class="fa fa-lightbulb-o fa-2x"></i>
+                    <h2 class="timer count-title count-number" id="pendingData" data-to="" data-speed="1500"></h2>
+                    <p class="count-text ">Pending</p>
+               </div>
 
-              <div class="counter col_fourth end">
-                <i class="fa fa-check fa-2x"></i>
-                <h2 class="timer count-title count-number" id="completedData"data-to="" data-speed="1500"></h2>
-                <p class="count-text ">Completed</p>
-              </div>
+               <div class="counter col_fourth end">
+                    <i class="fa fa-check fa-2x"></i>
+                    <h2 class="timer count-title count-number" id="completedData" data-to="" data-speed="1500"></h2>
+                    <p class="count-text ">Completed</p>
+               </div>
           </div>
-    
      </section>
 
      <section id="filter">
-         <div id="wrapper-filter">
-              <ul id="filter-bar">
-                   <span class="pill"></span>
-                   <li class="filter-option option-1 active" data-target="option-1">Title</li>
-                   <li class="filter-option option-2" data-target="option-2">Date</li>
-                   <li class="filter-option option-3" data-target="option-3">Status</li>
-              </ul>
-         </div>
-    </section>
-
-
-     <section id="accordion">
-     <div class="row">
-		<div class="col-12">
-			<div class="main-container">
-				<dl class="accordion animated fadeIn">
-				</dl>
-		</div>
-	</div>
+          <div id="wrapper-filter">
+               <ul id="filter-bar">
+                    <span class="pill"></span>
+                    <li class="filter-option option-1 active" data-target="option-1">Title</li>
+                    <li class="filter-option option-2" data-target="option-2">Date</li>
+                    <li class="filter-option option-3" data-target="option-3">Status</li>
+               </ul>
+          </div>
      </section>
 
-
-
+     <section id="grid">
+          <ul class="gallery">
+          </ul>
+     </section>
 
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

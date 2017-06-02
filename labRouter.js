@@ -8,25 +8,16 @@ const jsonParser = bodyParser.json();
 
 const {Experiment} = require('./models');
 
-/*
-// when the root of this router is called with GET, return
-// all current experiment collection
-// endpoint diff but gets routed to /experiments by server.js
-router.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/experiments.html');
-});
-
 
 router.get('/:id', (req, res) => {
-  //TODO make new-experiment.html file and associated assets(.js & .css)
-  res.sendFile(__dirname + '/public/experiment-edit.html');
+  res.sendFile(__dirname + '/public/edit-experiments.html');
 });
-*/
+
 
 //path to see JSON objects
 router.get('/', (req, res) => {
   Experiment
-    .find()
+    .find(/*{author: "Charlotte"}*/)
     .exec()
     .then(experiments => {
       res.json(experiments.map(experiment => experiment.apiRepr()));
@@ -42,6 +33,7 @@ router.get('/', (req, res) => {
 // if not,log an error and return a 400 status code. if okay,
 // add new item to experiment and return it with a 201.
 router.post('/new', (req, res) => {
+  console.log (req);
   const requiredFields = ['title','purpose','procedure','results','conclusion'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -55,7 +47,7 @@ router.post('/new', (req, res) => {
   Experiment
     .create({
         title: req.body.title,
-        author: req.body.author,
+        author: "Charlotte",
         purpose: req.body.purpose,
         procedure: req.body.procedure,
         results: req.body.results,
