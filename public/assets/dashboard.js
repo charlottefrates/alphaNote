@@ -71,7 +71,7 @@ function displayExperiments(data) {
       accordion.append(
         '<dt id="'+ data[index].id +'" class="animated"><p class="experiment-title">' + data[index].title + '</p>' +
         '<p class="experiment-date">' + data[index].created + '</p></dt>' +
-        '<dd class="animated"><blockquote>Purpose: ' + data[index].purpose + '</blockquote>' +
+        '<dd class="animated"><blockquote>Status: ' + data[index].status + '</blockquote>' +
         //'<p class="experiment-info">Status: ' + '<span class="stats">' + data[index].status + '</span></p>' +
         '<a href="/experiments/'+ data[index].id +'"><p class="experiment-info edit-button">Edit</p></a>' +
         '<p class="experiment-info delete-button">Delete</p>' +

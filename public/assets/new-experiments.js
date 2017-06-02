@@ -1,42 +1,5 @@
-//global variable
-var category,title,background,purpose,procedure,text,drawing,molecule,conclusion;
+/* ================================= Multi-step Form with Progress Bar========================================*/
 
-//variable that holds blog entries
-var data = {
-    results:{},
-};
-
-
-
-//API POST request
-var newLocalEntry = {
-     "url": "http://localhost:8080/experiments/new",
-     "dataType": "json",
-     "contentType": "application/json; charset=utf-8",
-     "method": "POST",
-     "data": JSON.stringify(data),
-};
-
-
-//API EDIT request
-var deleteLocalEntry = {
-    "url": "http://localhost:8080/experiments",
-    "dataType": "json",
-    "contentType": "application/json; charset=utf-8",
-    "method": "PUT",
-}
-
-//API DELETE request
-var deleteLocalEntry = {
-    "url": "http://localhost:8080/experiments",
-    "dataType": "json",
-    "contentType": "application/json; charset=utf-8",
-    "method": "DELETE",
-}
-
-
-
-//jQuery time
 var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
@@ -186,6 +149,22 @@ $('#step6').on('click',function(event){
 
 
 /* ================================= POST SUBMISSION========================================*/
+//global variable
+var title,background,purpose,procedure,text,drawing,molecule,conclusion;
+
+//variable that holds blog entries
+var data = {
+    results:{},
+};
+
+//API POST request
+var newLocalEntry = {
+     "url": "/experiments/new",
+     "dataType": "json",
+     "contentType": "application/json; charset=utf-8",
+     "method": "POST",
+     "data": JSON.stringify(data),
+};
 
 
 $('#submit').on('click',function(event){
@@ -241,13 +220,4 @@ $('#submit').on('click',function(event){
 
 $('#title').on('keydown',function(){
      $('#title').removeAttr('required');
-});
-
-
-
-
-$(document).ready(function(){
-
-
-
 });
