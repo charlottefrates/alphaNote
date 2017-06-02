@@ -229,8 +229,8 @@ $('#submit').on('click',function(event){
 
     $.ajax(newLocalEntry).done(function(response) {
           console.log(response);
-		alert('Your Experiment has been Saved.');
-		window.location.href = '/dashboard';
+		alert('Your experiment has been properly saved.');
+		//window.location.href = '/dashboard';
      }).fail(function(error){
 		console.log(error);
 		alert('Something went wrong with the server. Try again later');

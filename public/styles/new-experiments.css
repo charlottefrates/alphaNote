@@ -19,7 +19,7 @@ body {
 
 /* style all input elements with a required attribute */
 input:required {
-  box-shadow: 4px 4px 20px rgba(200, 0, 0, 0.85);
+  box-shadow: 1px 2px 16px rgba(200, 0, 0, 0.85);
 }
 
 /**
@@ -383,14 +383,14 @@ select{
 }
 /*headings*/
 .fs-title {
-	font-size: 15px;
+	font-size: 18px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
 }
 .fs-subtitle {
 	font-weight: normal;
-	font-size: 13px;
+	font-size: 15px;
 	color: #666;
 	margin-bottom: 20px;
 }

@@ -16,12 +16,6 @@ router.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/experiments.html');
 });
 
-router.get('/new', (req, res) => {
-  let user = req.user;
-  let userid = user._id
-  //TODO make new-experiment.html file and associated assets(.js & .css)
-  res.sendFile(__dirname + '/public/new-experiment.html');
-});
 
 router.get('/:id', (req, res) => {
   //TODO make new-experiment.html file and associated assets(.js & .css)

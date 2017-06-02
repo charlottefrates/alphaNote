@@ -5,18 +5,20 @@ var localRequest = {
      "url": "http://localhost:8080/experiments",
      "dataType": "json",
      "contentType": "application/json; charset=utf-8",
-     "method": "GET",
-};
+     "method": "GET"
+  };
+
 
 //captures API response
 var preSetPosts;
 
-//Renders Experiments into DOM
+var totalExperiments;
+
+//Renders Experiments into table view
 function showExperiments() {
      $.each(preSetPosts, function(index, value) {
           console.log(value.title);
-          console.log(value.content);
-          console.log(value.author);
+          console.log(value.created);
 
           var experimentTemplate = '<tr>'+
 		'<td class="organisationnumber">' +
@@ -37,19 +39,91 @@ function showExperiments() {
 
 }
 
+function getExperiments(callbackFn) {
+  $.ajax({
+    url: "/experiments",
+    type: 'GET',
+    dataType: 'json',
 
-/* ================================= Document Load =================================*/
-$(document).ready(function() {
+    success: function(data) {
+      if(data) {
+        var results = data;
+        callbackFn(results);
+      }
+    }
+  });
+}
 
-     $.ajax(localRequest).done(function(response) {
-          //updates preSetPosts with any new additional posts
-          preSetPosts = eval(response);
-          console.log(preSetPosts);
-          showExperiments();
-     });
+//Renders Experiments into accordion view
+
+function displayExperiments(data) {
+  console.log(data);
+  totalExperiments = data.length;
+  console.log(totalExperiments);
+  //TODO: NOT UPDATING ATTRIBUTE DYNAMICALLY
+ $('#experimentData').attr('data-to',totalExperiments);
+  const accordion = $('.accordion');
+  if (data.length === 0) {
+    accordion.html('<h2 class="no-results">You haven\'t recorded any experiments! Click "Add New Experiment" in the menu to get started.</h2>');
+  }
+  else {
+    for (index in data) {
+      accordion.append(
+        '<dt id="'+ data[index].id +'" class="animated"><p class="experiment-title">' + data[index].title + '</p>' +
+        '<p class="experiment-date">' + data[index].created + '</p></dt>' +
+        '<dd class="animated"><blockquote>Purpose: ' + data[index].purpose + '</blockquote>' +
+        //'<p class="experiment-info">Status: ' + '<span class="stats">' + data[index].status + '</span></p>' +
+        '<a href="/experiments/'+ data[index].id +'"><p class="experiment-info edit-button">Edit</p></a>' +
+        '<p class="experiment-info delete-button">Delete</p>' +
+        '</dd>'
+        );
+    }
+
+    accordion.find('dd').hide();
+    accordion.find('dt').on('click', function(event) {
+      $(this).toggleClass('open').next('dd').slideToggle().siblings('dd:visible').slideUp().prev('dt').removeClass('open');
+    });
+
+    $('.delete-button').on('click', function(event) {
+      const experimentId = $(this).closest('dd').prev('dt').attr('id');
+      $(this).closest('dd').prev().addClass('fadeOut');
+      $(this).closest('dd').addClass('fadeOut');
+
+      if (confirm('Are you sure you want to delete?')) {
+        $.ajax({
+          url: `/experiments/${experimentId}`,
+          type: 'DELETE',
+          dataType: 'json',
+
+          success: function(data) {
+
+          }
+        });
+
+        setTimeout(function(){
+          location.reload(true);
+        }, 700);
+
+} else {
+    // Do nothing!
+}
 
 
+    });
+
+  };
+};
+
+function getAndDisplayExperiments() {
+  getExperiments(displayExperiments);
+}
+
+/* ================================= IIFE =================================*/
+
+$(function() {
+  getAndDisplayExperiments();
 });
+
 
 
 /* ================================= Filter Menu=================================*/

@@ -41,66 +41,49 @@
      </section>
 
      <section id="counter">
-          <div class="col-12">
+
           <div class="wrapper">
               <div class="counter col_fourth">
                 <i class="fa fa-book fa-2x"></i>
-                <h2 class="timer count-title count-number" data-to="30" data-speed="1500"></h2>
+                <h2 class="timer count-title count-number" id="experimentData"data-to="" data-speed="1500"></h2>
                  <p class="count-text ">Total Experiments</p>
               </div>
 
               <div class="counter col_fourth">
                 <i class="fa fa-lightbulb-o fa-2x"></i>
-                <h2 class="timer count-title count-number" data-to="15" data-speed="1500"></h2>
+                <h2 class="timer count-title count-number" id="pendingData" data-to="" data-speed="1500"></h2>
                 <p class="count-text ">Pending</p>
               </div>
 
               <div class="counter col_fourth end">
                 <i class="fa fa-check fa-2x"></i>
-                <h2 class="timer count-title count-number" data-to="15" data-speed="1500"></h2>
+                <h2 class="timer count-title count-number" id="completedData"data-to="" data-speed="1500"></h2>
                 <p class="count-text ">Completed</p>
               </div>
           </div>
-          </div>
+    
      </section>
-
-
 
      <section id="filter">
-          <div id="wrapper-filter">
-               <ul id="filter-bar">
-                    <span class="pill"></span>
-     			<li class="filter-option option-1 active" data-target="option-1">Title</li>
-     			<li class="filter-option option-2" data-target="option-2">Date</li>
-     			<li class="filter-option option-3" data-target="option-3">Status</li>
-     		</ul>
-          </div>
-     </section>
+         <div id="wrapper-filter">
+              <ul id="filter-bar">
+                   <span class="pill"></span>
+                   <li class="filter-option option-1 active" data-target="option-1">Title</li>
+                   <li class="filter-option option-2" data-target="option-2">Date</li>
+                   <li class="filter-option option-3" data-target="option-3">Status</li>
+              </ul>
+         </div>
+    </section>
 
-     <section id="table">
-          <div class="page">
-               <table class="layout display responsive-table">
-                    <thead>
-                       <tr>
-                           <th>Date</th>
-                           <th colspan="2">Title</th>
-                       </tr>
-                    </thead>
-                    <tbody id="mainTable">
-                         <!--
-                         <tr>
-                              <td class="organisationnumber">140412</td>
-                              <td class="organisationname">Stet clita kasd gubergren, no sea takimata sanctus est</td>
-                              <td class="actions">
-                                   <a href="?" class="edit-item" title="Edit">Edit</a>
-                                   <a href="?" class="remove-item" title="Remove">Remove</a>
-                              </td>
-                         </tr>
-                         -->
-                     </tbody>
-               </table>
-          </div>
 
+     <section id="accordion">
+     <div class="row">
+		<div class="col-12">
+			<div class="main-container">
+				<dl class="accordion animated fadeIn">
+				</dl>
+		</div>
+	</div>
      </section>
 
 

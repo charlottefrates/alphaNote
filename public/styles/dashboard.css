@@ -118,9 +118,12 @@ nav ul li:hover {
      background-color: #fff;
      width: 570px;
      height: auto;
-     margin: 300px auto;
+     margin-left: auto;
+     margin-top: 250px;
+     margin-right: auto;
      border-radius: 30px;
      box-sizing: border-box;
+     animation: slideIn .8s linear, fadeIn .2s ease-in;
 }
 
 #filter-bar li {
@@ -173,100 +176,9 @@ nav ul li:hover {
 }
 
 
-/* =================================  TABLE   =================================*/
-
-a {
-     color: teal;
-     padding: 2px;
-}
-
-.page {
-     max-width: 70%;
-     margin: 0 auto;
-}
-
-table th, table td {
-     text-align: left;
-}
-
-table.layout {
-     width: 100%;
-     border-collapse: collapse;
-}
-
-table.display {
-     margin: -16em 0;
-}
-
-table.display th, table.display td {
-     border: 1px solid black;
-     padding: .5em 1em;
-}
-
-table.display th {
-     background: lightgrey;
-}
-
-table.display td {
-     background: #fff;
-}
-
-table.responsive-table {
-     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 30em) {
-     table.responsive-table {
-          box-shadow: none;
-     }
-     table.responsive-table thead {
-          display: none;
-     }
-     table.display th, table.display td {
-          padding: .5em;
-     }
-     table.responsive-table td:nth-child(1):before {
-          content: 'Number';
-     }
-     table.responsive-table td:nth-child(2):before {
-          content: 'Name';
-     }
-     table.responsive-table td:nth-child(1), table.responsive-table td:nth-child(2) {
-          padding-left: 25%;
-     }
-     table.responsive-table td:nth-child(1):before, table.responsive-table td:nth-child(2):before {
-          position: absolute;
-          left: .5em;
-          font-weight: bold;
-     }
-     table.responsive-table tr, table.responsive-table td {
-          display: block;
-     }
-     table.responsive-table tr {
-          position: relative;
-          margin-bottom: 1em;
-          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
-     }
-     table.responsive-table td {
-          border-top: none;
-     }
-     table.responsive-table td.organisationnumber {
-          background: #D5E0CC;
-          border-top: 1px solid #B3BFAA;
-     }
-     table.responsive-table td.actions {
-          position: absolute;
-          top: 0;
-          right: 0;
-          border: none;
-          background: none;
-     }
-}
-
-
 /* =================================  COUNTER  =================================*/
 
-#counter {
+#counter, #accordion {
      margin-bottom: 50px;
      animation: slideIn .8s linear, fadeIn .2s ease-in;
 }
@@ -383,4 +295,225 @@ table.responsive-table {
      float: none;
      display: table;
      color: teal;
+}
+
+/* ================================= NO RESULT TEXT =================================*/
+
+.no-results {
+  text-align: center;
+  font-weight: normal;
+}
+
+/* ================================= PAGE TITLE =================================*/
+
+.page-title {
+  margin-top: 90px;
+  text-align: center;
+  font-weight: normal;
+}
+
+/* ================================= MAIN CONTAINER HOLDING ALL EXperiments =================================*/
+
+.main-container {
+	width: 100%;
+	height: auto;
+	margin-bottom: 50px;
+     margin-top: 50px;
+}
+
+.accordion,
+.accordion dt,
+.accordion dd {
+     width: 90%;
+     height: 90px;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 0;
+}
+
+.accordion dt {
+	background: transparent;
+	color: #333333;
+	font-size: 20px;
+	margin-top: 15px;
+	padding: 5px 10px;
+	cursor: pointer;
+	transition: all 300ms;
+	position: relative;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.accordion dt:before {
+	content: '\f0d7';
+	font-family: FontAwesome;
+	margin-right: 15px;
+	font-size: 40px;
+	position: relative;
+	top: 6px;
+  color: teal;
+}
+
+/* Title Color Change */
+.accordion dt.open {
+	background-color: teal;
+	border-bottom-color: black;
+}
+
+.accordion dt.open:before {
+	content: '\f0d8';
+	font-family: FontAwesome;
+	margin-right: 15px;
+	font-size: 40px;
+  color: #333333;
+}
+
+.accordion dd {
+	background-color: transparent;
+	border-top: none;
+  line-height: 1.5em;
+	padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.experiment-title {
+     font-weight: bolder;
+    display: inline-block;
+    width: 80%;
+    padding-right: 5px;
+    margin: 8px;
+}
+
+.experiment-date {
+	display: inline-block;
+     margin-top: 0px;
+}
+
+blockquote {
+     font-family: inherit;
+     color: #333333;
+     position: relative;
+     margin-top: 8px;
+     margin-bottom: -7px;
+}
+
+/* Thanks: http://callmenick.com/post/styling-blockquotes-with-css-pseudo-classes */
+blockquote:before {
+    font-family: inherit;
+    position: absolute;
+    font-size: 6em;
+    line-height: 1;
+    top: 0;
+    left: 0;
+    /*content: "\201C";*/
+}
+blockquote:after {
+    font-family: inherit;
+    position: absolute;
+    float:right;
+    font-size:6em;
+    line-height: 1;
+    right:0;
+    bottom:-0.5em;
+    /*content: "\201D";*/
+}
+blockquote footer {
+    padding: 0 2em 0 0;
+    text-align:right;
+}
+
+blockquote cite:before {
+    content: "\2013";
+}
+
+/* ================================= INFO AT BOTTOM OF EACH ENTRY =================================*/
+
+.experiment-info {
+	display: inline-block;
+	width: 25%;
+	text-align: center;
+	color: #353535;
+	font-size: 18px;
+}
+
+.full-stats {
+	border: 2px solid black;
+	padding: 5px;
+	border-radius: 4px;
+}
+
+.edit-button {
+	text-decoration: none;
+	padding: 3px 10px;
+	border-radius: 3px;
+  -webkit-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  font-weight: bolder;
+}
+
+.edit-button:hover {
+	background-color: teal;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.delete-button {
+  text-decoration: none;
+  padding: 3px 3px;
+  border-radius: 3px;
+  -webkit-transition: all .2s ease;
+  -ms-transition: all .2s ease;
+  -moz-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+  font-weight: bolder;
+}
+
+.delete-button:hover {
+  background-color: red;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.stats {
+	color: teal;
+}
+
+/* ================================= MEDIA QUERIES =================================*/
+
+@media only screen and (max-width: 965px) {
+  .experiment-date {
+    width: 100%;
+    text-align: center;
+  }
+
+  .experiment-title {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    margin-top: 5px;
+  }
+
+  .accordion dt:before {
+    font-size: 30px;
+  }
+
+  .accordion dt.open:before {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 875px) {
+  .experiment-info {
+    width: 50%;
+    margin: 9px 0;
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .experiment-info {
+    width: 100%;
+  }
 }
