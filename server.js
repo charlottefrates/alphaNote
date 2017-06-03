@@ -61,11 +61,17 @@ app.get('/new-experiment',
   }
 );
 
+app.get('/:id', (req, res) => {
+  res.sendFile(__dirname + '/public/edit-experiments.html');
+});
+
+
+
 
 //logout
 app.get('/logout', function (req, res){
   console.log("logging out");
-  req.logOut();
+  req.logout();
   res.clearCookie('connect.sid');
   req.session.destroy(function (err) {
         res.redirect('/'); //Inside a callback… bulletproof!

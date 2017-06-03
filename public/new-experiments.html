@@ -82,6 +82,7 @@
     <h2 class="fs-title">Provide Experiment Title and Background</h2>
     <h3 class="fs-subtitle">This is step 1</h3>
     <input type="text" name="Title" id="title" placeholder="Experiment Title (required)" required>
+    <!-- ADD inputs to include author name -->
     <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
@@ -175,123 +176,6 @@
 
 
 <!--
-     <section id="accordion-view">
-          <div class="accordion-container">
-
-               <div id="accordion1">
-               <div class="set">
-                    <a href="#"> Title and Background <i class="fa fa-plus"></i> </a>
-                    <div class="content">
-                         <h3 style="font-size:18px;">
-                         <input type="text" name="Title" id="title" placeholder="Experiment Title">
-                         </h3>
-                         <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
-                         <select id="category">
-                           <option>Biology</option>
-                           <option>Chemistry</option>
-                           <option>Other</option>
-                         </select>
-                    </div>
-               </div>
-               </div>
-
-
-               <div id="accordion2">
-               <div class="set">
-                    <a href="#"> Purpose & Procedure <i class="fa fa-plus"></i> </a>
-                    <div class="content">
-
-                         <div class="set">
-                              <a class="nested" href="#">Purpose<i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
-                              </div>
-                         </div>
-                         <div class="set">
-                              <a class="nested" href="#">Procedure<i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
-                              </div>
-                         </div>
-
-                    </div>
-               </div>
-               </div>
-
-
-               <div id="accordion3">
-               <div class="set">
-                    <a href="#"> Result Content <i class="fa fa-plus"></i> </a>
-                    <div class="content">
-
-                         <div class="set">
-                              <a class="nested" href="#"> Text <i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <section id="tinymce">
-                                        <textarea class="tinymce" id="texteditor"></textarea>
-                                   </section>
-                              </div>
-                         </div>
-
-                         <div class="set">
-                              <a class="nested" href="#">Illustrations<i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <p> Illustrate your findings below:</p>
-                                   <section id="newDrawingBoard">
-                                        <div class="canvasDiv" style="">
-                                             <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
-                                             <button class="button button-delete" onclick="clearCanvas()">Clear</button>
-                                        </div>
-                                   </section>
-
-                              </div>
-                         </div>
-                         <div class="set">
-                              <a class="nested" href="#"> Molecular Editor<i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                                   <section id="chemwriter">
-                                        <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
-                                        </div>
-                                        <input id="button" type="submit" value="Get Molfile"></input>
-                                        <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
-                                   </section>
-                              </div>
-                         </div>
-
-                    </div>
-               </div>
-               </div>
-
-
-               <div id="accordion4">
-               <div class="set">
-                    <a href="#">Conclusion<i class="fa fa-plus"></i></a>
-                    <div class="content">
-                         <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
-                    </div>
-               </div>
-               </div>
-
-          </div>
-          </section>
-
-
-
-          <section id="contentSubmit">
-          <div class="row">
-               <div class="col-12">
-               <section id="entry">
-                    <div class="wrap">
-                      <button id="submit"class="button">Submit</button>
-                    </div>
-               </section>
-               <div>
-          <div>
-     </section>
-
-
-
      <section id="tinymce">
           <h1>Text Editor</h1>
                <textarea class ="tinymce" id="texteditor">

@@ -9,15 +9,11 @@ const jsonParser = bodyParser.json();
 const {Experiment} = require('./models');
 
 
-router.get('/:id', (req, res) => {
-  res.sendFile(__dirname + '/public/edit-experiments.html');
-});
-
-
 //path to see JSON objects
 router.get('/', (req, res) => {
   Experiment
     .find(/*{author: "Charlotte"}*/)
+    .sort({created: -1}) //sorts recent date first
     .exec()
     .then(experiments => {
       res.json(experiments.map(experiment => experiment.apiRepr()));
@@ -28,12 +24,25 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id/json', (req, res) => {
+  Experiment
+    .findById(req.params.id)
+    .exec()
+    .then(dream => res.json(dream.apiRepr()))
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({error: 'something went horribly awry'});
+    });
+});
+
 //POST reqeust with specified requirements
 // when a new experiment is posted, make sure it has required content.
 // if not,log an error and return a 400 status code. if okay,
 // add new item to experiment and return it with a 201.
 router.post('/new', (req, res) => {
+  //let user = req.user;
   console.log (req);
+  console.log (res);
   const requiredFields = ['title','purpose','procedure','results','conclusion'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -47,12 +56,13 @@ router.post('/new', (req, res) => {
   Experiment
     .create({
         title: req.body.title,
-        author: "Charlotte",
+        author: req.body.author,
         purpose: req.body.purpose,
         procedure: req.body.procedure,
         results: req.body.results,
         conclusion: req.body.conclusion,
-        created: req.body.created
+        created: req.body.created,
+        //user_id:user._id
     })
     .then(experimentEntry => res.status(201).json(experimentEntry.apiRepr()))
     .catch(err => {

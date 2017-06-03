@@ -1,3 +1,34 @@
+/* ================================= GET EXPERIMENTS TO EDIT =================================*/
+
+function geExperimentEntries(callbackFn) {
+  let fullPathName = window.location.pathname;
+  console.log(fullPathName);
+
+
+  $.ajax({
+    url: `/experiments/${fullPathName}/json`,
+    type: 'GET',
+    dataType: 'json',
+
+    success: function(data) {
+      if(data) {
+        callbackFn(data);
+	   console.log(data)
+      }
+    }
+  });
+}
+/* ================================= FILL FORM WITH DATE =================================*/
+function displayExperiment(data){
+	console.log('display experiment content here with Read ONLY')
+}
+
+/* ================================= IIFE =================================*/
+
+$(function() {
+  geExperimentEntries(displayExperiment);
+});
+
 /* ================================= Multi-step Form with Progress Bar========================================*/
 
 var current_fs, next_fs, previous_fs; //fieldsets

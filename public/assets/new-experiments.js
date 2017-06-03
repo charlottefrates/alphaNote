@@ -1,32 +1,3 @@
-/* ================================= GET EXPERIMENTS TO EDIT =================================*/
-
-function geExperimentEntries(callbackFn) {
-  let fullPathName = window.location.pathname;
-  let experimentId = fullPathName.slice(8);
-
-  $.ajax({
-    url: `/dreams/$${experimentId}/json`,
-    type: 'GET',
-    dataType: 'json',
-
-    success: function(data) {
-      if(data) {
-        callbackFn(data);
-	   console.log(data)
-      }
-    }
-  });
-}
-/* ================================= FILL FORM WITH DATE =================================*/
-function displayExperiment(data){
-	console.log(display);
-}
-
-/* ================================= IIFE =================================*/
-
-$(function() {
-  getDreamEntries(isplayExperiment);
-});
 
 
 /* ================================= Multi-step Form with Progress Bar========================================*/
