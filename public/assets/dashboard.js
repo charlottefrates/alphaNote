@@ -58,15 +58,6 @@ function displayExperiments(data) {
           });
 
           /*
-          $('.edit-button').on('click', function(event) {
-               const experimentId = $(this).closest('dd').prev('dt').attr('id');
-               console.log(experimentId);
-               window.location.href = '/experiments/'+ experimentId;
-          });
-          */
-
-
-          /*
           $('.delete-button').on('click', function(event) {
                const experimentId = $(this).closest('dd').prev('dt').attr('id');
                $(this).closest('dd').prev().addClass('fadeOut');

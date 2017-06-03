@@ -61,13 +61,17 @@
      <section id="header">
           <div class="row">
                <div class="col-12">
-                    <h1 class="activity-summary-heading animated fadeIn"></h1>
+                    <h1 class="activity-summary-heading animated fadeIn"> This will be my ReadOnly view that can be edited, deleted and printed</h1>
+                    <p class="experiment-info delete-button">Delete</p>
+                    <p class="experiment-info edit-button">Edit</p>
+                    <img src="images/pdf.png" alt="pdf" id="pdf">
+                    <img src="images/email.png" alt="email" id="email">
                </div>
           </div>
      </section>
 
      <!-- multistep form -->
-<form id="msform">
+<form id="msform" class="hidden" >
   <!-- progressbar -->
   <ul id="progressbar">
     <li class="active" id="step1">Background</li>
@@ -168,8 +172,6 @@
     <input id="submit"type="submit" name="submit" class="submit action-button" value="Save" />
     <hr/>
     <img src="images/complete.png" alt="complete" id="complete">
-    <img src="images/pdf.png" alt="pdf" id="pdf">
-    <img src="images/email.png" alt="email" id="email">
   </fieldset>
 </form>
 

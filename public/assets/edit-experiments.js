@@ -1,10 +1,9 @@
 /* ================================= GET EXPERIMENTS TO EDIT =================================*/
+let fullPathName = window.location.pathname;
+
 
 function geExperimentEntries(callbackFn) {
-  let fullPathName = window.location.pathname;
-  console.log(fullPathName);
-
-
+	console.log(fullPathName);
   $.ajax({
     url: `/experiments/${fullPathName}/json`,
     type: 'GET',
@@ -18,7 +17,7 @@ function geExperimentEntries(callbackFn) {
     }
   });
 }
-/* ================================= FILL FORM WITH DATE =================================*/
+/* ================================= FILL FORM WITH DATA =================================*/
 function displayExperiment(data){
 	console.log('display experiment content here with Read ONLY')
 }
@@ -28,6 +27,47 @@ function displayExperiment(data){
 $(function() {
   geExperimentEntries(displayExperiment);
 });
+
+/* ================================= EDIT DELETE PRINT BUTTONS========================================*/
+
+//show READ ONLY At page load (maybe render pring layout)
+// When EDIT button clicked load multi-step form
+
+$('.delete-button').on('click', function(event) {
+	event.preventDefault();
+	const experimentId = $(this).closest('dd').prev('dt').attr('id');
+	$(this).closest('dd').prev().addClass('fadeOut');
+	$(this).closest('dd').addClass('fadeOut');
+
+	if (confirm('Are you sure you want to delete?')) {
+		$.ajax({
+			url: `/experiments/${fullPathName}`,
+			type: 'DELETE',
+			dataType: 'json',
+
+			success: function(data) {
+
+			}
+		});
+
+		setTimeout(function() {
+			location.reload(true);
+		}, 700);
+
+	} else {
+		// Do nothing!
+	}
+
+	window.location.href = '/dashboard';
+
+});
+
+$('.edit-button').on('click', function(event){
+	event.preventDefault();
+	alert('this will bring up multi-step form & reRender database inputs')
+	$('#msform').removeClass('hidden');
+})
+
 
 /* ================================= Multi-step Form with Progress Bar========================================*/
 
@@ -179,7 +219,9 @@ $('#step6').on('click',function(event){
     });
 
 
-/* ================================= POST SUBMISSION========================================*/
+/* ================================= EDIT SUBMISSION========================================*/
+//TODO:
+
 //global variable
 var title,background,purpose,procedure,text,drawing,molecule,conclusion;
 
@@ -188,12 +230,13 @@ var data = {
     results:{},
 };
 
-//API POST request
-var newLocalEntry = {
-     "url": "/experiments/new",
+//API EDIT request
+
+var editEntry = {
+     "url": `/experiments/${fullPathName}`,
      "dataType": "json",
      "contentType": "application/json; charset=utf-8",
-     "method": "POST",
+     "method": "PUT",
      "data": JSON.stringify(data),
 };
 
@@ -213,7 +256,7 @@ $('#submit').on('click',function(event){
 
     // updates data variable with combined user input values
 
-
+    data.id = `${fullPathName}`;
     data.title = title;
     data.background = background;
     data.purpose = purpose;
@@ -226,7 +269,7 @@ $('#submit').on('click',function(event){
 	console.log (data);
 
 	//updates data variable into JSON string
-     newLocalEntry.data = JSON.stringify(data);
+     editEntry.data = JSON.stringify(data);
 
 	// conditionals that requires users to fill in title field
 	if (title.length === 0 ){
@@ -236,8 +279,8 @@ $('#submit').on('click',function(event){
 		return false;
     };
 
-
-    $.ajax(newLocalEntry).done(function(response) {
+	/*
+    $.ajax(editEntry).done(function(response) {
           console.log(response);
 		alert('Your experiment has been properly saved.');
 		//window.location.href = '/dashboard';
@@ -245,6 +288,7 @@ $('#submit').on('click',function(event){
 		console.log(error);
 		alert('Something went wrong with the server. Try again later');
 	});
+	*/
 
 
 });
