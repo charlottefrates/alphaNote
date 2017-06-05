@@ -13,10 +13,8 @@ const experimentSchema = mongoose.Schema({
      procedure: String,
      results: {
           text: String,
-          drawing: {title:String,
-               drawing:String},
-          molecule: {title:String,
-               drawing:String}
+          drawing: String,
+          molecule: String
      },
      conclusion: String,
      created: {
@@ -33,7 +31,12 @@ experimentSchema.virtual('authorName').get(function() {
 });
 
 experimentSchema.virtual('date').get(function() {
-     //TODO
+     return `${this.created}`.slice(0,16);
+});
+
+//TODO: work on how you want to show RESULTS
+experimentSchema.virtual('resultShow').get(function() {
+     return `${this.results.text} ${this.results.drawing} ${this.results.molecule}`
 });
 
 experimentSchema.methods.apiRepr = function() {
@@ -43,9 +46,9 @@ experimentSchema.methods.apiRepr = function() {
           title: this.title,
           purpose: this.purpose,
           procedure: this.procedure,
-          results: this.results,
+          results: this.resultShow, //uses virtual to set format
           conclusion: this.conclusion,
-          created: this.created, // TODO: figure out how to reformat date virtual
+          created: this.date, //uses virtual to set format
           status: this.status,
           user_id: this.user_id
      };

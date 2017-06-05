@@ -1,6 +1,7 @@
 /* ================================= GET EXPERIMENTS TO EDIT =================================*/
 let fullPathName = window.location.pathname;
 
+let response;
 
 function geExperimentEntries(callbackFn) {
 	console.log(fullPathName);
@@ -12,14 +13,30 @@ function geExperimentEntries(callbackFn) {
     success: function(data) {
       if(data) {
         callbackFn(data);
-	   console.log(data)
+
+	   //console.log(data);
+
+	   response = data;
+
+	   console.log(response);
       }
     }
   });
 }
-/* ================================= FILL FORM WITH DATA =================================*/
+/* ================================= FILL READ ONLY WITH DATA =================================*/
 function displayExperiment(data){
-	console.log('display experiment content here with Read ONLY')
+	$('.title').text(data.title);
+	$('.author').text(data.author);
+	$('.created').text(data.created);
+	$('.background').text(data.background);
+	$('.purpose').text(data.purpose);
+	$('.procedure').text(data.procedure);
+	$('.result').text(data.results);
+	//$('.result.text').text(data.results.text);
+	//$('.result.drawing').text(data.results.drawing);
+	//$('.result.molecule').text(data.results.molecule);
+	$('.conclusion').text(data.conslusion);
+	$('.id').text(data.id);
 }
 
 /* ================================= IIFE =================================*/
@@ -49,11 +66,7 @@ $('.delete-button').on('click', function(event) {
 
 			}
 		});
-
-		setTimeout(function() {
-			location.reload(true);
-		}, 700);
-
+		//location.reload(true);
 	} else {
 		// Do nothing!
 	}
@@ -64,10 +77,38 @@ $('.delete-button').on('click', function(event) {
 
 $('.edit-button').on('click', function(event){
 	event.preventDefault();
-	alert('this will bring up multi-step form & reRender database inputs')
+	//alert('this will bring up multi-step form & reRender database inputs');
+	$('#read-only').addClass('hidden');
 	$('#msform').removeClass('hidden');
+	$('#undo').removeClass('hidden');
+	$('#pdf').addClass('hidden');
+	$('#edit').addClass('hidden');
 })
 
+$('#undo').on('click', function(event){
+	event.preventDefault();
+	location.reload(true);
+})
+
+/* ================================= Print========================================*/
+
+$('button').click(function() {
+    exportOne();
+});
+
+function exportOne(){
+    var pdf = new jsPDF('p', 'px', [1145 , 794]),
+        source = $('#form');
+
+    pdf.addHTML(
+          source, 0, 0, {
+              pagesplit: true
+          },
+          function(dispose){
+              pdf.save('experiment.pdf');
+          }
+      );
+}
 
 /* ================================= Multi-step Form with Progress Bar========================================*/
 

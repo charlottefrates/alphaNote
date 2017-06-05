@@ -34,7 +34,7 @@ function displayExperiments(data) {
                     '<li class="gallery-item">' +
                     '<dt id="' + data[index].id + '" class="animated">' +
                     '<p class="experiment-title">' + data[index].title + '</p>' +
-                    '<p class="experiment-date">'/*+ data[index].created +*/ + '</p></dt>' +
+                    '<p class="experiment-date">'+ data[index].created  + '</p></dt>' +
                     '<dd class="animated"><blockquote></blockquote>' +
                     '<a href=/' + data[index].id + '><p class="experiment-info edit-button">Read More</p></a>' +
                     //'<p class="experiment-info delete-button">Delete</p>' +

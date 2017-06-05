@@ -9,12 +9,109 @@
 }
 
 body {
-     background-color: #f2f2f2;
+     /*background-color: #f2f2f2;*/
+     background: #525659;
+     padding: 4rem;
+}
+
+#form {
+  display: block;
+  width: 1123px;
+  margin: auto;
+}
+
+button{
+  padding: 10px;
+  margin: 5px;
+}
+
+.buttons{
+  text-align: center !important;
+
+}
+
+#read-only{
+  margin:1px;
+}
+
+#multi-step{
+      margin-top: -75px;
+}
+
+.top_buttons{
+  margin-top: 40px;
+}
+
+.title{
+  text-align: left;
+font-weight: bolder;
+font-size: 30px;
+padding: 5px;
+}
+
+.left{
+     text-align: left !important;
+     padding: 5px;
+     margin: 5px;
+}
+
+ h2{
+     text-align: left !important;
+     padding: 5px;
+     margin: 5px;
+     text-decoration:underline;
+}
+
+p{
+     text-align: left !important;
+     padding: 5px;
+      margin: 5px;
+}
+
+.author{
+  text-align: left;
+font-weight: bold;
+font-size: 18px;
+padding: 5px;
 }
 
 
+.col-xs-12{
+text-align: left;
+}
+
+.container {
+  max-width: 1123px;
+  min-width: 1123px;
+  background: white;
+  padding: 2.5rem 4.5rem 2rem;
+  height: 1496px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 0 4.5rem 1rem;
+}
+
+hr#hr__footer {
+  border-top: 2px solid #6c6d6e;
+  margin-bottom: 10px;
+}
+
+hr#hr__header {
+  margin-top: 10px;
+  border-top: 2px solid #d6d8d9;
+}
+
+
+
 .hidden{
-     display: none;
+     display: none !important;
 }
 
 /* style all input elements with a required attribute */
