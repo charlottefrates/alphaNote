@@ -54,7 +54,8 @@ function redraw() {
 
 }
 
-function clearCanvas() {
+function clearCanvas(event) {
+     event.preventDefault();
     console.log('clearing canvas');
     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
     clickX = [];

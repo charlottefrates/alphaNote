@@ -29,7 +29,8 @@ function displayExperiment(data){
 	//checks to see if experiment is complete
 	if (data.status === 'complete') {
 		$('#edit').addClass('hidden');
-	}
+	};
+
 
 	$('.title').text(data.title);
 	$('.author').text(data.author);
@@ -37,10 +38,25 @@ function displayExperiment(data){
 	$('.background').text(data.background);
 	$('.purpose').text(data.purpose);
 	$('.procedure').text(data.procedure);
-	$('.result').text(data.results);
-	//$('.result.text').text(data.results.text);
-	//$('.result.drawing').text(data.results.drawing);
-	//$('.result.molecule').text(data.results.molecule);
+	$('.mce').html(data.results.text);
+
+	if(data.results.drawing.length >= 0){
+		$("<img>", {
+	  	"src":data.results.drawing,
+	  	// added `width` , `height` properties to `img` attributes
+	  	"width": "250px", "height": "250px"})
+		.appendTo(".drawing");
+
+	} else {
+		$('.drawing').text('No images Drawn');
+	};
+
+	if(data.results.molecule.length === 'CWRITER306051715032D Created with ChemWriter - http://chemwriter.com 0 0 0 0 0 0 0 0 0 0999 V2000 M END'){
+		$('.molecule').text(data.results.molecule);
+	} else{
+		$('.molecule').text('No molecules Drawn');
+	};
+
 	$('.conclusion').text(data.conclusion);
 	$('.id').text(data.id);
 }
@@ -137,6 +153,16 @@ $('#complete').on('click', function(event){
 	if (status === 'complete') {
 		$('#edit').addClass('hidden');
 	}
+})
+
+
+$('.button-delete').on('click', function(event){
+	event.preventDefault();
+	console.log('clearing canvas');
+     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+     clickX = [];
+     clickY = [];
+     clickDrag = [];
 })
 
 /* ================================= Print========================================*/

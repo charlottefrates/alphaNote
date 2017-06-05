@@ -106,48 +106,29 @@
     <fieldset class="showStep4">
     <h2 class="fs-title"> Record your findings.</h2>
     <h3 class="fs-subtitle">Step 4</h3>
-    <section id="accordion-view">
-         <div class="accordion-container">
-           <div class="set">
 
+    <section id="tinymce">
+        <h1>Text Editor</h1>
+            <textarea class ="tinymce" id="texteditor">
+            </textarea>
 
-
-                     <div class="set">
-                          <a class="nested" href="#"> Text <i class="fa fa-plus"></i></a>
-                          <div class="content">
-                               <section id="tinymce">
-                                    <textarea class="tinymce" id="texteditor"></textarea>
-                               </section>
-                          </div>
-                     </div>
-
-                     <div class="set">
-                          <a class="nested" href="#">Illustrations<i class="fa fa-plus"></i></a>
-                          <div class="content">
-                               <p> Illustrate your findings below:</p>
-                               <section id="newDrawingBoard">
-                                    <div class="canvasDiv" style="">
-                                         <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
-                                         <button class="button button-delete" onclick="clearCanvas()">Clear</button>
-                                    </div>
-                               </section>
-
-                          </div>
-                     </div>
-                     <div class="set">
-                          <a class="nested" href="#"> Molecular Editor<i class="fa fa-plus"></i></a>
-                          <div class="content">
-                               <h2> Hint: Click on magnification-glass tool for a better view of molecule.</h2>
-                               <section id="chemwriter">
-                                    <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
-                                    </div>
-                               </section>
-                          </div>
-                     </div>
-
-
-         </div>
     </section>
+
+    <h1> Illustrate your findings below</h1>
+    <section id="newDrawingBoard">
+        <div class="canvasDiv" style="">
+            <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
+            <button class="button button-delete" onclick="clearCanvas()">Clear</button>
+        </div>
+    </section>
+
+    <section id="chemwriter">
+      <h1> Molecular Editor</h1>
+      <h3> Hint: Click on magnification-glass for a better view of molecule.</h3>
+        <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data=""></div>
+    </section>
+
+
     <input type="button" name="previous" class="previous action-button" value="Previous" />
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
