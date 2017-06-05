@@ -10,6 +10,7 @@ const experimentSchema = mongoose.Schema({
           required: true
      },
      purpose: String,
+     background: String,
      procedure: String,
      results: {
           text: String,
@@ -22,7 +23,7 @@ const experimentSchema = mongoose.Schema({
           default: function(){return +new Date() + 7*24*60*60*1000}
      },
      user_id: String,
-     status:0,
+     status:String,
 
 });
 
@@ -44,9 +45,10 @@ experimentSchema.methods.apiRepr = function() {
           author: this.authorName, //uses virtual to set format
           id: this._id,
           title: this.title,
+          background: this.background,
           purpose: this.purpose,
           procedure: this.procedure,
-          results: this.resultShow, //uses virtual to set format
+          results: this.results, //TODO
           conclusion: this.conclusion,
           created: this.date, //uses virtual to set format
           status: this.status,

@@ -25,6 +25,19 @@ button{
   margin: 5px;
 }
 
+button {width:6em}
+#complete:hover span {display:none}
+#complete:hover:before {content:"Complete"}
+#dme:hover span {display:none}
+#dme:hover:before {content:"Delete"}
+#edit:hover span {display:none}
+#edit:hover:before {content:"Edit"}
+#pdf:hover span {display:none}
+#pdf:hover:before {content:"PDF"}
+#undo:hover span {display:none}
+#undo:hover:before {content:"Go Back"}
+
+
 .buttons{
   text-align: center !important;
 
@@ -35,7 +48,7 @@ button{
 }
 
 #multi-step{
-      margin-top: -75px;
+      margin-top: -60px;
 }
 
 .top_buttons{
@@ -55,7 +68,8 @@ padding: 5px;
      margin: 5px;
 }
 
- h2{
+ h4{
+     font-size: 20px;
      text-align: left !important;
      padding: 5px;
      margin: 5px;

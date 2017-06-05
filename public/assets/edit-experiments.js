@@ -25,6 +25,12 @@ function geExperimentEntries(callbackFn) {
 }
 /* ================================= FILL READ ONLY WITH DATA =================================*/
 function displayExperiment(data){
+
+	//checks to see if experiment is complete
+	if (data.status === 'complete') {
+		$('#edit').addClass('hidden');
+	}
+
 	$('.title').text(data.title);
 	$('.author').text(data.author);
 	$('.created').text(data.created);
@@ -35,7 +41,7 @@ function displayExperiment(data){
 	//$('.result.text').text(data.results.text);
 	//$('.result.drawing').text(data.results.drawing);
 	//$('.result.molecule').text(data.results.molecule);
-	$('.conclusion').text(data.conslusion);
+	$('.conclusion').text(data.conclusion);
 	$('.id').text(data.id);
 }
 
@@ -46,9 +52,6 @@ $(function() {
 });
 
 /* ================================= EDIT DELETE PRINT BUTTONS========================================*/
-
-//show READ ONLY At page load (maybe render pring layout)
-// When EDIT button clicked load multi-step form
 
 $('.delete-button').on('click', function(event) {
 	event.preventDefault();
@@ -63,15 +66,13 @@ $('.delete-button').on('click', function(event) {
 			dataType: 'json',
 
 			success: function(data) {
+				window.location.href = '/dashboard';
 
 			}
 		});
-		//location.reload(true);
 	} else {
-		// Do nothing!
+		location.reload(true);
 	}
-
-	window.location.href = '/dashboard';
 
 });
 
@@ -81,13 +82,61 @@ $('.edit-button').on('click', function(event){
 	$('#read-only').addClass('hidden');
 	$('#msform').removeClass('hidden');
 	$('#undo').removeClass('hidden');
+	$('#complete').removeClass('hidden');
 	$('#pdf').addClass('hidden');
 	$('#edit').addClass('hidden');
+
+	$('#title').removeAttr('required');
+
+	//textareas
+	$('#title').val(response.title).css('color', 'blue');
+	$('#background').val(response.background).css('color', 'blue');
+	$('#purpose').val(response.purpose).css('color', 'blue');
+	$('#procedure').val(response.procedure).css('color', 'blue');
+	$('#conclusion').val(response.conclusion).css('color', 'blue');
+
+	//tinyMCE
+	var text = response.results.text;
+	console.log(text);
+	tinymce.get("texteditor").setContent(text);
+
+	//doodleCanvas
+	/*
+	console.log(canvas);
+     var canvas = response.results.drawing;
+     var context = canvas.getContext('2d');
+     var img = new Image();
+
+     img.onload = function() {
+     context.drawImage(img, 0, 0);
+     }
+
+     img.src = savedDrawing;
+
+	*/
+
+	//molecular editor
+	var molecule = response.results.molecule;
+	console.log(molecule);
+	chemwriter.components['editor'].setMolfile(molecule);
+
 })
+
 
 $('#undo').on('click', function(event){
 	event.preventDefault();
 	location.reload(true);
+})
+
+
+$('#complete').on('click', function(event){
+	event.preventDefault();
+	alert('Your experiment has been completed');
+	// TODO:AJAX PUT REQUEST TO CHANGE STATUS TO COMPLETE
+	location.reload(true);
+	if (status === 'complete') {
+		$('#edit').addClass('hidden');
+	}
 })
 
 /* ================================= Print========================================*/
@@ -273,6 +322,9 @@ var data = {
 
 //API EDIT request
 
+//path must not have a / for ids to match
+path = fullPathName.slice(1);
+
 var editEntry = {
      "url": `/experiments/${fullPathName}`,
      "dataType": "json",
@@ -297,7 +349,7 @@ $('#submit').on('click',function(event){
 
     // updates data variable with combined user input values
 
-    data.id = `${fullPathName}`;
+    data.id = path;
     data.title = title;
     data.background = background;
     data.purpose = purpose;
@@ -320,7 +372,7 @@ $('#submit').on('click',function(event){
 		return false;
     };
 
-	/*
+
     $.ajax(editEntry).done(function(response) {
           console.log(response);
 		alert('Your experiment has been properly saved.');
@@ -329,7 +381,7 @@ $('#submit').on('click',function(event){
 		console.log(error);
 		alert('Something went wrong with the server. Try again later');
 	});
-	*/
+
 
 
 });

@@ -63,10 +63,12 @@
      <!-- Read and Print Preview -->
           <div class="row top_buttons">
                <div class="col-xs-12 buttons">
-                    <button class="experiment-info delete-button btn btn-info fa fa-trash-o"></button>
+                    <button class="hidden btn btn-inf Example of fa fa-check-square-o " id="complete"></button>
+                    <button class="experiment-info delete-button btn btn-info fa fa-trash-o" id="dme"></button>
                     <button class="experiment-info edit-button btn btn-info  fa fa-pencil-square-o" id="edit"></button>
                     <button class="btn btn-info fa fa-file-pdf-o" id="pdf"></button>
                     <button class="hidden btn btn-inf fa fa-undo " id="undo"></button>
+
                </div>
           </div>
           <br><br>
@@ -76,25 +78,25 @@
                <div class="container">
                     <div class="row">
                          <div class="col-xs-12">
-                              <h3 class="title">Lab Title</h3><span class="author"> firstName lastName</span>
-                              <time class="pull-right created">June 4, 2017</time>
+                              <h3 class="title">Lab Title</h3><span class="author"> </span>
+                              <time class="pull-right created"></time>
                               <hr id="hr__header" />
                          </div>
                     </div>
 
                     <div class="left">
-                         <h2>  I. Background </h2>
-                         <p class="background"> This is my experiment backgorund</p>
+                         <h4>  I. Background </h4>
+                         <p class="background"> </p>
                     </div>
 
                     <div class="left">
-                         <h2> II. Purpose </h2>
-                         <p class="purpose"> This is my experiment purpose</p>
+                         <h4> II. Purpose </h4>
+                         <p class="purpose"> </p>
                     </div>
 
                     <div class="left">
-                         <h2> III. Procedure </h2>
-                         <p class="procedure"> This is my experiment procedure</p>
+                         <h4> III. Procedure </h4>
+                         <p class="procedure"> </p>
                     </div>
 
 
@@ -110,14 +112,14 @@
                <div class="container">
                     <div class="row">
                          <div class="col-xs-12">
-                              <h3 class="title">Lab Title</h3><span class="author"></span>
-                              <time class="pull-right created">June 4, 2017</time>
+                              <h3 class="title"></h3><span class="author"></span>
+                              <time class="pull-right created"></time>
                               <hr id="hr__header" />
                          </div>
                     </div>
 
                     <div class="left">
-                         <h2> V. Results </h2>
+                         <h4> V. Results </h4>
                          <p> My findings suggest the following:</p>
                          <p class="result"> </p>
                          <p class="result.text"> </p>
@@ -137,15 +139,15 @@
                <div class="container">
                     <div class="row">
                          <div class="col-xs-12">
-                              <h3 class="title">Lab Title</h3><span class="author"></span>
-                              <time class="pull-right created">June 4, 2017</time>
+                              <h3 class="title"></h3><span class="author"></span>
+                              <time class="pull-right created"></time>
                               <hr id="hr__header" />
                          </div>
                     </div>
 
                     <div class="left">
-                         <h2> IV. Conclusion </h2>
-                         <p class="conclusion"> In conclusion..</p>
+                         <h4> IV. Conclusion </h4>
+                         <p class="conclusion"> </p>
                     </div>
 
 
@@ -262,203 +264,18 @@
                <h2 class="fs-title"></h2>
                <h3 class="fs-subtitle"></h3>
                <input type="button" name="previous" class="previous action-button" value="Previous" />
-               <input id="submit" type="submit" name="submit" class="submit action-button" value="Save" />
-               <hr/>
-               <img src="images/complete.png" alt="complete" id="complete">
+               <input id="submit" type="submit" name="submit" class="submit action-button" value="Save Changes" />
           </fieldset>
      </form>
      </section>
 
-
-     <!--
-     <section id="accordion-view">
-          <div class="accordion-container">
-
-               <div id="accordion1">
-               <div class="set">
-                    <a href="#"> Title and Background <i class="fa fa-plus"></i> </a>
-                    <div class="content">
-                         <h3 style="font-size:18px;">
-                         <input type="text" name="Title" id="title" placeholder="Experiment Title">
-                         </h3>
-                         <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
-                         <select id="category">
-                           <option>Biology</option>
-                           <option>Chemistry</option>
-                           <option>Other</option>
-                         </select>
-                    </div>
-               </div>
-               </div>
-
-
-               <div id="accordion2">
-               <div class="set">
-                    <a href="#"> Purpose & Procedure <i class="fa fa-plus"></i> </a>
-                    <div class="content">
-
-                         <div class="set">
-                              <a class="nested" href="#">Purpose<i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <textarea class="text" id="purpose" placeholder="This experiments is being conducted because.." wrap="off" cols="30" rows="5"></textarea>
-                              </div>
-                         </div>
-                         <div class="set">
-                              <a class="nested" href="#">Procedure<i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <textarea class="text" id="procedure" placeholder="These are the steps to perform my experiment" wrap="off" cols="30" rows="5"></textarea>
-                              </div>
-                         </div>
-
-                    </div>
-               </div>
-               </div>
-
-
-               <div id="accordion3">
-               <div class="set">
-                    <a href="#"> Result Content <i class="fa fa-plus"></i> </a>
-                    <div class="content">
-
-                         <div class="set">
-                              <a class="nested" href="#"> Text <i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <section id="tinymce">
-                                        <textarea class="tinymce" id="texteditor"></textarea>
-                                   </section>
-                              </div>
-                         </div>
-
-                         <div class="set">
-                              <a class="nested" href="#">Illustrations<i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <p> Illustrate your findings below:</p>
-                                   <section id="newDrawingBoard">
-                                        <div class="canvasDiv" style="">
-                                             <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
-                                             <button class="button button-delete" onclick="clearCanvas()">Clear</button>
-                                        </div>
-                                   </section>
-
-                              </div>
-                         </div>
-                         <div class="set">
-                              <a class="nested" href="#"> Molecular Editor<i class="fa fa-plus"></i></a>
-                              <div class="content">
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-                                   <section id="chemwriter">
-                                        <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data="">
-                                        </div>
-                                        <input id="button" type="submit" value="Get Molfile"></input>
-                                        <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
-                                   </section>
-                              </div>
-                         </div>
-
-                    </div>
-               </div>
-               </div>
-
-
-               <div id="accordion4">
-               <div class="set">
-                    <a href="#">Conclusion<i class="fa fa-plus"></i></a>
-                    <div class="content">
-                         <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
-                    </div>
-               </div>
-               </div>
-
-          </div>
-          </section>
-
-
-
-          <section id="contentSubmit">
-          <div class="row">
-               <div class="col-12">
-               <section id="entry">
-                    <div class="wrap">
-                      <button id="submit"class="button">Submit</button>
-                    </div>
-               </section>
-               <div>
-          <div>
-     </section>
-
-
-
-     <section id="tinymce">
-          <h1>Text Editor</h1>
-               <textarea class ="tinymce" id="texteditor">
-
-                    <h3> Background:</h3>
-
-                    <h3> Purpose:</h3>
-
-                    <h3> Procedure:</h3>
-
-                    <h3> Results:</h3>
-
-               </textarea>
-          <br>
-          <input id="saveT" type="submit" value="Get tinyMCE Data">
-          <input id="clearT" type="submit" value="clear tinyMCE">
-          <input id="reRenderT" type="submit" value="reRender tinyMCE">
-          <br>
-          <div id="data-container">
-
-          </div>
-
-     </section>
-
-     <br>
-
-
-
-     <section id="newDrawingBoard">
-          <div class="canvasDiv" style="">
-               <h1>Drawing Board from Willaim Malone Drawing Example</h1>
-               <canvas class="doodle" id="doodleCanvas" width="1000px" height="600px" ></canvas>
-               <button class="button" onclick="saveCanvas('experiments', 1667)">Save</button>
-               <button class="button button-delete" onclick="clearCanvas()">Clear</button>
-               <button id="reRenderD"class="reRenderD">reRender drawing</button>
-         </div>
-         <br>
-         <div id="data-container-2"> </div>
-     </section>
-
-     <br>
-
-
-     <section id="chemwriter">
-          <h1>ChemDraw powered by ChemWriter</h1>
-          <div id="editor"
-         data-chemwriter-width="1000"
-         data-chemwriter-height="600"
-         data-chemwriter-ui="editor"
-          data-chemwriter-data="">
-         </div>
-          <br>
-         <input id="button" type="submit" value="Get Molfile"></input>
-         <input id="reRenderChem" type="submit" value="reRender chemDraw"></input>
-         <br>
-         <br>
-         <div id="data-container-4"> </div>
-     </section>
-
-
-
--->
-
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 
 
      <!-- Chemwriter -->
      <link rel="stylesheet" href="https://chemwriter.com/sdk/chemwriter.css">
      <script src="assets/chemwriter.js"></script>
-
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
 
      <script type="text/javascript" src="assets/doodle.js"></script>
 

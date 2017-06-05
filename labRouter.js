@@ -28,7 +28,7 @@ router.get('/:id/json', (req, res) => {
   Experiment
     .findById(req.params.id)
     .exec()
-    .then(dream => res.json(dream.apiRepr()))
+    .then(experiment => res.json(experiment.apiRepr()))
     .catch(err => {
       console.error(err);
       res.status(500).json({error: 'something went horribly awry'});
@@ -57,11 +57,13 @@ router.post('/new', (req, res) => {
     .create({
         title: req.body.title,
         author: req.body.author,
+        background: req.body.background,
         purpose: req.body.purpose,
         procedure: req.body.procedure,
         results: req.body.results,
         conclusion: req.body.conclusion,
         created: req.body.created,
+        status: req.body.status
         //user_id:user._id
     })
     .then(experimentEntry => res.status(201).json(experimentEntry.apiRepr()))
