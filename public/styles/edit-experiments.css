@@ -26,6 +26,7 @@ button{
 }
 
 button {width:6em}
+button:hover{ background-color:teal;}
 #complete:hover span {display:none}
 #complete:hover:before {content:"Complete"}
 #dme:hover span {display:none}

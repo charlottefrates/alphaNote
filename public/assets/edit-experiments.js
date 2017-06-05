@@ -101,9 +101,9 @@ $('.edit-button').on('click', function(event){
 	tinymce.get("texteditor").setContent(text);
 
 	//doodleCanvas
-	/*
+
 	console.log(canvas);
-     var canvas = response.results.drawing;
+     var canvas = $('#doodleCanvas')[0];
      var context = canvas.getContext('2d');
      var img = new Image();
 
@@ -111,9 +111,9 @@ $('.edit-button').on('click', function(event){
      context.drawImage(img, 0, 0);
      }
 
-     img.src = savedDrawing;
+     img.src =response.results.drawing;
 
-	*/
+
 
 	//molecular editor
 	var molecule = response.results.molecule;
@@ -376,7 +376,7 @@ $('#submit').on('click',function(event){
     $.ajax(editEntry).done(function(response) {
           console.log(response);
 		alert('Your experiment has been properly saved.');
-		//window.location.href = '/dashboard';
+		location.reload(true);
      }).fail(function(error){
 		console.log(error);
 		alert('Something went wrong with the server. Try again later');
