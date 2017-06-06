@@ -51,12 +51,6 @@ function displayExperiment(data){
 		$('.drawing').text('No images Drawn');
 	};
 
-	if(data.results.molecule.length === 'CWRITER306051715032D Created with ChemWriter - http://chemwriter.com 0 0 0 0 0 0 0 0 0 0999 V2000 M END'){
-		$('.molecule').text(data.results.molecule);
-	} else{
-		$('.molecule').text('No molecules Drawn');
-	};
-
 	$('.conclusion').text(data.conclusion);
 	$('.id').text(data.id);
 }
@@ -99,6 +93,7 @@ $('.edit-button').on('click', function(event){
 	$('#msform').removeClass('hidden');
 	$('#undo').removeClass('hidden');
 	$('#complete').removeClass('hidden');
+	$('#submit').removeClass('hidden');
 	$('#pdf').addClass('hidden');
 	$('#edit').addClass('hidden');
 
@@ -180,7 +175,7 @@ function exportOne(){
               pagesplit: true
           },
           function(dispose){
-              pdf.save('experiment.pdf');
+              pdf.save(response.created + '_' +response.title +'.pdf');
           }
       );
 }
@@ -402,7 +397,7 @@ $('#submit').on('click',function(event){
     $.ajax(editEntry).done(function(response) {
           console.log(response);
 		alert('Your experiment has been properly saved.');
-		location.reload(true);
+		//location.reload(true);
      }).fail(function(error){
 		console.log(error);
 		alert('Something went wrong with the server. Try again later');

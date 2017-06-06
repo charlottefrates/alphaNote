@@ -20,7 +20,7 @@ const experimentSchema = mongoose.Schema({
      conclusion: String,
      created: {
           type: Date,
-          default: function(){return +new Date() + 7*24*60*60*1000}
+          default: Date.now
      },
      user_id: String,
      status:String,
@@ -32,7 +32,7 @@ experimentSchema.virtual('authorName').get(function() {
 });
 
 experimentSchema.virtual('date').get(function() {
-     return `${this.created}`.slice(0,16);
+     return `${this.created}`.slice(0,10);
 });
 
 //TODO: work on how you want to show RESULTS

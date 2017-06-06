@@ -31,6 +31,8 @@ button:hover{ background-color:teal;}
 #complete:hover:before {content:"Complete"}
 #dme:hover span {display:none}
 #dme:hover:before {content:"Delete"}
+#submit:hover span {display:none}
+#submit:hover:before {content:"Submit"}
 #edit:hover span {display:none}
 #edit:hover:before {content:"Edit"}
 #pdf:hover span {display:none}

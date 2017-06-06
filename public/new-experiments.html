@@ -68,6 +68,8 @@
 
      <!-- multistep form -->
 <form id="msform">
+  <input id="submit"type="submit" name="submit" class="submit action-button" value="Save" />
+
   <!-- progressbar -->
   <ul id="progressbar">
     <li class="active" id="step1">Background</li>
@@ -75,7 +77,7 @@
     <li id="step3">Procedure</li>
     <li id="step4">Results</li>
     <li id="step5">Conclusion</li>
-    <li id="step6">Submission</li>
+    <li id="step6">Complete</li>
   </ul>
   <!-- fieldsets -->
   <fieldset class="showStep1">
@@ -118,7 +120,7 @@
     <section id="newDrawingBoard">
         <div class="canvasDiv" style="">
             <canvas class="doodle" id="doodleCanvas" width="1000px" height="500px" style="margin-left: auto; margin-right: auto; width:95%;"> </canvas>
-            <button class="button button-delete" onclick="clearCanvas()">Clear</button>
+            <button class="button button-delete">Clear</button>
         </div>
     </section>
 
@@ -145,7 +147,9 @@
     <h2 class="fs-title"></h2>
     <h3 class="fs-subtitle"></h3>
     <input type="button" name="previous" class="previous action-button" value="Previous" />
-    <input id="submit"type="submit" name="submit" class="submit action-button" value="Save" />
+    <input name="complete" class="submit action-button" value="Complete" />
+    <input name="view" class="submit action-button" value="Report View" />
+
   </fieldset>
 </form>
 

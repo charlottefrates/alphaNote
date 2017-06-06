@@ -1,4 +1,11 @@
-
+$('.button-delete').on('click', function(event){
+	event.preventDefault();
+	console.log('clearing canvas');
+     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+     clickX = [];
+     clickY = [];
+     clickDrag = [];
+})
 
 /* ================================= Multi-step Form with Progress Bar========================================*/
 
