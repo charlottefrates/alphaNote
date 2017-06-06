@@ -7,6 +7,12 @@ $('.button-delete').on('click', function(event){
      clickDrag = [];
 })
 
+$("#status").click(function () {
+            $(this).text(function(i, v){
+               return v === 'complete' ? 'pending' : 'complete'
+            })
+        });
+
 /* ================================= Multi-step Form with Progress Bar========================================*/
 
 var current_fs, next_fs, previous_fs; //fieldsets

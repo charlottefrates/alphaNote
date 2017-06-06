@@ -34,59 +34,16 @@ function displayExperiments(data) {
                     '<li class="gallery-item">' +
                     '<dt id="' + data[index].id + '" class="animated">' +
                     '<p class="experiment-title">' + data[index].title + '</p>' +
-                    '<p class="experiment-date">'+ data[index].created  + '</p></dt>' +
-                    '<dd class="animated"><blockquote></blockquote>' +
+                    '<p class="experiment-date">'+ data[index].created  + '</p>'+
+                    '<p class="experiment-status">' + data[index].status  + '</p>'+
+                    '</dt>' +
                     '<a href=/' + data[index].id + '><p class="experiment-info edit-button">View</p></a>' +
-                    //'<p class="experiment-info delete-button">Delete</p>' +
                     '</li>'
-
-                    /*
-                    '<dt id="' + data[index].id + '" class="animated"><p class="experiment-title">' + data[index].title + '</p>' +
-                    '<p class="experiment-date">' + data[index].created + '</p></dt>' +
-                    '<dd class="animated"><blockquote>Status: ' + data[index].status + '</blockquote>' +
-                    //'<p class="experiment-info">Status: ' + '<span class="stats">' + data[index].status + '</span></p>' +
-                    '<a href="/experiments/' + data[index].id + '"><p class="experiment-info edit-button">Edit</p></a>' +
-                    '<p class="experiment-info delete-button">Delete</p>' +
-                    '</dd>'
-                    */
-               );
-          }
-
-          accordion.find('dd').hide();
-          accordion.find('dt').on('click', function(event) {
-               $(this).toggleClass('open').next('dd').slideToggle().siblings('dd:visible').slideUp().prev('dt').removeClass('open');
-          });
-
-          /*
-          $('.delete-button').on('click', function(event) {
-               const experimentId = $(this).closest('dd').prev('dt').attr('id');
-               $(this).closest('dd').prev().addClass('fadeOut');
-               $(this).closest('dd').addClass('fadeOut');
-
-               if (confirm('Are you sure you want to delete?')) {
-                    $.ajax({
-                         url: `/experiments/${experimentId}`,
-                         type: 'DELETE',
-                         dataType: 'json',
-
-                         success: function(data) {
-
-                         }
-                    });
-
-                    setTimeout(function() {
-                         location.reload(true);
-                    }, 700);
-
-               } else {
-                    // Do nothing!
-               }
-
-
-          });*/
-
+                    );
+               };
+          };
      };
-};
+
 
 function getAndDisplayExperiments() {
      getExperiments(displayExperiments);

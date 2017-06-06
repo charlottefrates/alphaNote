@@ -13,7 +13,7 @@ const {Experiment} = require('./models');
 router.get('/', (req, res) => {
   Experiment
     .find(/*{author: "Charlotte"}*/)
-    .sort({created: -1}) //sorts recent date first
+    .sort({created: 1}) //sorts recent date first
     .exec()
     .then(experiments => {
       res.json(experiments.map(experiment => experiment.apiRepr()));

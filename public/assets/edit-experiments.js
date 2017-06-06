@@ -97,15 +97,17 @@ $('.edit-button').on('click', function(event){
 	$('#submit').removeClass('hidden');
 	$('#pdf').addClass('hidden');
 	$('#edit').addClass('hidden');
+	//$('.switch-label').removeClass('hidden');
+	$('#status').removeClass('hidden');
 
 	$('#title').removeAttr('required');
 
 	//textareas
-	$('#title').val(response.title).css('color', 'blue');
-	$('#background').val(response.background).css('color', 'blue');
-	$('#purpose').val(response.purpose).css('color', 'blue');
-	$('#procedure').val(response.procedure).css('color', 'blue');
-	$('#conclusion').val(response.conclusion).css('color', 'blue');
+	$('#title').val(response.title).css('color', 'teal');
+	$('#background').val(response.background).css('color', 'teal');
+	$('#purpose').val(response.purpose).css('color', 'teal');
+	$('#procedure').val(response.procedure).css('color', 'teal');
+	$('#conclusion').val(response.conclusion).css('color', 'teal');
 
 	//tinyMCE
 	var text = response.results.text;
@@ -160,6 +162,12 @@ $('.button-delete').on('click', function(event){
      clickY = [];
      clickDrag = [];
 })
+
+$("#status").click(function () {
+            $(this).text(function(i, v){
+               return v === 'complete' ? 'pending' : 'complete'
+            })
+        });
 
 /* ================================= Print========================================*/
 
@@ -332,7 +340,6 @@ $('#step6').on('click',function(event){
 
 
 /* ================================= EDIT SUBMISSION========================================*/
-//TODO:
 
 //global variable
 var title,background,purpose,procedure,text,drawing,molecule,conclusion;
@@ -356,6 +363,7 @@ var editEntry = {
 };
 
 
+
 $('#submit').on('click',function(event){
     event.preventDefault();
 
@@ -368,6 +376,8 @@ $('#submit').on('click',function(event){
     drawing = ($('#doodleCanvas')[0]).toDataURL('image/png',1.0);
     molecule = chemwriter.components['editor'].getMolfile();
     conclusion = $('#conclusion').val();
+    status = $('#status').text();
+    console.log(status);
 
     // updates data variable with combined user input values
 
@@ -380,6 +390,7 @@ $('#submit').on('click',function(event){
     data.results.drawing = drawing;
     data.results.molecule = molecule;
     data.conclusion = conclusion;
+    data.status =  status;
 
 	console.log (data);
 
@@ -403,6 +414,7 @@ $('#submit').on('click',function(event){
 		console.log(error);
 		alert('Something went wrong with the server. Try again later');
 	});
+
 
 
 

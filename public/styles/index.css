@@ -1228,9 +1228,9 @@ button:hover {
 
 
 .journal.start{
-     animation: fadeIn 3s ease-in;
+     animation: fadeIn 4s ease-in;
 }
 
 .analyze.start{
-     animation: fadeIn 2s ease-in;
+     animation: fadeIn 3s ease-in;
 }

@@ -68,7 +68,8 @@
 
      <div class="row top_buttons">
           <div class="col-xs-12 buttons">
-               <button class="hidden btn btn-inf Example of fa fa-floppy-o " id="submit"></button>
+            <button class="btn btn-inf Example of fa fa-floppy-o " id="submit"></button>
+            <button class="btn btn-inf" id="status">pending</button>
           </div>
       </div>
 
@@ -82,11 +83,11 @@
     <li id="step3">Procedure</li>
     <li id="step4">Results</li>
     <li id="step5">Conclusion</li>
-    <li id="step6">Complete</li>
+    <li id="step6">View</li>
   </ul>
   <!-- fieldsets -->
   <fieldset class="showStep1">
-       <i class="fa fa-angle-right next" aria-hidden="true" style="float:right; font-size:30px"></i>
+    <i class="fa fa-angle-right next" aria-hidden="true" style="float:right; font-size:30px"></i>
 
     <h2 class="fs-title">Provide Experiment Title and Background</h2>
     <h3 class="fs-subtitle">This is step 1</h3>
@@ -158,11 +159,9 @@
   <fieldset class="showStep6">
     <i class="fa fa-angle-left previous" aria-hidden="true" style="float:left; font-size:30px"></i>
 
-    <h2 class="fs-title"> Caution: Once an experiment is "complete" no edits can be made.</h2>
+    <h2 class="fs-title"></h2>
     <h3 class="fs-subtitle"></h3>
-    <button name="complete" class="submit action-button" value="Complete"> Complete</button>
-    <button name="view" class="submit action-button" value="Report View"> View</button>
-
+    <button name="view" class="" value="Report View"> View Report</button>
   </fieldset>
 </form>
 

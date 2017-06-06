@@ -32,7 +32,7 @@ experimentSchema.virtual('authorName').get(function() {
 });
 
 experimentSchema.virtual('date').get(function() {
-     return `${this.created}`.slice(0,10);
+     return `${this.created}`.slice(0,16);
 });
 
 //TODO: work on how you want to show RESULTS
