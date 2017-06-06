@@ -39,6 +39,8 @@ button:hover{ background-color:teal;}
 #pdf:hover:before {content:"PDF"}
 #undo:hover span {display:none}
 #undo:hover:before {content:"Go Back"}
+.next:hover:before {color:teal}
+.previous:hover:before {color:teal}
 
 
 .buttons{
@@ -510,7 +512,7 @@ select{
 }
 /*progressbar*/
 #progressbar {
-     margin-left: 3%;
+     margin-left: 14%;
 	margin-bottom: 30px;
 	overflow: hidden;
 	/*CSS counters to number the steps*/

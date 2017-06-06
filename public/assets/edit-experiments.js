@@ -51,7 +51,8 @@ function displayExperiment(data){
 		$('.drawing').text('No images Drawn');
 	};
 
-	$('.conclusion').text(data.conclusion);
+	$('.molecule').text(data.results.molecule);
+	$('.conclusion').html(data.conclusion);
 	$('.id').text(data.id);
 }
 

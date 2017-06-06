@@ -39,6 +39,9 @@ input:required:hover {
   opacity: 1;
 }
 
+.next:hover:before {color:teal}
+.previous:hover:before {color:teal}
+
 /* ================================= NAVIGATION =================================*/
 
 nav {
@@ -290,6 +293,22 @@ a:hover {
   transform: translateY(-7px);
 }
 
+button{
+  padding: 10px;
+  margin: 5px;
+}
+
+button {width:6em}
+button:hover{ background-color:teal;}
+
+#submit:hover span {display:none}
+#submit:hover:before {content:"Submit"}
+#undo:hover span {display:none}
+#undo:hover:before {content:"Go Back"}
+
+.next:hover:before {color:teal}
+.previous:hover:before {color:teal}
+
 
 
 /* ================================= DROPDOWN =================================*/
@@ -396,7 +415,7 @@ select{
 }
 /*progressbar*/
 #progressbar {
-     margin-left: 3%;
+     margin-left: 2%;
 	margin-bottom: 30px;
 	overflow: hidden;
 	/*CSS counters to number the steps*/
