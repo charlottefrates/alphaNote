@@ -29,6 +29,7 @@ function displayExperiment(data){
 	//checks to see if experiment is complete
 	if (data.status === 'complete') {
 		$('#edit').addClass('hidden');
+		$('#dme').addClass('hidden');
 	};
 
 
@@ -115,8 +116,6 @@ $('.edit-button').on('click', function(event){
 	tinymce.get("texteditor").setContent(text);
 
 	//doodleCanvas
-
-	console.log(canvas);
      var canvas = $('#doodleCanvas')[0];
      var context = canvas.getContext('2d');
      var img = new Image();
@@ -395,7 +394,9 @@ $('#submit').on('click',function(event){
 	console.log (data);
 
 	//updates data variable into JSON string
-     editEntry.data = JSON.stringify(data);
+	editEntry.data = JSON.stringify(data);
+
+	console.log(editEntry);
 
 	// conditionals that requires users to fill in title field
 	if (title.length === 0 ){
@@ -405,17 +406,57 @@ $('#submit').on('click',function(event){
 		return false;
     };
 
-
-    $.ajax(editEntry).done(function(response) {
-          console.log(response);
-		alert('Your experiment has been properly saved.');
-		//location.reload(true);
-     }).fail(function(error){
-		console.log(error);
-		alert('Something went wrong with the server. Try again later');
-	});
+    //conditionals checking status
+    if(data.status === 'complete'){
 
 
+	    if (confirm('Are you sure you want your experiment status to be complete? Setting status to "complete" disables future edits.')) {
+		    $.ajax(editEntry).done(function(response) {
+			     data = response;
+	               console.log(data);
+	     		alert('Your experiment has been properly saved.');
+				location.reload(true);
+	     		//window.location.href = '/dashboard';
+	          }).fail(function(error){
+	     		console.log(error);
+	     		alert('Something went wrong with the server. Try again later');
+	     	});
+	    } else {};
+
+    };
+
+
+    if(data.status === 'pending'){
+	    // updates data variable with combined user input values
+
+	    data.id = path;
+	    data.title = title;
+	    data.background = background;
+	    data.purpose = purpose;
+	    data.procedure = procedure;
+	    data.results.text = text;
+	    data.results.drawing = drawing;
+	    data.results.molecule = molecule;
+	    data.conclusion = conclusion;
+	    data.status =  status;
+
+		console.log (data);
+
+		//updates data variable into JSON string
+	     editEntry.data = JSON.stringify(data);
+
+	    $.ajax(editEntry).done(function(response) {
+	          console.log(response);
+			alert('Your experiment has been properly saved.');
+			//location.reload(true);
+	     }).fail(function(error){
+			console.log(error);
+			alert('Something went wrong with the server. Try again later');
+		});
+
+    }else{
+	 //DO NOTHING
+    };
 
 
 });

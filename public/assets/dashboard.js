@@ -35,13 +35,30 @@ function displayExperiments(data) {
                     '<dt id="' + data[index].id + '" class="animated">' +
                     '<p class="experiment-title">' + data[index].title + '</p>' +
                     '<p class="experiment-date">'+ data[index].created  + '</p>'+
-                    '<p class="experiment-status">' + data[index].status  + '</p>'+
+                    '<p class="experiment-status">'+'Status: ' +
+                    '<span class="statusColor">'+
+                    data[index].status  +
+                    '</span>'+
+                    '</p>'+
                     '</dt>' +
                     '<a href=/' + data[index].id + '><p class="experiment-info edit-button">View</p></a>' +
                     '</li>'
                     );
+               if(data[index].status === "complete"){
+                         $('.statusColor').addClass('green');
+                    }
+               if(data[index].status === "pending"){
+                         $('.statusColor').addClass('red');
+                    }
                };
+
+
           };
+
+
+
+
+
      };
 
 

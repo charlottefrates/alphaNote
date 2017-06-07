@@ -14,6 +14,14 @@ body {
      display: none !important;
 }
 
+.red{
+     color:red;
+}
+
+.green{
+     color:rgb(90, 224, 164);
+}
+
 /* ================================= NAVIGATION =================================*/
 
 nav {
