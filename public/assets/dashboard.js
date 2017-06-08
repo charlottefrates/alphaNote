@@ -17,6 +17,10 @@ $('.hide-list').click(function() {
 //global variable to capture data.length
 var totalExperiments;
 
+var pendingExperiments = 0;
+
+var completedExperiments = 0;
+
 function getExperiments(callbackFn) {
      $.ajax({
           url: "/experiments",
@@ -35,10 +39,14 @@ function getExperiments(callbackFn) {
 //Renders Experiments into accordion view
 function displayExperiments(data) {
      console.log(data);
+
+     //updates amount of experiments variable
      totalExperiments = data.length;
-     console.log(totalExperiments);
+
      //Adds total experiments to counter
      $('.counter_experiment').text(totalExperiments);
+
+
      const accordion = $('.gallery') //$('.accordion');
      if (data.length === 0) {
           accordion.html('<h2 class="no-results">You haven\'t recorded any experiments! Click "Add New Experiment" in the menu to get started.</h2>');
@@ -59,7 +67,14 @@ function displayExperiments(data) {
                     '</li>'
                );
 
-               //TODO: capture how many experiments are pending and complete
+               if(data[index].status === "complete"){
+                    completedExperiments++;
+                    $('.counter_complete').text(completedExperiments);
+               };
+               if( data[index].status === "pending"){
+                    pendingExperiments++;
+                    $('.counter_pending').text(pendingExperiments);
+               };
           };
      };
 };
@@ -68,6 +83,7 @@ function displayExperiments(data) {
 function getAndDisplayExperiments() {
      //alert('getting and displaying');
      getExperiments(displayExperiments);
+
 }
 
 /* ================================= Filter Menu=================================*/
