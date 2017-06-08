@@ -10,17 +10,18 @@ body {
      background-color: #f2f2f2;
 }
 
-.hidden{
+.hidden {
      display: none !important;
 }
 
-.red{
-     color:red;
+.red {
+     color: red;
 }
 
-.green{
-     color:rgb(90, 224, 164);
+.green {
+     color: rgb(90, 224, 164);
 }
+
 
 /* ================================= NAVIGATION =================================*/
 
@@ -142,7 +143,7 @@ nav ul li:hover {
      background-color: transparent;
      text-align: center;
      list-style-type: none;
-     z-index: 10;
+     z-index: 1;
      cursor: pointer;
      font-family: Open Sans, sans-serif;
      font-weight: 100;
@@ -157,7 +158,7 @@ nav ul li:hover {
      background-color: teal;
      border-radius: 30px;
      color: #444;
-     z-index: 10;
+     z-index: 1;
      border: 5px solid #eee;
      box-sizing: border-box;
 }
@@ -189,41 +190,44 @@ nav ul li:hover {
 
 /* =================================  COUNTER  =================================*/
 
-#counter {
-     margin-bottom: 50px;
-     animation: slideIn .8s linear, fadeIn .2s ease-in;
+.col-md-4 {
+     display: inline-block;
+     margin: 100px;
+     text-align: center;
+     padding-bottom: 50px;
 }
 
-#accordion {
-     margin-bottom: 50px;
-     animation: slideIn .8s linear, fadeIn .2s ease-in;
+.col-md-4:last-child {
+     border-right: 0px solid black;
 }
 
-@keyframes slideIn {
-     0% {
-          transform: translateY(400px);
-          animation-timing-function: ease-out;
-     }
-     60% {
-          transform: translateY(-50px);
-          animation-timing-function: ease-in;
-     }
-     80% {
-          transform: translateY(10px);
-          animation-timing-function: ease-out;
-     }
-     100% {
-          transform: translateY(0px);
-          animation-timing-function: ease-in;
-     }
+.counter {
+     animation-duration: 1s;
+     animation-delay: 0s;
 }
 
-@keyframes fadeIn {
-     from {
-          opacity: 0;
+.counter_experiment, .counter_pending, .counter_complete {
+     color: teal;
+}
+
+i {
+     font-size: 20px !Important;
+}
+
+.row2 {
+     margin-right: 30%;
+     margin-bottom: -310px;
+}
+
+@media (max-width: 991px) {
+     .col-md-4 {
+          border-right: 0px dashed black;
+          border-bottom: 1px dashed black;
+          width: 50%;
+          margin: auto auto;
      }
-     to {
-          opacity: 1;
+     .col-md-4:last-child {
+          border-bottom: 0px dashed black;
      }
 }
 
@@ -282,8 +286,10 @@ nav ul li:hover {
 
 .wrapper {
      width: 90%;
-     margin: 1% 19%;
-     position: relative;
+     margin-left: auto;
+     margin-right: auto;
+     margin-bottom: -285px;
+     margin-top: 50px;
 }
 
 .counter {
@@ -415,14 +421,14 @@ nav ul li:hover {
 
 .experiment-date {
      display: inline-block;
-     margin:1px;
+     margin: 1px;
 }
 
-.experiment-status{
+.experiment-status {
      font-style: italic;
-font-size: 18px;
-margin-top: 5px;
-margin-bottom: -10px;
+     font-size: 18px;
+     margin-top: 5px;
+     margin-bottom: -10px;
 }
 
 blockquote {

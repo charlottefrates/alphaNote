@@ -34,34 +34,25 @@
           </nav>
      </section>
 
-     <section id="header">
-          <div class="row">
-               <div class="col-12">
-                    <h1 class="activity-summary-heading animated fadeIn"></h1>
-               </div>
-          </div>
-     </section>
-
      <section id="counter">
           <div class="wrapper">
-               <div class="counter col_fourth">
-                    <i class="fa fa-flask fa-2x"></i>
-                    <h2 class="timer count-title count-number" id="experimentData" data-to="20" data-speed="1500"></h2>
-                    <p class="count-text ">Total Experiments</p>
+               <div>
+                    <div class="col-md-4">
+                         <h1><span class="counter_experiment"></span></h1>
+                         <h3>Experiments</h3>
+                         <i class="fa fa-flask"></i>
+                    </div>
+                    <div class="col-md-4">
+                         <h1><span class="counter_pending"></span></h1>
+                         <h3>Pending</h3>
+                         <i class="fa fa-edit"></i>
+                    </div>
+                    <div class="col-md-4">
+                         <h1><span class="counter_complete"></span></h1>
+                         <h3>Completed</h3>
+                         <i class="fa fa-check"></i>
+                    </div>
                </div>
-
-               <div class="counter col_fourth">
-                    <i class="fa fa-edit fa-2x"></i>
-                    <h2 class="timer count-title count-number" id="pendingData" data-to="" data-speed="1500"></h2>
-                    <p class="count-text ">Pending</p>
-               </div>
-
-               <div class="counter col_fourth end">
-                    <i class="fa fa-check fa-2x"></i>
-                    <h2 class="timer count-title count-number" id="completedData" data-to="" data-speed="1500"></h2>
-                    <p class="count-text ">Completed</p>
-               </div>
-          </div>
      </section>
 
      <section id="filter">
@@ -82,6 +73,8 @@
 
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+     <script src="jquery.counterup.min.js"></script>
      <script type="text/javascript" src="assets/dashboard.js"></script>
 </body>
 

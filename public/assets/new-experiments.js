@@ -394,5 +394,6 @@ $('#submit_second').on('click',function(event){
 
 $('#view').on('click',function(event){
      event.preventDefault();
+     alert('You must first save your experiment to view your report!');
      window.location.href = `/${server_response.id}`;
 });
