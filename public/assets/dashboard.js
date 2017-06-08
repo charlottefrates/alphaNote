@@ -15,7 +15,7 @@ $('.hide-list').click(function() {
 /* =================================  API REQUEST=================================*/
 
 //global variable to capture data.length
-var totalExperiments;
+var totalExperiments = 0;
 
 var pendingExperiments = 0;
 
@@ -104,4 +104,5 @@ $(document).ready(function() {
      });
      $('.counter').addClass('animated fadeInDownBig');
      $('h3').addClass('animated fadeIn');
+
 });
