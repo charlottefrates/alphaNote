@@ -199,7 +199,7 @@ $('#title').on('keydown', function() {
 
 //API POST request
 var newLocalEntry = {
-     "url": "/experiments/new",
+     "url": "/new",
      "dataType": "json",
      "contentType": "application/json; charset=utf-8",
      "method": "POST",
@@ -254,7 +254,7 @@ $('#submit_first').on('click', function(event) {
                $.ajax(newLocalEntry).done(function(response) {
                     alert('Your experiment has been properly saved.');
                     server_response = response;
-                    editEntry.url = '/experiments/'+server_response.id;
+                    editEntry.url = '/edit/'+server_response.id;
                     console.log(editEntry);
                     path = server_response.id;
                     console.log(server_response);
@@ -272,7 +272,7 @@ $('#submit_first').on('click', function(event) {
           $.ajax(newLocalEntry).done(function(response) {
                alert('Your experiment has been properly saved.');
                server_response = response;
-               editEntry.url = '/experiments/'+server_response.id;
+               editEntry.url = '/edit/'+server_response.id;
                console.log(editEntry);
                path = server_response.id;
                console.log(server_response);
@@ -293,7 +293,7 @@ $('#submit_first').on('click', function(event) {
 
 //API PUT request
 var editEntry = {
-     "url": `/experiments/`,
+     "url": `/`,
      "dataType": "json",
      "contentType": "application/json; charset=utf-8",
      "method": "PUT",

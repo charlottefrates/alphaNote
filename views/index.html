@@ -31,10 +31,10 @@
                <a href="#analyze">
                     <li class="nav-left nav-hover">Record</li>
                </a>
-               <a href="#sign-up">
+               <a href="/signup">
                     <li class="nav-left nav-hover"> Create Account </li>
                </a>
-               <a href="#log-in">
+               <a href="/login">
                     <li class="nav-right nav-hover log-in " id="demo-button">Sign In</li>
                </a>
           </ul>
@@ -42,21 +42,6 @@
 
           <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
 
-          <div class="modal" id="log-in">
-               <div class="modal-container">
-                    <div class="log-in-box">
-                         <form class="login-form" action="users/login" method="post" autocomplete="off">
-                              <h3>Thank you for using alphaNote</h3>
-                              <p>To access the demo account, please enter the following credentials:</p>
-                              <p class="demo-account">Username: <b>abc</b><br> Password: <b>123</b>
-                              </p>
-                              <p>or sign in with your existing account.</p>
-                              <button type='submit' class="log-in-button">Sign In</button>
-                         </form>
-                    </div>
-                    <i class="fa fa-times fa-lg modal-close" aria-hidden="true"></i>
-               </div>
-          </div>
      </nav>
 
      <header>
@@ -169,31 +154,11 @@
                </div>
           </section>
 
-          <section>
-               <div id="sign-up" class="">
-                    <div class="row">
-                         <div class="col-12">
-                              <h2 class="sign-up-title">Sign Up to use alphaNote</h2>
-                              <div class="sign-up-box">
-                                   <form class="register" action="/users" method="post" autocomplete="off">
-                                        <fieldset name="register-info">
-                                             <input type="text" name="name" id="firstName" placeholder="First Name" required/>
-                                             <input type="text" name="name" id="lastName" placeholder="Last Name" required/>
-                                             <input type="text" name="username" id="username" placeholder="Username" required/>
-                                             <input type="password" name="password" id="password" placeholder="Password" required/>
-                                        </fieldset>
-                                        <button type='submit' class="sign-up-button">Sign Up</button>
-                                   </form>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-          </section>
      </main>
 
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="assets/index.js"></script>
+     <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>

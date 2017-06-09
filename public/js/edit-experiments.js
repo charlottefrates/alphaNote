@@ -6,7 +6,7 @@ let response;
 function geExperimentEntries(callbackFn) {
 	console.log(fullPathName);
   $.ajax({
-    url: `/experiments/${fullPathName}/json`,
+    url: `/${fullPathName}/json`,
     type: 'GET',
     dataType: 'json',
 
@@ -73,7 +73,7 @@ $('.delete-button').on('click', function(event) {
 
 	if (confirm('Are you sure you want to delete?')) {
 		$.ajax({
-			url: `/experiments/${fullPathName}`,
+			url: `/delete/${fullPathName}`,
 			type: 'DELETE',
 			dataType: 'json',
 
@@ -354,7 +354,7 @@ var data = {
 path = fullPathName.slice(1);
 
 var editEntry = {
-     "url": `/experiments/${fullPathName}`,
+     "url": `/edit/${fullPathName}`,
      "dataType": "json",
      "contentType": "application/json; charset=utf-8",
      "method": "PUT",
