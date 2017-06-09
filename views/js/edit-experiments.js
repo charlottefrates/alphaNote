@@ -1,6 +1,7 @@
 /* ================================= GET EXPERIMENTS TO EDIT =================================*/
 let fullPathName = window.location.pathname;
 
+let response;
 
 function geExperimentEntries(callbackFn) {
 	console.log(fullPathName);
@@ -12,14 +13,48 @@ function geExperimentEntries(callbackFn) {
     success: function(data) {
       if(data) {
         callbackFn(data);
-	   console.log(data)
+
+	   //console.log(data);
+
+	   response = data;
+
+	   console.log(response);
       }
     }
   });
 }
-/* ================================= FILL FORM WITH DATA =================================*/
+/* ================================= FILL READ ONLY WITH DATA =================================*/
 function displayExperiment(data){
-	console.log('display experiment content here with Read ONLY')
+
+	//checks to see if experiment is complete
+	if (data.status === 'complete') {
+		$('#edit').addClass('hidden');
+		$('#dme').addClass('hidden');
+	};
+
+
+	$('.title').text(data.title);
+	$('.author').text(data.author);
+	$('.created').text(data.created);
+	$('.background').text(data.background);
+	$('.purpose').text(data.purpose);
+	$('.procedure').text(data.procedure);
+	$('.mce').html(data.results.text);
+
+	if(data.results.drawing.length >= 0){
+		$("<img>", {
+	  	"src":data.results.drawing,
+	  	// added `width` , `height` properties to `img` attributes
+	  	"width": "250px", "height": "250px"})
+		.appendTo(".drawing");
+
+	} else {
+		$('.drawing').text('No images Drawn');
+	};
+
+	$('.molecule').text(data.results.molecule);
+	$('.conclusion').html(data.conclusion);
+	$('.id').text(data.id);
 }
 
 /* ================================= IIFE =================================*/
@@ -29,9 +64,6 @@ $(function() {
 });
 
 /* ================================= EDIT DELETE PRINT BUTTONS========================================*/
-
-//show READ ONLY At page load (maybe render pring layout)
-// When EDIT button clicked load multi-step form
 
 $('.delete-button').on('click', function(event) {
 	event.preventDefault();
@@ -46,28 +78,115 @@ $('.delete-button').on('click', function(event) {
 			dataType: 'json',
 
 			success: function(data) {
+				window.location.href = '/dashboard';
 
 			}
 		});
-
-		setTimeout(function() {
-			location.reload(true);
-		}, 700);
-
 	} else {
-		// Do nothing!
+		location.reload(true);
 	}
-
-	window.location.href = '/dashboard';
 
 });
 
 $('.edit-button').on('click', function(event){
 	event.preventDefault();
-	alert('this will bring up multi-step form & reRender database inputs')
+	//alert('this will bring up multi-step form & reRender database inputs');
+	$('#read-only').addClass('hidden');
 	$('#msform').removeClass('hidden');
+	$('#undo').removeClass('hidden');
+	$('#complete').removeClass('hidden');
+	$('#submit').removeClass('hidden');
+	$('#pdf').addClass('hidden');
+	$('#edit').addClass('hidden');
+	//$('.switch-label').removeClass('hidden');
+	$('#status').removeClass('hidden');
+
+	$('#title').removeAttr('required');
+
+	//textareas
+	$('#title').val(response.title).css('color', 'teal');
+	$('#background').val(response.background).css('color', 'teal');
+	$('#purpose').val(response.purpose).css('color', 'teal');
+	$('#procedure').val(response.procedure).css('color', 'teal');
+	$('#conclusion').val(response.conclusion).css('color', 'teal');
+
+	//tinyMCE
+	var text = response.results.text;
+	console.log(text);
+	tinymce.get("texteditor").setContent(text);
+
+	//doodleCanvas
+     var canvas = $('#doodleCanvas')[0];
+     var context = canvas.getContext('2d');
+     var img = new Image();
+
+     img.onload = function() {
+     context.drawImage(img, 0, 0);
+     }
+
+     img.src =response.results.drawing;
+
+
+
+	//molecular editor
+	var molecule = response.results.molecule;
+	console.log(molecule);
+	chemwriter.components['editor'].setMolfile(molecule);
+
 })
 
+
+$('#undo').on('click', function(event){
+	event.preventDefault();
+	location.reload(true);
+})
+
+
+$('#complete').on('click', function(event){
+	event.preventDefault();
+	alert('Your experiment has been completed');
+	// TODO:AJAX PUT REQUEST TO CHANGE STATUS TO COMPLETE
+	location.reload(true);
+	if (status === 'complete') {
+		$('#edit').addClass('hidden');
+	}
+})
+
+
+$('.button-delete').on('click', function(event){
+	event.preventDefault();
+	console.log('clearing canvas');
+     context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+     clickX = [];
+     clickY = [];
+     clickDrag = [];
+})
+
+$("#status").click(function () {
+            $(this).text(function(i, v){
+               return v === 'complete' ? 'pending' : 'complete'
+            })
+        });
+
+/* ================================= Print========================================*/
+
+$('button').click(function() {
+    exportOne();
+});
+
+function exportOne(){
+    var pdf = new jsPDF('p', 'px', [1145 , 794]),
+        source = $('#form');
+
+    pdf.addHTML(
+          source, 0, 0, {
+              pagesplit: true
+          },
+          function(dispose){
+              pdf.save(response.created + '_' +response.title +'.pdf');
+          }
+      );
+}
 
 /* ================================= Multi-step Form with Progress Bar========================================*/
 
@@ -200,7 +319,7 @@ $('#step6').on('click',function(event){
 /* ================================= RESPONSIVE NAVIGATION =================================*/
 
     $('.handle').on('click', function(event) {
-      //$('nav ul').toggleClass('showing');
+      $('nav ul').toggleClass('showing');
     });
 
     $(document).ready(function() {
@@ -220,7 +339,6 @@ $('#step6').on('click',function(event){
 
 
 /* ================================= EDIT SUBMISSION========================================*/
-//TODO:
 
 //global variable
 var title,background,purpose,procedure,text,drawing,molecule,conclusion;
@@ -232,6 +350,9 @@ var data = {
 
 //API EDIT request
 
+//path must not have a / for ids to match
+path = fullPathName.slice(1);
+
 var editEntry = {
      "url": `/experiments/${fullPathName}`,
      "dataType": "json",
@@ -239,6 +360,7 @@ var editEntry = {
      "method": "PUT",
      "data": JSON.stringify(data),
 };
+
 
 
 $('#submit').on('click',function(event){
@@ -253,10 +375,12 @@ $('#submit').on('click',function(event){
     drawing = ($('#doodleCanvas')[0]).toDataURL('image/png',1.0);
     molecule = chemwriter.components['editor'].getMolfile();
     conclusion = $('#conclusion').val();
+    status = $('#status').text();
+    console.log(status);
 
     // updates data variable with combined user input values
 
-    data.id = `${fullPathName}`;
+    data.id = path;
     data.title = title;
     data.background = background;
     data.purpose = purpose;
@@ -265,11 +389,14 @@ $('#submit').on('click',function(event){
     data.results.drawing = drawing;
     data.results.molecule = molecule;
     data.conclusion = conclusion;
+    data.status =  status;
 
 	console.log (data);
 
 	//updates data variable into JSON string
-     editEntry.data = JSON.stringify(data);
+	editEntry.data = JSON.stringify(data);
+
+	console.log(editEntry);
 
 	// conditionals that requires users to fill in title field
 	if (title.length === 0 ){
@@ -279,16 +406,57 @@ $('#submit').on('click',function(event){
 		return false;
     };
 
-	/*
-    $.ajax(editEntry).done(function(response) {
-          console.log(response);
-		alert('Your experiment has been properly saved.');
-		//window.location.href = '/dashboard';
-     }).fail(function(error){
-		console.log(error);
-		alert('Something went wrong with the server. Try again later');
-	});
-	*/
+    //conditionals checking status
+    if(data.status === 'complete'){
+
+
+	    if (confirm('Are you sure you want your experiment status to be complete? Setting status to "complete" disables future edits.')) {
+		    $.ajax(editEntry).done(function(response) {
+			     data = response;
+	               console.log(data);
+	     		alert('Your experiment has been properly saved.');
+				location.reload(true);
+	     		//window.location.href = '/dashboard';
+	          }).fail(function(error){
+	     		console.log(error);
+	     		alert('Something went wrong with the server. Try again later');
+	     	});
+	    } else {};
+
+    };
+
+
+    if(data.status === 'pending'){
+	    // updates data variable with combined user input values
+
+	    data.id = path;
+	    data.title = title;
+	    data.background = background;
+	    data.purpose = purpose;
+	    data.procedure = procedure;
+	    data.results.text = text;
+	    data.results.drawing = drawing;
+	    data.results.molecule = molecule;
+	    data.conclusion = conclusion;
+	    data.status =  status;
+
+		console.log (data);
+
+		//updates data variable into JSON string
+	     editEntry.data = JSON.stringify(data);
+
+	    $.ajax(editEntry).done(function(response) {
+	          console.log(response);
+			alert('Your experiment has been properly saved.');
+			//location.reload(true);
+	     }).fail(function(error){
+			console.log(error);
+			alert('Something went wrong with the server. Try again later');
+		});
+
+    }else{
+	 //DO NOTHING
+    };
 
 
 });

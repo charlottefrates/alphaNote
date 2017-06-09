@@ -31,16 +31,32 @@
                <a href="#analyze">
                     <li class="nav-left nav-hover">Record</li>
                </a>
-               <a href="/signup">
+               <a href="#sign-up">
                     <li class="nav-left nav-hover"> Create Account </li>
                </a>
-               <a href="/login">
-                    <li class="nav-right nav-hover">Sign In</li>
+               <a href="#log-in">
+                    <li class="nav-right nav-hover log-in " id="demo-button">Sign In</li>
                </a>
           </ul>
 
 
+          <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
 
+          <div class="modal" id="log-in">
+               <div class="modal-container">
+                    <div class="log-in-box">
+                         <form class="login-form" action="users/login" method="post" autocomplete="off">
+                              <h3>Thank you for using alphaNote</h3>
+                              <p>To access the demo account, please enter the following credentials:</p>
+                              <p class="demo-account">Username: <b>abc</b><br> Password: <b>123</b>
+                              </p>
+                              <p>or sign in with your existing account.</p>
+                              <button type='submit' class="log-in-button">Sign In</button>
+                         </form>
+                    </div>
+                    <i class="fa fa-times fa-lg modal-close" aria-hidden="true"></i>
+               </div>
+          </div>
      </nav>
 
      <header>
@@ -85,15 +101,15 @@
 
      <main>
           <section>
-               <div id="about" class="about">
+               <div id="about" >
                     <div class="row">
                          <div class="col-12">
                               <div class="about-text">
-                                   <h2>Experience cloud-based experimental documentation</h2>
+                                   <h2 >Experience cloud-based experimental documentation</h2>
                                    <div class="about-img-mobile">
                                         <img src="" alt="science-cloud" class="astronaut">
                                    </div>
-                                   <p> Save some trees and change up your paper-based lab notebooks. alphaNote is a browser-based tool that is compatible with all operating systems and popular browsers. Access your data anywhere in the world and always be
+                                   <p class="about"> Save some trees and change up your paper-based lab notebooks. alphaNote is a browser-based tool that is compatible with all operating systems and popular browsers. Access your data anywhere in the world and always be
                                         up to date with the latest developments of your research.
                                    </p>
                               </div>
@@ -106,7 +122,7 @@
           </section>
 
           <section>
-               <div id="journal" class="journal">
+               <div id="journal" >
                     <div class="row">
                          <div class="col-12">
                               <div class="journal-img">
@@ -120,11 +136,11 @@
 							</svg>
                               </div>
                               <div class="journal-text">
-                                   <h2>Idea to scientific Discoveries</h2>
+                                   <h2 >Idea to scientific Discoveries</h2>
                                    <div class="journal-img-mobile">
                                         <img src="" alt="dreams-example" class="dreams-example">
                                    </div>
-                                   <p> Inside your lab notebook, annotate images from scratch and take advantage of a top-of-the-line text editing tool to highlight your findings. Your experiments are stored in a seperate layer guatanteeing that your original
+                                   <p class="journal"> Inside your lab notebook, annotate images from scratch and take advantage of a top-of-the-line text editing tool to highlight your findings. Your experiments are stored in a seperate layer guatanteeing that your original
                                         data is always preserved.
                                    </p>
                               </div>
@@ -134,15 +150,15 @@
           </section>
 
           <section>
-               <div id="analyze" class="analyze">
+               <div id="analyze" >
                     <div class="row">
                          <div class="col-12">
                               <div class="analyze-text">
-                                   <h2>Keep track and share your experiments</h2>
+                                   <h2 >Keep track and share your experiments</h2>
                                    <div class="analyze-img-mobile">
                                         <img src="" alt="statistics-example" class="statistics-example-mobile">
                                    </div>
-                                   <p>Whether you are just beginning your scientific career or already have vast experiences, alphaNote enables you to keep track and share all of your experiments in one safe location. It is easy to use, reliable and flexible.</p>
+                                   <p class="analyze">Whether you are just beginning your scientific career or already have vast experiences, alphaNote enables you to keep track and share all of your experiments in one safe location. It is easy to use, reliable and flexible.</p>
                               </div>
                               <div class="analyze-img">
                                    <img src="images/track.png" alt="dashboard-example" class="statistics-example">

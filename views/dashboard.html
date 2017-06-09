@@ -4,7 +4,7 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta name="description" content="Dream Journal">
+     <meta name="description" content="Experiment Dashboard">
      <title>alphaNote | Electronic Laboratory Notebook</title>
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
      <link href="https://fonts.googleapis.com/css?family=Balthazar" rel="stylesheet">
@@ -34,54 +34,50 @@
           </nav>
      </section>
 
-     <section id="header">
-          <div class="row">
-               <div class="col-12">
-                    <h1 class="activity-summary-heading animated fadeIn"></h1>
-               </div>
-          </div>
-     </section>
-
      <section id="counter">
           <div class="wrapper">
-               <div class="counter col_fourth">
-                    <i class="fa fa-book fa-2x"></i>
-                    <h2 class="timer count-title count-number" id="experimentData" data-to="20" data-speed="1500"></h2>
-                    <p class="count-text ">Total Experiments</p>
+               <div>
+                    <div class="col-md-4">
+                         <h1><span class="counter_experiment"> 0 </span></h1>
+                         <h3>Experiments</h3>
+                         <i class="fa fa-flask"></i>
+                    </div>
+                    <div class="col-md-4">
+                         <h1><span class="counter_pending"> 0 </span></h1>
+                         <h3>Pending</h3>
+                         <i class="fa fa-edit"></i>
+                    </div>
+                    <div class="col-md-4">
+                         <h1><span class="counter_complete"> 0 </span></h1>
+                         <h3>Completed</h3>
+                         <i class="fa fa-check"></i>
+                    </div>
                </div>
-
-               <div class="counter col_fourth">
-                    <i class="fa fa-lightbulb-o fa-2x"></i>
-                    <h2 class="timer count-title count-number" id="pendingData" data-to="" data-speed="1500"></h2>
-                    <p class="count-text ">Pending</p>
-               </div>
-
-               <div class="counter col_fourth end">
-                    <i class="fa fa-check fa-2x"></i>
-                    <h2 class="timer count-title count-number" id="completedData" data-to="" data-speed="1500"></h2>
-                    <p class="count-text ">Completed</p>
-               </div>
-          </div>
      </section>
 
      <section id="filter">
           <div id="wrapper-filter">
+               <!--
                <ul id="filter-bar">
                     <span class="pill"></span>
                     <li class="filter-option option-1 active" data-target="option-1">Title</li>
                     <li class="filter-option option-2" data-target="option-2">Date</li>
                     <li class="filter-option option-3" data-target="option-3">Status</li>
                </ul>
+               -->
           </div>
      </section>
+
 
      <section id="grid">
           <ul class="gallery">
           </ul>
      </section>
 
-
+     <script src="jquery.counterup.min.js"></script>
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+
      <script type="text/javascript" src="assets/dashboard.js"></script>
 </body>
 
