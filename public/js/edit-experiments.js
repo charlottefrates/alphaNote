@@ -65,7 +65,7 @@ $(function() {
 
 /* ================================= EDIT DELETE PRINT BUTTONS========================================*/
 
-$('.delete-button').on('click', function(event) {
+$('#dme').on('click', function(event) {
 	event.preventDefault();
 	const experimentId = $(this).closest('dd').prev('dt').attr('id');
 	$(this).closest('dd').prev().addClass('fadeOut');
@@ -73,7 +73,7 @@ $('.delete-button').on('click', function(event) {
 
 	if (confirm('Are you sure you want to delete?')) {
 		$.ajax({
-			url: `/delete/${fullPathName}`,
+			url: `/delete${fullPathName}`,
 			type: 'DELETE',
 			dataType: 'json',
 
@@ -351,7 +351,7 @@ var data = {
 //API EDIT request
 
 //path must not have a / for ids to match
-path = fullPathName.slice(1);
+var path = fullPathName.slice(1);
 
 var editEntry = {
      "url": `edit/${path}`,
