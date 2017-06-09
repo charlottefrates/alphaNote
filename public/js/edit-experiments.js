@@ -6,7 +6,7 @@ let response;
 function geExperimentEntries(callbackFn) {
 	console.log(fullPathName);
   $.ajax({
-    url: `/${fullPathName}/json`,
+    url: `${fullPathName}/json`,
     type: 'GET',
     dataType: 'json',
 
@@ -354,7 +354,7 @@ var data = {
 path = fullPathName.slice(1);
 
 var editEntry = {
-     "url": `/edit/${fullPathName}`,
+     "url": `edit/${path}`,
      "dataType": "json",
      "contentType": "application/json; charset=utf-8",
      "method": "PUT",
