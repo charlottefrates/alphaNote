@@ -112,7 +112,7 @@ $("#filter-bar li").click(function() {
 /* ================================= RESPONSIVE NAVIGATION =================================*/
 
 $('.handle').on('click', function(event) {
-     $('nav ul').toggleClass('showing');
+     //$('nav ul').toggleClass('showing');
 });
 
 $('.show-list').click(function() {

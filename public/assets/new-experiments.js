@@ -131,7 +131,7 @@ $('#step6').on('click',function(event){
 /* ================================= RESPONSIVE NAVIGATION =================================*/
 
     $('.handle').on('click', function(event) {
-      $('nav ul').toggleClass('showing');
+      //$('nav ul').toggleClass('showing');
     });
 
     $(document).ready(function() {

@@ -34,11 +34,11 @@ $('.log-in').on('click', function(event) {
 });
 
 $('.handle').on('click', function(event) {
-  $('nav ul').toggleClass('showing');
+  //$('nav ul').toggleClass('showing');
 });
 
 $('nav ul a').on('click', function(event) {
-  $('nav ul').toggleClass('showing');
+  //$('nav ul').toggleClass('showing');
 });
 
 
