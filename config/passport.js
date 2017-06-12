@@ -5,7 +5,7 @@
 var LocalStrategy   = require('passport-local').Strategy;
 
 // load up the user model
-var User       		= require('../app/models/user');
+var User      		= require('../app/models/user');
 
 // expose this function to our app using module.exports
 module.exports = function(passport) {
@@ -36,12 +36,13 @@ module.exports = function(passport) {
 	// by default, if there was no name, it would just be called 'local'
 
     passport.use('local-signup', new LocalStrategy({
-        // by default, local strategy uses username and password
+        // by default, local strategy uses username and passwords
         usernameField : 'username',
         passwordField : 'password',
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
-    function(req, username, password, done) {
+    function(req, username, password, done, firstName, lastName) {
+      console.log(req.body.firstName);
     // asynchronous
     // User.findOne wont fire unless data is sent back
     process.nextTick(function() {
@@ -63,9 +64,12 @@ module.exports = function(passport) {
                   var newUser            = new User();
 
                   // set the user's local credentials
+                  newUser.local.firstName = firstName;
+                  newUser.local.lastName = lastName;
                   newUser.local.username    = username;
                   newUser.local.password = newUser.generateHash(password); // use the generateHash function in our user model
-                  req.session.user = newUser.local.username;
+                  req.session.firstName = newUser.local.firstName;
+                  req.session.lastName = newUser.local.lastName;
                   console.log(req.session);
 	                // save the user
                   newUser.save(function(err) {
@@ -109,6 +113,10 @@ module.exports = function(passport) {
             if (!user.validatePassword(password))
                 return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
 
+            //req.session.user = user.local.username;
+            req.session.firstName = user.local.firstName;
+            req.session.lastName = user.local.lastName;
+            console.log(req.session);
             // all is well, return successful user
             return done(null, user);
         });

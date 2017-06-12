@@ -3,9 +3,8 @@
 const path = require('path');
 const morgan = require('morgan');
 
-const {
-     Experiment
-} = require('./models/experiment');
+const {Experiment} = require('./models/experiment');
+const User = require('./models/user');
 
 module.exports = function(app, passport) {
 
@@ -53,6 +52,21 @@ module.exports = function(app, passport) {
           failureRedirect: '/signup', // redirect back to the signup page if there is an error
           failureFlash: true // allow flash messages
      }));
+
+
+     // =====================================
+     // Grabs User Info ========
+     // =====================================
+
+     app.get('/users', (req, res) => {
+       return User
+         .find()
+         .exec()
+         .then(users => res.json(users.map(user => user.apiRepr())))
+         .catch(err => console.log(err) && res.status(500).json({message: 'Internal server error'}));
+     });
+
+
 
      // =====================================
      // PROFILE SECTION =========================
@@ -140,8 +154,8 @@ module.exports = function(app, passport) {
      // add new item to experiment and return it with a 201.
      app.post('/new', (req, res) => {
           //let user = req.user;
-          console.log(req);
-          console.log(res);
+          //console.log(req);
+          //console.log(res);
           const requiredFields = ['title', 'purpose', 'procedure', 'results', 'conclusion'];
           for (let i = 0; i < requiredFields.length; i++) {
                const field = requiredFields[i];
@@ -151,11 +165,11 @@ module.exports = function(app, passport) {
                     return res.status(400).send(message);
                }
           }
-
+          console.log(req.session);
           Experiment
                .create({
                     title: req.body.title,
-                    author: req.body.author,
+                    author: req.session.firstName + " " + req.session.lastName,
                     background: req.body.background,
                     purpose: req.body.purpose,
                     procedure: req.body.procedure,

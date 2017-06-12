@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 const experimentSchema = mongoose.Schema({
-     author: {
-          firstName: String,
-          lastName: String
-     },
+     author: String,
      title: {
           type: String,
           required: true

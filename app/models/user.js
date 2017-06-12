@@ -41,5 +41,8 @@ UserSchema.methods.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
+//let User = mongoose.model('User', UserSchema);
+
 // create the model for users and expose it to our app
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema)
+//{User};
