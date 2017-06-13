@@ -105,7 +105,32 @@ module.exports = function(app, passport) {
      // =====================================
 
      //path to see JSON objects
+     //NOTE: ADDED user filter
      app.get('/experiments', (req, res) => {
+          let user = req.user;
+          let userid = user._id;
+          console.log(user);
+          console.log(userid);
+
+          Experiment
+               .find( {user_id: userid})
+               .sort({
+                    created: 1
+               }) //sorts recent date first
+               .exec()
+               .then(experiments => {
+                    res.json(experiments.map(experiment => experiment.apiRepr()));
+               })
+               .catch(err => {
+                    console.error(err);
+                    res.status(500).json({
+                         error: 'something went terribly wrong'
+                    });
+               });
+     });
+
+     //NOTE: NEW grab all experiments despite user
+     app.get('/all', (req, res) => {
           Experiment
                .find( /*{author: "Charlotte"}*/ )
                .sort({
@@ -149,13 +174,15 @@ module.exports = function(app, passport) {
 
 
      //POST reqeust with specified requirements
+     //NOTE: added user ID field
      // when a new experiment is posted, make sure it has required content.
      // if not,log an error and return a 400 status code. if okay,
      // add new item to experiment and return it with a 201.
      app.post('/new', (req, res) => {
-          //let user = req.user;
-          //console.log(req);
-          //console.log(res);
+          let user = req.user;
+          console.log(user);
+          console.log(req);
+          console.log(res);
           const requiredFields = ['title', 'purpose', 'procedure', 'results', 'conclusion'];
           for (let i = 0; i < requiredFields.length; i++) {
                const field = requiredFields[i];
@@ -176,8 +203,8 @@ module.exports = function(app, passport) {
                     results: req.body.results,
                     conclusion: req.body.conclusion,
                     created: req.body.created,
-                    status: req.body.status
-                    //user_id:user._id
+                    status: req.body.status,
+                    user_id:user._id
                })
                .then(experimentEntry => res.status(201).json(experimentEntry.apiRepr()))
                .catch(err => {
