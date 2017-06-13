@@ -36,62 +36,56 @@ module.exports = function(passport) {
      // by default, if there was no name, it would just be called 'local'
 
      passport.use('local-signup', new LocalStrategy({
-               // by default, local strategy uses username and passwords
-               usernameField: 'username',
-               passwordField: 'password',
-               passReqToCallback: true // allows us to pass back the entire request to the callback
-          },
-          function(req, username, password, done, firstName, lastName) {
-               //console.log(req.body.firstName);
-               // asynchronous
-               // User.findOne wont fire unless data is sent back
-               process.nextTick(function() {
-                    // find a user whose email is the same as the forms email
-                    // we are checking to see if the user trying to login already exists
-                    User.findOne({
-                         'local.username': username
-                    }, function(err, user) {
-                         // if there are any errors, return the error
-                         if (err) {
-                              return done(err);
-                         }
-                         // check to see if theres already a user with that email
-                         if (user) {
-                              return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
-                         } else {
-                              // if there is no user with that email
-                              // create the user
-                              var newUser = new User();
+            // by default, local strategy uses username and password, we will override with email
+            usernameField : 'username',
+            passwordField : 'password',
+            passReqToCallback : true // allows us to pass back the entire request to the callback
+        },
+        function(req, username, password, done) {
+            // asynchronous
+            // User.findOne wont fire unless data is sent back
+            process.nextTick(function() {
 
-                              // set the user's local credentials
+                // find a user whose email is the same as the forms email
+                // we are checking to see if the user trying to login already exists
+                User.findOne({ 'local.username': username }, function(err, user) {
+                    // if there are any errors, return the error
+                    if (err)
+                        return done(err);
 
-                              newUser.local.username = username;
-                              //newUser.local.firstName = firstName;
-                              //newUser.local.lastName = lastName;
-                              newUser.local.password = newUser.generateHash(password); // use the generateHash function in our user model
-                              newUser.local.lastname = req.body.lastname;
-                              newUser.local.firstname = req.body.firstname;
-                              //req.session.firstName = newUser.local.firstName;
-                              //req.session.lastName = newUser.local.lastName;
+                    // check to see if theres already a user with that email
+                    if (user) {
+                        return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
+                    } else {
 
-                              //newUser.local.username = username;
-                              //newUser.local.password = newUser.generateHash(password);
-                              //newUser.local.firstName = req.body.firstName;
-                              //newUser.local.lastName = req.body.lastName;
+                        // if there is no user with that email
+                        // create the user
+                        var newUser            = new User();
 
-                              console.log(req.session);
-                              // save the user
-                              newUser.save(function(err) {
-                                   console.log("Save:" + err);
-                                   if (err)
-                                        throw err;
+                        // set the user's local credentials
+                        newUser.local.username = username;
+                        newUser.local.password = newUser.generateHash(password);
+                        newUser.local.lastName = req.body.lastName;
+                        newUser.local.firstName = req.body.firstName;
 
-                                   return done(null, newUser);
-                              });
-                         }
-                    });
-               })
-          }));
+                        console.log(req.body.username);
+                        console.log(req.body.lastName);
+                        console.log(req.body.firstName);
+
+                        // save the user
+                        newUser.save(function(err) {
+                            if (err)
+                                throw err;
+                            return done(null, newUser);
+                        });
+                    }
+
+                });
+
+            });
+        }));
+
+
 
      // =========================================================================
      // LOCAL LOGIN =============================================================

@@ -1,8 +1,9 @@
 <!-- views/signup.ejs -->
 <!doctype html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
+     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <meta name="description" content="">
      <title>alphaNote | Electronic Laboratory Notebook</title>
@@ -12,61 +13,65 @@
      <link rel="stylesheet" type="text/css" href="styles/grid.css">
      <link rel="stylesheet" type="text/css" href="styles/signup.css">
      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+     <!-- load bootstrap css -->
 </head>
+
 <body>
 
-    <section id="navbar">
-         <nav>
-              <ul>
-                   <a href="/" class="black">
-                        <li>Home</li>
-              </ul>
-              <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
-         </nav>
-    </section>
+
+     <section id="navbar">
+          <nav>
+               <ul>
+                    <a class="black">
+                         <li id="home">Home</li>
+               </ul>
+               <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+          </nav>
+     </section>
 
 
 
-<div class="container">
+     <section id="signup">
+          <div class="container">
+               <div class="col-sm-6 col-sm-offset-3">
+                    <h1><span class="fa fa-sign-in"></span> Signup</h1>
 
-<div class="col-sm-6 col-sm-offset-3">
+                    <!-- LOGIN FORM -->
 
-	<h1><span class="fa fa-sign-in"></span> Signup</h1>
+                    <div class="row">
+                         <div class="col-12">
+                              <h2 class="sign-up-title"></h2>
+                              <div class="sign-up-box black">
+                                   <form class="register black" action="/signup" method="post" autocomplete="off">
+                                        <fieldset name="register-info">
+                                             <label> First Name</label>
+                                             <input type="text" name="firstName" id="firstName" required/>
+                                             <br>
+                                             <label> Last Name </label>
+                                             <input type="text" name="lastName" id="lastName" required/>
+                                             <br>
+                                             <label> Username </label>
+                                             <input type="text" name="username" id="username" placeholder="Username" required/>
+                                             <br>
+                                             <label> Password</label>
+                                             <input type="password" name="password" id="password" placeholder="Password" required/>
+                                        </fieldset>
+                                        <button type='submit' class="sign-up-button">Sign Up</button>
+                                   </form>
+                              </div>
+                         </div>
+                    </div>
+                    <hr>
+                    <p>Already have an account? <a href="/login">Login</a></p>
+               </div>
+     </section>
 
-	<!-- LOGIN FORM -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-    <div class="row">
-         <div class="col-12">
-              <h2 class="sign-up-title"></h2>
-              <div class="sign-up-box black">
-                   <form class="register black" action="/signup" method="post" autocomplete="off">
-                        <fieldset name="register-info">
-                            <label > First Name</label>
-                             <input type="text" name="name" id="firstName"  required/>
-                             <br>
-    					     <label> Last Name </label>
-                             <input type="text" name="name" id="lastName" required/>
-                             <br>
-    					     <label> Username </label>
-                             <input type="text" name="username" id="username" placeholder="Username" required/>
-                             <br>
-                            <label> Password</label>
-                             <input type="password" name="password" id="password" placeholder="Password" required/>
-                        </fieldset>
-                        <button type='submit' class="sign-up-button">Sign Up</button>
-                   </form>
-              </div>
-         </div>
-    </div>
+     <script type="text/javascript" src="js/signup.js"></script>
 
-	<hr>
-
-	<p>Already have an account? <a href="/login">Login</a></p>
-
-
-</div>
-
-</div>
+     </div>
 </body>
+
 </html>

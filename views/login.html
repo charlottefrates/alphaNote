@@ -1,48 +1,61 @@
 <!-- views/login.ejs -->
 <!doctype html>
 <html>
+
 <head>
-	<meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <title>alphaNote | Electronic Laboratory Notebook</title>
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
-      <link href="https://fonts.googleapis.com/css?family=Balthazar" rel="stylesheet">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-      <link rel="stylesheet" type="text/css" href="styles/grid.css">
-      <link rel="stylesheet" type="text/css" href="styles/login.css">
-      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
- 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="">
+     <title>alphaNote | Electronic Laboratory Notebook</title>
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+     <link href="https://fonts.googleapis.com/css?family=Balthazar" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+     <link rel="stylesheet" type="text/css" href="styles/grid.css">
+     <link rel="stylesheet" type="text/css" href="styles/login.css">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+     <!-- load bootstrap css -->
 </head>
+
 <body>
-  <section id="navbar">
-       <nav>
-            <ul>
-                 <a href="/" class="black">
-                      <li>Home</li>
-            </ul>
-            <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
-       </nav>
-  </section>
+     <section id="navbar">
+          <nav>
+               <ul>
+                    <a class="black">
+                         <li id="home">Home</li>
+               </ul>
+               <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+          </nav>
+     </section>
 
-<div class="container">
+     <section id="login">
 
-<div class="col-sm-6 col-sm-offset-3">
 
-	<h1><span class="fa fa-sign-in"></span> Login</h1>
+          <div class="container">
 
-	<!-- LOGIN FORM -->
-	<form action="/login" method="post">
-     <h3>Thank you for using alphaNote</h3>
-		 <fieldset name="login-info">
-         <input type="text" name="username" id="username" placeholder="Username" required="">
-         <input type="password" name="password" id="password" placeholder="Password" required="">
-    </fieldset>
-     <button type='submit' class="log-in-button">Sign In</button>
-	</form>
+               <div class="col-sm-6 col-sm-offset-3">
 
-</div>
+                    <h1><span class="fa fa-sign-in"></span> Login</h1>
 
-</div>
+                    <!-- LOGIN FORM -->
+                    <form action="/login" method="post">
+                         <h3>Thank you for using alphaNote</h3>
+                         <fieldset name="login-info">
+                              <input type="text" name="username" id="username" placeholder="Username" required="">
+                              <input type="password" name="password" id="password" placeholder="Password" required="">
+                         </fieldset>
+                         <button type='submit' class="log-in-button">Sign In</button>
+                    </form>
+
+               </div>
+
+          </div>
+     </section>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+     <script type="text/javascript" src="js/signup.js"></script>
+
 </body>
+
 </html>
