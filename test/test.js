@@ -3,10 +3,10 @@ const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
-/*
-const {Experiment} = require('./models/experiment');
-const User = require('./models/user');
-*/
+
+const {Experiment} = require('./models');
+const User = require('./models');
+
 
 function seedExperimentData() {
   console.info('seeding dream entry data');
