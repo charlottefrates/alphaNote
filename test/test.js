@@ -3,17 +3,17 @@ const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
-
+/*
 const {Experiment} = require('./models');
 const User = require('./models');
-
+*/
 
 function seedExperimentData() {
-  console.info('seeding dream entry data');
+  console.info('seeding experiment entry data');
   const seedData = [];
 
   for (let i=1; i<=10; i++) {
-    seedData.push(generateDreamData());
+    seedData.push(generateExperimentData());
   }
   // this will return a promise
   return Experiment.insertMany(seedData);
