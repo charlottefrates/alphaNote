@@ -4,10 +4,9 @@ const faker = require('faker');
 const mongoose = require('mongoose');
 
 
-/*const {Experiment, User} = require('./models');*/
+const {Experiment} = require('./app/models/experiment');
+const User = require('./app/models/user');
 const {app} = require('../server');
-
-
 
 function seedExperimentData() {
   console.info('seeding experiment entry data');
