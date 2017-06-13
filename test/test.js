@@ -3,9 +3,10 @@ const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
-const {Experiment} = require('/models/experiment');
-const User = require('/models/user');
-
+/*
+const {Experiment} = require('./models/experiment');
+const User = require('./models/user');
+*/
 
 function seedExperimentData() {
   console.info('seeding dream entry data');
@@ -59,9 +60,9 @@ describe('alphaNote API resource',function(){
 });
 
 describe('GET endpoint', function() {
-  it('should return all existing dreams', function() {
+  it('should return all existing experiments', function() {
     // strategy:
-    //    1. get back all dreams returned by GET request to `/dreams/json`
+    //    1. get back all dreams returned by GET request to `/all`
     //    2. prove res has right status, data type
     //    3. prove the number of dreams we got back is equal to number
     //       in db.
@@ -85,11 +86,11 @@ describe('GET endpoint', function() {
       });
   });
 
-  it('should return dreams with right fields', function() {
+  it('should return experiments with right fields', function() {
     // Strategy: Get back all dreams, and ensure they have expected keys
     let resExperiment;
     return chai.request(app)
-      .get('/dreams/json/test')
+      .get('/all')
       .then(function(res) {
         res.should.have.status(200);
         res.should.be.json;
