@@ -2,14 +2,32 @@
 <!doctype html>
 <html>
 <head>
-	<title>Node Authentication</title>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta name="description" content="">
+     <title>alphaNote | Electronic Laboratory Notebook</title>
+     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+     <link href="https://fonts.googleapis.com/css?family=Balthazar" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+     <link rel="stylesheet" type="text/css" href="styles/grid.css">
+     <link rel="stylesheet" type="text/css" href="styles/signup.css">
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
-	<style>
-		body 		{ padding-top:80px; }
-	</style>
 </head>
 <body>
+
+    <section id="navbar">
+         <nav>
+              <ul>
+                   <a href="/" class="black">
+                        <li>Home</li>
+              </ul>
+              <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
+         </nav>
+    </section>
+
+
+
 <div class="container">
 
 <div class="col-sm-6 col-sm-offset-3">
@@ -20,13 +38,20 @@
 
     <div class="row">
          <div class="col-12">
-              <h2 class="sign-up-title">Sign Up to use alphaNote</h2>
-              <div class="sign-up-box">
-                   <form class="register" action="/signup" method="post" autocomplete="off">
+              <h2 class="sign-up-title"></h2>
+              <div class="sign-up-box black">
+                   <form class="register black" action="/signup" method="post" autocomplete="off">
                         <fieldset name="register-info">
-                             <input type="text" name="name" id="firstName" placeholder="First Name" required/>
-                             <input type="text" name="name" id="lastName" placeholder="Last Name" required/>
+                            <label > First Name</label>
+                             <input type="text" name="name" id="firstName"  required/>
+                             <br>
+    					     <label> Last Name </label>
+                             <input type="text" name="name" id="lastName" required/>
+                             <br>
+    					     <label> Username </label>
                              <input type="text" name="username" id="username" placeholder="Username" required/>
+                             <br>
+                            <label> Password</label>
                              <input type="password" name="password" id="password" placeholder="Password" required/>
                         </fieldset>
                         <button type='submit' class="sign-up-button">Sign Up</button>
