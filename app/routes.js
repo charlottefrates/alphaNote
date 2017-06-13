@@ -132,7 +132,7 @@ module.exports = function(app, passport) {
      //NOTE: NEW grab all experiments despite user
      app.get('/all', (req, res) => {
           Experiment
-               .find( /*{author: "Charlotte"}*/ )
+               .find( )
                .sort({
                     created: 1
                }) //sorts recent date first
