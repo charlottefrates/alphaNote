@@ -4,8 +4,8 @@ const faker = require('faker');
 const mongoose = require('mongoose');
 
 
-const {Experiment, User} = require('./models');
-const {app} = require('./server');
+/*const {Experiment, User} = require('./models');*/
+const {app} = require('../server');
 
 
 
