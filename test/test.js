@@ -3,10 +3,11 @@ const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
-/*
-const {Experiment} = require('./models');
-const User = require('./models');
-*/
+
+const {Experiment, User} = require('./models');
+const {app} = require('./server');
+
+
 
 function seedExperimentData() {
   console.info('seeding experiment entry data');
