@@ -39,7 +39,7 @@ experimentSchema.virtual('resultShow').get(function() {
 
 experimentSchema.methods.apiRepr = function() {
      return {
-          author: this.authorName, //uses virtual to set format
+          author: this.author, //uses virtual to set format
           id: this._id,
           title: this.title,
           background: this.background,
