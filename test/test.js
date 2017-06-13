@@ -63,9 +63,9 @@ describe('alphaNote API resource',function(){
 describe('GET endpoint', function() {
   it('should return all existing experiments', function() {
     // strategy:
-    //    1. get back all dreams returned by GET request to `/all`
+    //    1. get back all experiments returned by GET request to `/all`
     //    2. prove res has right status, data type
-    //    3. prove the number of dreams we got back is equal to number
+    //    3. prove the number of experiments we got back is equal to number
     //       in db.
     //
     // need to have access to mutate and access `res` across
