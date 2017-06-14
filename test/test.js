@@ -62,6 +62,22 @@ function tearDownDb() {
     return mongoose.connection.dropDatabase();
 };
 
+describe('App', function() {
+  describe('/', function() {
+    it('responds with status 200', function(done) {
+      chai.request(app)
+        .get('/all')
+        .end(function(err, _res) {
+          res = _res;
+          res.should.have.status(200)
+          done();
+        });
+    });
+  });
+});
+
+
+
 describe('GET endpoint', function() {
   it('should return all existing experiments', function() {
     // strategy:
@@ -102,7 +118,7 @@ describe('GET endpoint', function() {
         res.body.forEach(function(experiment) {
           experiment.should.be.a('object');
           experiment.should.include.keys(
-            'id', 'title', 'background', 'purpose', 'procedure',/*'results'*/'conclusion'); //TODO: results is an object!
+            'id', 'title', 'background', 'purpose', 'procedure','conclusion'); //TODO: results is an object!
         });
         resExperiment = res.body[0];
         return Experiment.findById(resExperiment.id);
@@ -135,7 +151,7 @@ describe('POST endpoint', function() {
         res.should.have.status(201);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body.should.include.keys('id', 'title', 'background', 'purpose', 'procedure',/*'results'*/'conclusion');
+        res.body.should.include.keys('id', 'title', 'background', 'purpose', 'procedure','conclusion');
         // cause Mongo should have created id on insertion
         res.body.id.should.not.be.null;
         res.body.title.should.equal(newExperiment.title);
@@ -223,7 +239,8 @@ describe('PUT endpoint', function() {
         return Experiment.findById(updateData.id).exec();
       })
       .then(function(experiment) {
-        eexperiment.title.should.equal(newExperiment.title);
+        experiment.title.should.equal(newExperiment.title);
+        experiment.author.should.equal(newExperiment.author);
         experiment.background.should.equal(newExperiment.background);
         experiment.purpose.should.equal(newExperiment.purpose);
         experiment.procedure.should.equal(newExperiment.procedure);
