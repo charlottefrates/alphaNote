@@ -151,14 +151,14 @@ describe('POST endpoint', function() {
         res.should.have.status(201);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body.should.include.keys('id', 'title', 'background', 'purpose', 'procedure','conclusion');
+        res.body.should.include.keys('id', 'title', 'background', 'purpose', 'procedure','results','conclusion');
         // cause Mongo should have created id on insertion
         res.body.id.should.not.be.null;
         res.body.title.should.equal(newExperiment.title);
         res.body.background.should.equal(newExperiment.background);
         res.body.purpose.should.equal(newExperiment.purpose);
         res.body.procedure.should.equal(newExperiment.procedure);
-        //res.body.results.should.equal(newExperiment.results);
+        res.body.results.should.equal(newExperiment.results);
         res.body.conclusion.should.equal(newExperiment.conclusion);
 
 
@@ -178,7 +178,7 @@ describe('POST endpoint', function() {
   it('should add a new user', function() {
     const newUser = generateUser();
     return chai.request(app)
-      .post('/users')
+      .post('/signup')
       .send(newUser)
       .then(function(res) {
         res.should.have.status(201);
@@ -216,7 +216,11 @@ describe('PUT endpoint', function() {
       background: "My background",
       purpose: "My purpose",
       procedure: "My procedure",
-      //results: "My results",
+      results: {
+        text: "My text",
+        drawing: "My drawing",
+        molecule: "My molecule",
+      },
       conclusion: "My conclusion",
       status: "pending"
     };
@@ -244,7 +248,7 @@ describe('PUT endpoint', function() {
         experiment.background.should.equal(newExperiment.background);
         experiment.purpose.should.equal(newExperiment.purpose);
         experiment.procedure.should.equal(newExperiment.procedure);
-        //experiment.results.should.equal(newExperiment.results);
+        experiment.results.should.equal(newExperiment.results);
         experiment.conclusion.should.equal(newExperiment.conclusion);
         experiment.status.should.equal(newExperiment.status);
       });
