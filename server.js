@@ -42,3 +42,5 @@ require('./config/passport')(passport); // pass passport for configuration
   // launch ======================================================================
   app.listen(port);
   console.log('The magic happens on port ' + port);
+
+  module.exports = {app};

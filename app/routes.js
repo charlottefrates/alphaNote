@@ -66,6 +66,24 @@ module.exports = function(app, passport) {
          .catch(err => console.log(err) && res.status(500).json({message: 'Internal server error'}));
      });
 
+     // =====================================
+     // For test ========
+     // =====================================
+
+     app.get('/json/test', (req, res) => {
+       Experiment
+         .find()
+         .sort({created: -1})
+         .exec()
+         .then(experiments => {
+           res.json(experiments.map(experiment => experiment.apiRepr()));
+         })
+         .catch(err => {
+           console.error(err);
+           res.status(500).json({error: 'something went terribly wrong'});
+         });
+     });
+
 
 
      // =====================================
