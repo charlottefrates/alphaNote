@@ -79,16 +79,16 @@
      <form id="msform">
           <!-- progressbar -->
           <ul id="progressbar">
-               <li class="active" id="step1">Background</li>
-               <li id="step2">Purpose</li>
-               <li id="step3">Procedure</li>
-               <li id="step4">Results</li>
-               <li id="step5">Conclusion</li>
-               <li id="step6">View</li>
+               <li class="active next"  next="2" id="step1">Background</li>
+               <li class="next" id="step2" next="3">Purpose</li>
+               <li class="next" id="step3" next="4">Procedure</li>
+               <li class="next" id="step4" next="5">Results</li>
+               <li class="next" id="step5" next="6">Conclusion</li>
+               <li class="next" id="step6" next="7">View</li>
           </ul>
           <!-- fieldsets -->
           <fieldset class="showStep1">
-               <i class="fa fa-angle-right next" aria-hidden="true" style="float:right; font-size:30px"></i>
+               <i class="fa fa-angle-right next" next="2" aria-hidden="true" style="float:right; font-size:30px"></i>
 
                <h2 class="fs-title">Provide Experiment Title and Background</h2>
                <h3 class="fs-subtitle">This is step 1</h3>
@@ -98,8 +98,8 @@
           </fieldset>
 
           <fieldset class="showStep2">
-               <i class="fa fa-angle-right next" aria-hidden="true" style="float:right; font-size:30px"></i>
-               <i class="fa fa-angle-left previous" aria-hidden="true" style="float:left; font-size:30px"></i>
+               <i class="fa fa-angle-right next" next="3"aria-hidden="true" style="float:right; font-size:30px"></i>
+               <i class="fa fa-angle-left previous" next="1"aria-hidden="true" style="float:left; font-size:30px"></i>
 
                <h2 class="fs-title">What is the purpose of your experiment?</h2>
                <h3 class="fs-subtitle">Step 2</h3>
@@ -107,8 +107,8 @@
           </fieldset>
 
           <fieldset class="showStep3">
-               <i class="fa fa-angle-right next" aria-hidden="true" style="float:right; font-size:30px"></i>
-               <i class="fa fa-angle-left previous" aria-hidden="true" style="float:left; font-size:30px"></i>
+               <i class="fa fa-angle-right next"  next="4"aria-hidden="true" style="float:right; font-size:30px"></i>
+               <i class="fa fa-angle-left previous" next="2"aria-hidden="true" style="float:left; font-size:30px"></i>
 
                <h2 class="fs-title">How will your experiment be conducted?</h2>
                <h3 class="fs-subtitle">Step 3</h3>
@@ -116,8 +116,8 @@
           </fieldset>
 
           <fieldset class="showStep4">
-               <i class="fa fa-angle-right next" aria-hidden="true" style="float:right; font-size:30px"></i>
-               <i class="fa fa-angle-left previous" aria-hidden="true" style="float:left; font-size:30px"></i>
+               <i class="fa fa-angle-right next" next="5"aria-hidden="true" style="float:right; font-size:30px"></i>
+               <i class="fa fa-angle-left previous" next="3"aria-hidden="true" style="float:left; font-size:30px"></i>
 
                <h2 class="fs-title"> Record your findings.</h2>
                <h3 class="fs-subtitle">Step 4</h3>
@@ -149,8 +149,8 @@
           </fieldset>
 
           <fieldset class="showStep5">
-               <i class="fa fa-angle-right next" aria-hidden="true" style="float:right; font-size:30px"></i>
-               <i class="fa fa-angle-left previous" aria-hidden="true" style="float:left; font-size:30px"></i>
+               <i class="fa fa-angle-right next" next="6"aria-hidden="true" style="float:right; font-size:30px"></i>
+               <i class="fa fa-angle-left previous" next="4"aria-hidden="true" style="float:left; font-size:30px"></i>
 
                <h2 class="fs-title">Summarize your experiment and it's results.</h2>
                <h3 class="fs-subtitle">Step 5</h3>
@@ -158,7 +158,7 @@
           </fieldset>
 
           <fieldset class="showStep6">
-               <i class="fa fa-angle-left previous" aria-hidden="true" style="float:left; font-size:30px"></i>
+               <i class="fa fa-angle-left previous"  next="5"aria-hidden="true" style="float:left; font-size:30px"></i>
 
                <h2 class="fs-title"></h2>
                <h3 class="fs-subtitle"></h3>

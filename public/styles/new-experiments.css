@@ -17,6 +17,9 @@ body {
      display: none !important;
 }
 
+.current{
+     background-color: orange;
+}
 
 
 /* ================================= NAVIGATION =================================*/

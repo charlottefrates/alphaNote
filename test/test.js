@@ -3,9 +3,10 @@ const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
 
+chai.use(chaiHttp);
 
-const {Experiment} = require('./app/models/experiment');
-const User = require('./app/models/user');
+const {Experiment} = require('../app/models/experiment');
+const User = require('../app/models/user');
 const {app} = require('../server');
 
 function seedExperimentData() {
@@ -56,6 +57,8 @@ function tearDownDb() {
 }
 
 describe('alphaNote API resource',function(){
+
+  //TODO:
 
 });
 

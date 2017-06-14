@@ -39,137 +39,82 @@ var current_fs, next_fs, previous_fs; //fieldsets
 var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
-$(".next").on('click', function(event) {
-     event.preventDefault();
-     if (animating) return false;
-     animating = true;
 
-     current_fs = $(this).parent();
-     //console.log(current_fs);
-     next_fs = $(this).parent().next();
+$("i.next").on('click', function(event) {
+     var elemClicked = event.currentTarget;
+     var noNext = $(elemClicked).attr('next');
+     var next_fs = "showStep" + noNext;
+     console.log(elemClicked);
+     console.log(next_fs);
+
+     //+ converts into integer
+     current_fs = "showStep" + (+noNext -1);
 
      //activate next step on progressbar using the index of next_fs
-     $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+     $("#progressbar #step" + +noNext).addClass("active current");
 
      //show the next fieldset
-     next_fs.show();
+     $("." + next_fs).show();
      //hide the current fieldset with style
-     current_fs.animate({
-          opacity: 0
-     }, {
-          step: function(now, mx) {
-               //as the opacity of current_fs reduces to 0 - stored in "now"
-               //1. scale current_fs down to 80%
-               scale = 1 - (1 - now) * 0.2;
-               //2. bring next_fs from the right(50%)
-               left = (now * 50) + "%";
-               //3. increase opacity of next_fs to 1 as it moves in
-               opacity = 1 - now;
-               current_fs.css({
-                    'transform': 'scale(' + scale + ')',
-                    'position': 'absolute'
-               });
-               next_fs.css({
-                    'left': left,
-                    'opacity': opacity
-               });
-          },
-          duration: 800,
-          complete: function() {
-               current_fs.hide();
-               animating = false;
-          },
-          //this comes from the custom easing plugin
-          easing: 'easeInSine'
-     });
+     $("." + current_fs).hide();
+
 });
+
+$("li.next").on('click', function(event) {
+     var elemClicked = event.currentTarget;
+     var noNext = $(elemClicked).attr('next');
+     //var next_fs = "showStep" + noNext;
+     console.log(elemClicked);
+
+     //+ converts into integer
+     current_fs = "showStep" + (+noNext -1);
+     console.log(current_fs);
+     $('#step1').removeClass('active');
+
+     //activate next step on progressbar using the index of next_fs
+     $("#progressbar #step" + (+noNext-1)).addClass("active");
+
+     console.log(+noNext-1);
+
+     for (var i = 1; i < 8; i++) {
+          if ( i != (+noNext-1)){
+               console.log(".showStep"  + i);
+               $(".showStep"  + i).hide();
+          };
+     };
+
+
+     //show the next fieldset
+     //$("." + next_fs).show();
+     //hide the current fieldset with style
+     $("." + current_fs).show();
+     //$("ul#progressbar li:not('#step" + (+noNext -1)+ "'").removeClass("active");
+
+
+});
+
 
 $(".previous").on('click', function(event) {
      event.preventDefault();
-     if (animating) return false;
-     animating = true;
+     var elemClicked = event.currentTarget;
+     var noPrev = $(elemClicked).attr('next');
+     var next_fs = "showStep" + noPrev;
 
-     current_fs = $(this).parent();
-     //console.log(current_fs)
-     previous_fs = $(this).parent().prev();
+     //+ converts into integer
+     current_fs = "showStep" + (+noPrev +1);
 
-     //de-activate current step on progressbar
-     $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+     //activate next step on progressbar using the index of next_fs
+     $("#progressbar #step" + +noNext).addClass("current");
 
-     //show the previous fieldset
-     previous_fs.show();
+     //show the next fieldset
+     $("." + next_fs).show();
      //hide the current fieldset with style
-     current_fs.animate({
-          opacity: 0
-     }, {
-          step: function(now, mx) {
-               //as the opacity of current_fs reduces to 0 - stored in "now"
-               //1. scale previous_fs from 80% to 100%
-               scale = 0.8 + (1 - now) * 0.2;
-               //2. take current_fs to the right(50%) - from 0%
-               left = ((1 - now) * 50) + "%";
-               //3. increase opacity of previous_fs to 1 as it moves in
-               opacity = 1 - now;
-               current_fs.css({
-                    'left': left
-               });
-               previous_fs.css({
-                    'transform': 'scale(' + scale + ')',
-                    'opacity': opacity
-               });
-          },
-          duration: 800,
-          complete: function() {
-               current_fs.hide();
-               animating = false;
-          },
-          //this comes from the custom easing plugin
-          easing: 'easeInSine'
-     });
-});
-
-
-
-//TODO: allow for progressbar navigation
-$('#step1').on('click', function(event) {
-     event.preventDefault();
-     console.log('step1 clicked');
+     $("." + current_fs).hide();
 
 });
 
 
-$('#step2').on('click', function(event) {
-     event.preventDefault();
-     console.log('step2 clicked');
 
-
-});
-
-$('#step3').on('click', function(event) {
-     event.preventDefault();
-     console.log('step3 clicked');
-
-});
-
-$('#step4').on('click', function(event) {
-     event.preventDefault();
-     console.log('step4 clicked');
-
-
-});
-
-$('#step5').on('click', function(event) {
-     event.preventDefault();
-     console.log('step5 clicked');
-
-});
-
-$('#step6').on('click', function(event) {
-     event.preventDefault();
-     console.log('step6 clicked');
-
-
-});
 
 /* ================================= CLEAR DOODLE =================================*/
 
