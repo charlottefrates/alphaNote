@@ -34,6 +34,10 @@ function generateStatus() {
 function generateExperimentData() {
   return {
     title: faker.lorem.sentence(),
+    author:{
+      firstName: faker.name.firstName(),
+      lastName: faker.name.lastName()
+    },
     purpose: faker.lorem.paragraphs(),
     background:faker.lorem.paragraphs(),
     procedure:faker.lorem.paragraphs(),
@@ -118,7 +122,7 @@ describe('GET endpoint', function() {
         res.body.forEach(function(experiment) {
           experiment.should.be.a('object');
           experiment.should.include.keys(
-            'id', 'title', 'background', 'purpose', 'procedure','conclusion'); //TODO: results is an object!
+            'id', 'title', 'author','background', 'purpose','results','procedure','conclusion');
         });
         resExperiment = res.body[0];
         return Experiment.findById(resExperiment.id);
@@ -126,11 +130,18 @@ describe('GET endpoint', function() {
       .then(function(experiment) {
         resExperiment.id.should.equal(experiment.id);
         resExperiment.title.should.equal(experiment.title);
+        resExperiment.author.should.equal(experiment.author);
+        //resExperiment.should.equal(
+        //     `${experiment.author.firstName} ${experiment.author.lastName}`);
         resExperiment.background.should.equal(experiment.background);
         resExperiment.purpose.should.equal(experiment.purpose);
         resExperiment.procedure.should.equal(experiment.procedure);
-        //resExperiment.results.should.equal(experiment.results);
-        resExperiment.conclusion.should.equal(experiment.conclusion)
+        //resExperiment.results.should.equal(
+        //  `${experiment.results.text} ${experiment.results.drawing} ${experiment.results.molecule}`);
+        resExperiment.results.text.should.equal(experiment.results.text);
+        resExperiment.results.drawing.should.equal(experiment.results.drawing);
+        resExperiment.results.molecule.should.equal(experiment.results.molecule);
+        resExperiment.conclusion.should.equal(experiment.conclusion);
 
       });
   });
@@ -148,17 +159,21 @@ describe('POST endpoint', function() {
       .post('/new')
       .send(newExperiment)
       .then(function(res) {
-        res.should.have.status(201);
+        res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body.should.include.keys('id', 'title', 'background', 'purpose', 'procedure','results','conclusion');
+        res.body.should.include.keys('id', 'title','background', 'purpose', 'procedure','results','conclusion');
         // cause Mongo should have created id on insertion
         res.body.id.should.not.be.null;
         res.body.title.should.equal(newExperiment.title);
         res.body.background.should.equal(newExperiment.background);
         res.body.purpose.should.equal(newExperiment.purpose);
         res.body.procedure.should.equal(newExperiment.procedure);
-        res.body.results.should.equal(newExperiment.results);
+        res.body.results.text.should.equal(newExperiment.results.text);
+        res.body.results.drawing.should.equal(newExperiment.results.drawing);
+        res.body.results.molecule.should.equal(newExperiment.results.molecule);
+        //res.body.results.should.equal(
+        //  `${newExperiment.results.text} ${newExperiment.results.drawing} ${newExperiment.results.molecule}`);
         res.body.conclusion.should.equal(newExperiment.conclusion);
 
 
@@ -166,10 +181,14 @@ describe('POST endpoint', function() {
       })
       .then(function(experiment) {
         experiment.title.should.equal(newExperiment.title);
+        //experiment.author.firstName.should.equal(newExperiment.author.firstName);
+        //experiment.author.lastName.should.equal(newExperiment.author.lastName);
         experiment.background.should.equal(newExperiment.background);
         experiment.purpose.should.equal(newExperiment.purpose);
         experiment.procedure.should.equal(newExperiment.procedure);
-        //experiment.results.should.equal(newExperiment.results);
+        experiment.results.text.should.equal(newExperiment.results.text);
+        experiment.results.drawing.should.equal(newExperiment.results.drawing);
+        experiment.results.molecule.should.equal(newExperiment.results.molecule);
         experiment.conclusion.should.equal(newExperiment.conclusion);
 
       });
@@ -181,7 +200,7 @@ describe('POST endpoint', function() {
       .post('/signup')
       .send(newUser)
       .then(function(res) {
-        res.should.have.status(201);
+        res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.include.keys('firstName', 'lastName', 'username','password');
@@ -201,6 +220,17 @@ describe('POST endpoint', function() {
         user.password.should.equal(newUser.password);
       });
   });
+
+  it('should error if POST missing expected values', function() {
+     const badRequestData = {};
+     chai.request(app)
+       .post('/new')
+       .send(badRequestData)
+       .end(function(err, res) {
+         res.should.have.status(400);
+       })
+     });
+
 });
 
 describe('PUT endpoint', function() {
@@ -212,7 +242,10 @@ describe('PUT endpoint', function() {
   it('should update fields you send over', function() {
     const updateData = {
       title: "My Title",
-      author: "My author",
+      author: {
+                       firstName: 'foo',
+                       lastName: 'bar'
+                  },
       background: "My background",
       purpose: "My purpose",
       procedure: "My procedure",
@@ -239,20 +272,26 @@ describe('PUT endpoint', function() {
       })
       .then(function(res) {
         res.should.have.status(204);
-
+        res.should.be.json;
         return Experiment.findById(updateData.id).exec();
       })
       .then(function(experiment) {
-        experiment.title.should.equal(newExperiment.title);
-        experiment.author.should.equal(newExperiment.author);
-        experiment.background.should.equal(newExperiment.background);
-        experiment.purpose.should.equal(newExperiment.purpose);
-        experiment.procedure.should.equal(newExperiment.procedure);
-        experiment.results.should.equal(newExperiment.results);
-        experiment.conclusion.should.equal(newExperiment.conclusion);
-        experiment.status.should.equal(newExperiment.status);
+        experiment.title.should.equal(updateData.title);
+        experiment.author.firstName.should.equal(updateData.author.firstName);
+        experiment.author.lastName.should.equal(updateData.author.lastName);
+        experiment.background.should.equal(updateData.background);
+        experiment.purpose.should.equal(updateData.purpose);
+        experiment.procedure.should.equal(updateData.procedure);
+        experiment.results.text.should.equal(updateData.results.text);
+        experiment.results.drawing.should.equal(updateData.results.drawing);
+        experiment.results.molecule.should.equal(updateData.results.molecule);
+        experiment.conclusion.should.equal(updateData.conclusion);
       });
     });
+
+
+
+
 });
 
 describe('DELETE endpoint', function() {
