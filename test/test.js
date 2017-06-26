@@ -163,11 +163,11 @@ it('should add a new experiment entry', function() {
         res.should.have.status(201);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body.should.include.keys('id','title','author','background', 'purpose', 'procedure','results','conclusion','user_id');
+        res.body.should.include.keys('id','title','background', 'purpose', 'procedure','results','conclusion','user_id');
         res.body.id.should.not.be.null;
         res.body.title.should.equal(newExperiment.title);
-        res.body.author.firstName.should.equal(newExperiment.author.firstName);
-        res.body.author.lastName.should.equal(newExperiment.author.lastName);
+        //res.body.author.firstName.should.equal(newExperiment.author.firstName);
+        //res.body.author.lastName.should.equal(newExperiment.author.lastName);
         res.body.background.should.equal(newExperiment.background);
         res.body.purpose.should.equal(newExperiment.purpose);
         res.body.procedure.should.equal(newExperiment.procedure);
@@ -184,8 +184,8 @@ it('should add a new experiment entry', function() {
       })
       .then(function(experiment) {
         experiment.title.should.equal(newExperiment.title);
-        experiment.author.firstName.should.equal(newExperiment.author.firstName);
-        experiment.author.lastName.should.equal(newExperiment.author.lastName);
+        //experiment.author.firstName.should.equal(newExperiment.author.firstName);
+        //experiment.author.lastName.should.equal(newExperiment.author.lastName);
         experiment.background.should.equal(newExperiment.background);
         experiment.purpose.should.equal(newExperiment.purpose);
         experiment.procedure.should.equal(newExperiment.procedure);
@@ -206,23 +206,23 @@ it('should add a new experiment entry', function() {
 
   });
 
-/*
+
   it('should add a new user', function() {
     const newUser = generateUser();
     return chai.request(app)
-      .post('/signup')
+      .post('/users')
       .send(newUser)
       .then(function(res) {
         res.should.have.status(200);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body.should.include.keys('firstName', 'lastName', 'username','password');
+        res.body.should.include.keys('firstName', 'lastName', 'username');
         // cause Mongo should have created id on insertion
         res.body.id.should.not.be.null;
         res.body.firstName.should.equal(newUser.firstName);
         res.body.lastName.should.equal(newUser.lastName);
         res.body.username.should.equal(newUser.username);
-        res.body.password.should.equal(newUser.password);
+
 
         return User.findById(res.body.id);
       })
@@ -230,10 +230,10 @@ it('should add a new experiment entry', function() {
         user.firstName.should.equal(newUser.firstName);
         user.lastName.should.equal(newUser.lastName);
         user.username.should.equal(newUser.username);
-        user.password.should.equal(newUser.password);
+
       });
   });
-*/
+
   it('should error if POST missing expected values', function() {
      const badRequestData = {};
      chai.request(app)
@@ -321,7 +321,7 @@ describe('DELETE endpoint', function() {
       .exec()
       .then(function(_exp) {
         experiment = _exp;
-        return chai.request(app).delete(`/delete/:id`);
+        return chai.request(app).delete(`/delete/${experiment.id}`);
       })
       .then(function(res) {
         res.should.have.status(204);
