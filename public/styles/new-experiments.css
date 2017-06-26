@@ -237,6 +237,12 @@ input:required:hover {
 }
 
 /* ================================= BUTTON =================================*/
+
+#status{
+     width: 155px;
+     font-size: 15px;
+}
+
 .wrap {
   height: 100%;
   display: flex;
@@ -278,15 +284,17 @@ button{
 button {width:6em}
 button:hover{ background-color:teal;}
 
+/*
 #submit:hover span {display:none}
 #submit:hover:before {content:"Submit"}
 #undo:hover span {display:none}
 #undo:hover:before {content:"Go Back"}
+*/
 
 
-.next:hover:before {color:teal; content: "Next"; font-size: 20px;}
+/*.next:hover:before {color:teal; content: "Next"; font-size: 20px;}
 .previous:hover:before {color:teal; content: "Previous"; font-size: 20px;}
-
+*/
 
 
 /* ================================= DROPDOWN =================================*/

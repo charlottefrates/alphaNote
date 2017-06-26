@@ -562,9 +562,11 @@ blockquote cite:before {
      list-style-type: none;
 }
 
+/*
 .gallery-item:hover {
      box-shadow: 0 -6px 8px 0 teal, 0 6px 20px 0 teal;
 }
+*/
 
 .gallery-item {
      border-radius: 5px;

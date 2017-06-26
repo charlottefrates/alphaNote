@@ -27,7 +27,7 @@ function geExperimentEntries(callbackFn) {
 function displayExperiment(data){
 
 	//checks to see if experiment is complete
-	if (data.status === 'complete') {
+	if (data.status === ' Complete') {
 		$('#edit').addClass('hidden');
 		$('#dme').addClass('hidden');
 	};
@@ -65,6 +65,7 @@ $(function() {
 
 /* ================================= EDIT DELETE PRINT BUTTONS========================================*/
 
+//Deletes experiments
 $('#dme').on('click', function(event) {
 	event.preventDefault();
 	const experimentId = $(this).closest('dd').prev('dt').attr('id');
@@ -88,6 +89,7 @@ $('#dme').on('click', function(event) {
 
 });
 
+//Opens multi-step form
 $('.edit-button').on('click', function(event){
 	event.preventDefault();
 	//alert('this will bring up multi-step form & reRender database inputs');
@@ -136,12 +138,14 @@ $('.edit-button').on('click', function(event){
 })
 
 
+//Goes back to edit html
 $('#undo').on('click', function(event){
 	event.preventDefault();
 	location.reload(true);
 })
 
 
+//Mark Experiment complete
 $('#complete').on('click', function(event){
 	event.preventDefault();
 	alert('Your experiment has been completed');
@@ -153,6 +157,7 @@ $('#complete').on('click', function(event){
 })
 
 
+//Deletes doodle canvas
 $('.button-delete').on('click', function(event){
 	event.preventDefault();
 	console.log('clearing canvas');
@@ -163,9 +168,7 @@ $('.button-delete').on('click', function(event){
 })
 
 $("#status").click(function () {
-            $(this).text(function(i, v){
-               return v === 'complete' ? 'pending' : 'complete'
-            })
+            $(this).text(' Complete');
         });
 
 /* ================================= Print========================================*/
@@ -191,128 +194,81 @@ function exportOne(){
 /* ================================= Multi-step Form with Progress Bar========================================*/
 
 var current_fs, next_fs, previous_fs; //fieldsets
-var left, opacity, scale; //fieldset properties which we will animate
-var animating; //flag to prevent quick multi-click glitches
 
-$(".next").on('click',function(event){
-	event.preventDefault();
-	if(animating) return false;
-	animating = true;
 
-	current_fs = $(this).parent();
-	//console.log(current_fs);
-	next_fs = $(this).parent().next();
+$("i.next").on('click', function(event) {
+     var elemClicked = event.currentTarget;
+     var noNext = $(elemClicked).attr('next');
+     var next_fs = "showStep" + noNext;
+     console.log(elemClicked);
+     console.log(next_fs);
 
-	//activate next step on progressbar using the index of next_fs
-	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+     //+ converts into integer
+     current_fs = "showStep" + (+noNext -1);
 
-	//show the next fieldset
-	next_fs.show();
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale current_fs down to 80%
-			scale = 1 - (1 - now) * 0.2;
-			//2. bring next_fs from the right(50%)
-			left = (now * 50)+"%";
-			//3. increase opacity of next_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({
-        'transform': 'scale('+scale+')',
-        'position': 'absolute'
-      });
-			next_fs.css({'left': left, 'opacity': opacity});
-		},
-		duration: 800,
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		},
-		//this comes from the custom easing plugin
-		easing: 'easeInSine'
-	});
+     //activate next step on progressbar using the index of next_fs
+     $("#progressbar #step" + +noNext).addClass("active current");
+
+     //show the next fieldset
+     $("." + next_fs).show();
+     //hide the current fieldset with style
+     $("." + current_fs).hide();
+
 });
 
-$(".previous").on('click',function(event){
-	event.preventDefault();
-	if(animating) return false;
-	animating = true;
+$("li.next").on('click', function(event) {
+     var elemClicked = event.currentTarget;
+     var noNext = $(elemClicked).attr('next');
+     //var next_fs = "showStep" + noNext;
+     console.log(elemClicked);
 
-	current_fs = $(this).parent();
-	//console.log(current_fs)
-	previous_fs = $(this).parent().prev();
+     //+ converts into integer
+     current_fs = "showStep" + (+noNext -1);
+     console.log(current_fs);
+     $('#step1').removeClass('active');
 
-	//de-activate current step on progressbar
-	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+     //activate next step on progressbar using the index of next_fs
+     $("#progressbar #step" + (+noNext-1)).addClass("active");
 
-	//show the previous fieldset
-	previous_fs.show();
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale previous_fs from 80% to 100%
-			scale = 0.8 + (1 - now) * 0.2;
-			//2. take current_fs to the right(50%) - from 0%
-			left = ((1-now) * 50)+"%";
-			//3. increase opacity of previous_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({'left': left});
-			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-		},
-		duration: 800,
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		},
-		//this comes from the custom easing plugin
-		easing: 'easeInSine'
-	});
-});
+     console.log(+noNext-1);
+
+     for (var i = 1; i < 8; i++) {
+          if ( i != (+noNext-1)){
+               console.log(".showStep"  + i);
+               $(".showStep"  + i).hide();
+          };
+     };
 
 
+     //show the next fieldset
+     //$("." + next_fs).show();
+     //hide the current fieldset with style
+     $("." + current_fs).show();
+     //$("ul#progressbar li:not('#step" + (+noNext -1)+ "'").removeClass("active");
 
-//TODO: allow for progressbar navigation
-$('#step1').on('click',function(event){
-	event.preventDefault();
-	console.log('step1 clicked');
 
 });
 
 
-$('#step2').on('click',function(event){
-	event.preventDefault();
-	console.log('step2 clicked');
+$(".previous").on('click', function(event) {
+     event.preventDefault();
+     var elemClicked = event.currentTarget;
+     var noPrev = $(elemClicked).attr('next');
+     var next_fs = "showStep" + noPrev;
 
+     //+ converts into integer
+     current_fs = "showStep" + (+noPrev +1);
 
-});
+     //activate next step on progressbar using the index of next_fs
+     $("#progressbar #step" + +noPrev).addClass("current");
 
-$('#step3').on('click',function(event){
-	event.preventDefault();
-	console.log('step3 clicked');
-
-});
-
-$('#step4').on('click',function(event){
-	event.preventDefault();
-	console.log('step4 clicked');
-
-
-});
-
-$('#step5').on('click',function(event){
-	event.preventDefault();
-	console.log('step5 clicked');
+     //show the next fieldset
+     $("." + next_fs).show();
+     //hide the current fieldset with style
+     $("." + current_fs).hide();
 
 });
 
-$('#step6').on('click',function(event){
-	event.preventDefault();
-	console.log('step6 clicked');
-
-
-});
 
 
 
@@ -391,12 +347,12 @@ $('#submit').on('click',function(event){
     data.conclusion = conclusion;
     data.status =  status;
 
-	console.log (data);
+	//console.log (data);
 
 	//updates data variable into JSON string
 	editEntry.data = JSON.stringify(data);
 
-	console.log(editEntry);
+	//console.log(editEntry);
 
 	// conditionals that requires users to fill in title field
 	if (title.length === 0 ){
@@ -407,7 +363,7 @@ $('#submit').on('click',function(event){
     };
 
     //conditionals checking status
-    if(data.status === 'complete'){
+    if(data.status === ' Complete'){
 
 
 	    if (confirm('Are you sure you want your experiment status to be complete? Setting status to "complete" disables future edits.')) {
@@ -421,12 +377,15 @@ $('#submit').on('click',function(event){
 	     		console.log(error);
 	     		alert('Something went wrong with the server. Try again later');
 	     	});
-	    } else {};
+	    } else {
+
+		    $('#status').text(' Mark as Complete');
+	    };
 
     };
 
 
-    if(data.status === 'pending'){
+    if(data.status === ' Mark as Complete'){
 	    // updates data variable with combined user input values
 
 	    data.id = path;

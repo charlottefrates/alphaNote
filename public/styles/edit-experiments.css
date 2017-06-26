@@ -317,6 +317,12 @@ hr#hr__header {
 
 
 /* ================================= BUTTON =================================*/
+
+#status{
+     width: 155px;
+     font-size: 15px;
+}
+
 .wrap {
   height: 100%;
   display: flex;
@@ -352,6 +358,7 @@ hr#hr__header {
 
 .top_buttons{
   margin-top: 40px;
+     margin-bottom: 10px;
 }
 
 
@@ -362,6 +369,7 @@ button{
 
 button {width:6em}
 button:hover{ background-color:teal;}
+/*
 #complete:hover span {display:none}
 #complete:hover:before {content:"Complete"}
 #dme:hover span {display:none}
@@ -376,9 +384,15 @@ button:hover{ background-color:teal;}
 #pdf:hover:before {content:"PDF"}
 #undo:hover span {display:none}
 #undo:hover:before {content:"Go Back"}
+*/
+
 .next:hover:before {color:teal}
 .previous:hover:before {color:teal}
 
+
+.nextButton{font-size:18pt !important;
+     color: teal
+}
 
 .buttons{
   text-align: center !important;
@@ -479,14 +493,14 @@ select{
 }
 /*headings*/
 .fs-title {
-	font-size: 18px;
+	font-size: 20px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
 }
 .fs-subtitle {
 	font-weight: normal;
-	font-size: 15px;
+	font-size: 16px;
 	color: #666;
 	margin-bottom: 20px;
 }
@@ -502,7 +516,7 @@ select{
 	list-style-type: none;
 	color: black;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 16px;
 	width: 16%;
 	float: left;
 	position: relative;
@@ -510,10 +524,10 @@ select{
 #progressbar li:before {
 	content: counter(step);
 	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
+	width: 35px;
+	line-height: 35px;
 	display: block;
-	font-size: 13px;
+	font-size: 16px;
 	color: #333;
 	background: white;
 	border-radius: 3px;
@@ -536,9 +550,15 @@ select{
 }
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
+ #progressbar li.active:after{
 	background: teal;
 	color: white;
+     /*box-shadow: 0 -6px 8px 0 teal, 0 6px 20px 0 teal;*/
+}
+
+#progressbar li.active:before{
+     background: teal;
+
 }
 
 /* ================================= MEDIA QUERY: NAVIGATION =================================*/

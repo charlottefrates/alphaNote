@@ -36,8 +36,7 @@ $(document).ready(function() {
 /* ================================= Multi-step Form with Progress Bar========================================*/
 
 var current_fs, next_fs, previous_fs; //fieldsets
-var left, opacity, scale; //fieldset properties which we will animate
-var animating; //flag to prevent quick multi-click glitches
+
 
 
 $("i.next").on('click', function(event) {
@@ -51,7 +50,7 @@ $("i.next").on('click', function(event) {
      current_fs = "showStep" + (+noNext -1);
 
      //activate next step on progressbar using the index of next_fs
-     $("#progressbar #step" + +noNext).addClass("active current");
+     $("#progressbar #step" + +noNext).addClass("active");
 
      //show the next fieldset
      $("." + next_fs).show();
@@ -104,7 +103,7 @@ $(".previous").on('click', function(event) {
      current_fs = "showStep" + (+noPrev +1);
 
      //activate next step on progressbar using the index of next_fs
-     $("#progressbar #step" + +noNext).addClass("current");
+     //$("#progressbar #step" + +noPrev).addClass("current");
 
      //show the next fieldset
      $("." + next_fs).show();
@@ -131,7 +130,7 @@ $('.button-delete').on('click', function(event) {
 
 $("#status").on('click',function() {
      $(this).text(function(i, v) {
-          return v === 'complete' ? 'pending' : 'complete';
+          $(this).text(' Complete');
 
      });
 });
@@ -169,7 +168,6 @@ $('#submit_first').on('click', function(event) {
 
      // updates data variable with combined user input values
 
-
      data.title = title;
      data.background = background;
      data.purpose = purpose;
@@ -180,7 +178,7 @@ $('#submit_first').on('click', function(event) {
      data.conclusion = conclusion;
      data.status = status;
 
-     console.log(data);
+     //console.log(data);
 
      //updates data variable into JSON string
      newLocalEntry.data = JSON.stringify(data);
@@ -194,7 +192,7 @@ $('#submit_first').on('click', function(event) {
      };
 
      //conditionals checking status
-     if(data.status === 'complete'){
+     if(data.status === ' Complete'){
           if (confirm('Are you sure you want your experiment status to be complete? Setting status to "complete" disables future edits.')) {
                $.ajax(newLocalEntry).done(function(response) {
                     alert('Your experiment has been properly saved.');
@@ -204,7 +202,7 @@ $('#submit_first').on('click', function(event) {
                     path = server_response.id;
                     console.log(server_response);
                     window.location.href = `/${server_response.id}`;
-                    //TODO: Once saved go to Step 6: View REPORT
+                    //TODO: Upon saving automaticaly show fieldset "showStep6"
                }).fail(function(error) {
                     console.log(error);
                     alert('Something went wrong with the server. Try again later');
@@ -213,7 +211,13 @@ $('#submit_first').on('click', function(event) {
 
      };
 
-     if(data.status === 'pending'){
+
+     if(data.status === ' Mark as Complete'){
+
+          //updates the status to default text "Pending" instead of Mark as Complete
+          data.status = 'Pending';
+          newLocalEntry.data = JSON.stringify(data);
+
           $.ajax(newLocalEntry).done(function(response) {
                alert('Your experiment has been properly saved.');
                server_response = response;
@@ -223,7 +227,7 @@ $('#submit_first').on('click', function(event) {
                console.log(server_response);
                $('#submit_first').addClass('hidden');
                $('#submit_second').removeClass('hidden');
-               //TODO: Once saved go to Step 6: View REPORT
+               //TODO: Upon saving automaticaly show fieldset "showStep6"
           }).fail(function(error) {
                console.log(error);
                alert('Something went wrong with the server. Try again later');
@@ -231,6 +235,10 @@ $('#submit_first').on('click', function(event) {
      }else{
        //DO NOTHING
      };
+
+     $('#status').removeClass('hidden');
+
+
 
 });
 
@@ -282,7 +290,7 @@ $('#submit_second').on('click',function(event){
 
 
      //conditionals checking status
-     if(data.status === 'complete'){
+     if(data.status === ' Complete'){
 
 
  	    if (confirm('Are you sure you want your experiment status to be complete? Setting status to "complete" disables future edits.')) {
@@ -295,13 +303,14 @@ $('#submit_second').on('click',function(event){
  	     		console.log(error);
  	     		alert('Something went wrong with the server. Try again later');
  	     	});
- 	    } else {};
+ 	    } else {
+              $('#status').text(' Mark as Complete');
+         };
 
      };
 
 
-     if(data.status === 'pending'){
- 	    // updates data variable with combined user input values
+     if(data.status === ' Mark as Complete'){
 
  	    data.id = path;
  	    data.title = title;
@@ -312,7 +321,7 @@ $('#submit_second').on('click',function(event){
  	    data.results.drawing = drawing;
  	    data.results.molecule = molecule;
  	    data.conclusion = conclusion;
- 	    data.status =  status;
+ 	    data.status =  'Pending';
 
  		console.log (data);
 
@@ -323,6 +332,7 @@ $('#submit_second').on('click',function(event){
  	          console.log(response);
  			alert('Your experiment has been properly saved.');
  			//location.reload(true);
+               //TODO: Upon saving automaticaly show fieldset "showStep6"
  	     }).fail(function(error){
  			console.log(error);
  			alert('Something went wrong with the server. Try again later');
@@ -331,6 +341,7 @@ $('#submit_second').on('click',function(event){
      }else{
  	 //DO NOTHING
      };
+
 
 
 });

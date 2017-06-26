@@ -163,7 +163,6 @@ describe('POST endpoint', function() {
         res.should.be.json;
         res.body.should.be.a('object');
         res.body.should.include.keys('id', 'title','background', 'purpose', 'procedure','results','conclusion');
-        // cause Mongo should have created id on insertion
         res.body.id.should.not.be.null;
         res.body.title.should.equal(newExperiment.title);
         res.body.background.should.equal(newExperiment.background);
@@ -233,6 +232,7 @@ describe('POST endpoint', function() {
 
 });
 
+/*
 describe('PUT endpoint', function() {
   // strategy:
   //  1. Get an existing experiment from db
@@ -294,6 +294,7 @@ describe('PUT endpoint', function() {
 
 });
 
+
 describe('DELETE endpoint', function() {
   // strategy:
   //  1. get a experiment
@@ -320,3 +321,5 @@ describe('DELETE endpoint', function() {
       });
   });
 });
+
+*/
