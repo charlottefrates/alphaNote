@@ -132,22 +132,21 @@ describe('GET endpoint', function() {
         resExperiment.id.should.equal(experiment.id);
         resExperiment.title.should.equal(experiment.title);
         resExperiment.author.should.equal(experiment.author);
-        //resExperiment.should.equal(
-        //     `${experiment.author.firstName} ${experiment.author.lastName}`);
         resExperiment.background.should.equal(experiment.background);
         resExperiment.purpose.should.equal(experiment.purpose);
         resExperiment.procedure.should.equal(experiment.procedure);
-        //resExperiment.results.should.equal(
-        //  `${experiment.results.text} ${experiment.results.drawing} ${experiment.results.molecule}`);
         resExperiment.results.text.should.equal(experiment.results.text);
         resExperiment.results.drawing.should.equal(experiment.results.drawing);
         resExperiment.results.molecule.should.equal(experiment.results.molecule);
         resExperiment.conclusion.should.equal(experiment.conclusion);
+        resExperiment.user_id.should.equal(experiment.user_id)
 
       });
   });
 });
 
+
+ /*
 describe('POST endpoint', function() {
   // strategy: make a POST request with data,
   // then prove that the experiment we get back has
@@ -160,7 +159,7 @@ it('should add a new experiment entry', function() {
     return chai.request(app)
       .post('/new')
       .send(newExperiment)
-      /*
+
       .then(function(res) {
         res.should.have.status(200);
         res.should.be.json;
@@ -194,11 +193,12 @@ it('should add a new experiment entry', function() {
         experiment.conclusion.should.equal(newExperiment.conclusion);
 
       });
-      */
+      /*
       .then((res) => {
         debugger;
         console.log(res);
       });
+
   });
 
   it('should add a new user', function() {
@@ -240,7 +240,7 @@ it('should add a new experiment entry', function() {
 
 });
 
-/*
+
 describe('PUT endpoint', function() {
   // strategy:
   //  1. Get an existing experiment from db
