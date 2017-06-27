@@ -22,6 +22,9 @@ body {
      color: rgb(90, 224, 164);
 }
 
+.font{
+     font-family: garamond !important;
+}
 
 /* ================================= NAVIGATION =================================*/
 
@@ -62,7 +65,7 @@ nav ul li {
 }
 
 nav ul li:hover {
-     background-color: teal;
+     background-color: rgb(70, 138, 148);
 }
 
 .handle {
@@ -289,7 +292,7 @@ i {
      margin-left: auto;
      margin-right: auto;
      margin-bottom: -285px;
-     margin-top: 50px;
+     margin-top: 1%;
 }
 
 .counter {
@@ -543,7 +546,7 @@ blockquote cite:before {
 /* ================================= GALLERY GRID=================================*/
 
 .gallery {
-     margin-top: 30px;
+     margin-top: 10%;
      width: 79%;
      margin-right: auto;
      margin-left: auto;

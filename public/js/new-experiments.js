@@ -87,7 +87,7 @@ $("li.next").on('click', function(event) {
      //$("." + next_fs).show();
      //hide the current fieldset with style
      $("." + current_fs).show();
-     //$("ul#progressbar li:not('#step" + (+noNext -1)+ "'").removeClass("active");
+     $("ul#progressbar li:not('#step" + (+noNext -1)+ "'").removeClass("active");
 
 
 });
@@ -111,7 +111,6 @@ $(".previous").on('click', function(event) {
      $("." + current_fs).hide();
 
 });
-
 
 
 
@@ -352,4 +351,20 @@ $('#view').on('click',function(event){
      event.preventDefault();
      alert('You must first save your experiment to view your report!');
      window.location.href = `/${server_response.id}`;
+});
+
+/* ================================= Scroll to Top ========================================*/
+$(window).scroll(function() {
+if ($(this).scrollTop() > 50 ) {
+    $('.scrolltop:hidden').stop(true, true).fadeIn();
+} else {
+    $('.scrolltop').stop(true, true).fadeOut();
+}
+
+$(function(){
+    $(".scroll").click(function(){
+        $("html,body").stop(true, false).animate({
+            scrollTop:$("#navbar").offset().top},"900",'swing');return false;})
+       });
+
 });

@@ -67,11 +67,11 @@ function displayExperiments(data) {
                     '</li>'
                );
 
-               if(data[index].status === "complete"){
+               if(data[index].status === " Complete"){
                     completedExperiments++;
                     $('.counter_complete').text(completedExperiments);
                };
-               if( data[index].status === "pending"){
+               if( data[index].status === "Pending"){
                     pendingExperiments++;
                     $('.counter_pending').text(pendingExperiments);
                };

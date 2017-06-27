@@ -8,6 +8,10 @@ body {
     color: black !important;
 }
 
+.contain{
+     width: 50% !important;
+}
+
 /* Full-width input fields */
 input[type=text], input[type=password] {
     width: 100%;
@@ -93,7 +97,7 @@ nav ul li {
 }
 
 nav ul li:hover {
-     background-color: teal;
+     background-color: rgb(70, 138, 148);
 }
 
 .handle {

@@ -369,12 +369,12 @@ nav ul .nav-hover:hover {
 
 .nav-left {
   position: relative;
-  right: 90px;
+  right: 17%;
 }
 
 .nav-right {
   position: relative;
-  left: 90px;
+  left: 17%;
 }
 
 /* =============================== RESPONSIVE NAVIGATION =========================== */
@@ -599,7 +599,7 @@ nav ul .nav-hover:hover {
   }
 
   #demo-button:hover {
-    background-color:teal;
+    background-color:white;
   }
 }
 
@@ -684,7 +684,7 @@ nav ul .nav-hover:hover {
 /* ================================== ABOUT DIV ================================== */
 
 #about {
-  padding-top: 35px;
+  padding-top: 0px;
   padding-bottom: 60px;
   width: 100%;
   background: #f2f2f2;
@@ -729,7 +729,7 @@ nav ul .nav-hover:hover {
 /* ================================== ANNOTATE DIV ================================== */
 
 #journal {
-  padding-top: 70px;
+  padding-top: 0px;
   padding-bottom: 110px;
   width: 100%;
   background: #f2f2f2;
