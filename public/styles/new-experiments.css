@@ -17,13 +17,6 @@ body {
      display: none !important;
 }
 
-<<<<<<< HEAD
-=======
-.current{
-     background-color: orange;
-}
->>>>>>> origin/alphaNote_simpleLogin
-
 
 /* ================================= NAVIGATION =================================*/
 
@@ -162,7 +155,7 @@ nav ul li:hover {
   -ms-transform: translate(80%, -50%);
   -webkit-transform: translate(80%, -50%);
   transform: translate(80%, -50%);
-<<<<<<< HEAD
+
 }
 .switch-input:checked + .switch-label .toggle--on {
   display: inline-block;
@@ -170,7 +163,7 @@ nav ul li:hover {
 .switch-input:checked + .switch-label .toggle--off {
   display: none;
 }
-=======
+
 }
 .switch-input:checked + .switch-label .toggle--on {
   display: inline-block;
@@ -178,7 +171,7 @@ nav ul li:hover {
 .switch-input:checked + .switch-label .toggle--off {
   display: none;
 }
->>>>>>> origin/alphaNote_simpleLogin
+
 
 /* ================================= USER INPUT FIELD=================================*/
 
@@ -297,28 +290,6 @@ button{
 button {width:6em}
 button:hover{ background-color:teal;}
 
-<<<<<<< HEAD
-=======
-/*
->>>>>>> origin/alphaNote_simpleLogin
-#submit:hover span {display:none}
-#submit:hover:before {content:"Submit"}
-#undo:hover span {display:none}
-#undo:hover:before {content:"Go Back"}
-<<<<<<< HEAD
-
-
-.next:hover:before {color:teal; content: "Next"; font-size: 20px;}
-.previous:hover:before {color:teal; content: "Previous"; font-size: 20px;}
-
-=======
-*/
-
-
-/*.next:hover:before {color:teal; content: "Next"; font-size: 20px;}
-.previous:hover:before {color:teal; content: "Previous"; font-size: 20px;}
-*/
->>>>>>> origin/alphaNote_simpleLogin
 
 
 /* ================================= DROPDOWN =================================*/
@@ -473,8 +444,7 @@ select{
 	color: white;
 }
 
-<<<<<<< HEAD
-=======
+
 #progressbar li.active:before{
      content: counter(step);
 	counter-increment: step;
@@ -540,7 +510,6 @@ select{
 }
 
 
->>>>>>> origin/alphaNote_simpleLogin
 /* ================================= MEDIA QUERY: NAVIGATION =================================*/
 
 @media only screen and (max-width: 660px) {

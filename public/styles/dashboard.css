@@ -22,12 +22,9 @@ body {
      color: rgb(90, 224, 164);
 }
 
-<<<<<<< HEAD
-=======
 .font{
      font-family: garamond !important;
 }
->>>>>>> origin/alphaNote_simpleLogin
 
 /* ================================= NAVIGATION =================================*/
 
@@ -242,7 +239,6 @@ i {
      margin-bottom: -310px;
 }
 
->>>>>>> origin/alphaNote_simpleLogin
 @media (max-width: 991px) {
      .col-md-4 {
           border-right: 0px dashed black;
@@ -313,11 +309,7 @@ i {
      margin-left: auto;
      margin-right: auto;
      margin-bottom: -285px;
-<<<<<<< HEAD
-     margin-top: 50px;
-=======
      margin-top: 1%;
->>>>>>> origin/alphaNote_simpleLogin
 }
 
 .counter {
@@ -571,7 +563,7 @@ blockquote cite:before {
 /* ================================= GALLERY GRID=================================*/
 
 .gallery {
-     margin-top: 10%;
+     margin-top: -22%;
      width: 79%;
      margin-right: auto;
      margin-left: auto;

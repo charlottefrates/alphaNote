@@ -163,7 +163,7 @@ nav ul li:hover {
 .switch-input:checked + .switch-label .toggle--off {
   display: none;
 }
-=======
+
 }
 .switch-label .toggle--off {
   display: inline-block;
@@ -184,7 +184,7 @@ nav ul li:hover {
 .switch-input:checked + .switch-label .toggle--off {
   display: none;
 }
->>>>>>> origin/alphaNote_simpleLogin
+
 
 /* ================================= USER INPUT FIELD=================================*/
 
@@ -381,10 +381,9 @@ hr#hr__header {
 
 .top_buttons{
   margin-top: 40px;
-<<<<<<< HEAD
-=======
+
      margin-bottom: 10px;
->>>>>>> origin/alphaNote_simpleLogin
+
 }
 
 
@@ -395,40 +394,15 @@ button{
 
 button {width:6em}
 button:hover{ background-color:teal;}
-<<<<<<< HEAD
-=======
-/*
->>>>>>> origin/alphaNote_simpleLogin
-#complete:hover span {display:none}
-#complete:hover:before {content:"Complete"}
-#dme:hover span {display:none}
-#dme:hover:before {content:"Delete"}
-#submit_first:hover span {display:none}
-#submit_first:hover:before {content:"Save"}
-#submit_second:hover span {display:none}
-#submit_second:hover:before {content:"Save"}
-#edit:hover span {display:none}
-#edit:hover:before {content:"Edit"}
-#pdf:hover span {display:none}
-#pdf:hover:before {content:"PDF"}
-#undo:hover span {display:none}
-#undo:hover:before {content:"Go Back"}
-<<<<<<< HEAD
-=======
-*/
-
->>>>>>> origin/alphaNote_simpleLogin
 .next:hover:before {color:teal}
 .previous:hover:before {color:teal}
 
 
-<<<<<<< HEAD
-=======
+
 .nextButton{font-size:18pt !important;
      color: teal
 }
 
->>>>>>> origin/alphaNote_simpleLogin
 .buttons{
   text-align: center !important;
 
