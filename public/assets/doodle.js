@@ -5,6 +5,7 @@ var clickX = [];
 var clickY = [];
 var clickDrag = [];
 var paint;
+
 context = document.getElementById('doodleCanvas').getContext("2d");
 
 var savedDrawing;
@@ -16,7 +17,7 @@ $('#doodleCanvas').mousedown(function(e){
 });
 $('#doodleCanvas').mousemove(function(e){
       if(paint){
-              addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+              addClick(e.pageX - this.offsetLeft-200, e.pageY - this.offsetTop-300, true);
               redraw();
             }
 });
