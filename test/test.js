@@ -146,105 +146,52 @@ describe('GET endpoint', function() {
 });
 
 
-
-describe('POST endpoint', function() {
-  // strategy: make a POST request with data,
-  // then prove that the experiment we get back has
-  // right keys, and that `id` is there (which means
-  // the data was inserted into db)
-it('should add a new experiment entry', function() {
+describe('Post endpoint', function(){
+  it('should add a blog post on POST', function(done) {
     const newExperiment = generateExperimentData();
-    debugger;
-    return chai.request(app)
-      .post('/new')
-      .send(newExperiment)
 
-      .then(function(res) {
+    //identifies additional response
+    const expectedKeys = ['id'].concat(Object.keys(newExperiment));
+
+    chai.request(app)
+      .post('/new/test')
+      .send(newExperiment)
+      .end(function(err, res) {
         res.should.have.status(201);
         res.should.be.json;
         res.body.should.be.a('object');
-        res.body.should.include.keys('id','title','background', 'purpose', 'procedure','results','conclusion','user_id');
+        res.body.should.have.all.keys(expectedKeys);
         res.body.id.should.not.be.null;
         res.body.title.should.equal(newExperiment.title);
-        //res.body.author.firstName.should.equal(newExperiment.author.firstName);
-        //res.body.author.lastName.should.equal(newExperiment.author.lastName);
+        res.body.author.firstName.should.equal(newExperiment.author.firstName);
+        res.body.author.lastName.should.equal(newExperiment.author.lastName);
         res.body.background.should.equal(newExperiment.background);
         res.body.purpose.should.equal(newExperiment.purpose);
         res.body.procedure.should.equal(newExperiment.procedure);
         res.body.results.text.should.equal(newExperiment.results.text);
         res.body.results.drawing.should.equal(newExperiment.results.drawing);
         res.body.results.molecule.should.equal(newExperiment.results.molecule);
-        //res.body.results.should.equal(
-        //  `${newExperiment.results.text} ${newExperiment.results.drawing} ${newExperiment.results.molecule}`);
         res.body.conclusion.should.equal(newExperiment.conclusion);
         res.body.user_id.should.equal(newExperiment.user_id);
 
-
-        return Experiment.findById(res.body.id);
-      })
-      .then(function(experiment) {
-        experiment.title.should.equal(newExperiment.title);
-        //experiment.author.firstName.should.equal(newExperiment.author.firstName);
-        //experiment.author.lastName.should.equal(newExperiment.author.lastName);
-        experiment.background.should.equal(newExperiment.background);
-        experiment.purpose.should.equal(newExperiment.purpose);
-        experiment.procedure.should.equal(newExperiment.procedure);
-        experiment.results.text.should.equal(newExperiment.results.text);
-        experiment.results.drawing.should.equal(newExperiment.results.drawing);
-        experiment.results.molecule.should.equal(newExperiment.results.molecule);
-        experiment.conclusion.should.equal(newExperiment.conclusion);
-        experiment.user_id.should.equal(newExperiment.user_id);
-
-        console.log(res);
-
       });
-
-    //  .then((res) => {
-    //    debugger;
-    //    console.log(res);
-    //  });
-
+      done();
   });
 
+    it('should error if POST missing expected values', function() {
+       const badRequestData = {};
+       chai.request(app)
+         .post('/new')
+         .send(badRequestData)
+         .end(function(err, res) {
+           res.should.have.status(400);
+         })
+       });
 
-  it('should add a new user', function() {
-    const newUser = generateUser();
-    return chai.request(app)
-      .post('/users')
-      .send(newUser)
-      .then(function(res) {
-        res.should.have.status(200);
-        res.should.be.json;
-        res.body.should.be.a('object');
-        res.body.should.include.keys('firstName', 'lastName', 'username');
-        // cause Mongo should have created id on insertion
-        res.body.id.should.not.be.null;
-        res.body.firstName.should.equal(newUser.firstName);
-        res.body.lastName.should.equal(newUser.lastName);
-        res.body.username.should.equal(newUser.username);
-
-
-        return User.findById(res.body.id);
-      })
-      .then(function(user) {
-        user.firstName.should.equal(newUser.firstName);
-        user.lastName.should.equal(newUser.lastName);
-        user.username.should.equal(newUser.username);
-
-      });
-  });
-
-  it('should error if POST missing expected values', function() {
-     const badRequestData = {};
-     chai.request(app)
-       .post('/new')
-       .send(badRequestData)
-       .end(function(err, res) {
-         res.should.have.status(400);
-       })
-     });
 
 });
+
+
 
 
 describe('PUT endpoint', function() {

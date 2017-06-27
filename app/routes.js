@@ -47,11 +47,18 @@ module.exports = function(app, passport) {
      });
 
      // process the signup form
-     app.post('/signup', passport.authenticate('local-signup', {
+     app.post('/signup',
+     passport.authenticate('local-signup', {
           successRedirect: '/dashboard', // redirect to the secure profile section
           failureRedirect: '/signup', // redirect back to the signup page if there is an error
           failureFlash: true // allow flash messages
-     }));
+     }),
+     (req,res) =>{
+          res.json;
+     }
+     );
+
+
 
 
      // =====================================
@@ -210,6 +217,39 @@ module.exports = function(app, passport) {
                     return res.status(400).send(message);
                }
           }
+          console.log(req.session);
+          Experiment
+               .create({
+                    title: req.body.title,
+                    author: req.session.firstName + " " + req.session.lastName,
+                    background: req.body.background,
+                    purpose: req.body.purpose,
+                    procedure: req.body.procedure,
+                    results: req.body.results,
+                    conclusion: req.body.conclusion,
+                    created: req.body.created,
+                    status: req.body.status,
+                    user_id:user._id
+               })
+               .then(experimentEntry => res.status(201).json(experimentEntry.apiRepr()))
+               .catch(err => {
+                    console.error(err);
+                    res.status(500).json({
+                         error: 'Something went wrong'
+                    });
+               });
+
+     });
+
+
+     app.post('/new/test', (req, res) => {
+          let user = req.user;
+          const requiredFields = ['title', 'purpose', 'procedure', 'results', 'conclusion'];
+          requiredFields.forEach(field => {
+            if (!(field in req.body)) {
+              res.status(400).json(
+                {error: `Missing "${field}" in request body`});
+            }});
           console.log(req.session);
           Experiment
                .create({
