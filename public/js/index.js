@@ -22,26 +22,6 @@ $("a").on('click', function(event) {
   }
 });
 
-/* ================================== MODAL EVENTS ================================== */
-
-$('.modal-close').on('click', function(event) {
-  $('.modal').addClass('modal-close');
-});
-
-$('.log-in').on('click', function(event) {
-  event.preventDefault();
-  $('.modal').removeClass('modal-close');
-});
-
-$('.handle').on('click', function(event) {
-  $('nav ul').toggleClass('showing');
-});
-
-$('nav ul a').on('click', function(event) {
-  $('nav ul').toggleClass('showing');
-});
-
-
 
 /* ================================== NAVIGATION STYLING ON SCROLL ================================== */
 
@@ -58,51 +38,7 @@ $(window).scroll(function(){
     }
 });
 
-/* =============================== POST TO /USERS FOR USER CREATION =============================== */
 
-function addUser(firstName, lastName, username, password, callback) {
-  $.ajax({
-    url: "/users",
-    contentType: 'application/json',
-    type: 'POST',
-    dataType: 'json',
-    data: JSON.stringify(
-      {
-      firstName: firstName,
-      lastName: lastName,
-      username: username,
-      password: password
-      }
-    ),
-    success: function(data) {
-      callback();
-    },
-    error: function(error) {
-      let errorString = error.responseText.split(':')[1];
-      let errorStringEdit = errorString.substring(1).slice(0, errorString.length -3)
-      alert(errorStringEdit);
-    }
-  });
-}
-
-/* ================================== REPLACE SIGN UP WITH LOGIN ================================== */
-
-function replaceSignUp() {
-  $('.sign-up-title').html('Thank you for signing up!');
-  $('.sign-up-box').html('<p>Please click below to log in.</p>' +
-    '<a href="#log-in" class="login2"><p class="log-in-button2 log-in">Log in</p></a>');
-}
-
-/* ================================== NEW USER SIGN UP ================================== */
-
-$('.register').submit(function(event) {
-  let firstName = $('.register').find('#firstName').val();
-  let lastName = $('.register').find('#lastName').val();
-  let username = $('.register').find('#username').val();
-  let password = $('.register').find('#password').val();
-  addUser(firstName, lastName, username, password, replaceSignUp);
-  return false;
-});
 
 /* ================================== Animation================================== */
 
@@ -122,18 +58,6 @@ function isElementInViewport(elem) {
     return ((elemTop < viewportBottom) && (elemBottom > viewportTop));
 }
 
-// Check if it's time to start the animation.
-function checkAnimation() {
-    var $elem = $('.sign-up-box');
-
-    // If the animation has already been started
-    if ($elem.hasClass('start')) return;
-
-    if (isElementInViewport($elem)) {
-        // Start the animation
-        $elem.addClass('start');
-    }
-}
 
 // Check if it's time to start the animation.
 function checkAnimation2() {
@@ -175,7 +99,6 @@ function checkAnimation4() {
 
 // Capture scroll events
 $(window).scroll(function(){
-    checkAnimation();
     checkAnimation2();
     checkAnimation3();
     checkAnimation4();

@@ -59,7 +59,7 @@ nav ul li {
 }
 
 nav ul li:hover {
-     background-color: teal;
+     background-color: rgb(70, 138, 148);
 }
 
 .handle {
@@ -142,6 +142,7 @@ nav ul li:hover {
 .switch-label .toggle--on {
   display: none;
   color: teal;
+<<<<<<< HEAD
 }
 .switch-label .toggle--off {
   display: inline-block;
@@ -162,6 +163,28 @@ nav ul li:hover {
 .switch-input:checked + .switch-label .toggle--off {
   display: none;
 }
+=======
+}
+.switch-label .toggle--off {
+  display: inline-block;
+  color: white;
+}
+.switch-input:checked + .switch-label:before {
+  background-color: #7da298;
+}
+.switch-input:checked + .switch-label:after {
+  background-color: teal;
+  -ms-transform: translate(80%, -50%);
+  -webkit-transform: translate(80%, -50%);
+  transform: translate(80%, -50%);
+}
+.switch-input:checked + .switch-label .toggle--on {
+  display: inline-block;
+}
+.switch-input:checked + .switch-label .toggle--off {
+  display: none;
+}
+>>>>>>> origin/alphaNote_simpleLogin
 
 /* ================================= USER INPUT FIELD=================================*/
 
@@ -317,6 +340,12 @@ hr#hr__header {
 
 
 /* ================================= BUTTON =================================*/
+
+#status{
+     width: 155px;
+     font-size: 15px;
+}
+
 .wrap {
   height: 100%;
   display: flex;
@@ -352,6 +381,10 @@ hr#hr__header {
 
 .top_buttons{
   margin-top: 40px;
+<<<<<<< HEAD
+=======
+     margin-bottom: 10px;
+>>>>>>> origin/alphaNote_simpleLogin
 }
 
 
@@ -362,6 +395,10 @@ button{
 
 button {width:6em}
 button:hover{ background-color:teal;}
+<<<<<<< HEAD
+=======
+/*
+>>>>>>> origin/alphaNote_simpleLogin
 #complete:hover span {display:none}
 #complete:hover:before {content:"Complete"}
 #dme:hover span {display:none}
@@ -376,10 +413,22 @@ button:hover{ background-color:teal;}
 #pdf:hover:before {content:"PDF"}
 #undo:hover span {display:none}
 #undo:hover:before {content:"Go Back"}
+<<<<<<< HEAD
+=======
+*/
+
+>>>>>>> origin/alphaNote_simpleLogin
 .next:hover:before {color:teal}
 .previous:hover:before {color:teal}
 
 
+<<<<<<< HEAD
+=======
+.nextButton{font-size:18pt !important;
+     color: teal
+}
+
+>>>>>>> origin/alphaNote_simpleLogin
 .buttons{
   text-align: center !important;
 
@@ -479,14 +528,14 @@ select{
 }
 /*headings*/
 .fs-title {
-	font-size: 18px;
+	font-size: 20px;
 	text-transform: uppercase;
 	color: #2C3E50;
 	margin-bottom: 10px;
 }
 .fs-subtitle {
 	font-weight: normal;
-	font-size: 15px;
+	font-size: 16px;
 	color: #666;
 	margin-bottom: 20px;
 }
@@ -502,7 +551,7 @@ select{
 	list-style-type: none;
 	color: black;
 	text-transform: uppercase;
-	font-size: 12px;
+	font-size: 16px;
 	width: 16%;
 	float: left;
 	position: relative;
@@ -510,10 +559,10 @@ select{
 #progressbar li:before {
 	content: counter(step);
 	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
+	width: 35px;
+	line-height: 35px;
 	display: block;
-	font-size: 13px;
+	font-size: 16px;
 	color: #333;
 	background: white;
 	border-radius: 3px;
@@ -536,9 +585,92 @@ select{
 }
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
-#progressbar li.active:before,  #progressbar li.active:after{
+ #progressbar li.active:after{
 	background: teal;
 	color: white;
+     /*box-shadow: 0 -6px 8px 0 teal, 0 6px 20px 0 teal;*/
+}
+
+#progressbar li.active:before{
+     content: counter(step);
+	counter-increment: step;
+	width: 35px;
+	line-height: 35px;
+	display: block;
+	font-size: 16px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+
+}
+
+/* ---------------------------------- scroll to top----------------------------------- */
+
+.scrolltop {
+     display: none;
+     width: 100%;
+     margin: 0 auto;
+     position: fixed;
+     bottom: 20px;
+     right: 10px;
+}
+
+.scroll {
+     position: absolute;
+     right: 20px;
+     bottom: 20px;
+     background: #b2b2b2;
+     background: rgba(178, 178, 178, 0.7);
+     padding: 20px;
+     text-align: center;
+     margin: 0 0 0 0;
+     cursor: pointer;
+     transition: 0.5s;
+     -moz-transition: 0.5s;
+     -webkit-transition: 0.5s;
+     -o-transition: 0.5s;
+}
+
+.scroll:hover {
+     background: rgba(178, 178, 178, 1.0);
+     transition: 0.5s;
+     -moz-transition: 0.5s;
+     -webkit-transition: 0.5s;
+     -o-transition: 0.5s;
+}
+
+.scroll:hover .fa {
+     padding-top: -10px;
+}
+
+.scroll .fa {
+     font-size: 30px;
+     margin-top: -5px;
+     margin-left: 1px;
+     transition: 0.5s;
+     -moz-transition: 0.5s;
+     -webkit-transition: 0.5s;
+     -o-transition: 0.5s;
+}
+
+
+/* ================================= MEDIA QUERY: NAVIGATION =================================*/
+
+@media only screen and (max-width: 660px) {
+     nav ul {
+          max-height: 0;
+     }
+     .showing {
+          max-height: 20em;
+     }
+     nav ul li {
+          width: 100%;
+          padding: 15px;
+     }
+     .handle {
+          display: block;
+     }
 }
 
 /* ================================= MEDIA QUERY: NAVIGATION =================================*/

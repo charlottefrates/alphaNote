@@ -4,7 +4,7 @@
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <meta name="description" content="Dream Journal">
+     <meta name="description" content="">
      <title>alphaNote | Electronic Laboratory Notebook</title>
      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
      <link href="https://fonts.googleapis.com/css?family=Balthazar" rel="stylesheet">
@@ -25,16 +25,10 @@
                <a href="#about">
                     <li class="nav-left nav-hover">About</li>
                </a>
-               <a href="#journal">
-                    <li class="nav-left nav-hover">Annotate</li>
-               </a>
-               <a href="#analyze">
-                    <li class="nav-left nav-hover">Record</li>
-               </a>
-               <a href="#sign-up">
+               <a href="/signup">
                     <li class="nav-left nav-hover"> Create Account </li>
                </a>
-               <a href="#log-in">
+               <a href="/login">
                     <li class="nav-right nav-hover log-in " id="demo-button">Sign In</li>
                </a>
           </ul>
@@ -42,21 +36,6 @@
 
           <div class="handle"><span class="handle-menu">alphaNOTE</span><i class="fa fa-bars fa-2x" aria-hidden="true"></i></div>
 
-          <div class="modal" id="log-in">
-               <div class="modal-container">
-                    <div class="log-in-box">
-                         <form class="login-form" action="users/login" method="post" autocomplete="off">
-                              <h3>Thank you for using alphaNote</h3>
-                              <p>To access the demo account, please enter the following credentials:</p>
-                              <p class="demo-account">Username: <b>abc</b><br> Password: <b>123</b>
-                              </p>
-                              <p>or sign in with your existing account.</p>
-                              <button type='submit' class="log-in-button">Sign In</button>
-                         </form>
-                    </div>
-                    <i class="fa fa-times fa-lg modal-close" aria-hidden="true"></i>
-               </div>
-          </div>
      </nav>
 
      <header>
@@ -149,6 +128,7 @@
                </div>
           </section>
 
+<<<<<<< HEAD:public/index.html
           <section>
                <div id="analyze" >
                     <div class="row">
@@ -189,11 +169,13 @@
                     </div>
                </div>
           </section>
+=======
+>>>>>>> origin/alphaNote_simpleLogin:views/index.html
      </main>
 
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-     <script type="text/javascript" src="assets/index.js"></script>
+     <script type="text/javascript" src="js/index.js"></script>
 </body>
 
 </html>

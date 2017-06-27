@@ -22,6 +22,12 @@ body {
      color: rgb(90, 224, 164);
 }
 
+<<<<<<< HEAD
+=======
+.font{
+     font-family: garamond !important;
+}
+>>>>>>> origin/alphaNote_simpleLogin
 
 /* ================================= NAVIGATION =================================*/
 
@@ -62,7 +68,7 @@ nav ul li {
 }
 
 nav ul li:hover {
-     background-color: teal;
+     background-color: rgb(70, 138, 148);
 }
 
 .handle {
@@ -204,6 +210,7 @@ nav ul li:hover {
 .counter {
      animation-duration: 1s;
      animation-delay: 0s;
+<<<<<<< HEAD
 }
 
 .counter_experiment, .counter_pending, .counter_complete {
@@ -219,6 +226,23 @@ i {
      margin-bottom: -310px;
 }
 
+=======
+}
+
+.counter_experiment, .counter_pending, .counter_complete {
+     color: teal;
+}
+
+i {
+     font-size: 20px !Important;
+}
+
+.row2 {
+     margin-right: 30%;
+     margin-bottom: -310px;
+}
+
+>>>>>>> origin/alphaNote_simpleLogin
 @media (max-width: 991px) {
      .col-md-4 {
           border-right: 0px dashed black;
@@ -289,7 +313,11 @@ i {
      margin-left: auto;
      margin-right: auto;
      margin-bottom: -285px;
+<<<<<<< HEAD
      margin-top: 50px;
+=======
+     margin-top: 1%;
+>>>>>>> origin/alphaNote_simpleLogin
 }
 
 .counter {
@@ -543,7 +571,7 @@ blockquote cite:before {
 /* ================================= GALLERY GRID=================================*/
 
 .gallery {
-     margin-top: 30px;
+     margin-top: 10%;
      width: 79%;
      margin-right: auto;
      margin-left: auto;
@@ -562,9 +590,11 @@ blockquote cite:before {
      list-style-type: none;
 }
 
+/*
 .gallery-item:hover {
      box-shadow: 0 -6px 8px 0 teal, 0 6px 20px 0 teal;
 }
+*/
 
 .gallery-item {
      border-radius: 5px;

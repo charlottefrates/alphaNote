@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 const experimentSchema = mongoose.Schema({
-     author: {
-          firstName: String,
-          lastName: String
-     },
+     author: String,
      title: {
           type: String,
           required: true
@@ -42,7 +39,7 @@ experimentSchema.virtual('resultShow').get(function() {
 
 experimentSchema.methods.apiRepr = function() {
      return {
-          author: this.authorName, //uses virtual to set format
+          author: this.author, //uses virtual to set format
           id: this._id,
           title: this.title,
           background: this.background,

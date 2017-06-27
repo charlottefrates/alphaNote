@@ -1,0 +1,152 @@
+body {
+    padding-top:80px;
+    font-family: 'Balthazar', sans-serif !important;
+}
+
+.black{
+    color: black !important;
+}
+
+.contain{
+     width: 50% !important;
+}
+
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: teal;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {
+    float: left;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+       width: 100%;
+    }
+}
+
+/* ================================= NAVIGATION =================================*/
+
+nav {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     text-align: center;
+     z-index: 5;
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+a {
+     text-decoration: none;
+     color: inherit;
+}
+
+nav ul {
+     background-color: white;
+     overflow: hidden;
+     color: white;
+     padding: 0;
+     text-align: center;
+     margin: 0;
+     -webkit-transition: max-height 1s ease;
+     -ms-transition: max-height 1s ease;
+     -moz-transition: max-height 1s ease;
+     -o-transition: max-height 1s ease;
+     transition: max-height 1s ease;
+}
+
+nav ul li {
+     display: inline-block;
+     padding: 20px;
+     transition: background-color .5s ease;
+     font-size: 18px;
+}
+
+nav ul li:hover {
+     background-color: rgb(70, 138, 148);
+
+}
+
+.handle {
+     width: 100%;
+     background: grey;
+     text-align: left;
+     padding: 18px 12px;
+     cursor: pointer;
+     display: none;
+     color: white;
+}
+
+.handle-menu {
+     font-size: 20px;
+     font-weight: bold;
+     background: white;
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+}
+
+.fa-bars {
+     position: relative;
+     bottom: 5px;
+     float: right;
+     color: white;
+}
+
+.activity-summary-heading {
+     margin-top: 90px;
+     margin-bottom: 0;
+     letter-spacing: 1px;
+}
+
+
+/* ================================= MEDIA QUERY: NAVIGATION =================================*/
+
+@media only screen and (max-width: 660px) {
+     nav ul {
+          max-height: 0;
+     }
+     .showing {
+          max-height: 20em;
+     }
+     nav ul li {
+          width: 100%;
+          padding: 15px;
+     }
+     .handle {
+          display: block;
+     }
+}
