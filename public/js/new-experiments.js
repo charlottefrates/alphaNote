@@ -344,8 +344,12 @@ $('#submit_second').on('click',function(event){
 /* ================================= VIEW REPORT AFTER SAVE ========================================*/
 
 $('#view').on('click',function(event){
+     var title = $('#title').val();
      event.preventDefault();
-     alert('You must first save your experiment to view your report!');
+     if (title.length === 0) {
+          alert('You must first save your experiment to view your report!');
+          return false;
+     };
      window.location.href = `/${server_response.id}`;
 });
 
