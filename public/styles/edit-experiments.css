@@ -542,6 +542,8 @@ select{
 	border-radius: 3px;
 	margin: 0 auto 5px auto;
 }
+
+
 /*progressbar connectors*/
 #progressbar li:after {
 	content: '';
@@ -557,26 +559,10 @@ select{
 	/*connector not needed before the first step*/
 	content: none;
 }
-/*marking active/completed steps green*/
-/*The number of the step and the connector before it = green*/
- #progressbar li.active:after{
-	background: teal;
-	color: white;
-     /*box-shadow: 0 -6px 8px 0 teal, 0 6px 20px 0 teal;*/
-}
 
 #progressbar li.active:before{
-     content: counter(step);
-	counter-increment: step;
-	width: 35px;
-	line-height: 35px;
-	display: block;
-	font-size: 16px;
-	color: #333;
-	background: white;
-	border-radius: 3px;
-	margin: 0 auto 5px auto;
-
+	background: teal !important;
+	color: white;
 }
 
 /* ---------------------------------- scroll to top----------------------------------- */

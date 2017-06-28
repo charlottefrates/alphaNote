@@ -38,7 +38,6 @@ $(document).ready(function() {
 var current_fs, next_fs, previous_fs; //fieldsets
 
 
-
 $("i.next").on('click', function(event) {
      var elemClicked = event.currentTarget;
      var noNext = $(elemClicked).attr('next');
@@ -62,7 +61,6 @@ $("i.next").on('click', function(event) {
 $("li.next").on('click', function(event) {
      var elemClicked = event.currentTarget;
      var noNext = $(elemClicked).attr('next');
-     //var next_fs = "showStep" + noNext;
      console.log(elemClicked);
 
      //+ converts into integer
@@ -77,17 +75,15 @@ $("li.next").on('click', function(event) {
 
      for (var i = 1; i < 8; i++) {
           if ( i != (+noNext-1)){
-               console.log(".showStep"  + i);
                $(".showStep"  + i).hide();
+			$("#progressbar #step" + i).removeClass("active");
+
           };
      };
 
 
      //show the next fieldset
-     //$("." + next_fs).show();
-     //hide the current fieldset with style
      $("." + current_fs).show();
-     $("ul#progressbar li:not('#step" + (+noNext -1)+ "'").removeClass("active");
 
 
 });
@@ -103,7 +99,7 @@ $(".previous").on('click', function(event) {
      current_fs = "showStep" + (+noPrev +1);
 
      //activate next step on progressbar using the index of next_fs
-     //$("#progressbar #step" + +noPrev).addClass("current");
+     $("#progressbar #step" + +noPrev).addClass("current");
 
      //show the next fieldset
      $("." + next_fs).show();

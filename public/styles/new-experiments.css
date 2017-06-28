@@ -414,8 +414,8 @@ select{
 #progressbar li:before {
 	content: counter(step);
 	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
+	width: 35px;
+	line-height: 35px;
 	display: block;
 	font-size: 16px;
 	color: #333;
@@ -439,25 +439,12 @@ select{
 	content: none;
 }
 
-  #progressbar li.active:after{
-	background: teal;
+  #progressbar li.active:before{
+	background: teal !important;;
 	color: white;
 }
 
 
-#progressbar li.active:before{
-     content: counter(step);
-	counter-increment: step;
-	width: 20px;
-	line-height: 20px;
-	display: block;
-	font-size: 16px;
-	color: #333;
-	background: white;
-	border-radius: 3px;
-	margin: 0 auto 5px auto;
-
-}
 
 
 /* ---------------------------------- scroll to top----------------------------------- */

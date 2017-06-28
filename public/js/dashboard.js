@@ -84,19 +84,10 @@ function getAndDisplayExperiments() {
      //alert('getting and displaying');
      getExperiments(displayExperiments);
 
-}
-
-/* ================================= Filter Menu=================================*/
-
-$("#filter-bar li").click(function() {
-     $("#filter-bar li").removeClass("active");
-     $(this).addClass("active");
-     $("#filter-bar").removeClass().addClass($(this).attr("data-target"));
-});
-
+};
 
 $(document).ready(function() {
-     getAndDisplayExperiments();
+
      //renders correct numbers
      $('.counter').counterUp({
           delay: 10,

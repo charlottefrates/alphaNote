@@ -26,6 +26,7 @@ function geExperimentEntries(callbackFn) {
 /* ================================= FILL READ ONLY WITH DATA =================================*/
 function displayExperiment(data){
 
+	$('#msform').addClass('hidden');
 	//checks to see if experiment is complete
 	if (data.status === ' Complete') {
 		$('#edit').addClass('hidden');
@@ -195,31 +196,9 @@ function exportOne(){
 
 var current_fs, next_fs, previous_fs; //fieldsets
 
-
-$("i.next").on('click', function(event) {
-     var elemClicked = event.currentTarget;
-     var noNext = $(elemClicked).attr('next');
-     var next_fs = "showStep" + noNext;
-     console.log(elemClicked);
-     console.log(next_fs);
-
-     //+ converts into integer
-     current_fs = "showStep" + (+noNext -1);
-
-     //activate next step on progressbar using the index of next_fs
-     $("#progressbar #step" + +noNext).addClass("active current");
-
-     //show the next fieldset
-     $("." + next_fs).show();
-     //hide the current fieldset with style
-     $("." + current_fs).hide();
-
-});
-
 $("li.next").on('click', function(event) {
      var elemClicked = event.currentTarget;
      var noNext = $(elemClicked).attr('next');
-     //var next_fs = "showStep" + noNext;
      console.log(elemClicked);
 
      //+ converts into integer
@@ -234,20 +213,40 @@ $("li.next").on('click', function(event) {
 
      for (var i = 1; i < 8; i++) {
           if ( i != (+noNext-1)){
-               console.log(".showStep"  + i);
                $(".showStep"  + i).hide();
+			$("#progressbar #step" + i).removeClass("active");
+
           };
      };
 
 
      //show the next fieldset
-     //$("." + next_fs).show();
-     //hide the current fieldset with style
      $("." + current_fs).show();
-     //$("ul#progressbar li:not('#step" + (+noNext -1)+ "'").removeClass("active");
 
 
 });
+
+
+$("i.next").on('click', function(event) {
+     var elemClicked = event.currentTarget;
+     var noNext = $(elemClicked).attr('next');
+     var next_fs = "showStep" + noNext;
+     console.log(elemClicked);
+     console.log(next_fs);
+
+     //+ converts into integer
+     current_fs = "showStep" + (+noNext -1);
+
+     //activate next step on progressbar using the index of next_fs
+     $("#progressbar #step" + +noNext).addClass("active");
+
+     //show the next fieldset
+     $("." + next_fs).show();
+     //hide the current fieldset with style
+     $("." + current_fs).hide();
+
+});
+
 
 
 $(".previous").on('click', function(event) {
@@ -260,7 +259,8 @@ $(".previous").on('click', function(event) {
      current_fs = "showStep" + (+noPrev +1);
 
      //activate next step on progressbar using the index of next_fs
-     $("#progressbar #step" + +noPrev).addClass("current");
+     $("#progressbar #step" + +noPrev).addClass("active");
+
 
      //show the next fieldset
      $("." + next_fs).show();
@@ -397,7 +397,7 @@ $('#submit').on('click',function(event){
 	    data.results.drawing = drawing;
 	    data.results.molecule = molecule;
 	    data.conclusion = conclusion;
-	    data.status =  status;
+	    data.status =  'Pending';
 
 		console.log (data);
 
