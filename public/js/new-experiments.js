@@ -197,7 +197,7 @@ $('#submit_first').on('click', function(event) {
                     path = server_response.id;
                     console.log(server_response);
                     window.location.href = `/${server_response.id}`;
-                    //TODO: Upon saving automaticaly show fieldset "showStep6"
+
                }).fail(function(error) {
                     console.log(error);
                     alert('Something went wrong with the server. Try again later');
@@ -222,7 +222,32 @@ $('#submit_first').on('click', function(event) {
                console.log(server_response);
                $('#submit_first').addClass('hidden');
                $('#submit_second').removeClass('hidden');
-               //TODO: Upon saving automaticaly show fieldset "showStep6"
+
+               //Upon saving automaticaly show fieldset "showStep6"
+               var elemClicked = event.currentTarget;
+               var noNext = $(elemClicked).attr('next');
+               console.log(elemClicked);
+
+               //+ converts into integer
+               current_fs = "showStep6";
+               console.log(current_fs);
+               $('#step1').removeClass('active');
+
+               for (var i = 1; i < 8; i++) {
+                    if ( i != (+noNext-1)){
+                         $(".showStep"  + i).hide();
+                         $("#progressbar #step" + i).removeClass("active");
+
+                    };
+               };
+
+
+               //show the next fieldset
+               $("." + current_fs).show();
+
+               //activate next step on progressbar using the index of next_fs
+               $('#step6').addClass("active");
+
           }).fail(function(error) {
                console.log(error);
                alert('Something went wrong with the server. Try again later');
@@ -327,7 +352,7 @@ $('#submit_second').on('click',function(event){
  	          console.log(response);
  			alert('Your experiment has been properly saved.');
  			//location.reload(true);
-               //TODO: Upon saving automaticaly show fieldset "showStep6"
+               //TODO: Upon saving automaticaly show View section
  	     }).fail(function(error){
  			console.log(error);
  			alert('Something went wrong with the server. Try again later');
@@ -349,6 +374,7 @@ $('#view').on('click',function(event){
      if (title.length === 0) {
           alert('You must first save your experiment to view your report!');
           return false;
+          //TODO: Automatically open up to background section
      };
      window.location.href = `/${server_response.id}`;
 });
