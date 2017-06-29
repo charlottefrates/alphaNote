@@ -1,7 +1,6 @@
 * {
      margin: 0;
-     padding: 0
-     box-sizing: border-box;
+     padding: 0 box-sizing: border-box;
      font-family: 'Balthazar', sans-serif;
      text-align: center;
      font-weight: normal;
@@ -12,8 +11,7 @@ body {
      background-color: #f2f2f2;
 }
 
-
-.hidden{
+.hidden {
      display: none !important;
 }
 
@@ -67,7 +65,6 @@ nav ul li:hover {
      padding: 18px 12px;
      cursor: pointer;
      display: none;
-
 }
 
 .handle-menu {
@@ -91,90 +88,99 @@ nav ul li:hover {
      letter-spacing: 1px;
 }
 
-.next:hover:before {color:teal}
-.previous:hover:before {color:teal}
+.next:hover:before {
+     color: teal
+}
 
-
+.previous:hover:before {
+     color: teal
+}
 
 
 /* ================================= SWITCH=================================*/
 
-
-
 .switch-input {
-  display: none;
+     display: none;
 }
+
 .switch-label {
-  position: relative;
-  display: inline-block;
-  min-width: 112px;
-  cursor: pointer;
-  font-weight: 500;
-  text-align: left;
-  margin: 16px;
-  padding: 16px 0 16px 44px;
+     position: relative;
+     display: inline-block;
+     min-width: 112px;
+     cursor: pointer;
+     font-weight: 500;
+     text-align: left;
+     margin: 16px;
+     padding: 16px 0 16px 44px;
 }
+
 .switch-label:before, .switch-label:after {
-  content: "";
-  position: absolute;
-  margin: 0;
-  outline: 0;
-  top: 50%;
-  -ms-transform: translate(0, -50%);
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+     content: "";
+     position: absolute;
+     margin: 0;
+     outline: 0;
+     top: 50%;
+     -ms-transform: translate(0, -50%);
+     -webkit-transform: translate(0, -50%);
+     transform: translate(0, -50%);
+     -webkit-transition: all 0.3s ease;
+     transition: all 0.3s ease;
 }
+
 .switch-label:before {
-  left: 1px;
-  width: 34px;
-  height: 14px;
-  background-color: #9E9E9E;
-  border-radius: 8px;
+     left: 1px;
+     width: 34px;
+     height: 14px;
+     background-color: #9E9E9E;
+     border-radius: 8px;
 }
+
 .switch-label:after {
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background-color: #FAFAFA;
-  border-radius: 50%;
-  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
+     left: 0;
+     width: 20px;
+     height: 20px;
+     background-color: #FAFAFA;
+     border-radius: 50%;
+     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.084);
 }
+
 .switch-label .toggle--on {
-  display: none;
+     display: none;
 }
+
 .switch-label .toggle--off {
-  display: inline-block;
-}
-.switch-input:checked + .switch-label:before {
-  background-color: #7da298;
-}
-.switch-input:checked + .switch-label:after {
-  background-color: teal;
-  -ms-transform: translate(80%, -50%);
-  -webkit-transform: translate(80%, -50%);
-  transform: translate(80%, -50%);
-
-}
-.switch-input:checked + .switch-label .toggle--on {
-  display: inline-block;
-}
-.switch-input:checked + .switch-label .toggle--off {
-  display: none;
+     display: inline-block;
 }
 
-}
-.switch-input:checked + .switch-label .toggle--on {
-  display: inline-block;
-}
-.switch-input:checked + .switch-label .toggle--off {
-  display: none;
+.switch-input:checked+.switch-label:before {
+     background-color: #7da298;
 }
 
+.switch-input:checked+.switch-label:after {
+     background-color: teal;
+     -ms-transform: translate(80%, -50%);
+     -webkit-transform: translate(80%, -50%);
+     transform: translate(80%, -50%);
+}
+
+.switch-input:checked+.switch-label .toggle--on {
+     display: inline-block;
+}
+
+.switch-input:checked+.switch-label .toggle--off {
+     display: none;
+}
+
+
+}
+.switch-input:checked+.switch-label .toggle--on {
+     display: inline-block;
+}
+.switch-input:checked+.switch-label .toggle--off {
+     display: none;
+}
 
 /* ================================= USER INPUT FIELD=================================*/
-
 #title {
      width: 80%;
      border: none;
@@ -190,7 +196,6 @@ nav ul li:hover {
      margin-top: 15px;
      text-align: center;
 }
-
 #background, #purpose, #procedure, #conclusion {
      margin-top: 50px;
      margin-bottom: 50px;
@@ -202,27 +207,23 @@ nav ul li:hover {
      text-align: justify;
      white-space: normal;
 }
-
-.chemwriter{
+.chemwriter {
      margin-left: auto;
      margin-right: auto;
 }
-
 #tinymce {
      margin: auto 3% auto;
      margin-top: 50px;
      margin-bottom: 50px;
-
 }
-
-#mceu_12{
-     width:100% !important;;
+#mceu_12 {
+     width: 100% !important;
+     ;
 }
-
 
 /* style all input elements with a required attribute */
 input:required {
-  box-shadow: 1px 2px 16px rgba(200, 0, 0, 0.85);
+     box-shadow: 1px 2px 16px rgba(200, 0, 0, 0.85);
 }
 
 /**
@@ -230,8 +231,8 @@ input:required {
  * attribute and a focus state
  */
 input:required:focus {
-  border: 1px solid red;
-  outline: none;
+     border: 1px solid red;
+     outline: none;
 }
 
 /**
@@ -239,62 +240,287 @@ input:required:focus {
  * attribute and a hover state
  */
 input:required:hover {
-  opacity: 1;
+     opacity: 1;
 }
 
 /* ================================= BUTTON =================================*/
-
-#status{
+#status {
      width: 155px;
      font-size: 15px;
 }
-
 .wrap {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+     height: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
 }
-
 .button {
-  margin: 10px;
-  font-family:inherit;
-  width: 140px;
-  height: 45px;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-weight: 500;
-  color: #000;
-  background-color: #fff;
-  border: none;
-  border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  outline: none;
-  }
-
+     margin: 10px;
+     font-family: inherit;
+     width: 140px;
+     height: 45px;
+     font-size: 11px;
+     text-transform: uppercase;
+     letter-spacing: 2.5px;
+     font-weight: 500;
+     color: #000;
+     background-color: #fff;
+     border: none;
+     border-radius: 45px;
+     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+     transition: all 0.3s ease 0s;
+     cursor: pointer;
+     outline: none;
+}
 .button:hover {
-  background-color: teal;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
-  transform: translateY(-7px);
+     background-color: teal;
+     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+     color: #fff;
+     transform: translateY(-7px);
+}
+button {
+     padding: 10px;
+     margin: 5px;
+}
+button {
+     width: 6em
+}
+button:hover {
+     background-color: teal;
+}
+.basicBox, .swiggleBox, .checkBox {
+     width: 130px;
+     margin-right: 5%;
+     margin-left: 5%;
+     color: teal;
+     font-size: 1.15rem;
+     line-height: 65px;
+     text-align: center;
+     position: relative;
+     cursor: pointer;
+     padding-top: 2%;
 }
 
-button{
-  padding: 10px;
-  margin: 5px;
+.txt{
+     font-family: inherit;
+     color: teal;
 }
 
-button {width:6em}
-button:hover{ background-color:teal;}
+svg {
+     position: absolute;
+     top: 0;
+     left: 0;
+}
+svg rect, svg path, svg polyline {
+     fill: none;
+     stroke: teal;
+     stroke-width: 1;
+}
+.basicBox:hover svg rect, .swiggleBox:hover svg path, .checkBox:hover svg polyline {
+     stroke: teal;
+}
 
+/* Basic Box */
+svg rect {
+     stroke-dasharray: 400, 0;
+     -webkit-transition: all 0.8s ease-in-out;
+     -moz-transition: all 0.8s ease-in-out;
+     -ms-transition: all 0.8s ease-in-out;
+     -o-transition: all 0.8s ease-in-out;
+}
+.basicBox:hover svg rect {
+     stroke-width: 3;
+     stroke-dasharray: 35, 245;
+     stroke-dashoffset: 38;
+     -webkit-transition: all 0.8s ease-in-out;
+     -moz-transition: all 0.8s ease-in-out;
+     -ms-transition: all 0.8s ease-in-out;
+     -o-transition: all 0.8s ease-in-out;
+}
 
+/* Swiggle Box */
+svg path {
+     stroke-dasharray: 265, 0;
+     -webkit-transition: all 1s ease-in-out;
+     -moz-transition: all 1s ease-in-out;
+     -ms-transition: all 1s ease-in-out;
+     -o-transition: all 1s ease-in-out;
+}
+.swiggleBox:hover svg path {
+     stroke-width: 3;
+     stroke-dasharray: 0, 350;
+     stroke-dashoffset: 20;
+     -webkit-transition: all 1s ease-in-out;
+     -moz-transition: all 1s ease-in-out;
+     -ms-transition: all 1s ease-in-out;
+     -o-transition: all 1s ease-in-out;
+}
+
+/* Check Box */
+.checkBox {
+     /* Add Padding Left To Center Text */
+}
+.checkBox svg {
+     /* Presentation Purposes */
+
+     margin-left: -10px;
+}
+.checkBox svg rect, .checkBox svg polyline {
+     fill: none;
+     stroke: #4274D3;
+     stroke-width: 1;
+     -webkit-transition: all 0.8s ease-in-out;
+     -moz-transition: all 0.8s ease-in-out;
+     -ms-transition: all 0.8s ease-in-out;
+     -o-transition: all 0.8s ease-in-out;
+}
+.checkBox:hover svg rect {
+     stroke-width: 2;
+     -webkit-transition: all 0.8s ease-in-out;
+     -moz-transition: all 0.8s ease-in-out;
+     -ms-transition: all 0.8s ease-in-out;
+     -o-transition: all 0.8s ease-in-out;
+}
+.checkBox:hover svg polyline {
+     stroke-width: 2;
+     -webkit-transition: all 0.8s ease-in-out;
+     -moz-transition: all 0.8s ease-in-out;
+     -ms-transition: all 0.8s ease-in-out;
+     -o-transition: all 0.8s ease-in-out;
+}
+.checkBox svg .button {
+     stroke-dasharray: 400px, 0;
+}
+.checkBox:hover svg .button {
+     stroke-dasharray: 0, 400px;
+     stroke-dashoffset: 33px;
+}
+
+/* Check Mark Effect */
+.box, .checkMark {
+     opacity: 0;
+}
+.checkBox:hover .box {
+     -webkit-animation: boxDisplay 0.2s forwards;
+     -moz-animation: boxDisplay 0.2s forwards;
+     -ms-animation: boxDisplay 0.2s forwards;
+     -o-animation: boxDisplay 0.2s forwards;
+     animation: boxDisplay 0.2s forwards;
+     -webkit-animation-delay: 0.65s;
+     -moz-animation-delay: 0.65s;
+     -ms-animation-delay: 0.65s;
+     -o-animation-delay: 0.65s;
+     animation-delay: 0.65s;
+}
+.checkBox:hover .checkMark {
+     -webkit-animation: checkDisplay 0.2s forwards;
+     -moz-animation: checkDisplay 0.2s forwards;
+     -ms-animation: checkDisplay 0.2s forwards;
+     -o-animation: checkDisplay 0.2s forwards;
+     animation: checkDisplay 0.2s forwards;
+     -webkit-animation-delay: 1s;
+     -moz-animation-delay: 1s;
+     -ms-animation-delay: 1s;
+     -o-animation-delay: 1s;
+     animation-delay: 1s;
+}
+
+/* Check Box Display */
+@-webkit-keyframes boxDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+@-moz-keyframes boxDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+@-ms-keyframes boxDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+@-o-keyframes boxDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+@keyframes boxDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+
+/* Check Mark Display */
+@-webkit-keyframes checkDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+@-moz-keyframes checkDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+@-ms-keyframes checkDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+@-o-keyframes checkDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
+@keyframes checkDisplay {
+     0% {
+          opacity: 0;
+     }
+
+     100% {
+          opacity: 1;
+     }
+}
 
 /* ================================= DROPDOWN =================================*/
-
-select{
+select {
      margin-left: 30%;
      margin-right: 30%;
      margin-bottom: 20px;
@@ -304,151 +530,160 @@ select{
 
 /*form styles*/
 #msform {
-	width: 90%;
-	margin: 50px auto;
-	text-align: center;
-	position: relative;
+     width: 90%;
+     margin: 50px auto;
+     text-align: center;
+     position: relative;
      animation: slideIn .8s linear, fadeIn .2s ease-in;
 }
-
 @keyframes slideIn {
-  0% {
-    transform:translateY(400px);
-    animation-timing-function: ease-out;
-  }
-  60% {
-    transform:translateY(-50px);
-     animation-timing-function: ease-in;
-  }
-  80% {
-    transform:translateY(10px);
-    animation-timing-function: ease-out;
-  }
-  100% {
-    transform:translateY(0px);
-    animation-timing-function: ease-in;
-  }
+     0% {
+          transform: translateY(400px);
+          animation-timing-function: ease-out;
+     }
+
+     60% {
+          transform: translateY(-50px);
+          animation-timing-function: ease-in;
+     }
+
+     80% {
+          transform: translateY(10px);
+          animation-timing-function: ease-out;
+     }
+
+     100% {
+          transform: translateY(0px);
+          animation-timing-function: ease-in;
+     }
 }
-
-
 @keyframes fadeIn {
-  from {opacity:0;}
-  to {opacity:1;}
-}
+     from {
+          opacity: 0;
+     }
 
+     to {
+          opacity: 1;
+     }
+}
 #msform fieldset {
-	background: white;
-	border: 0 none;
-	border-radius: 3px;
-	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-	padding: 20px 30px;
-	box-sizing: border-box;
-	width: 80%;
-     height:70%;
-	margin: 0 10%;
+     background: white;
+     border: 0 none;
+     border-radius: 3px;
+     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+     padding: 20px 30px;
+     box-sizing: border-box;
+     width: 80%;
+     height: 70%;
+     margin: 0 10%;
+     /*stacking fieldsets above each other*/
 
-	/*stacking fieldsets above each other*/
-	position: relative;
+     position: relative;
 }
+
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
-	display: none;
+     display: none;
 }
+
 /*inputs*/
 #msform input, #msform textarea {
-	padding: 15px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	margin-bottom: 10px;
-	width: 100%;
-	box-sizing: border-box;
-	font-family: montserrat;
-	color: #2C3E50;
-	font-size: 13px;
+     padding: 15px;
+     border: 1px solid #ccc;
+     border-radius: 3px;
+     margin-bottom: 10px;
+     width: 100%;
+     box-sizing: border-box;
+     font-family: montserrat;
+     color: #2C3E50;
+     font-size: 13px;
 }
+
 /*buttons*/
 #msform .action-button {
-	width: 100px;
-	background: teal;
-	font-weight: bold;
-	color: white;
-	border: 0 none;
-	border-radius: 1px;
-	cursor: pointer;
-	padding: 10px 5px;
-	margin: 10px 5px;
+     width: 100px;
+     background: teal;
+     font-weight: bold;
+     color: white;
+     border: 0 none;
+     border-radius: 1px;
+     cursor: pointer;
+     padding: 10px 5px;
+     margin: 10px 5px;
 }
 #msform .action-button:hover, #msform .action-button:focus {
-	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
+
 /*headings*/
 .fs-title {
-	font-size: 20px;
-	text-transform: uppercase;
-	color: #2C3E50;
-	margin-bottom: 10px;
+     font-size: 20px;
+     text-transform: uppercase;
+     color: #2C3E50;
+     margin-bottom: 10px;
 }
 .fs-subtitle {
-	font-weight: normal;
-	font-size: 16px;
-	color: #666;
-	margin-bottom: 20px;
+     font-weight: normal;
+     font-size: 16px;
+     color: #666;
+     margin-bottom: 20px;
 }
+
 /*progressbar*/
 #progressbar {
      margin-left: 2%;
-	margin-bottom: 30px;
-	overflow: hidden;
-	/*CSS counters to number the steps*/
-	counter-reset: step;
+     margin-bottom: 30px;
+     overflow: hidden;
+     /*CSS counters to number the steps*/
+
+     counter-reset: step;
 }
 #progressbar li {
-	list-style-type: none;
-	color: black;
-	text-transform: uppercase;
-	font-size: 16px;
-	width: 16%;
-	float: left;
-	position: relative;
+     list-style-type: none;
+     color: black;
+     text-transform: uppercase;
+     font-size: 16px;
+     width: 16%;
+     float: left;
+     position: relative;
 }
 #progressbar li:before {
-	content: counter(step);
-	counter-increment: step;
-	width: 35px;
-	line-height: 35px;
-	display: block;
-	font-size: 16px;
-	color: #333;
-	background: white;
-	border-radius: 3px;
-	margin: 0 auto 5px auto;
+     content: counter(step);
+     counter-increment: step;
+     width: 35px;
+     line-height: 35px;
+     display: block;
+     font-size: 16px;
+     color: #333;
+     background: white;
+     border-radius: 3px;
+     margin: 0 auto 5px auto;
 }
+
 /*progressbar connectors*/
 #progressbar li:after {
-	content: '';
-	width: 100%;
-	height: 2px;
-	background: white;
-	position: absolute;
-	left: -50%;
-	top: 9px;
-	z-index: -1; /*put it behind the numbers*/
+     content: '';
+     width: 100%;
+     height: 2px;
+     background: white;
+     position: absolute;
+     left: -50%;
+     top: 9px;
+     z-index: -1;
+     /*put it behind the numbers*/
 }
 #progressbar li:first-child:after {
-	/*connector not needed before the first step*/
-	content: none;
+     /*connector not needed before the first step*/
+
+     content: none;
 }
-
-  #progressbar li.active:before{
-	background: teal !important;;
-	color: white;
+#progressbar li.active:before {
+     background: teal !important;
+     ;
+     color: white;
 }
-
-
-
 
 /* ---------------------------------- scroll to top----------------------------------- */
-
 .scrolltop {
      display: none;
      width: 100%;
@@ -457,13 +692,11 @@ select{
      bottom: 20px;
      right: 10px;
 }
-
 .scroll {
      position: absolute;
      right: 20px;
      bottom: 20px;
-     background: #b2b2b2;
-     background: rgba(178, 178, 178, 0.7);
+     background: rgba(139, 218, 228, 0.7);
      padding: 20px;
      text-align: center;
      margin: 0 0 0 0;
@@ -473,7 +706,6 @@ select{
      -webkit-transition: 0.5s;
      -o-transition: 0.5s;
 }
-
 .scroll:hover {
      background: rgba(178, 178, 178, 1.0);
      transition: 0.5s;
@@ -481,11 +713,9 @@ select{
      -webkit-transition: 0.5s;
      -o-transition: 0.5s;
 }
-
 .scroll:hover .fa {
      padding-top: -10px;
 }
-
 .scroll .fa {
      font-size: 30px;
      margin-top: -5px;
@@ -496,20 +726,21 @@ select{
      -o-transition: 0.5s;
 }
 
-
 /* ================================= MEDIA QUERY: NAVIGATION =================================*/
-
 @media only screen and (max-width: 660px) {
      nav ul {
           max-height: 0;
      }
+
      .showing {
           max-height: 20em;
      }
+
      nav ul li {
           width: 100%;
           padding: 15px;
      }
+
      .handle {
           display: block;
      }

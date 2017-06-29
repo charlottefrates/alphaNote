@@ -165,20 +165,15 @@
                <li class="next" id="step4" next="5">Results</li>
                <li class="next" id="step5" next="6">Conclusion</li>
           </ul>
-          <!-- fieldsets -->
           <fieldset class="showStep1">
-               <!--<i class="fa fa-angle-right nextButton next" next="2" aria-hidden="true" style="float:right; font-size:30px"></i>-->
 
                <h2 class="fs-title">Background: Provide Experiment Title and Background</h2>
                <h3 class="fs-subtitle">This is step 1</h3>
                <input type="text" name="Title" id="title" placeholder="Experiment Title (required)" required>
-               <!-- ADD inputs to include author name -->
                <textarea class="text" id="background" placeholder="This is the background of my experiment" wrap="off" cols="30" rows="5"></textarea>
           </fieldset>
 
           <fieldset class="showStep2">
-               <!--<i class="fa fa-angle-right next" next="3"aria-hidden="true" style="float:right; font-size:30px"></i>
-               <i class="fa fa-angle-left previous" next="1"aria-hidden="true" style="float:left; font-size:30px"></i>-->
 
                <h2 class="fs-title">Purpose: What is the purpose of your experiment?</h2>
                <h3 class="fs-subtitle">Step 2</h3>
@@ -186,8 +181,6 @@
           </fieldset>
 
           <fieldset class="showStep3">
-               <!--<i class="fa fa-angle-right next" next="3"aria-hidden="true" style="float:right; font-size:30px"></i>
-               <i class="fa fa-angle-left previous" next="1"aria-hidden="true" style="float:left; font-size:30px"></i>-->
 
                <h2 class="fs-title">Procedure: How will your experiment be conducted?</h2>
                <h3 class="fs-subtitle">Step 3</h3>
@@ -195,60 +188,68 @@
           </fieldset>
 
           <fieldset class="showStep4">
-               <!--<i class="fa fa-angle-right next" next="3"aria-hidden="true" style="float:right; font-size:30px"></i>
-               <i class="fa fa-angle-left previous" next="1"aria-hidden="true" style="float:left; font-size:30px"></i>-->
 
-               <h2 class="fs-title"> Results: Record your findings.</h2>
+               <h2 class="fs-title">Results: Record your findings.</h2>
                <h3 class="fs-subtitle">Step 4</h3>
 
-               <section id="tinymce">
-                    <h1>Text Editor</h1>
-                    <textarea class="tinymce" id="texteditor">
-            </textarea>
+               <div class="basicBox fa fa-file-text-o" id="text">
+                  <span class="txt">Write</span>
+                 <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
+                   <rect x='0' y='0' fill='none' width='130' height='65'/>
+                 </svg>
+               </div>
+               <div class="basicBox fa fa-pencil" id="draw">
+                 <span class="txt">Draw </span>
+                 <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
+                   <rect x='0' y='0' fill='none' width='130' height='65'/>
+                 </svg>
+               </div>
+               <div class="basicBox fa fa-flask" id="chem">
+                  <span class="txt">ChemDraw</span>
+                 <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
+                   <rect x='0' y='0' fill='none' width='130' height='65'/>
+                 </svg>
+               </div>
 
+               <section id="tinymce">
+                    <textarea class="tinymce" id="texteditor"></textarea>
                </section>
 
-               <h1> Illustrate your findings below</h1>
                <section id="newDrawingBoard">
                     <div class="canvasDiv" style="">
-                         <canvas class="doodle" id="doodleCanvas" width="1000" height="500" style=" margin-left:auto; margin-right:auto; border: 1px solid #dcdddc;border-radius: 5px;display: block;margin: 10px ;"> </canvas>
+                         <canvas class="doodle" id="doodleCanvas" width="1000" height="500" style=" margin-left:auto; margin-right:auto; border: 1px solid #dcdddc;border-radius: 5px;display: block;margin: 25px ;"> </canvas>
                          <button class="button button-delete">Clear</button>
                     </div>
                </section>
 
                <section id="chemwriter">
-                    <h1> Molecular Editor</h1>
                     <h3> Hint: Click on magnification-glass for a better view of molecule.</h3>
-                    <h3> Having trouble using this tool? <a href="https://chemwriter.com/user-guide/" target="_blank" style="color:blue;"> Click Here</a></h3>
+                    <h3> Having trouble using this tool? <a href="https://chemwriter.com/user-guide/"target="_blank" style="color:blue;"> Click Here</a></h3>
+                    <br>
                     <div id="editor" data-chemwriter-width="95%" data-chemwriter-height="600" data-chemwriter-ui="editor" data-chemwriter-data=""></div>
                </section>
 
           </fieldset>
 
           <fieldset class="showStep5">
-               <!--<i class="fa fa-angle-right next" next="3"aria-hidden="true" style="float:right; font-size:30px"></i>
-               <i class="fa fa-angle-left previous" next="1"aria-hidden="true" style="float:left; font-size:30px"></i>-->
-               
+               <i class="fa fa-angle-right next" next="6"aria-hidden="true" style="float:right; font-size:30px"></i>
+               <i class="fa fa-angle-left previous" next="4"aria-hidden="true" style="float:left; font-size:30px"></i>
+
                <h2 class="fs-title">Conclusion: Summarize your experiment and it's results.</h2>
                <h3 class="fs-subtitle">Step 5</h3>
                <textarea class="text" id="conclusion" placeholder="My findings suggests.." wrap="off" cols="30" rows="5"></textarea>
           </fieldset>
 
-
-          <!--
           <fieldset class="showStep6">
                <h2 class="fs-title"></h2>
                <h3 class="fs-subtitle"></h3>
-               <input type="button" name="previous" class="previous action-button" value="Previous" />
-               <input id="submit" type="submit" name="submit" class="submit action-button" value="Save Changes" />
+               <button name="view" class="" value="Report View" id="view"> View Report</button>
           </fieldset>
-          -->
      </form>
-     </section>
 
      <section id="scrollToTop">
      <div class='scrolltop'>
-          <div class='scroll icon'><i class="fa fa-3x fa-angle-up"></i></div>
+          <div class='scroll icon'><i class="fa fa-angle-up" aria-hidden="true"></i> <span class="scrollText"> Scroll Up </span></div>
      </div>
      </section>
 
