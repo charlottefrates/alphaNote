@@ -88,6 +88,10 @@ describe('App', function() {
   });
 });
 
+
+
+
+
 describe('Post endpoint', function(){
   it('should add a blog post on POST', function(done) {
     const newExperiment = generateExperimentData();
@@ -194,6 +198,72 @@ describe('PUT endpoint', function() {
     });
 });
 
+describe('GET endpoint', function() {
+     it('should return all existing blog posts', function() {
+          // strategy:
+          //    1. get back all restaurants returned by by GET request to `/restaurants`
+          //    2. prove res has right status, data type
+          //    3. prove the number of restaurants we got back is equal to number
+          //       in db.
+          //
+          // need to have access to mutate and access `res` across
+          // `.then()` calls below, so declare it here so can modify in place
+          let res;
+          // this line of code days that re are returning a PROMISE
+          return chai.request(app)
+               .get('/json/test')
+               .then(function(_res) {
+                    console.log(_res, "RES");
+                    res = _res;
+                    res.should.have.status(200);
+                    // otherwise our db seeding didn't work
+                    res.body.should.have.length.of.at.least(1);
+                    // check how many restaurants there are in db
+                    return Experiment.count();
+               })
+               //uses value returned by blog.count in argument
+               .then(function(count) {
+                    res.body.should.have.length.of(count);
+               });
+     });
+
+     it('should return experiments with right fields', function() {
+          // Strategy: Get back all experiments, and ensure they have expected keys
+          let resBlog;
+          return chai.request(app)
+               .get('/json/test')
+               .then(function(res) {
+                    res.should.have.status(200);
+                    res.should.be.json;
+                    res.body.should.be.a('array');
+                    res.body.should.have.length.of.at.least(1);
+
+                    res.body.forEach(function(blog) {
+                         blog.should.be.a('object');
+                         blog.should.include.keys(
+                           'id', 'title', 'author','background', 'purpose','results','procedure','conclusion');
+                    });
+
+                    resExperiment = res.body[0];
+                    return Experiment.findById(resExperiment.id);
+                  })
+                  .then(function(experiment) {
+                    resExperiment.id.should.equal(experiment.id);
+                    resExperiment.title.should.equal(experiment.title);
+                    resExperiment.author.should.equal(experiment.author);
+                    resExperiment.background.should.equal(experiment.background);
+                    resExperiment.purpose.should.equal(experiment.purpose);
+                    resExperiment.procedure.should.equal(experiment.procedure);
+                    resExperiment.results.text.should.equal(experiment.results.text);
+                    resExperiment.results.drawing.should.equal(experiment.results.drawing);
+                    resExperiment.results.molecule.should.equal(experiment.results.molecule);
+                    resExperiment.conclusion.should.equal(experiment.conclusion);
+                    resExperiment.user_id.should.equal(experiment.user_id)
+               });
+     });
+});
+
+
 
 describe('DELETE endpoint', function() {
   // strategy:
@@ -217,128 +287,6 @@ describe('DELETE endpoint', function() {
       })
       .then(function(_exp) {
         should.not.exist(_exp);
-      });
-  });
-});
-
-describe('GET endpoint', function() {
-  it('should return all existing experiments', function() {
-    // strategy:
-    //    1. get back all experiments returned by GET request to `/all`
-    //    2. prove res has right status, data type
-    //    3. prove the number of experiments we got back is equal to number
-    //       in db.
-    //
-    // need to have access to mutate and access `res` across
-    // `.then()` calls below, so declare it here so can modify in place
-    let res;
-    return chai.request(app)
-      .get('/json/test')
-      .then(function(_res) {
-        // so subsequent .then blocks can access resp obj.
-        res = _res;
-        res.should.have.status(200);
-        res.should.be.json;
-        // otherwise our db seeding didn't work
-        res.body.should.have.length.of.at.least(0);
-        return Experiment.count();
-      })
-      .then(function(count) {
-        res.body.should.have.length.of(count);
-      });
-  });
-
-  it('should return experiments with right fields', function() {
-    // Strategy: Get back all experiments, and ensure they have expected keys
-    let resExperiment;
-    return chai.request(app)
-      .get('/json/test')
-      .then(function(res) {
-        res.should.have.status(200);
-        res.should.be.json;
-        res.body.should.be.a('array');
-        res.body.should.have.length.of.at.least(1);
-        res.body.forEach(function(experiment) {
-          experiment.should.be.a('object');
-          experiment.should.include.keys(
-            'id', 'title', 'author','background', 'purpose','results','procedure','conclusion');
-        });
-        resExperiment = res.body[0];
-        describe('GET endpoint', function() {
-          it('should return all existing experiments', function() {
-            // strategy:
-            //    1. get back all experiments returned by GET request to `/all`
-            //    2. prove res has right status, data type
-            //    3. prove the number of experiments we got back is equal to number
-            //       in db.
-            //
-            // need to have access to mutate and access `res` across
-            // `.then()` calls below, so declare it here so can modify in place
-            let res;
-            return chai.request(app)
-              .get('/json/test')
-              .then(function(_res) {
-                // so subsequent .then blocks can access resp obj.
-                res = _res;
-                res.should.have.status(200);
-                res.should.be.json;
-                // otherwise our db seeding didn't work
-                res.body.should.have.length.of.at.least(1);
-                return Experiment.count();
-              })
-              .then(function(count) {
-                res.body.should.have.length.of(count);
-              });
-          });
-
-          it('should return experiments with right fields', function() {
-            // Strategy: Get back all experiments, and ensure they have expected keys
-            let resExperiment;
-            return chai.request(app)
-              .get('/json/test')
-              .then(function(res) {
-                res.should.have.status(200);
-                res.should.be.json;
-                res.body.should.be.a('array');
-                res.body.should.have.length.of.at.least(1);
-                res.body.forEach(function(experiment) {
-                  experiment.should.be.a('object');
-                  experiment.should.include.keys(
-                    'id', 'title', 'author','background', 'purpose','results','procedure','conclusion');
-                });
-                resExperiment = res.body[0];
-                return Experiment.findById(resExperiment.id);
-              })
-              .then(function(experiment) {
-                resExperiment.id.should.equal(experiment.id);
-                resExperiment.title.should.equal(experiment.title);
-                resExperiment.author.should.equal(experiment.author);
-                resExperiment.background.should.equal(experiment.background);
-                resExperiment.purpose.should.equal(experiment.purpose);
-                resExperiment.procedure.should.equal(experiment.procedure);
-                resExperiment.results.text.should.equal(experiment.results.text);
-                resExperiment.results.drawing.should.equal(experiment.results.drawing);
-                resExperiment.results.molecule.should.equal(experiment.results.molecule);
-                resExperiment.conclusion.should.equal(experiment.conclusion);
-                resExperiment.user_id.should.equal(experiment.user_id)
-
-              });
-          });
-        });
-      })
-      .then(function(experiment) {
-        resExperiment.id.should.equal(experiment.id);
-        resExperiment.title.should.equal(experiment.title);
-        resExperiment.author.should.equal(experiment.author);
-        resExperiment.background.should.equal(experiment.background);
-        resExperiment.purpose.should.equal(experiment.purpose);
-        resExperiment.procedure.should.equal(experiment.procedure);
-        resExperiment.results.text.should.equal(experiment.results.text);
-        resExperiment.results.drawing.should.equal(experiment.results.drawing);
-        resExperiment.results.molecule.should.equal(experiment.results.molecule);
-        resExperiment.conclusion.should.equal(experiment.conclusion);
-        resExperiment.user_id.should.equal(experiment.user_id)
-
       });
   });
 });
