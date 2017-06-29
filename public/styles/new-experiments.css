@@ -245,8 +245,13 @@ input:required:hover {
 }
 
 /* ================================= BUTTON =================================*/
-#status {
+
+#status{
      width: 155px;
+     font-size: 14px;
+}
+
+#dme,#submit,#undo,#edit,#pdf,#submit_second{
      font-size: 15px;
 }
 .wrap {

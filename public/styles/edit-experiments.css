@@ -344,6 +344,10 @@ hr#hr__header {
 
 #status{
      width: 155px;
+     font-size: 14px;
+}
+
+#dme,#submit,#undo,#edit,#pdf{
      font-size: 15px;
 }
 

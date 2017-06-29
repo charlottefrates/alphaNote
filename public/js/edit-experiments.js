@@ -439,3 +439,22 @@ $(function(){
        });
 
 });
+
+
+/* ================================= Scroll to Results section ========================================*/
+
+$("#text").click(function(){
+    $("html,body").stop(true, false).animate({
+	   scrollTop:$("#texteditor").offset().top+130},"900",'swing');
+   });
+
+$("#draw").click(function(){
+       $("html,body").stop(true, false).animate({
+   	   scrollTop:$("#doodleCanvas").offset().top-300},"900",'swing');
+      });
+
+
+	 $("#chem").click(function(){
+	        $("html,body").stop(true, false).animate({
+	    	   scrollTop:$("#chemwriter").offset().top},"900",'swing');
+	       });
