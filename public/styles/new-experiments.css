@@ -208,11 +208,12 @@ nav ul li:hover {
      white-space: normal;
 }
 .chemwriter {
+     width: 87%;
      margin-left: auto;
      margin-right: auto;
 }
 #tinymce {
-     margin: auto 3% auto;
+     margin: auto 7% auto;
      margin-top: 50px;
      margin-bottom: 50px;
 }

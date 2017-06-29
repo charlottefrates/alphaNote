@@ -10,14 +10,15 @@ context = document.getElementById('doodleCanvas').getContext("2d");
 
 var savedDrawing;
 
+//Had to change canvas Page location relative to parent. Still not there but MUCH better
 $('#doodleCanvas').mousedown(function(e){
   paint = true;
-  addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+  addClick(e.pageX-$(e.target).offset().left - this.offsetLeft+100, e.pageY-$(e.target).offset().left - this.offsetTop+95);
   redraw();
 });
 $('#doodleCanvas').mousemove(function(e){
       if(paint){
-              addClick(e.pageX - this.offsetLeft-200, e.pageY - this.offsetTop-300, true);
+              addClick(e.pageX-$(e.target).offset().left - this.offsetLeft+100, e.pageY-$(e.target).offset().left - this.offsetTop+95, true);
               redraw();
             }
 });
