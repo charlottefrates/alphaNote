@@ -1,4 +1,3 @@
-
 // app/routes.js
 
 const path = require('path');
@@ -244,14 +243,15 @@ module.exports = function(app, passport) {
 
 
      app.post('/new/test', (req, res) => {
-          let user = req.user;
+          //console.log(req);
+          //let user = req.user;
           const requiredFields = ['title', 'purpose', 'procedure', 'results', 'conclusion'];
           requiredFields.forEach(field => {
             if (!(field in req.body)) {
               res.status(400).json(
                 {error: `Missing "${field}" in request body`});
             }});
-          console.log(req.session);
+          //console.log(req.session);
           Experiment
                .create({
                     title: req.body.title,
@@ -263,7 +263,7 @@ module.exports = function(app, passport) {
                     conclusion: req.body.conclusion,
                     created: req.body.created,
                     status: req.body.status,
-                    user_id:user._id
+                    user_id:req.body.user_id
                })
                .then(experimentEntry => res.status(201).json(experimentEntry.apiRepr()))
                .catch(err => {
@@ -285,7 +285,7 @@ module.exports = function(app, passport) {
           }
 
           const updated = {};
-          const updateableFields = ['title', 'purpose', 'procedure', 'results', 'conclusion', 'status'];
+          const updateableFields = ['title', 'purpose', 'procedure', 'results', 'conclusion', 'status', 'background'];
           updateableFields.forEach(field => {
                if (field in req.body) {
                     updated[field] = req.body[field];
