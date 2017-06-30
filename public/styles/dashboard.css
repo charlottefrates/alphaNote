@@ -614,15 +614,17 @@ blockquote cite:before {
 /* ================================= MEDIA QUERIES =================================*/
 
 @media only screen and (max-width: 965px) {
-     .experiment-date {
+     .experiment-date, .experiment-status {
           width: 100%;
           text-align: center;
+          ont-size: 12px;
      }
      .experiment-title {
           width: 100%;
           text-align: center;
           margin: 0;
           margin-top: 5px;
+         font-size: 12px;
      }
      .accordion dt:before {
           font-size: 30px;
@@ -635,7 +637,7 @@ blockquote cite:before {
 @media only screen and (max-width: 875px) {
      .experiment-info {
           width: 50%;
-          margin: 9px 0;
+          margin: 33px 0;
      }
 }
 
@@ -669,5 +671,27 @@ blockquote cite:before {
 #counter{
          margin-top: 135px;
 }
+
+}
+
+
+@media only screen
+and (min-device-width : 1024px)
+and (max-device-width : 1366px){
+
+     .experiment-date, .experiment-status {
+          width: 100%;
+          text-align: center;
+          ont-size: 12px;
+     }
+     .experiment-title {
+          width: 100%;
+          text-align: center;
+          margin: 0;
+          margin-top: 5px;
+         font-size: 12px;
+     }
+
+
 
 }
