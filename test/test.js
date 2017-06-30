@@ -90,10 +90,8 @@ describe('App', function() {
 
 
 
-
-
 describe('Post endpoint', function(){
-  it('should add a blog post on POST', function(done) {
+  it('should add an experiment', function(done) {
     const newExperiment = generateExperimentData();
     //identifies additional response
     const expectedKeys = ['id'].concat(Object.keys(newExperiment));
@@ -108,8 +106,8 @@ describe('Post endpoint', function(){
         res.body.should.have.all.keys(expectedKeys);
         res.body.id.should.not.be.null;
         res.body.title.should.equal(newExperiment.title);
-        res.body.author.firstName.should.equal(newExperiment.author.firstName);
-        res.body.author.lastName.should.equal(newExperiment.author.lastName);
+        //res.body.author.firstName.should.equal(newExperiment.author.firstName);
+        //res.body.author.lastName.should.equal(newExperiment.author.lastName);
         res.body.background.should.equal(newExperiment.background);
         res.body.purpose.should.equal(newExperiment.purpose);
         res.body.procedure.should.equal(newExperiment.procedure);
@@ -184,8 +182,6 @@ describe('PUT endpoint', function() {
       })
       .then(function(experiment) {
         experiment.title.should.equal(updateData.title);
-        //experiment.author.firstName.should.equal(updateData.author.firstName);
-        //experiment.author.lastName.should.equal(updateData.author.lastName);
         experiment.background.should.equal(updateData.background);
         experiment.purpose.should.equal(updateData.purpose);
         experiment.procedure.should.equal(updateData.procedure);
@@ -193,13 +189,14 @@ describe('PUT endpoint', function() {
         experiment.results.drawing.should.equal(updateData.results.drawing);
         experiment.results.molecule.should.equal(updateData.results.molecule);
         experiment.conclusion.should.equal(updateData.conclusion);
-        experiment.user_id.should.equal(updateData.user_id);
+        experiment.status.should.equal(updateData.status);
+        //experiment.user_id.should.equal(updateData.user_id);
       });
     });
 });
 
 describe('GET endpoint', function() {
-     it('should return all existing blog posts', function() {
+     it('should return all existing experiments', function() {
           // strategy:
           //    1. get back all restaurants returned by by GET request to `/restaurants`
           //    2. prove res has right status, data type
