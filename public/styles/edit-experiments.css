@@ -233,6 +233,11 @@ nav ul li:hover {
      width:100% !important;;
 }
 
+#doodleCanvas{
+     width: 93%;
+     height:60%;
+}
+
 
 /* style all input elements with a required attribute */
 input:required {

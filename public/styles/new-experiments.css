@@ -219,7 +219,11 @@ nav ul li:hover {
 }
 #mceu_12 {
      width: 100% !important;
-     ;
+}
+
+#doodleCanvas{
+     width: 87%;
+     height:60%;
 }
 
 /* style all input elements with a required attribute */
