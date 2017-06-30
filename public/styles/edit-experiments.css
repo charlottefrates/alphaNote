@@ -856,9 +856,13 @@ select{
 }
 
 
-/* ================================= MEDIA QUERY: NAVIGATION =================================*/
 
-@media only screen and (max-width: 660px) {
+/* ================================= MEDIA QUERY: IPAD ONLY=================================*/
+
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)  {
      nav ul {
           max-height: 0;
      }
@@ -872,11 +876,44 @@ select{
      .handle {
           display: block;
      }
+
+     .t{
+          display: none;
+     }
+
+     #scrollbuttons{
+          display: none;
+     }
+
+     button {    width: 2em;
+    margin: 10px;
 }
 
-/* ================================= MEDIA QUERY: NAVIGATION =================================*/
+     #dme, #submit, #undo, #edit, #pdf {
+    font-size: 14px;
+     }
 
-@media only screen and (max-width: 660px) {
+     .container {
+          width: 57%;
+          min-width: 31%;
+         background: white;
+         padding: 2.5rem 4.5rem 2rem;
+         height: 1496px;
+         position: relative;
+         margin-bottom: 10px;
+     }
+
+
+}
+
+
+
+
+
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
      nav ul {
           max-height: 0;
      }
@@ -890,4 +927,75 @@ select{
      .handle {
           display: block;
      }
+
+     .t{
+          display: none;
+     }
+
+     #scrollbuttons{
+          display: none;
+     }
+
+     button {width:8em}
+
+     #dme, #submit, #undo, #edit, #pdf {
+    font-size: 23px;
+     }
+
+     .container {
+          width: 57%;
+          min-width: 31%;
+         background: white;
+         padding: 2.5rem 4.5rem 2rem;
+         height: 1496px;
+         position: relative;
+         margin-bottom: 10px;
+     }
+
+
+}
+
+
+@media only screen
+and (min-device-width : 1024px)
+and (max-device-width : 1366px)  {
+     nav ul {
+          max-height: 0;
+     }
+     .showing {
+          max-height: 20em;
+     }
+     nav ul li {
+          width: 100%;
+          padding: 15px;
+     }
+     .handle {
+          display: block;
+     }
+
+     .t{
+          display: none;
+     }
+
+     #scrollbuttons{
+          display: none;
+     }
+
+     button {width:8em}
+
+     #dme, #submit, #undo, #edit, #pdf {
+    font-size: 26px;
+     }
+
+     .container {
+          max-width: 100%;
+          min-width: 80%;
+         background: white;
+         padding: 2.5rem 4.5rem 2rem;
+         height: 1496px;
+         position: relative;
+         margin-bottom: 10px;
+     }
+
+
 }

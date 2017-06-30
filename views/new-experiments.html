@@ -62,12 +62,12 @@
      <form id="msform">
           <!-- progressbar -->
           <ul id="progressbar">
-               <li class="active next"  next="2" id="step1">Background</li>
-               <li class="next" id="step2" next="3">Purpose</li>
-               <li class="next" id="step3" next="4">Procedure</li>
-               <li class="next" id="step4" next="5">Results</li>
-               <li class="next" id="step5" next="6">Conclusion</li>
-               <li class="next" id="step6" next="7">View</li>
+               <li class="active next"  next="2" id="step1"><span class="t ">Background</span></li>
+               <li class="next" id="step2" next="3"><span class="t ">Purpose</span></li>
+               <li class="next" id="step3" next="4"><span class="t ">Procedure</span></li>
+               <li class="next" id="step4" next="5"><span class="t ">Results</span></li>
+               <li class="next" id="step5" next="6"><span class="t ">Conclusion</span></li>
+               <li class="next" id="step6" next="7"><span class="t ">View</span></li>
           </ul>
           <!-- fieldsets -->
           <fieldset class="showStep1">
@@ -97,24 +97,26 @@
                <h2 class="fs-title">Results: Record your findings.</h2>
                <h3 class="fs-subtitle">Step 4</h3>
 
-               <div class="basicBox fa fa-file-text-o" id="text">
-                  <span class="txt">Write</span>
-                 <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
-                   <rect x='0' y='0' fill='none' width='130' height='65'/>
-                 </svg>
-               </div>
-               <div class="basicBox fa fa-pencil" id="draw">
-                 <span class="txt">Draw </span>
-                 <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
-                   <rect x='0' y='0' fill='none' width='130' height='65'/>
-                 </svg>
-               </div>
-               <div class="basicBox fa fa-flask" id="chem">
-                  <span class="txt">ChemDraw</span>
-                 <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
-                   <rect x='0' y='0' fill='none' width='130' height='65'/>
-                 </svg>
-               </div>
+               <section id="scrollbuttons">
+                    <div class="basicBox fa fa-file-text-o" id="text">
+                       <span class="txt">Write</span>
+                      <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
+                        <rect x='0' y='0' fill='none' width='130' height='65'/>
+                      </svg>
+                    </div>
+                    <div class="basicBox fa fa-pencil" id="draw">
+                      <span class="txt">Draw </span>
+                      <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
+                        <rect x='0' y='0' fill='none' width='130' height='65'/>
+                      </svg>
+                    </div>
+                    <div class="basicBox fa fa-flask" id="chem">
+                       <span class="txt">ChemDraw</span>
+                      <svg width="130" height="65" viewBox="0 0 130 65" xmlns="http://www.w3.org/2000/svg">
+                        <rect x='0' y='0' fill='none' width='130' height='65'/>
+                      </svg>
+                    </div>
+               </section>
 
                <section id="tinymce">
                     <textarea class="tinymce" id="texteditor"></textarea>

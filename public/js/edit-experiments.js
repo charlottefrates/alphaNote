@@ -227,47 +227,18 @@ $("li.next").on('click', function(event) {
 });
 
 
-$("i.next").on('click', function(event) {
-     var elemClicked = event.currentTarget;
-     var noNext = $(elemClicked).attr('next');
-     var next_fs = "showStep" + noNext;
-     console.log(elemClicked);
-     console.log(next_fs);
+(function($) {
+    var $window = $(window),
+        $select = $('.t');
 
-     //+ converts into integer
-     current_fs = "showStep" + (+noNext -1);
+    $window.resize(function resize() {
+        if ($window.width() < 514) {
+            return $select.addClass('sub');
+        }
+        $select.removeClass('sub');
+    }).trigger('resize');
 
-     //activate next step on progressbar using the index of next_fs
-     $("#progressbar #step" + +noNext).addClass("active");
-
-     //show the next fieldset
-     $("." + next_fs).show();
-     //hide the current fieldset with style
-     $("." + current_fs).hide();
-
-});
-
-
-
-$(".previous").on('click', function(event) {
-     event.preventDefault();
-     var elemClicked = event.currentTarget;
-     var noPrev = $(elemClicked).attr('next');
-     var next_fs = "showStep" + noPrev;
-
-     //+ converts into integer
-     current_fs = "showStep" + (+noPrev +1);
-
-     //activate next step on progressbar using the index of next_fs
-     $("#progressbar #step" + +noPrev).addClass("active");
-
-
-     //show the next fieldset
-     $("." + next_fs).show();
-     //hide the current fieldset with style
-     $("." + current_fs).hide();
-
-});
+})(jQuery);
 
 
 

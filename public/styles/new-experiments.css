@@ -754,4 +754,13 @@ select {
      .handle {
           display: block;
      }
+
+     .sub {
+          display: none;
+     }
+
+     button {
+          width: 4em
+     }
+
 }

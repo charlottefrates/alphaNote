@@ -94,6 +94,30 @@ function getAndDisplayExperiments() {
 
 };
 
+(function($) {
+    var $window = $(window),
+        $select = $('#add');
+
+    $window.resize(function resize() {
+        if ($window.width() < 514) {
+            return $select.append(
+                 '<a>'+
+                 '<li id="see"> See Experiments </li>'+
+                 '</a>'
+            );
+        }
+    }).trigger('resize');
+
+})(jQuery);
+
+$('#see').on('click', function (event) {
+    event.preventDefault();
+    $("html,body").stop(true, false).animate({
+       scrollTop:$("#grid").offset().top+10},"900",'swing');
+
+
+});
+
 $(document).ready(function() {
 
      $('.set > a').on('click', function() {
@@ -115,5 +139,6 @@ $(document).ready(function() {
      });
      $('.counter').addClass('animated fadeInDownBig');
      $('h3').addClass('animated fadeIn');
+
 
 });

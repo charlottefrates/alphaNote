@@ -31,32 +31,12 @@ $(document).ready(function() {
           $(this).toggleClass('active').next().toggle(200);
      });
 
+
 });
 
 /* ================================= Multi-step Form with Progress Bar========================================*/
 
 var current_fs, next_fs, previous_fs; //fieldsets
-
-
-$("i.next").on('click', function(event) {
-     var elemClicked = event.currentTarget;
-     var noNext = $(elemClicked).attr('next');
-     var next_fs = "showStep" + noNext;
-     console.log(elemClicked);
-     console.log(next_fs);
-
-     //+ converts into integer
-     current_fs = "showStep" + (+noNext -1);
-
-     //activate next step on progressbar using the index of next_fs
-     $("#progressbar #step" + +noNext).addClass("active");
-
-     //show the next fieldset
-     $("." + next_fs).show();
-     //hide the current fieldset with style
-     $("." + current_fs).hide();
-
-});
 
 $("li.next").on('click', function(event) {
      var elemClicked = event.currentTarget;
@@ -81,32 +61,26 @@ $("li.next").on('click', function(event) {
           };
      };
 
-
      //show the next fieldset
      $("." + current_fs).show();
 
-
 });
 
+(function($) {
+    var $window = $(window),
+        $select = $('.t');
 
-$(".previous").on('click', function(event) {
-     event.preventDefault();
-     var elemClicked = event.currentTarget;
-     var noPrev = $(elemClicked).attr('next');
-     var next_fs = "showStep" + noPrev;
+    $window.resize(function resize() {
+        if ($window.width() < 514) {
+            return $select.addClass('sub');
+        }
+        $select.removeClass('sub');
+    }).trigger('resize');
 
-     //+ converts into integer
-     current_fs = "showStep" + (+noPrev +1);
+})(jQuery);
 
-     //activate next step on progressbar using the index of next_fs
-     $("#progressbar #step" + +noPrev).addClass("current");
 
-     //show the next fieldset
-     $("." + next_fs).show();
-     //hide the current fieldset with style
-     $("." + current_fs).hide();
 
-});
 
 
 
