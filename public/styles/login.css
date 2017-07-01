@@ -11,6 +11,10 @@ body {
      width: 50% !important;
 }
 
+.hidden{
+     display: none;
+}
+
 
 /* Full-width input fields */
 input[type=text], input[type=password] {
@@ -57,6 +61,44 @@ button {
        width: 100%;
     }
 }
+
+.flash {
+    background: #fff;
+    padding: 20px;
+    width: 80%;
+    text-align: left;
+    margin: 0 auto;
+    border: 1px solid #edf0f2;
+    border-radius: 3px;
+    width: 70%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    position: relative;
+    animation: slideIn forwards .1s ease-in-out 2;
+    animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1);
+    animation-delay: 0.3s;
+}
+
+.flash--error{
+    border-color: #bfd8ee;
+    color: teal;
+}
+
+.flash__remove {
+    position: absolute;
+    cursor: pointer;
+    top: 17px;
+    right: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 14px;
+    border: none;
+    background: #fff;
+}
+
+
+
 
 /* ================================= NAVIGATION =================================*/
 

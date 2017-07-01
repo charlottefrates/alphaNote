@@ -617,7 +617,7 @@ blockquote cite:before {
      .experiment-date, .experiment-status {
           width: 100%;
           text-align: center;
-          ont-size: 12px;
+          font-size: 12px;
      }
      .experiment-title {
           width: 100%;
@@ -682,7 +682,7 @@ and (max-device-width : 1366px){
      .experiment-date, .experiment-status {
           width: 100%;
           text-align: center;
-          ont-size: 12px;
+          font-size: 12px;
      }
      .experiment-title {
           width: 100%;

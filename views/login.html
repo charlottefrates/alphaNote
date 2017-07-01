@@ -35,8 +35,14 @@
 
                     <h1><span class="fa fa-sign-in"></span> Login</h1>
 
+                    <!-- show any messages that come back with authentication
+                     <% if (message.length > 0) { %>
+                         <div class="alert alert-danger"><%= message %></div>
+                     <% } %>
+                    -->
+
                     <!-- LOGIN FORM -->
-                    <form action="/login" method="post">
+                    <form class="register" action="/login" method="post" autocomplete="off">
                          <h3>Thank you for using alphaNote</h3>
                          <fieldset name="login-info">
                               <input type="text" name="username" id="username" placeholder="Username" required="">
@@ -45,6 +51,7 @@
                          <button type='submit' class="log-in-button">Sign In</button>
                     </form>
                     <hr>
+                    <p>Need an account? <a href="/signup">Signup</a></p>
                     <p>Would you like to Demo the application?<br /> Fill in "demo" for user and password</p>
 
 
