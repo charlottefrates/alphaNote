@@ -72,6 +72,7 @@ $("li.next").on('click', function(event) {
 
     $window.resize(function resize() {
         if ($window.width() < 514) {
+            alert('Not intended for mobile use. For better usability use an iPad or desktop computer.');
             return $select.addClass('sub');
         }
         $select.removeClass('sub');

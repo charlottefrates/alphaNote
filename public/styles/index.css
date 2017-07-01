@@ -651,6 +651,8 @@ nav ul .nav-hover:hover {
     -o-transform: translate(300%, 0);
     transform: translate(300%, 0);
   }
+
+
 }
 
 /* ================================== HOME DIV ================================== */
@@ -1010,6 +1012,21 @@ button:hover {
     height: auto;
     font-size: 100%;
   }
+
+  #title {
+    margin: 0 auto;
+    margin-top: 450px;
+    margin-right: -10px;
+    color: #FFF;
+    text-align: center;
+    font-weight: 700;
+    font-size: 27px;
+    letter-spacing: 5px;
+    background: teal;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 }
 
 /* ================================== LOG IN BUTTON AFTER SIGN UP ================================== */

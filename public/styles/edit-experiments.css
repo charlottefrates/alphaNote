@@ -907,6 +907,13 @@ and (max-device-width : 568px)  {
          margin-bottom: 10px;
      }
 
+     #progressbar {
+    margin-left: 2%;
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+}
+
 
 }
 
