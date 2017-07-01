@@ -759,6 +759,10 @@ select {
           display: none;
      }
 
+     #scrollbuttons{
+          display: none;
+     }
+
      button {
           width: 4em
      }
