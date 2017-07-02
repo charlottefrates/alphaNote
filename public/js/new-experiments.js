@@ -70,9 +70,9 @@ $("li.next").on('click', function(event) {
     var $window = $(window),
         $select = $('.t');
 
-    $window.resize(function resize() {
+    $window.resize(function resize(event) {
+         event.preventDefault();
         if ($window.width() < 514) {
-            alert('Not intended for mobile use. For better usability use an iPad or desktop computer.');
             return $select.addClass('sub');
         }
         $select.removeClass('sub');

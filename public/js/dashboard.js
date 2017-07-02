@@ -114,7 +114,7 @@ function getAndDisplayExperiments() {
 $('#see').on('click', function (event) {
     event.preventDefault();
     $("html,body").stop(true, false).animate({
-       scrollTop:$("#grid").offset().top+10},"900",'swing');
+       scrollTop:$("#grid").offset().top-30},"900",'swing');
 
 
 });

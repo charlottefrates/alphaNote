@@ -231,15 +231,16 @@ $("li.next").on('click', function(event) {
     var $window = $(window),
         $select = $('.t');
 
-    $window.resize(function resize() {
+    $window.resize(function resize(event) {
+         event.preventDefault();
         if ($window.width() < 514) {
-		  alert('Not intended for mobile use. For better usability use an iPad or desktop computer.');
             return $select.addClass('sub');
         }
         $select.removeClass('sub');
     }).trigger('resize');
 
 })(jQuery);
+
 
 
 
@@ -379,7 +380,7 @@ $('#submit').on('click',function(event){
 	    $.ajax(editEntry).done(function(response) {
 	          console.log(response);
 			alert('Your experiment has been properly saved.');
-			//location.reload(true);
+			location.reload(true);
 	     }).fail(function(error){
 			console.log(error);
 			alert('Something went wrong with the server. Try again later');
