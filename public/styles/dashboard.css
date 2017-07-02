@@ -613,38 +613,7 @@ blockquote cite:before {
 
 /* ================================= MEDIA QUERIES =================================*/
 
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)  {
 
-     #title {
-    margin-right: 168px;
-    margin-top: 450px;
-    color: #FFF;
-    text-align: center;
-    font-weight: 700;
-    font-size: 100px;
-    letter-spacing: 5px;
-    background: teal;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.container {
-    position: relative;
-    margin-left: 170px;
-    width: 250px;
-}
-
-#home p {
-    color: teal;
-    text-align: center;
-    font-size: 23px;
-    margin-right: 159px;
-}
-
-
-}
 
 @media only screen and (max-width: 965px) {
      .experiment-date, .experiment-status {
@@ -728,3 +697,14 @@ and (max-device-width : 1366px){
 
 
 }
+
+
+     @media only screen
+     and (min-device-width : 768px)
+     and (max-device-width : 1024px)  {
+
+          #counter{
+               margin-top: 70px;
+          }
+
+     }
