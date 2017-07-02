@@ -1253,16 +1253,11 @@ button:hover {
 }
 
 
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)  {
-
      @media only screen
      and (min-device-width : 768px)
      and (max-device-width : 1024px)  {
 
           nav ul {
-         margin-right: 176px;
          max-height: 0;
          background-color: rgba(255,255,255,.93);
          color: black;
