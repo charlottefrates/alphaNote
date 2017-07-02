@@ -98,7 +98,8 @@ function getAndDisplayExperiments() {
     var $window = $(window),
         $select = $('#add');
 
-    $window.resize(function resize() {
+    $window.resize(function resize(event) {
+        event.preventDefault();
         if ($window.width() < 514) {
             return $select.append(
                  '<a>'+
