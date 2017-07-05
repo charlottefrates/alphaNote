@@ -19,11 +19,18 @@ module.exports = function(app, passport) {
      // =====================================
      // LOGIN ===============================
      // =====================================
+
+     //templates with ejs file after npm install ejs
+     app.set('view engine', 'ejs');
+
      // show the login form
+     // .render allows for the "injection" of flash messages
      app.get('/login', function(req, res) {
 
-         res.sendFile(path.join(__dirname, '../views', 'login.html'));
-         //res.render('login', { message: req.flash('loginMessage') });
+          res.render('login', { message: req.flash('loginMessage') });
+
+          //Orginally loads static html file
+         //res.sendFile(path.join(__dirname, '../views', 'login.html'));
 
      });
 
