@@ -1,4 +1,5 @@
 # Name: alphaNote
+Best used by desktops and tablets.
 
 ## Technologies Used:
 
